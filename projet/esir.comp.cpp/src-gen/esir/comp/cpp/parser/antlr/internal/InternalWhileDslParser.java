@@ -1,0 +1,4956 @@
+package esir.comp.cpp.parser.antlr.internal;
+
+import org.eclipse.xtext.*;
+import org.eclipse.xtext.parser.*;
+import org.eclipse.xtext.parser.impl.*;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.parser.antlr.AbstractInternalAntlrParser;
+import org.eclipse.xtext.parser.antlr.XtextTokenStream;
+import org.eclipse.xtext.parser.antlr.XtextTokenStream.HiddenTokens;
+import org.eclipse.xtext.parser.antlr.AntlrDatatypeRuleToken;
+import esir.comp.cpp.services.WhileDslGrammarAccess;
+
+
+
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
+@SuppressWarnings("all")
+public class InternalWhileDslParser extends AbstractInternalAntlrParser {
+    public static final String[] tokenNames = new String[] {
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_SYMBOL", "RULE_VARIABLE", "RULE_SP", "RULE_CR", "RULE_TAB", "RULE_LF", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'function'", "':'", "'read'", "'%'", "'write'", "','", "';'", "'nop'", "':='", "'while'", "'do'", "'od'", "'for'", "'if'", "'then'", "'else'", "'fi'", "'foreach'", "'in'", "'nil'", "'('", "'cons'", "'list'", "')'", "'hd'", "'tl'", "'and'", "'or'", "'not'", "'=?'"
+    };
+    public static final int RULE_LF=9;
+    public static final int RULE_CR=7;
+    public static final int RULE_TAB=8;
+    public static final int T__19=19;
+    public static final int T__17=17;
+    public static final int T__18=18;
+    public static final int RULE_SP=6;
+    public static final int RULE_ID=10;
+    public static final int T__26=26;
+    public static final int T__27=27;
+    public static final int T__28=28;
+    public static final int RULE_INT=11;
+    public static final int T__29=29;
+    public static final int T__22=22;
+    public static final int RULE_ML_COMMENT=13;
+    public static final int T__23=23;
+    public static final int T__24=24;
+    public static final int T__25=25;
+    public static final int T__20=20;
+    public static final int T__21=21;
+    public static final int RULE_STRING=12;
+    public static final int RULE_SL_COMMENT=14;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
+    public static final int T__33=33;
+    public static final int T__34=34;
+    public static final int T__35=35;
+    public static final int T__36=36;
+    public static final int EOF=-1;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int T__32=32;
+    public static final int RULE_WS=15;
+    public static final int RULE_VARIABLE=5;
+    public static final int RULE_ANY_OTHER=16;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int RULE_SYMBOL=4;
+    public static final int T__46=46;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__42=42;
+    public static final int T__43=43;
+
+    // delegates
+    // delegators
+
+
+        public InternalWhileDslParser(TokenStream input) {
+            this(input, new RecognizerSharedState());
+        }
+        public InternalWhileDslParser(TokenStream input, RecognizerSharedState state) {
+            super(input, state);
+             
+        }
+        
+
+    public String[] getTokenNames() { return InternalWhileDslParser.tokenNames; }
+    public String getGrammarFileName() { return "InternalWhileDsl.g"; }
+
+
+
+     	private WhileDslGrammarAccess grammarAccess;
+
+        public InternalWhileDslParser(TokenStream input, WhileDslGrammarAccess grammarAccess) {
+            this(input);
+            this.grammarAccess = grammarAccess;
+            registerRules(grammarAccess.getGrammar());
+        }
+
+        @Override
+        protected String getFirstRuleName() {
+        	return "Model";
+       	}
+
+       	@Override
+       	protected WhileDslGrammarAccess getGrammarAccess() {
+       		return grammarAccess;
+       	}
+
+
+
+
+    // $ANTLR start "entryRuleModel"
+    // InternalWhileDsl.g:64:1: entryRuleModel returns [EObject current=null] : iv_ruleModel= ruleModel EOF ;
+    public final EObject entryRuleModel() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleModel = null;
+
+
+        try {
+            // InternalWhileDsl.g:64:46: (iv_ruleModel= ruleModel EOF )
+            // InternalWhileDsl.g:65:2: iv_ruleModel= ruleModel EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getModelRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleModel=ruleModel();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleModel; 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleModel"
+
+
+    // $ANTLR start "ruleModel"
+    // InternalWhileDsl.g:71:1: ruleModel returns [EObject current=null] : ( (lv_program_0_0= ruleFunction ) )* ;
+    public final EObject ruleModel() throws RecognitionException {
+        EObject current = null;
+
+        AntlrDatatypeRuleToken lv_program_0_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:77:2: ( ( (lv_program_0_0= ruleFunction ) )* )
+            // InternalWhileDsl.g:78:2: ( (lv_program_0_0= ruleFunction ) )*
+            {
+            // InternalWhileDsl.g:78:2: ( (lv_program_0_0= ruleFunction ) )*
+            loop1:
+            do {
+                int alt1=2;
+                int LA1_0 = input.LA(1);
+
+                if ( (LA1_0==17) ) {
+                    alt1=1;
+                }
+
+
+                switch (alt1) {
+            	case 1 :
+            	    // InternalWhileDsl.g:79:3: (lv_program_0_0= ruleFunction )
+            	    {
+            	    // InternalWhileDsl.g:79:3: (lv_program_0_0= ruleFunction )
+            	    // InternalWhileDsl.g:80:4: lv_program_0_0= ruleFunction
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      				newCompositeNode(grammarAccess.getModelAccess().getProgramFunctionParserRuleCall_0());
+            	      			
+            	    }
+            	    pushFollow(FOLLOW_3);
+            	    lv_program_0_0=ruleFunction();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				if (current==null) {
+            	      					current = createModelElementForParent(grammarAccess.getModelRule());
+            	      				}
+            	      				add(
+            	      					current,
+            	      					"program",
+            	      					lv_program_0_0,
+            	      					"esir.comp.cpp.WhileDsl.Function");
+            	      				afterParserOrEnumRuleCall();
+            	      			
+            	    }
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop1;
+                }
+            } while (true);
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleModel"
+
+
+    // $ANTLR start "entryRuleFunction"
+    // InternalWhileDsl.g:100:1: entryRuleFunction returns [String current=null] : iv_ruleFunction= ruleFunction EOF ;
+    public final String entryRuleFunction() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleFunction = null;
+
+
+        try {
+            // InternalWhileDsl.g:100:48: (iv_ruleFunction= ruleFunction EOF )
+            // InternalWhileDsl.g:101:2: iv_ruleFunction= ruleFunction EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getFunctionRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleFunction=ruleFunction();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleFunction.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleFunction"
+
+
+    // $ANTLR start "ruleFunction"
+    // InternalWhileDsl.g:107:1: ruleFunction returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'function' this_LC_1= ruleLC this_SYMBOL_2= RULE_SYMBOL kw= ':' this_LC_4= ruleLC this_Definition_5= ruleDefinition this_LC_6= ruleLC ) ;
+    public final AntlrDatatypeRuleToken ruleFunction() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        Token this_SYMBOL_2=null;
+        AntlrDatatypeRuleToken this_LC_1 = null;
+
+        AntlrDatatypeRuleToken this_LC_4 = null;
+
+        AntlrDatatypeRuleToken this_Definition_5 = null;
+
+        AntlrDatatypeRuleToken this_LC_6 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:113:2: ( (kw= 'function' this_LC_1= ruleLC this_SYMBOL_2= RULE_SYMBOL kw= ':' this_LC_4= ruleLC this_Definition_5= ruleDefinition this_LC_6= ruleLC ) )
+            // InternalWhileDsl.g:114:2: (kw= 'function' this_LC_1= ruleLC this_SYMBOL_2= RULE_SYMBOL kw= ':' this_LC_4= ruleLC this_Definition_5= ruleDefinition this_LC_6= ruleLC )
+            {
+            // InternalWhileDsl.g:114:2: (kw= 'function' this_LC_1= ruleLC this_SYMBOL_2= RULE_SYMBOL kw= ':' this_LC_4= ruleLC this_Definition_5= ruleDefinition this_LC_6= ruleLC )
+            // InternalWhileDsl.g:115:3: kw= 'function' this_LC_1= ruleLC this_SYMBOL_2= RULE_SYMBOL kw= ':' this_LC_4= ruleLC this_Definition_5= ruleDefinition this_LC_6= ruleLC
+            {
+            kw=(Token)match(input,17,FOLLOW_4); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getFunctionAccess().getFunctionKeyword_0());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getFunctionAccess().getLCParserRuleCall_1());
+              		
+            }
+            pushFollow(FOLLOW_5);
+            this_LC_1=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_1);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            this_SYMBOL_2=(Token)match(input,RULE_SYMBOL,FOLLOW_6); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_SYMBOL_2);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(this_SYMBOL_2, grammarAccess.getFunctionAccess().getSYMBOLTerminalRuleCall_2());
+              		
+            }
+            kw=(Token)match(input,18,FOLLOW_7); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getFunctionAccess().getColonKeyword_3());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getFunctionAccess().getLCParserRuleCall_4());
+              		
+            }
+            pushFollow(FOLLOW_7);
+            this_LC_4=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_4);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getFunctionAccess().getDefinitionParserRuleCall_5());
+              		
+            }
+            pushFollow(FOLLOW_8);
+            this_Definition_5=ruleDefinition();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Definition_5);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getFunctionAccess().getLCParserRuleCall_6());
+              		
+            }
+            pushFollow(FOLLOW_2);
+            this_LC_6=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_6);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleFunction"
+
+
+    // $ANTLR start "entryRuleDefinition"
+    // InternalWhileDsl.g:176:1: entryRuleDefinition returns [String current=null] : iv_ruleDefinition= ruleDefinition EOF ;
+    public final String entryRuleDefinition() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleDefinition = null;
+
+
+        try {
+            // InternalWhileDsl.g:176:50: (iv_ruleDefinition= ruleDefinition EOF )
+            // InternalWhileDsl.g:177:2: iv_ruleDefinition= ruleDefinition EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getDefinitionRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleDefinition=ruleDefinition();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleDefinition.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleDefinition"
+
+
+    // $ANTLR start "ruleDefinition"
+    // InternalWhileDsl.g:183:1: ruleDefinition returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'read' this_LC_1= ruleLC this_Input_2= ruleInput this_LC_3= ruleLC kw= '%' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= '%' this_LC_9= ruleLC kw= 'write' this_LC_11= ruleLC this_Output_12= ruleOutput ) ;
+    public final AntlrDatatypeRuleToken ruleDefinition() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_LC_1 = null;
+
+        AntlrDatatypeRuleToken this_Input_2 = null;
+
+        AntlrDatatypeRuleToken this_LC_3 = null;
+
+        AntlrDatatypeRuleToken this_LC_5 = null;
+
+        AntlrDatatypeRuleToken this_Commands_6 = null;
+
+        AntlrDatatypeRuleToken this_LC_7 = null;
+
+        AntlrDatatypeRuleToken this_LC_9 = null;
+
+        AntlrDatatypeRuleToken this_LC_11 = null;
+
+        AntlrDatatypeRuleToken this_Output_12 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:189:2: ( (kw= 'read' this_LC_1= ruleLC this_Input_2= ruleInput this_LC_3= ruleLC kw= '%' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= '%' this_LC_9= ruleLC kw= 'write' this_LC_11= ruleLC this_Output_12= ruleOutput ) )
+            // InternalWhileDsl.g:190:2: (kw= 'read' this_LC_1= ruleLC this_Input_2= ruleInput this_LC_3= ruleLC kw= '%' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= '%' this_LC_9= ruleLC kw= 'write' this_LC_11= ruleLC this_Output_12= ruleOutput )
+            {
+            // InternalWhileDsl.g:190:2: (kw= 'read' this_LC_1= ruleLC this_Input_2= ruleInput this_LC_3= ruleLC kw= '%' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= '%' this_LC_9= ruleLC kw= 'write' this_LC_11= ruleLC this_Output_12= ruleOutput )
+            // InternalWhileDsl.g:191:3: kw= 'read' this_LC_1= ruleLC this_Input_2= ruleInput this_LC_3= ruleLC kw= '%' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= '%' this_LC_9= ruleLC kw= 'write' this_LC_11= ruleLC this_Output_12= ruleOutput
+            {
+            kw=(Token)match(input,19,FOLLOW_9); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getDefinitionAccess().getReadKeyword_0());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getDefinitionAccess().getLCParserRuleCall_1());
+              		
+            }
+            pushFollow(FOLLOW_9);
+            this_LC_1=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_1);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getDefinitionAccess().getInputParserRuleCall_2());
+              		
+            }
+            pushFollow(FOLLOW_10);
+            this_Input_2=ruleInput();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Input_2);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getDefinitionAccess().getLCParserRuleCall_3());
+              		
+            }
+            pushFollow(FOLLOW_11);
+            this_LC_3=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_3);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            kw=(Token)match(input,20,FOLLOW_12); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getDefinitionAccess().getPercentSignKeyword_4());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getDefinitionAccess().getLCParserRuleCall_5());
+              		
+            }
+            pushFollow(FOLLOW_12);
+            this_LC_5=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_5);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getDefinitionAccess().getCommandsParserRuleCall_6());
+              		
+            }
+            pushFollow(FOLLOW_10);
+            this_Commands_6=ruleCommands();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Commands_6);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getDefinitionAccess().getLCParserRuleCall_7());
+              		
+            }
+            pushFollow(FOLLOW_11);
+            this_LC_7=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_7);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            kw=(Token)match(input,20,FOLLOW_13); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getDefinitionAccess().getPercentSignKeyword_8());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getDefinitionAccess().getLCParserRuleCall_9());
+              		
+            }
+            pushFollow(FOLLOW_14);
+            this_LC_9=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_9);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            kw=(Token)match(input,21,FOLLOW_9); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getDefinitionAccess().getWriteKeyword_10());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getDefinitionAccess().getLCParserRuleCall_11());
+              		
+            }
+            pushFollow(FOLLOW_9);
+            this_LC_11=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_11);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getDefinitionAccess().getOutputParserRuleCall_12());
+              		
+            }
+            pushFollow(FOLLOW_2);
+            this_Output_12=ruleOutput();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Output_12);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDefinition"
+
+
+    // $ANTLR start "entryRuleInput"
+    // InternalWhileDsl.g:305:1: entryRuleInput returns [String current=null] : iv_ruleInput= ruleInput EOF ;
+    public final String entryRuleInput() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleInput = null;
+
+
+        try {
+            // InternalWhileDsl.g:305:45: (iv_ruleInput= ruleInput EOF )
+            // InternalWhileDsl.g:306:2: iv_ruleInput= ruleInput EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getInputRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleInput=ruleInput();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleInput.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleInput"
+
+
+    // $ANTLR start "ruleInput"
+    // InternalWhileDsl.g:312:1: ruleInput returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* ) ;
+    public final AntlrDatatypeRuleToken ruleInput() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_VARIABLE_0=null;
+        Token kw=null;
+        Token this_VARIABLE_2=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:318:2: ( (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* ) )
+            // InternalWhileDsl.g:319:2: (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* )
+            {
+            // InternalWhileDsl.g:319:2: (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* )
+            // InternalWhileDsl.g:320:3: this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )*
+            {
+            this_VARIABLE_0=(Token)match(input,RULE_VARIABLE,FOLLOW_15); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_VARIABLE_0);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(this_VARIABLE_0, grammarAccess.getInputAccess().getVARIABLETerminalRuleCall_0());
+              		
+            }
+            // InternalWhileDsl.g:327:3: (kw= ',' this_VARIABLE_2= RULE_VARIABLE )*
+            loop2:
+            do {
+                int alt2=2;
+                int LA2_0 = input.LA(1);
+
+                if ( (LA2_0==22) ) {
+                    alt2=1;
+                }
+
+
+                switch (alt2) {
+            	case 1 :
+            	    // InternalWhileDsl.g:328:4: kw= ',' this_VARIABLE_2= RULE_VARIABLE
+            	    {
+            	    kw=(Token)match(input,22,FOLLOW_16); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(kw);
+            	      				newLeafNode(kw, grammarAccess.getInputAccess().getCommaKeyword_1_0());
+            	      			
+            	    }
+            	    this_VARIABLE_2=(Token)match(input,RULE_VARIABLE,FOLLOW_15); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_VARIABLE_2);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				newLeafNode(this_VARIABLE_2, grammarAccess.getInputAccess().getVARIABLETerminalRuleCall_1_1());
+            	      			
+            	    }
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop2;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleInput"
+
+
+    // $ANTLR start "entryRuleOutput"
+    // InternalWhileDsl.g:345:1: entryRuleOutput returns [String current=null] : iv_ruleOutput= ruleOutput EOF ;
+    public final String entryRuleOutput() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleOutput = null;
+
+
+        try {
+            // InternalWhileDsl.g:345:46: (iv_ruleOutput= ruleOutput EOF )
+            // InternalWhileDsl.g:346:2: iv_ruleOutput= ruleOutput EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getOutputRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleOutput=ruleOutput();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleOutput.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleOutput"
+
+
+    // $ANTLR start "ruleOutput"
+    // InternalWhileDsl.g:352:1: ruleOutput returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* ) ;
+    public final AntlrDatatypeRuleToken ruleOutput() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_VARIABLE_0=null;
+        Token kw=null;
+        Token this_VARIABLE_2=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:358:2: ( (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* ) )
+            // InternalWhileDsl.g:359:2: (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* )
+            {
+            // InternalWhileDsl.g:359:2: (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* )
+            // InternalWhileDsl.g:360:3: this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )*
+            {
+            this_VARIABLE_0=(Token)match(input,RULE_VARIABLE,FOLLOW_15); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_VARIABLE_0);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(this_VARIABLE_0, grammarAccess.getOutputAccess().getVARIABLETerminalRuleCall_0());
+              		
+            }
+            // InternalWhileDsl.g:367:3: (kw= ',' this_VARIABLE_2= RULE_VARIABLE )*
+            loop3:
+            do {
+                int alt3=2;
+                int LA3_0 = input.LA(1);
+
+                if ( (LA3_0==22) ) {
+                    alt3=1;
+                }
+
+
+                switch (alt3) {
+            	case 1 :
+            	    // InternalWhileDsl.g:368:4: kw= ',' this_VARIABLE_2= RULE_VARIABLE
+            	    {
+            	    kw=(Token)match(input,22,FOLLOW_16); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(kw);
+            	      				newLeafNode(kw, grammarAccess.getOutputAccess().getCommaKeyword_1_0());
+            	      			
+            	    }
+            	    this_VARIABLE_2=(Token)match(input,RULE_VARIABLE,FOLLOW_15); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_VARIABLE_2);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				newLeafNode(this_VARIABLE_2, grammarAccess.getOutputAccess().getVARIABLETerminalRuleCall_1_1());
+            	      			
+            	    }
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop3;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleOutput"
+
+
+    // $ANTLR start "entryRuleCommands"
+    // InternalWhileDsl.g:385:1: entryRuleCommands returns [String current=null] : iv_ruleCommands= ruleCommands EOF ;
+    public final String entryRuleCommands() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleCommands = null;
+
+
+        try {
+            // InternalWhileDsl.g:385:48: (iv_ruleCommands= ruleCommands EOF )
+            // InternalWhileDsl.g:386:2: iv_ruleCommands= ruleCommands EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getCommandsRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleCommands=ruleCommands();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleCommands.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleCommands"
+
+
+    // $ANTLR start "ruleCommands"
+    // InternalWhileDsl.g:392:1: ruleCommands returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Command_0= ruleCommand (kw= ';' this_Command_2= ruleCommand )* (kw= ';' )? ) ;
+    public final AntlrDatatypeRuleToken ruleCommands() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_Command_0 = null;
+
+        AntlrDatatypeRuleToken this_Command_2 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:398:2: ( (this_Command_0= ruleCommand (kw= ';' this_Command_2= ruleCommand )* (kw= ';' )? ) )
+            // InternalWhileDsl.g:399:2: (this_Command_0= ruleCommand (kw= ';' this_Command_2= ruleCommand )* (kw= ';' )? )
+            {
+            // InternalWhileDsl.g:399:2: (this_Command_0= ruleCommand (kw= ';' this_Command_2= ruleCommand )* (kw= ';' )? )
+            // InternalWhileDsl.g:400:3: this_Command_0= ruleCommand (kw= ';' this_Command_2= ruleCommand )* (kw= ';' )?
+            {
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getCommandsAccess().getCommandParserRuleCall_0());
+              		
+            }
+            pushFollow(FOLLOW_17);
+            this_Command_0=ruleCommand();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Command_0);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            // InternalWhileDsl.g:410:3: (kw= ';' this_Command_2= ruleCommand )*
+            loop4:
+            do {
+                int alt4=2;
+                int LA4_0 = input.LA(1);
+
+                if ( (LA4_0==23) ) {
+                    int LA4_1 = input.LA(2);
+
+                    if ( (LA4_1==RULE_VARIABLE||LA4_1==24||LA4_1==26||(LA4_1>=29 && LA4_1<=30)||LA4_1==34) ) {
+                        alt4=1;
+                    }
+
+
+                }
+
+
+                switch (alt4) {
+            	case 1 :
+            	    // InternalWhileDsl.g:411:4: kw= ';' this_Command_2= ruleCommand
+            	    {
+            	    kw=(Token)match(input,23,FOLLOW_12); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(kw);
+            	      				newLeafNode(kw, grammarAccess.getCommandsAccess().getSemicolonKeyword_1_0());
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				newCompositeNode(grammarAccess.getCommandsAccess().getCommandParserRuleCall_1_1());
+            	      			
+            	    }
+            	    pushFollow(FOLLOW_17);
+            	    this_Command_2=ruleCommand();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_Command_2);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				afterParserOrEnumRuleCall();
+            	      			
+            	    }
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop4;
+                }
+            } while (true);
+
+            // InternalWhileDsl.g:427:3: (kw= ';' )?
+            int alt5=2;
+            int LA5_0 = input.LA(1);
+
+            if ( (LA5_0==23) ) {
+                alt5=1;
+            }
+            switch (alt5) {
+                case 1 :
+                    // InternalWhileDsl.g:428:4: kw= ';'
+                    {
+                    kw=(Token)match(input,23,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getCommandsAccess().getSemicolonKeyword_2());
+                      			
+                    }
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleCommands"
+
+
+    // $ANTLR start "entryRuleCommand"
+    // InternalWhileDsl.g:438:1: entryRuleCommand returns [String current=null] : iv_ruleCommand= ruleCommand EOF ;
+    public final String entryRuleCommand() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleCommand = null;
+
+
+        try {
+            // InternalWhileDsl.g:438:47: (iv_ruleCommand= ruleCommand EOF )
+            // InternalWhileDsl.g:439:2: iv_ruleCommand= ruleCommand EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getCommandRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleCommand=ruleCommand();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleCommand.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleCommand"
+
+
+    // $ANTLR start "ruleCommand"
+    // InternalWhileDsl.g:445:1: ruleCommand returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'nop' | this_While_1= ruleWhile | this_For_2= ruleFor | this_If_3= ruleIf | this_Foreach_4= ruleForeach | (this_Vars_5= ruleVars this_LC_6= ruleLC kw= ':=' this_LC_8= ruleLC this_Exprs_9= ruleExprs ) ) ;
+    public final AntlrDatatypeRuleToken ruleCommand() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_While_1 = null;
+
+        AntlrDatatypeRuleToken this_For_2 = null;
+
+        AntlrDatatypeRuleToken this_If_3 = null;
+
+        AntlrDatatypeRuleToken this_Foreach_4 = null;
+
+        AntlrDatatypeRuleToken this_Vars_5 = null;
+
+        AntlrDatatypeRuleToken this_LC_6 = null;
+
+        AntlrDatatypeRuleToken this_LC_8 = null;
+
+        AntlrDatatypeRuleToken this_Exprs_9 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:451:2: ( (kw= 'nop' | this_While_1= ruleWhile | this_For_2= ruleFor | this_If_3= ruleIf | this_Foreach_4= ruleForeach | (this_Vars_5= ruleVars this_LC_6= ruleLC kw= ':=' this_LC_8= ruleLC this_Exprs_9= ruleExprs ) ) )
+            // InternalWhileDsl.g:452:2: (kw= 'nop' | this_While_1= ruleWhile | this_For_2= ruleFor | this_If_3= ruleIf | this_Foreach_4= ruleForeach | (this_Vars_5= ruleVars this_LC_6= ruleLC kw= ':=' this_LC_8= ruleLC this_Exprs_9= ruleExprs ) )
+            {
+            // InternalWhileDsl.g:452:2: (kw= 'nop' | this_While_1= ruleWhile | this_For_2= ruleFor | this_If_3= ruleIf | this_Foreach_4= ruleForeach | (this_Vars_5= ruleVars this_LC_6= ruleLC kw= ':=' this_LC_8= ruleLC this_Exprs_9= ruleExprs ) )
+            int alt6=6;
+            switch ( input.LA(1) ) {
+            case 24:
+                {
+                alt6=1;
+                }
+                break;
+            case 26:
+                {
+                alt6=2;
+                }
+                break;
+            case 29:
+                {
+                alt6=3;
+                }
+                break;
+            case 30:
+                {
+                alt6=4;
+                }
+                break;
+            case 34:
+                {
+                alt6=5;
+                }
+                break;
+            case RULE_VARIABLE:
+                {
+                alt6=6;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 6, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt6) {
+                case 1 :
+                    // InternalWhileDsl.g:453:3: kw= 'nop'
+                    {
+                    kw=(Token)match(input,24,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(kw);
+                      			newLeafNode(kw, grammarAccess.getCommandAccess().getNopKeyword_0());
+                      		
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // InternalWhileDsl.g:459:3: this_While_1= ruleWhile
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      			newCompositeNode(grammarAccess.getCommandAccess().getWhileParserRuleCall_1());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_While_1=ruleWhile();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(this_While_1);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+                case 3 :
+                    // InternalWhileDsl.g:470:3: this_For_2= ruleFor
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      			newCompositeNode(grammarAccess.getCommandAccess().getForParserRuleCall_2());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_For_2=ruleFor();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(this_For_2);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+                case 4 :
+                    // InternalWhileDsl.g:481:3: this_If_3= ruleIf
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      			newCompositeNode(grammarAccess.getCommandAccess().getIfParserRuleCall_3());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_If_3=ruleIf();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(this_If_3);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+                case 5 :
+                    // InternalWhileDsl.g:492:3: this_Foreach_4= ruleForeach
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      			newCompositeNode(grammarAccess.getCommandAccess().getForeachParserRuleCall_4());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_Foreach_4=ruleForeach();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(this_Foreach_4);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+                case 6 :
+                    // InternalWhileDsl.g:503:3: (this_Vars_5= ruleVars this_LC_6= ruleLC kw= ':=' this_LC_8= ruleLC this_Exprs_9= ruleExprs )
+                    {
+                    // InternalWhileDsl.g:503:3: (this_Vars_5= ruleVars this_LC_6= ruleLC kw= ':=' this_LC_8= ruleLC this_Exprs_9= ruleExprs )
+                    // InternalWhileDsl.g:504:4: this_Vars_5= ruleVars this_LC_6= ruleLC kw= ':=' this_LC_8= ruleLC this_Exprs_9= ruleExprs
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getCommandAccess().getVarsParserRuleCall_5_0());
+                      			
+                    }
+                    pushFollow(FOLLOW_18);
+                    this_Vars_5=ruleVars();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_Vars_5);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getCommandAccess().getLCParserRuleCall_5_1());
+                      			
+                    }
+                    pushFollow(FOLLOW_19);
+                    this_LC_6=ruleLC();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_LC_6);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+                    kw=(Token)match(input,25,FOLLOW_20); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getCommandAccess().getColonEqualsSignKeyword_5_2());
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getCommandAccess().getLCParserRuleCall_5_3());
+                      			
+                    }
+                    pushFollow(FOLLOW_20);
+                    this_LC_8=ruleLC();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_LC_8);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getCommandAccess().getExprsParserRuleCall_5_4());
+                      			
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_Exprs_9=ruleExprs();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_Exprs_9);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleCommand"
+
+
+    // $ANTLR start "entryRuleWhile"
+    // InternalWhileDsl.g:554:1: entryRuleWhile returns [String current=null] : iv_ruleWhile= ruleWhile EOF ;
+    public final String entryRuleWhile() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleWhile = null;
+
+
+        try {
+            // InternalWhileDsl.g:554:45: (iv_ruleWhile= ruleWhile EOF )
+            // InternalWhileDsl.g:555:2: iv_ruleWhile= ruleWhile EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getWhileRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleWhile=ruleWhile();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleWhile.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleWhile"
+
+
+    // $ANTLR start "ruleWhile"
+    // InternalWhileDsl.g:561:1: ruleWhile returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'while' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'do' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= 'od' ) ;
+    public final AntlrDatatypeRuleToken ruleWhile() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_LC_1 = null;
+
+        AntlrDatatypeRuleToken this_Expr_2 = null;
+
+        AntlrDatatypeRuleToken this_LC_3 = null;
+
+        AntlrDatatypeRuleToken this_LC_5 = null;
+
+        AntlrDatatypeRuleToken this_Commands_6 = null;
+
+        AntlrDatatypeRuleToken this_LC_7 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:567:2: ( (kw= 'while' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'do' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= 'od' ) )
+            // InternalWhileDsl.g:568:2: (kw= 'while' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'do' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= 'od' )
+            {
+            // InternalWhileDsl.g:568:2: (kw= 'while' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'do' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= 'od' )
+            // InternalWhileDsl.g:569:3: kw= 'while' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'do' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= 'od'
+            {
+            kw=(Token)match(input,26,FOLLOW_20); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getWhileAccess().getWhileKeyword_0());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getWhileAccess().getLCParserRuleCall_1());
+              		
+            }
+            pushFollow(FOLLOW_20);
+            this_LC_1=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_1);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getWhileAccess().getExprParserRuleCall_2());
+              		
+            }
+            pushFollow(FOLLOW_21);
+            this_Expr_2=ruleExpr();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Expr_2);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getWhileAccess().getLCParserRuleCall_3());
+              		
+            }
+            pushFollow(FOLLOW_22);
+            this_LC_3=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_3);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            kw=(Token)match(input,27,FOLLOW_12); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getWhileAccess().getDoKeyword_4());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getWhileAccess().getLCParserRuleCall_5());
+              		
+            }
+            pushFollow(FOLLOW_12);
+            this_LC_5=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_5);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getWhileAccess().getCommandsParserRuleCall_6());
+              		
+            }
+            pushFollow(FOLLOW_23);
+            this_Commands_6=ruleCommands();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Commands_6);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getWhileAccess().getLCParserRuleCall_7());
+              		
+            }
+            pushFollow(FOLLOW_24);
+            this_LC_7=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_7);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            kw=(Token)match(input,28,FOLLOW_2); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getWhileAccess().getOdKeyword_8());
+              		
+            }
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleWhile"
+
+
+    // $ANTLR start "entryRuleFor"
+    // InternalWhileDsl.g:648:1: entryRuleFor returns [String current=null] : iv_ruleFor= ruleFor EOF ;
+    public final String entryRuleFor() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleFor = null;
+
+
+        try {
+            // InternalWhileDsl.g:648:43: (iv_ruleFor= ruleFor EOF )
+            // InternalWhileDsl.g:649:2: iv_ruleFor= ruleFor EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getForRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleFor=ruleFor();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleFor.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleFor"
+
+
+    // $ANTLR start "ruleFor"
+    // InternalWhileDsl.g:655:1: ruleFor returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'for' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'do' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= 'od' ) ;
+    public final AntlrDatatypeRuleToken ruleFor() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_LC_1 = null;
+
+        AntlrDatatypeRuleToken this_Expr_2 = null;
+
+        AntlrDatatypeRuleToken this_LC_3 = null;
+
+        AntlrDatatypeRuleToken this_LC_5 = null;
+
+        AntlrDatatypeRuleToken this_Commands_6 = null;
+
+        AntlrDatatypeRuleToken this_LC_7 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:661:2: ( (kw= 'for' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'do' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= 'od' ) )
+            // InternalWhileDsl.g:662:2: (kw= 'for' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'do' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= 'od' )
+            {
+            // InternalWhileDsl.g:662:2: (kw= 'for' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'do' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= 'od' )
+            // InternalWhileDsl.g:663:3: kw= 'for' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'do' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC kw= 'od'
+            {
+            kw=(Token)match(input,29,FOLLOW_20); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getForAccess().getForKeyword_0());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForAccess().getLCParserRuleCall_1());
+              		
+            }
+            pushFollow(FOLLOW_20);
+            this_LC_1=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_1);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForAccess().getExprParserRuleCall_2());
+              		
+            }
+            pushFollow(FOLLOW_21);
+            this_Expr_2=ruleExpr();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Expr_2);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForAccess().getLCParserRuleCall_3());
+              		
+            }
+            pushFollow(FOLLOW_22);
+            this_LC_3=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_3);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            kw=(Token)match(input,27,FOLLOW_12); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getForAccess().getDoKeyword_4());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForAccess().getLCParserRuleCall_5());
+              		
+            }
+            pushFollow(FOLLOW_12);
+            this_LC_5=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_5);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForAccess().getCommandsParserRuleCall_6());
+              		
+            }
+            pushFollow(FOLLOW_23);
+            this_Commands_6=ruleCommands();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Commands_6);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForAccess().getLCParserRuleCall_7());
+              		
+            }
+            pushFollow(FOLLOW_24);
+            this_LC_7=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_7);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            kw=(Token)match(input,28,FOLLOW_2); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getForAccess().getOdKeyword_8());
+              		
+            }
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleFor"
+
+
+    // $ANTLR start "entryRuleIf"
+    // InternalWhileDsl.g:742:1: entryRuleIf returns [String current=null] : iv_ruleIf= ruleIf EOF ;
+    public final String entryRuleIf() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleIf = null;
+
+
+        try {
+            // InternalWhileDsl.g:742:42: (iv_ruleIf= ruleIf EOF )
+            // InternalWhileDsl.g:743:2: iv_ruleIf= ruleIf EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getIfRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleIf=ruleIf();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleIf.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleIf"
+
+
+    // $ANTLR start "ruleIf"
+    // InternalWhileDsl.g:749:1: ruleIf returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'if' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'then' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC ( (kw= 'else' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'fi' ) | kw= 'fi' ) ) ;
+    public final AntlrDatatypeRuleToken ruleIf() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_LC_1 = null;
+
+        AntlrDatatypeRuleToken this_Expr_2 = null;
+
+        AntlrDatatypeRuleToken this_LC_3 = null;
+
+        AntlrDatatypeRuleToken this_LC_5 = null;
+
+        AntlrDatatypeRuleToken this_Commands_6 = null;
+
+        AntlrDatatypeRuleToken this_LC_7 = null;
+
+        AntlrDatatypeRuleToken this_LC_9 = null;
+
+        AntlrDatatypeRuleToken this_Commands_10 = null;
+
+        AntlrDatatypeRuleToken this_LC_11 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:755:2: ( (kw= 'if' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'then' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC ( (kw= 'else' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'fi' ) | kw= 'fi' ) ) )
+            // InternalWhileDsl.g:756:2: (kw= 'if' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'then' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC ( (kw= 'else' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'fi' ) | kw= 'fi' ) )
+            {
+            // InternalWhileDsl.g:756:2: (kw= 'if' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'then' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC ( (kw= 'else' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'fi' ) | kw= 'fi' ) )
+            // InternalWhileDsl.g:757:3: kw= 'if' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'then' this_LC_5= ruleLC this_Commands_6= ruleCommands this_LC_7= ruleLC ( (kw= 'else' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'fi' ) | kw= 'fi' )
+            {
+            kw=(Token)match(input,30,FOLLOW_20); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getIfAccess().getIfKeyword_0());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getIfAccess().getLCParserRuleCall_1());
+              		
+            }
+            pushFollow(FOLLOW_20);
+            this_LC_1=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_1);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getIfAccess().getExprParserRuleCall_2());
+              		
+            }
+            pushFollow(FOLLOW_25);
+            this_Expr_2=ruleExpr();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Expr_2);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getIfAccess().getLCParserRuleCall_3());
+              		
+            }
+            pushFollow(FOLLOW_26);
+            this_LC_3=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_3);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            kw=(Token)match(input,31,FOLLOW_12); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getIfAccess().getThenKeyword_4());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getIfAccess().getLCParserRuleCall_5());
+              		
+            }
+            pushFollow(FOLLOW_12);
+            this_LC_5=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_5);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getIfAccess().getCommandsParserRuleCall_6());
+              		
+            }
+            pushFollow(FOLLOW_27);
+            this_Commands_6=ruleCommands();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Commands_6);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getIfAccess().getLCParserRuleCall_7());
+              		
+            }
+            pushFollow(FOLLOW_28);
+            this_LC_7=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_7);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            // InternalWhileDsl.g:827:3: ( (kw= 'else' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'fi' ) | kw= 'fi' )
+            int alt7=2;
+            int LA7_0 = input.LA(1);
+
+            if ( (LA7_0==32) ) {
+                alt7=1;
+            }
+            else if ( (LA7_0==33) ) {
+                alt7=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 7, 0, input);
+
+                throw nvae;
+            }
+            switch (alt7) {
+                case 1 :
+                    // InternalWhileDsl.g:828:4: (kw= 'else' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'fi' )
+                    {
+                    // InternalWhileDsl.g:828:4: (kw= 'else' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'fi' )
+                    // InternalWhileDsl.g:829:5: kw= 'else' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'fi'
+                    {
+                    kw=(Token)match(input,32,FOLLOW_12); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					current.merge(kw);
+                      					newLeafNode(kw, grammarAccess.getIfAccess().getElseKeyword_8_0_0());
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getIfAccess().getLCParserRuleCall_8_0_1());
+                      				
+                    }
+                    pushFollow(FOLLOW_12);
+                    this_LC_9=ruleLC();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					current.merge(this_LC_9);
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getIfAccess().getCommandsParserRuleCall_8_0_2());
+                      				
+                    }
+                    pushFollow(FOLLOW_29);
+                    this_Commands_10=ruleCommands();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					current.merge(this_Commands_10);
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					newCompositeNode(grammarAccess.getIfAccess().getLCParserRuleCall_8_0_3());
+                      				
+                    }
+                    pushFollow(FOLLOW_30);
+                    this_LC_11=ruleLC();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					current.merge(this_LC_11);
+                      				
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      					afterParserOrEnumRuleCall();
+                      				
+                    }
+                    kw=(Token)match(input,33,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      					current.merge(kw);
+                      					newLeafNode(kw, grammarAccess.getIfAccess().getFiKeyword_8_0_4());
+                      				
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalWhileDsl.g:871:4: kw= 'fi'
+                    {
+                    kw=(Token)match(input,33,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getIfAccess().getFiKeyword_8_1());
+                      			
+                    }
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleIf"
+
+
+    // $ANTLR start "entryRuleForeach"
+    // InternalWhileDsl.g:881:1: entryRuleForeach returns [String current=null] : iv_ruleForeach= ruleForeach EOF ;
+    public final String entryRuleForeach() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleForeach = null;
+
+
+        try {
+            // InternalWhileDsl.g:881:47: (iv_ruleForeach= ruleForeach EOF )
+            // InternalWhileDsl.g:882:2: iv_ruleForeach= ruleForeach EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getForeachRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleForeach=ruleForeach();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleForeach.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleForeach"
+
+
+    // $ANTLR start "ruleForeach"
+    // InternalWhileDsl.g:888:1: ruleForeach returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'foreach' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'in' this_LC_5= ruleLC this_Expr_6= ruleExpr this_LC_7= ruleLC kw= 'do' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'od' ) ;
+    public final AntlrDatatypeRuleToken ruleForeach() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_LC_1 = null;
+
+        AntlrDatatypeRuleToken this_Expr_2 = null;
+
+        AntlrDatatypeRuleToken this_LC_3 = null;
+
+        AntlrDatatypeRuleToken this_LC_5 = null;
+
+        AntlrDatatypeRuleToken this_Expr_6 = null;
+
+        AntlrDatatypeRuleToken this_LC_7 = null;
+
+        AntlrDatatypeRuleToken this_LC_9 = null;
+
+        AntlrDatatypeRuleToken this_Commands_10 = null;
+
+        AntlrDatatypeRuleToken this_LC_11 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:894:2: ( (kw= 'foreach' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'in' this_LC_5= ruleLC this_Expr_6= ruleExpr this_LC_7= ruleLC kw= 'do' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'od' ) )
+            // InternalWhileDsl.g:895:2: (kw= 'foreach' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'in' this_LC_5= ruleLC this_Expr_6= ruleExpr this_LC_7= ruleLC kw= 'do' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'od' )
+            {
+            // InternalWhileDsl.g:895:2: (kw= 'foreach' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'in' this_LC_5= ruleLC this_Expr_6= ruleExpr this_LC_7= ruleLC kw= 'do' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'od' )
+            // InternalWhileDsl.g:896:3: kw= 'foreach' this_LC_1= ruleLC this_Expr_2= ruleExpr this_LC_3= ruleLC kw= 'in' this_LC_5= ruleLC this_Expr_6= ruleExpr this_LC_7= ruleLC kw= 'do' this_LC_9= ruleLC this_Commands_10= ruleCommands this_LC_11= ruleLC kw= 'od'
+            {
+            kw=(Token)match(input,34,FOLLOW_20); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getForeachAccess().getForeachKeyword_0());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForeachAccess().getLCParserRuleCall_1());
+              		
+            }
+            pushFollow(FOLLOW_20);
+            this_LC_1=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_1);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForeachAccess().getExprParserRuleCall_2());
+              		
+            }
+            pushFollow(FOLLOW_31);
+            this_Expr_2=ruleExpr();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Expr_2);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForeachAccess().getLCParserRuleCall_3());
+              		
+            }
+            pushFollow(FOLLOW_32);
+            this_LC_3=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_3);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            kw=(Token)match(input,35,FOLLOW_20); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getForeachAccess().getInKeyword_4());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForeachAccess().getLCParserRuleCall_5());
+              		
+            }
+            pushFollow(FOLLOW_20);
+            this_LC_5=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_5);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForeachAccess().getExprParserRuleCall_6());
+              		
+            }
+            pushFollow(FOLLOW_21);
+            this_Expr_6=ruleExpr();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Expr_6);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForeachAccess().getLCParserRuleCall_7());
+              		
+            }
+            pushFollow(FOLLOW_22);
+            this_LC_7=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_7);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            kw=(Token)match(input,27,FOLLOW_12); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getForeachAccess().getDoKeyword_8());
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForeachAccess().getLCParserRuleCall_9());
+              		
+            }
+            pushFollow(FOLLOW_12);
+            this_LC_9=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_9);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForeachAccess().getCommandsParserRuleCall_10());
+              		
+            }
+            pushFollow(FOLLOW_23);
+            this_Commands_10=ruleCommands();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Commands_10);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getForeachAccess().getLCParserRuleCall_11());
+              		
+            }
+            pushFollow(FOLLOW_24);
+            this_LC_11=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_LC_11);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            kw=(Token)match(input,28,FOLLOW_2); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(kw);
+              			newLeafNode(kw, grammarAccess.getForeachAccess().getOdKeyword_12());
+              		
+            }
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleForeach"
+
+
+    // $ANTLR start "entryRuleVars"
+    // InternalWhileDsl.g:1010:1: entryRuleVars returns [String current=null] : iv_ruleVars= ruleVars EOF ;
+    public final String entryRuleVars() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleVars = null;
+
+
+        try {
+            // InternalWhileDsl.g:1010:44: (iv_ruleVars= ruleVars EOF )
+            // InternalWhileDsl.g:1011:2: iv_ruleVars= ruleVars EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getVarsRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleVars=ruleVars();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleVars.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleVars"
+
+
+    // $ANTLR start "ruleVars"
+    // InternalWhileDsl.g:1017:1: ruleVars returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* ) ;
+    public final AntlrDatatypeRuleToken ruleVars() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_VARIABLE_0=null;
+        Token kw=null;
+        Token this_VARIABLE_2=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:1023:2: ( (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* ) )
+            // InternalWhileDsl.g:1024:2: (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* )
+            {
+            // InternalWhileDsl.g:1024:2: (this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )* )
+            // InternalWhileDsl.g:1025:3: this_VARIABLE_0= RULE_VARIABLE (kw= ',' this_VARIABLE_2= RULE_VARIABLE )*
+            {
+            this_VARIABLE_0=(Token)match(input,RULE_VARIABLE,FOLLOW_15); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_VARIABLE_0);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			newLeafNode(this_VARIABLE_0, grammarAccess.getVarsAccess().getVARIABLETerminalRuleCall_0());
+              		
+            }
+            // InternalWhileDsl.g:1032:3: (kw= ',' this_VARIABLE_2= RULE_VARIABLE )*
+            loop8:
+            do {
+                int alt8=2;
+                int LA8_0 = input.LA(1);
+
+                if ( (LA8_0==22) ) {
+                    alt8=1;
+                }
+
+
+                switch (alt8) {
+            	case 1 :
+            	    // InternalWhileDsl.g:1033:4: kw= ',' this_VARIABLE_2= RULE_VARIABLE
+            	    {
+            	    kw=(Token)match(input,22,FOLLOW_16); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(kw);
+            	      				newLeafNode(kw, grammarAccess.getVarsAccess().getCommaKeyword_1_0());
+            	      			
+            	    }
+            	    this_VARIABLE_2=(Token)match(input,RULE_VARIABLE,FOLLOW_15); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_VARIABLE_2);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				newLeafNode(this_VARIABLE_2, grammarAccess.getVarsAccess().getVARIABLETerminalRuleCall_1_1());
+            	      			
+            	    }
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop8;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleVars"
+
+
+    // $ANTLR start "entryRuleExprSimple"
+    // InternalWhileDsl.g:1050:1: entryRuleExprSimple returns [String current=null] : iv_ruleExprSimple= ruleExprSimple EOF ;
+    public final String entryRuleExprSimple() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleExprSimple = null;
+
+
+        try {
+            // InternalWhileDsl.g:1050:50: (iv_ruleExprSimple= ruleExprSimple EOF )
+            // InternalWhileDsl.g:1051:2: iv_ruleExprSimple= ruleExprSimple EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getExprSimpleRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleExprSimple=ruleExprSimple();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleExprSimple.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExprSimple"
+
+
+    // $ANTLR start "ruleExprSimple"
+    // InternalWhileDsl.g:1057:1: ruleExprSimple returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'nil' | this_VARIABLE_1= RULE_VARIABLE | this_SYMBOL_2= RULE_SYMBOL | (kw= '(' (kw= 'cons' | kw= 'list' ) this_LExpr_6= ruleLExpr kw= ')' ) | (kw= '(' (kw= 'hd' | kw= 'tl' ) this_LC_11= ruleLC this_Expr_12= ruleExpr kw= ')' ) | (kw= '(' this_SYMBOL_15= RULE_SYMBOL this_LExpr_16= ruleLExpr kw= ')' ) ) ;
+    public final AntlrDatatypeRuleToken ruleExprSimple() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        Token this_VARIABLE_1=null;
+        Token this_SYMBOL_2=null;
+        Token this_SYMBOL_15=null;
+        AntlrDatatypeRuleToken this_LExpr_6 = null;
+
+        AntlrDatatypeRuleToken this_LC_11 = null;
+
+        AntlrDatatypeRuleToken this_Expr_12 = null;
+
+        AntlrDatatypeRuleToken this_LExpr_16 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:1063:2: ( (kw= 'nil' | this_VARIABLE_1= RULE_VARIABLE | this_SYMBOL_2= RULE_SYMBOL | (kw= '(' (kw= 'cons' | kw= 'list' ) this_LExpr_6= ruleLExpr kw= ')' ) | (kw= '(' (kw= 'hd' | kw= 'tl' ) this_LC_11= ruleLC this_Expr_12= ruleExpr kw= ')' ) | (kw= '(' this_SYMBOL_15= RULE_SYMBOL this_LExpr_16= ruleLExpr kw= ')' ) ) )
+            // InternalWhileDsl.g:1064:2: (kw= 'nil' | this_VARIABLE_1= RULE_VARIABLE | this_SYMBOL_2= RULE_SYMBOL | (kw= '(' (kw= 'cons' | kw= 'list' ) this_LExpr_6= ruleLExpr kw= ')' ) | (kw= '(' (kw= 'hd' | kw= 'tl' ) this_LC_11= ruleLC this_Expr_12= ruleExpr kw= ')' ) | (kw= '(' this_SYMBOL_15= RULE_SYMBOL this_LExpr_16= ruleLExpr kw= ')' ) )
+            {
+            // InternalWhileDsl.g:1064:2: (kw= 'nil' | this_VARIABLE_1= RULE_VARIABLE | this_SYMBOL_2= RULE_SYMBOL | (kw= '(' (kw= 'cons' | kw= 'list' ) this_LExpr_6= ruleLExpr kw= ')' ) | (kw= '(' (kw= 'hd' | kw= 'tl' ) this_LC_11= ruleLC this_Expr_12= ruleExpr kw= ')' ) | (kw= '(' this_SYMBOL_15= RULE_SYMBOL this_LExpr_16= ruleLExpr kw= ')' ) )
+            int alt11=6;
+            switch ( input.LA(1) ) {
+            case 36:
+                {
+                alt11=1;
+                }
+                break;
+            case RULE_VARIABLE:
+                {
+                alt11=2;
+                }
+                break;
+            case RULE_SYMBOL:
+                {
+                alt11=3;
+                }
+                break;
+            case 37:
+                {
+                switch ( input.LA(2) ) {
+                case 41:
+                case 42:
+                    {
+                    alt11=5;
+                    }
+                    break;
+                case 38:
+                case 39:
+                    {
+                    alt11=4;
+                    }
+                    break;
+                case RULE_SYMBOL:
+                    {
+                    alt11=6;
+                    }
+                    break;
+                default:
+                    if (state.backtracking>0) {state.failed=true; return current;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 11, 4, input);
+
+                    throw nvae;
+                }
+
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 11, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt11) {
+                case 1 :
+                    // InternalWhileDsl.g:1065:3: kw= 'nil'
+                    {
+                    kw=(Token)match(input,36,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(kw);
+                      			newLeafNode(kw, grammarAccess.getExprSimpleAccess().getNilKeyword_0());
+                      		
+                    }
+
+                    }
+                    break;
+                case 2 :
+                    // InternalWhileDsl.g:1071:3: this_VARIABLE_1= RULE_VARIABLE
+                    {
+                    this_VARIABLE_1=(Token)match(input,RULE_VARIABLE,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(this_VARIABLE_1);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      			newLeafNode(this_VARIABLE_1, grammarAccess.getExprSimpleAccess().getVARIABLETerminalRuleCall_1());
+                      		
+                    }
+
+                    }
+                    break;
+                case 3 :
+                    // InternalWhileDsl.g:1079:3: this_SYMBOL_2= RULE_SYMBOL
+                    {
+                    this_SYMBOL_2=(Token)match(input,RULE_SYMBOL,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(this_SYMBOL_2);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      			newLeafNode(this_SYMBOL_2, grammarAccess.getExprSimpleAccess().getSYMBOLTerminalRuleCall_2());
+                      		
+                    }
+
+                    }
+                    break;
+                case 4 :
+                    // InternalWhileDsl.g:1087:3: (kw= '(' (kw= 'cons' | kw= 'list' ) this_LExpr_6= ruleLExpr kw= ')' )
+                    {
+                    // InternalWhileDsl.g:1087:3: (kw= '(' (kw= 'cons' | kw= 'list' ) this_LExpr_6= ruleLExpr kw= ')' )
+                    // InternalWhileDsl.g:1088:4: kw= '(' (kw= 'cons' | kw= 'list' ) this_LExpr_6= ruleLExpr kw= ')'
+                    {
+                    kw=(Token)match(input,37,FOLLOW_33); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getExprSimpleAccess().getLeftParenthesisKeyword_3_0());
+                      			
+                    }
+                    // InternalWhileDsl.g:1093:4: (kw= 'cons' | kw= 'list' )
+                    int alt9=2;
+                    int LA9_0 = input.LA(1);
+
+                    if ( (LA9_0==38) ) {
+                        alt9=1;
+                    }
+                    else if ( (LA9_0==39) ) {
+                        alt9=2;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return current;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 9, 0, input);
+
+                        throw nvae;
+                    }
+                    switch (alt9) {
+                        case 1 :
+                            // InternalWhileDsl.g:1094:5: kw= 'cons'
+                            {
+                            kw=(Token)match(input,38,FOLLOW_20); if (state.failed) return current;
+                            if ( state.backtracking==0 ) {
+
+                              					current.merge(kw);
+                              					newLeafNode(kw, grammarAccess.getExprSimpleAccess().getConsKeyword_3_1_0());
+                              				
+                            }
+
+                            }
+                            break;
+                        case 2 :
+                            // InternalWhileDsl.g:1100:5: kw= 'list'
+                            {
+                            kw=(Token)match(input,39,FOLLOW_20); if (state.failed) return current;
+                            if ( state.backtracking==0 ) {
+
+                              					current.merge(kw);
+                              					newLeafNode(kw, grammarAccess.getExprSimpleAccess().getListKeyword_3_1_1());
+                              				
+                            }
+
+                            }
+                            break;
+
+                    }
+
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getExprSimpleAccess().getLExprParserRuleCall_3_2());
+                      			
+                    }
+                    pushFollow(FOLLOW_34);
+                    this_LExpr_6=ruleLExpr();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_LExpr_6);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+                    kw=(Token)match(input,40,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getExprSimpleAccess().getRightParenthesisKeyword_3_3());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalWhileDsl.g:1123:3: (kw= '(' (kw= 'hd' | kw= 'tl' ) this_LC_11= ruleLC this_Expr_12= ruleExpr kw= ')' )
+                    {
+                    // InternalWhileDsl.g:1123:3: (kw= '(' (kw= 'hd' | kw= 'tl' ) this_LC_11= ruleLC this_Expr_12= ruleExpr kw= ')' )
+                    // InternalWhileDsl.g:1124:4: kw= '(' (kw= 'hd' | kw= 'tl' ) this_LC_11= ruleLC this_Expr_12= ruleExpr kw= ')'
+                    {
+                    kw=(Token)match(input,37,FOLLOW_35); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getExprSimpleAccess().getLeftParenthesisKeyword_4_0());
+                      			
+                    }
+                    // InternalWhileDsl.g:1129:4: (kw= 'hd' | kw= 'tl' )
+                    int alt10=2;
+                    int LA10_0 = input.LA(1);
+
+                    if ( (LA10_0==41) ) {
+                        alt10=1;
+                    }
+                    else if ( (LA10_0==42) ) {
+                        alt10=2;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return current;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 10, 0, input);
+
+                        throw nvae;
+                    }
+                    switch (alt10) {
+                        case 1 :
+                            // InternalWhileDsl.g:1130:5: kw= 'hd'
+                            {
+                            kw=(Token)match(input,41,FOLLOW_20); if (state.failed) return current;
+                            if ( state.backtracking==0 ) {
+
+                              					current.merge(kw);
+                              					newLeafNode(kw, grammarAccess.getExprSimpleAccess().getHdKeyword_4_1_0());
+                              				
+                            }
+
+                            }
+                            break;
+                        case 2 :
+                            // InternalWhileDsl.g:1136:5: kw= 'tl'
+                            {
+                            kw=(Token)match(input,42,FOLLOW_20); if (state.failed) return current;
+                            if ( state.backtracking==0 ) {
+
+                              					current.merge(kw);
+                              					newLeafNode(kw, grammarAccess.getExprSimpleAccess().getTlKeyword_4_1_1());
+                              				
+                            }
+
+                            }
+                            break;
+
+                    }
+
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getExprSimpleAccess().getLCParserRuleCall_4_2());
+                      			
+                    }
+                    pushFollow(FOLLOW_20);
+                    this_LC_11=ruleLC();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_LC_11);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getExprSimpleAccess().getExprParserRuleCall_4_3());
+                      			
+                    }
+                    pushFollow(FOLLOW_34);
+                    this_Expr_12=ruleExpr();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_Expr_12);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+                    kw=(Token)match(input,40,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getExprSimpleAccess().getRightParenthesisKeyword_4_4());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 6 :
+                    // InternalWhileDsl.g:1169:3: (kw= '(' this_SYMBOL_15= RULE_SYMBOL this_LExpr_16= ruleLExpr kw= ')' )
+                    {
+                    // InternalWhileDsl.g:1169:3: (kw= '(' this_SYMBOL_15= RULE_SYMBOL this_LExpr_16= ruleLExpr kw= ')' )
+                    // InternalWhileDsl.g:1170:4: kw= '(' this_SYMBOL_15= RULE_SYMBOL this_LExpr_16= ruleLExpr kw= ')'
+                    {
+                    kw=(Token)match(input,37,FOLLOW_5); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getExprSimpleAccess().getLeftParenthesisKeyword_5_0());
+                      			
+                    }
+                    this_SYMBOL_15=(Token)match(input,RULE_SYMBOL,FOLLOW_20); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_SYMBOL_15);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				newLeafNode(this_SYMBOL_15, grammarAccess.getExprSimpleAccess().getSYMBOLTerminalRuleCall_5_1());
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getExprSimpleAccess().getLExprParserRuleCall_5_2());
+                      			
+                    }
+                    pushFollow(FOLLOW_34);
+                    this_LExpr_16=ruleLExpr();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_LExpr_16);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+                    kw=(Token)match(input,40,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getExprSimpleAccess().getRightParenthesisKeyword_5_3());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExprSimple"
+
+
+    // $ANTLR start "entryRuleLExpr"
+    // InternalWhileDsl.g:1202:1: entryRuleLExpr returns [String current=null] : iv_ruleLExpr= ruleLExpr EOF ;
+    public final String entryRuleLExpr() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleLExpr = null;
+
+
+        try {
+            // InternalWhileDsl.g:1202:45: (iv_ruleLExpr= ruleLExpr EOF )
+            // InternalWhileDsl.g:1203:2: iv_ruleLExpr= ruleLExpr EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getLExprRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleLExpr=ruleLExpr();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleLExpr.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleLExpr"
+
+
+    // $ANTLR start "ruleLExpr"
+    // InternalWhileDsl.g:1209:1: ruleLExpr returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Expr_0= ruleExpr )+ ;
+    public final AntlrDatatypeRuleToken ruleLExpr() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        AntlrDatatypeRuleToken this_Expr_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:1215:2: ( (this_Expr_0= ruleExpr )+ )
+            // InternalWhileDsl.g:1216:2: (this_Expr_0= ruleExpr )+
+            {
+            // InternalWhileDsl.g:1216:2: (this_Expr_0= ruleExpr )+
+            int cnt12=0;
+            loop12:
+            do {
+                int alt12=2;
+                int LA12_0 = input.LA(1);
+
+                if ( ((LA12_0>=RULE_SYMBOL && LA12_0<=RULE_VARIABLE)||(LA12_0>=36 && LA12_0<=37)||LA12_0==45) ) {
+                    alt12=1;
+                }
+
+
+                switch (alt12) {
+            	case 1 :
+            	    // InternalWhileDsl.g:1217:3: this_Expr_0= ruleExpr
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      			newCompositeNode(grammarAccess.getLExprAccess().getExprParserRuleCall());
+            	      		
+            	    }
+            	    pushFollow(FOLLOW_36);
+            	    this_Expr_0=ruleExpr();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      			current.merge(this_Expr_0);
+            	      		
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      			afterParserOrEnumRuleCall();
+            	      		
+            	    }
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt12 >= 1 ) break loop12;
+            	    if (state.backtracking>0) {state.failed=true; return current;}
+                        EarlyExitException eee =
+                            new EarlyExitException(12, input);
+                        throw eee;
+                }
+                cnt12++;
+            } while (true);
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleLExpr"
+
+
+    // $ANTLR start "entryRuleExprs"
+    // InternalWhileDsl.g:1231:1: entryRuleExprs returns [String current=null] : iv_ruleExprs= ruleExprs EOF ;
+    public final String entryRuleExprs() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleExprs = null;
+
+
+        try {
+            // InternalWhileDsl.g:1231:45: (iv_ruleExprs= ruleExprs EOF )
+            // InternalWhileDsl.g:1232:2: iv_ruleExprs= ruleExprs EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getExprsRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleExprs=ruleExprs();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleExprs.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExprs"
+
+
+    // $ANTLR start "ruleExprs"
+    // InternalWhileDsl.g:1238:1: ruleExprs returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_Expr_0= ruleExpr (kw= ',' this_LC_2= ruleLC this_Expr_3= ruleExpr )* ) ;
+    public final AntlrDatatypeRuleToken ruleExprs() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_Expr_0 = null;
+
+        AntlrDatatypeRuleToken this_LC_2 = null;
+
+        AntlrDatatypeRuleToken this_Expr_3 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:1244:2: ( (this_Expr_0= ruleExpr (kw= ',' this_LC_2= ruleLC this_Expr_3= ruleExpr )* ) )
+            // InternalWhileDsl.g:1245:2: (this_Expr_0= ruleExpr (kw= ',' this_LC_2= ruleLC this_Expr_3= ruleExpr )* )
+            {
+            // InternalWhileDsl.g:1245:2: (this_Expr_0= ruleExpr (kw= ',' this_LC_2= ruleLC this_Expr_3= ruleExpr )* )
+            // InternalWhileDsl.g:1246:3: this_Expr_0= ruleExpr (kw= ',' this_LC_2= ruleLC this_Expr_3= ruleExpr )*
+            {
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getExprsAccess().getExprParserRuleCall_0());
+              		
+            }
+            pushFollow(FOLLOW_15);
+            this_Expr_0=ruleExpr();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_Expr_0);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            // InternalWhileDsl.g:1256:3: (kw= ',' this_LC_2= ruleLC this_Expr_3= ruleExpr )*
+            loop13:
+            do {
+                int alt13=2;
+                int LA13_0 = input.LA(1);
+
+                if ( (LA13_0==22) ) {
+                    alt13=1;
+                }
+
+
+                switch (alt13) {
+            	case 1 :
+            	    // InternalWhileDsl.g:1257:4: kw= ',' this_LC_2= ruleLC this_Expr_3= ruleExpr
+            	    {
+            	    kw=(Token)match(input,22,FOLLOW_20); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(kw);
+            	      				newLeafNode(kw, grammarAccess.getExprsAccess().getCommaKeyword_1_0());
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				newCompositeNode(grammarAccess.getExprsAccess().getLCParserRuleCall_1_1());
+            	      			
+            	    }
+            	    pushFollow(FOLLOW_20);
+            	    this_LC_2=ruleLC();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_LC_2);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				afterParserOrEnumRuleCall();
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				newCompositeNode(grammarAccess.getExprsAccess().getExprParserRuleCall_1_2());
+            	      			
+            	    }
+            	    pushFollow(FOLLOW_15);
+            	    this_Expr_3=ruleExpr();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_Expr_3);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				afterParserOrEnumRuleCall();
+            	      			
+            	    }
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop13;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExprs"
+
+
+    // $ANTLR start "entryRuleExpr"
+    // InternalWhileDsl.g:1287:1: entryRuleExpr returns [String current=null] : iv_ruleExpr= ruleExpr EOF ;
+    public final String entryRuleExpr() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleExpr = null;
+
+
+        try {
+            // InternalWhileDsl.g:1287:44: (iv_ruleExpr= ruleExpr EOF )
+            // InternalWhileDsl.g:1288:2: iv_ruleExpr= ruleExpr EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getExprRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleExpr=ruleExpr();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleExpr.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpr"
+
+
+    // $ANTLR start "ruleExpr"
+    // InternalWhileDsl.g:1294:1: ruleExpr returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( ( ( ruleExprAnd )=>this_ExprAnd_0= ruleExprAnd ) | this_ExprSimple_1= ruleExprSimple ) ;
+    public final AntlrDatatypeRuleToken ruleExpr() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        AntlrDatatypeRuleToken this_ExprAnd_0 = null;
+
+        AntlrDatatypeRuleToken this_ExprSimple_1 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:1300:2: ( ( ( ( ruleExprAnd )=>this_ExprAnd_0= ruleExprAnd ) | this_ExprSimple_1= ruleExprSimple ) )
+            // InternalWhileDsl.g:1301:2: ( ( ( ruleExprAnd )=>this_ExprAnd_0= ruleExprAnd ) | this_ExprSimple_1= ruleExprSimple )
+            {
+            // InternalWhileDsl.g:1301:2: ( ( ( ruleExprAnd )=>this_ExprAnd_0= ruleExprAnd ) | this_ExprSimple_1= ruleExprSimple )
+            int alt14=2;
+            int LA14_0 = input.LA(1);
+
+            if ( (LA14_0==45) && (synpred1_InternalWhileDsl())) {
+                alt14=1;
+            }
+            else if ( (LA14_0==36) ) {
+                int LA14_2 = input.LA(2);
+
+                if ( (synpred1_InternalWhileDsl()) ) {
+                    alt14=1;
+                }
+                else if ( (true) ) {
+                    alt14=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return current;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 14, 2, input);
+
+                    throw nvae;
+                }
+            }
+            else if ( (LA14_0==RULE_VARIABLE) ) {
+                int LA14_3 = input.LA(2);
+
+                if ( (synpred1_InternalWhileDsl()) ) {
+                    alt14=1;
+                }
+                else if ( (true) ) {
+                    alt14=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return current;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 14, 3, input);
+
+                    throw nvae;
+                }
+            }
+            else if ( (LA14_0==RULE_SYMBOL) ) {
+                int LA14_4 = input.LA(2);
+
+                if ( (synpred1_InternalWhileDsl()) ) {
+                    alt14=1;
+                }
+                else if ( (true) ) {
+                    alt14=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return current;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 14, 4, input);
+
+                    throw nvae;
+                }
+            }
+            else if ( (LA14_0==37) ) {
+                int LA14_5 = input.LA(2);
+
+                if ( (synpred1_InternalWhileDsl()) ) {
+                    alt14=1;
+                }
+                else if ( (true) ) {
+                    alt14=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return current;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 14, 5, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 14, 0, input);
+
+                throw nvae;
+            }
+            switch (alt14) {
+                case 1 :
+                    // InternalWhileDsl.g:1302:3: ( ( ruleExprAnd )=>this_ExprAnd_0= ruleExprAnd )
+                    {
+                    // InternalWhileDsl.g:1302:3: ( ( ruleExprAnd )=>this_ExprAnd_0= ruleExprAnd )
+                    // InternalWhileDsl.g:1303:4: ( ruleExprAnd )=>this_ExprAnd_0= ruleExprAnd
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getExprAccess().getExprAndParserRuleCall_0());
+                      			
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_ExprAnd_0=ruleExprAnd();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_ExprAnd_0);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalWhileDsl.g:1316:3: this_ExprSimple_1= ruleExprSimple
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      			newCompositeNode(grammarAccess.getExprAccess().getExprSimpleParserRuleCall_1());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_ExprSimple_1=ruleExprSimple();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(this_ExprSimple_1);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExpr"
+
+
+    // $ANTLR start "entryRuleExprAnd"
+    // InternalWhileDsl.g:1330:1: entryRuleExprAnd returns [String current=null] : iv_ruleExprAnd= ruleExprAnd EOF ;
+    public final String entryRuleExprAnd() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleExprAnd = null;
+
+
+        try {
+            // InternalWhileDsl.g:1330:47: (iv_ruleExprAnd= ruleExprAnd EOF )
+            // InternalWhileDsl.g:1331:2: iv_ruleExprAnd= ruleExprAnd EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getExprAndRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleExprAnd=ruleExprAnd();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleExprAnd.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExprAnd"
+
+
+    // $ANTLR start "ruleExprAnd"
+    // InternalWhileDsl.g:1337:1: ruleExprAnd returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ExprOr_0= ruleExprOr (this_LC_1= ruleLC kw= 'and' this_LC_3= ruleLC this_ExprOr_4= ruleExprOr )* ) ;
+    public final AntlrDatatypeRuleToken ruleExprAnd() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_ExprOr_0 = null;
+
+        AntlrDatatypeRuleToken this_LC_1 = null;
+
+        AntlrDatatypeRuleToken this_LC_3 = null;
+
+        AntlrDatatypeRuleToken this_ExprOr_4 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:1343:2: ( (this_ExprOr_0= ruleExprOr (this_LC_1= ruleLC kw= 'and' this_LC_3= ruleLC this_ExprOr_4= ruleExprOr )* ) )
+            // InternalWhileDsl.g:1344:2: (this_ExprOr_0= ruleExprOr (this_LC_1= ruleLC kw= 'and' this_LC_3= ruleLC this_ExprOr_4= ruleExprOr )* )
+            {
+            // InternalWhileDsl.g:1344:2: (this_ExprOr_0= ruleExprOr (this_LC_1= ruleLC kw= 'and' this_LC_3= ruleLC this_ExprOr_4= ruleExprOr )* )
+            // InternalWhileDsl.g:1345:3: this_ExprOr_0= ruleExprOr (this_LC_1= ruleLC kw= 'and' this_LC_3= ruleLC this_ExprOr_4= ruleExprOr )*
+            {
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getExprAndAccess().getExprOrParserRuleCall_0());
+              		
+            }
+            pushFollow(FOLLOW_37);
+            this_ExprOr_0=ruleExprOr();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_ExprOr_0);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            // InternalWhileDsl.g:1355:3: (this_LC_1= ruleLC kw= 'and' this_LC_3= ruleLC this_ExprOr_4= ruleExprOr )*
+            loop15:
+            do {
+                int alt15=2;
+                alt15 = dfa15.predict(input);
+                switch (alt15) {
+            	case 1 :
+            	    // InternalWhileDsl.g:1356:4: this_LC_1= ruleLC kw= 'and' this_LC_3= ruleLC this_ExprOr_4= ruleExprOr
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      				newCompositeNode(grammarAccess.getExprAndAccess().getLCParserRuleCall_1_0());
+            	      			
+            	    }
+            	    pushFollow(FOLLOW_38);
+            	    this_LC_1=ruleLC();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_LC_1);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				afterParserOrEnumRuleCall();
+            	      			
+            	    }
+            	    kw=(Token)match(input,43,FOLLOW_20); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(kw);
+            	      				newLeafNode(kw, grammarAccess.getExprAndAccess().getAndKeyword_1_1());
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				newCompositeNode(grammarAccess.getExprAndAccess().getLCParserRuleCall_1_2());
+            	      			
+            	    }
+            	    pushFollow(FOLLOW_39);
+            	    this_LC_3=ruleLC();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_LC_3);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				afterParserOrEnumRuleCall();
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				newCompositeNode(grammarAccess.getExprAndAccess().getExprOrParserRuleCall_1_3());
+            	      			
+            	    }
+            	    pushFollow(FOLLOW_37);
+            	    this_ExprOr_4=ruleExprOr();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_ExprOr_4);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				afterParserOrEnumRuleCall();
+            	      			
+            	    }
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop15;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExprAnd"
+
+
+    // $ANTLR start "entryRuleExprOr"
+    // InternalWhileDsl.g:1396:1: entryRuleExprOr returns [String current=null] : iv_ruleExprOr= ruleExprOr EOF ;
+    public final String entryRuleExprOr() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleExprOr = null;
+
+
+        try {
+            // InternalWhileDsl.g:1396:46: (iv_ruleExprOr= ruleExprOr EOF )
+            // InternalWhileDsl.g:1397:2: iv_ruleExprOr= ruleExprOr EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getExprOrRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleExprOr=ruleExprOr();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleExprOr.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExprOr"
+
+
+    // $ANTLR start "ruleExprOr"
+    // InternalWhileDsl.g:1403:1: ruleExprOr returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ExprNot_0= ruleExprNot (this_LC_1= ruleLC kw= 'or' this_LC_3= ruleLC this_ExprNot_4= ruleExprNot )* ) ;
+    public final AntlrDatatypeRuleToken ruleExprOr() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_ExprNot_0 = null;
+
+        AntlrDatatypeRuleToken this_LC_1 = null;
+
+        AntlrDatatypeRuleToken this_LC_3 = null;
+
+        AntlrDatatypeRuleToken this_ExprNot_4 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:1409:2: ( (this_ExprNot_0= ruleExprNot (this_LC_1= ruleLC kw= 'or' this_LC_3= ruleLC this_ExprNot_4= ruleExprNot )* ) )
+            // InternalWhileDsl.g:1410:2: (this_ExprNot_0= ruleExprNot (this_LC_1= ruleLC kw= 'or' this_LC_3= ruleLC this_ExprNot_4= ruleExprNot )* )
+            {
+            // InternalWhileDsl.g:1410:2: (this_ExprNot_0= ruleExprNot (this_LC_1= ruleLC kw= 'or' this_LC_3= ruleLC this_ExprNot_4= ruleExprNot )* )
+            // InternalWhileDsl.g:1411:3: this_ExprNot_0= ruleExprNot (this_LC_1= ruleLC kw= 'or' this_LC_3= ruleLC this_ExprNot_4= ruleExprNot )*
+            {
+            if ( state.backtracking==0 ) {
+
+              			newCompositeNode(grammarAccess.getExprOrAccess().getExprNotParserRuleCall_0());
+              		
+            }
+            pushFollow(FOLLOW_40);
+            this_ExprNot_0=ruleExprNot();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              			current.merge(this_ExprNot_0);
+              		
+            }
+            if ( state.backtracking==0 ) {
+
+              			afterParserOrEnumRuleCall();
+              		
+            }
+            // InternalWhileDsl.g:1421:3: (this_LC_1= ruleLC kw= 'or' this_LC_3= ruleLC this_ExprNot_4= ruleExprNot )*
+            loop16:
+            do {
+                int alt16=2;
+                alt16 = dfa16.predict(input);
+                switch (alt16) {
+            	case 1 :
+            	    // InternalWhileDsl.g:1422:4: this_LC_1= ruleLC kw= 'or' this_LC_3= ruleLC this_ExprNot_4= ruleExprNot
+            	    {
+            	    if ( state.backtracking==0 ) {
+
+            	      				newCompositeNode(grammarAccess.getExprOrAccess().getLCParserRuleCall_1_0());
+            	      			
+            	    }
+            	    pushFollow(FOLLOW_41);
+            	    this_LC_1=ruleLC();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_LC_1);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				afterParserOrEnumRuleCall();
+            	      			
+            	    }
+            	    kw=(Token)match(input,44,FOLLOW_20); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(kw);
+            	      				newLeafNode(kw, grammarAccess.getExprOrAccess().getOrKeyword_1_1());
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				newCompositeNode(grammarAccess.getExprOrAccess().getLCParserRuleCall_1_2());
+            	      			
+            	    }
+            	    pushFollow(FOLLOW_39);
+            	    this_LC_3=ruleLC();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_LC_3);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				afterParserOrEnumRuleCall();
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				newCompositeNode(grammarAccess.getExprOrAccess().getExprNotParserRuleCall_1_3());
+            	      			
+            	    }
+            	    pushFollow(FOLLOW_40);
+            	    this_ExprNot_4=ruleExprNot();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      				current.merge(this_ExprNot_4);
+            	      			
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      				afterParserOrEnumRuleCall();
+            	      			
+            	    }
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop16;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExprOr"
+
+
+    // $ANTLR start "entryRuleExprNot"
+    // InternalWhileDsl.g:1462:1: entryRuleExprNot returns [String current=null] : iv_ruleExprNot= ruleExprNot EOF ;
+    public final String entryRuleExprNot() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleExprNot = null;
+
+
+        try {
+            // InternalWhileDsl.g:1462:47: (iv_ruleExprNot= ruleExprNot EOF )
+            // InternalWhileDsl.g:1463:2: iv_ruleExprNot= ruleExprNot EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getExprNotRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleExprNot=ruleExprNot();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleExprNot.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExprNot"
+
+
+    // $ANTLR start "ruleExprNot"
+    // InternalWhileDsl.g:1469:1: ruleExprNot returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= 'not' this_LC_1= ruleLC this_ExprEq_2= ruleExprEq ) | this_ExprEq_3= ruleExprEq ) ;
+    public final AntlrDatatypeRuleToken ruleExprNot() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_LC_1 = null;
+
+        AntlrDatatypeRuleToken this_ExprEq_2 = null;
+
+        AntlrDatatypeRuleToken this_ExprEq_3 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:1475:2: ( ( (kw= 'not' this_LC_1= ruleLC this_ExprEq_2= ruleExprEq ) | this_ExprEq_3= ruleExprEq ) )
+            // InternalWhileDsl.g:1476:2: ( (kw= 'not' this_LC_1= ruleLC this_ExprEq_2= ruleExprEq ) | this_ExprEq_3= ruleExprEq )
+            {
+            // InternalWhileDsl.g:1476:2: ( (kw= 'not' this_LC_1= ruleLC this_ExprEq_2= ruleExprEq ) | this_ExprEq_3= ruleExprEq )
+            int alt17=2;
+            int LA17_0 = input.LA(1);
+
+            if ( (LA17_0==45) ) {
+                alt17=1;
+            }
+            else if ( ((LA17_0>=RULE_SYMBOL && LA17_0<=RULE_VARIABLE)||(LA17_0>=36 && LA17_0<=37)) ) {
+                alt17=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 17, 0, input);
+
+                throw nvae;
+            }
+            switch (alt17) {
+                case 1 :
+                    // InternalWhileDsl.g:1477:3: (kw= 'not' this_LC_1= ruleLC this_ExprEq_2= ruleExprEq )
+                    {
+                    // InternalWhileDsl.g:1477:3: (kw= 'not' this_LC_1= ruleLC this_ExprEq_2= ruleExprEq )
+                    // InternalWhileDsl.g:1478:4: kw= 'not' this_LC_1= ruleLC this_ExprEq_2= ruleExprEq
+                    {
+                    kw=(Token)match(input,45,FOLLOW_20); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getExprNotAccess().getNotKeyword_0_0());
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getExprNotAccess().getLCParserRuleCall_0_1());
+                      			
+                    }
+                    pushFollow(FOLLOW_39);
+                    this_LC_1=ruleLC();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_LC_1);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getExprNotAccess().getExprEqParserRuleCall_0_2());
+                      			
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_ExprEq_2=ruleExprEq();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_ExprEq_2);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalWhileDsl.g:1505:3: this_ExprEq_3= ruleExprEq
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      			newCompositeNode(grammarAccess.getExprNotAccess().getExprEqParserRuleCall_1());
+                      		
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_ExprEq_3=ruleExprEq();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      			current.merge(this_ExprEq_3);
+                      		
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      			afterParserOrEnumRuleCall();
+                      		
+                    }
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExprNot"
+
+
+    // $ANTLR start "entryRuleExprEq"
+    // InternalWhileDsl.g:1519:1: entryRuleExprEq returns [String current=null] : iv_ruleExprEq= ruleExprEq EOF ;
+    public final String entryRuleExprEq() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleExprEq = null;
+
+
+        try {
+            // InternalWhileDsl.g:1519:46: (iv_ruleExprEq= ruleExprEq EOF )
+            // InternalWhileDsl.g:1520:2: iv_ruleExprEq= ruleExprEq EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getExprEqRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleExprEq=ruleExprEq();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleExprEq.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExprEq"
+
+
+    // $ANTLR start "ruleExprEq"
+    // InternalWhileDsl.g:1526:1: ruleExprEq returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (this_ExprSimple_0= ruleExprSimple kw= '=?' this_ExprSimple_2= ruleExprSimple ) | (kw= '(' this_Expr_4= ruleExpr kw= ')' ) ) ;
+    public final AntlrDatatypeRuleToken ruleExprEq() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_ExprSimple_0 = null;
+
+        AntlrDatatypeRuleToken this_ExprSimple_2 = null;
+
+        AntlrDatatypeRuleToken this_Expr_4 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:1532:2: ( ( (this_ExprSimple_0= ruleExprSimple kw= '=?' this_ExprSimple_2= ruleExprSimple ) | (kw= '(' this_Expr_4= ruleExpr kw= ')' ) ) )
+            // InternalWhileDsl.g:1533:2: ( (this_ExprSimple_0= ruleExprSimple kw= '=?' this_ExprSimple_2= ruleExprSimple ) | (kw= '(' this_Expr_4= ruleExpr kw= ')' ) )
+            {
+            // InternalWhileDsl.g:1533:2: ( (this_ExprSimple_0= ruleExprSimple kw= '=?' this_ExprSimple_2= ruleExprSimple ) | (kw= '(' this_Expr_4= ruleExpr kw= ')' ) )
+            int alt18=2;
+            int LA18_0 = input.LA(1);
+
+            if ( ((LA18_0>=RULE_SYMBOL && LA18_0<=RULE_VARIABLE)||LA18_0==36) ) {
+                alt18=1;
+            }
+            else if ( (LA18_0==37) ) {
+                switch ( input.LA(2) ) {
+                case 38:
+                case 39:
+                case 41:
+                case 42:
+                    {
+                    alt18=1;
+                    }
+                    break;
+                case RULE_SYMBOL:
+                    {
+                    int LA18_3 = input.LA(3);
+
+                    if ( (LA18_3==40||LA18_3==46) ) {
+                        alt18=2;
+                    }
+                    else if ( ((LA18_3>=RULE_SYMBOL && LA18_3<=RULE_VARIABLE)||(LA18_3>=36 && LA18_3<=37)||LA18_3==45) ) {
+                        alt18=1;
+                    }
+                    else {
+                        if (state.backtracking>0) {state.failed=true; return current;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("", 18, 3, input);
+
+                        throw nvae;
+                    }
+                    }
+                    break;
+                case RULE_VARIABLE:
+                case 36:
+                case 37:
+                case 45:
+                    {
+                    alt18=2;
+                    }
+                    break;
+                default:
+                    if (state.backtracking>0) {state.failed=true; return current;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 18, 2, input);
+
+                    throw nvae;
+                }
+
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return current;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 18, 0, input);
+
+                throw nvae;
+            }
+            switch (alt18) {
+                case 1 :
+                    // InternalWhileDsl.g:1534:3: (this_ExprSimple_0= ruleExprSimple kw= '=?' this_ExprSimple_2= ruleExprSimple )
+                    {
+                    // InternalWhileDsl.g:1534:3: (this_ExprSimple_0= ruleExprSimple kw= '=?' this_ExprSimple_2= ruleExprSimple )
+                    // InternalWhileDsl.g:1535:4: this_ExprSimple_0= ruleExprSimple kw= '=?' this_ExprSimple_2= ruleExprSimple
+                    {
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getExprEqAccess().getExprSimpleParserRuleCall_0_0());
+                      			
+                    }
+                    pushFollow(FOLLOW_42);
+                    this_ExprSimple_0=ruleExprSimple();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_ExprSimple_0);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+                    kw=(Token)match(input,46,FOLLOW_43); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getExprEqAccess().getEqualsSignQuestionMarkKeyword_0_1());
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getExprEqAccess().getExprSimpleParserRuleCall_0_2());
+                      			
+                    }
+                    pushFollow(FOLLOW_2);
+                    this_ExprSimple_2=ruleExprSimple();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_ExprSimple_2);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalWhileDsl.g:1562:3: (kw= '(' this_Expr_4= ruleExpr kw= ')' )
+                    {
+                    // InternalWhileDsl.g:1562:3: (kw= '(' this_Expr_4= ruleExpr kw= ')' )
+                    // InternalWhileDsl.g:1563:4: kw= '(' this_Expr_4= ruleExpr kw= ')'
+                    {
+                    kw=(Token)match(input,37,FOLLOW_20); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getExprEqAccess().getLeftParenthesisKeyword_1_0());
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				newCompositeNode(grammarAccess.getExprEqAccess().getExprParserRuleCall_1_1());
+                      			
+                    }
+                    pushFollow(FOLLOW_34);
+                    this_Expr_4=ruleExpr();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(this_Expr_4);
+                      			
+                    }
+                    if ( state.backtracking==0 ) {
+
+                      				afterParserOrEnumRuleCall();
+                      			
+                    }
+                    kw=(Token)match(input,40,FOLLOW_2); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                      				current.merge(kw);
+                      				newLeafNode(kw, grammarAccess.getExprEqAccess().getRightParenthesisKeyword_1_2());
+                      			
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExprEq"
+
+
+    // $ANTLR start "entryRuleLC"
+    // InternalWhileDsl.g:1588:1: entryRuleLC returns [String current=null] : iv_ruleLC= ruleLC EOF ;
+    public final String entryRuleLC() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleLC = null;
+
+
+        try {
+            // InternalWhileDsl.g:1588:42: (iv_ruleLC= ruleLC EOF )
+            // InternalWhileDsl.g:1589:2: iv_ruleLC= ruleLC EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getLCRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            iv_ruleLC=ruleLC();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleLC.getText(); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return current;
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleLC"
+
+
+    // $ANTLR start "ruleLC"
+    // InternalWhileDsl.g:1595:1: ruleLC returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_SP_0= RULE_SP | this_CR_1= RULE_CR | this_TAB_2= RULE_TAB | this_LF_3= RULE_LF )* ;
+    public final AntlrDatatypeRuleToken ruleLC() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_SP_0=null;
+        Token this_CR_1=null;
+        Token this_TAB_2=null;
+        Token this_LF_3=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalWhileDsl.g:1601:2: ( (this_SP_0= RULE_SP | this_CR_1= RULE_CR | this_TAB_2= RULE_TAB | this_LF_3= RULE_LF )* )
+            // InternalWhileDsl.g:1602:2: (this_SP_0= RULE_SP | this_CR_1= RULE_CR | this_TAB_2= RULE_TAB | this_LF_3= RULE_LF )*
+            {
+            // InternalWhileDsl.g:1602:2: (this_SP_0= RULE_SP | this_CR_1= RULE_CR | this_TAB_2= RULE_TAB | this_LF_3= RULE_LF )*
+            loop19:
+            do {
+                int alt19=5;
+                switch ( input.LA(1) ) {
+                case RULE_SP:
+                    {
+                    alt19=1;
+                    }
+                    break;
+                case RULE_CR:
+                    {
+                    alt19=2;
+                    }
+                    break;
+                case RULE_TAB:
+                    {
+                    alt19=3;
+                    }
+                    break;
+                case RULE_LF:
+                    {
+                    alt19=4;
+                    }
+                    break;
+
+                }
+
+                switch (alt19) {
+            	case 1 :
+            	    // InternalWhileDsl.g:1603:3: this_SP_0= RULE_SP
+            	    {
+            	    this_SP_0=(Token)match(input,RULE_SP,FOLLOW_44); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      			current.merge(this_SP_0);
+            	      		
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      			newLeafNode(this_SP_0, grammarAccess.getLCAccess().getSPTerminalRuleCall_0());
+            	      		
+            	    }
+
+            	    }
+            	    break;
+            	case 2 :
+            	    // InternalWhileDsl.g:1611:3: this_CR_1= RULE_CR
+            	    {
+            	    this_CR_1=(Token)match(input,RULE_CR,FOLLOW_44); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      			current.merge(this_CR_1);
+            	      		
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      			newLeafNode(this_CR_1, grammarAccess.getLCAccess().getCRTerminalRuleCall_1());
+            	      		
+            	    }
+
+            	    }
+            	    break;
+            	case 3 :
+            	    // InternalWhileDsl.g:1619:3: this_TAB_2= RULE_TAB
+            	    {
+            	    this_TAB_2=(Token)match(input,RULE_TAB,FOLLOW_44); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      			current.merge(this_TAB_2);
+            	      		
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      			newLeafNode(this_TAB_2, grammarAccess.getLCAccess().getTABTerminalRuleCall_2());
+            	      		
+            	    }
+
+            	    }
+            	    break;
+            	case 4 :
+            	    // InternalWhileDsl.g:1627:3: this_LF_3= RULE_LF
+            	    {
+            	    this_LF_3=(Token)match(input,RULE_LF,FOLLOW_44); if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      			current.merge(this_LF_3);
+            	      		
+            	    }
+            	    if ( state.backtracking==0 ) {
+
+            	      			newLeafNode(this_LF_3, grammarAccess.getLCAccess().getLFTerminalRuleCall_3());
+            	      		
+            	    }
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop19;
+                }
+            } while (true);
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+
+              	leaveRule();
+
+            }
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleLC"
+
+    // $ANTLR start synpred1_InternalWhileDsl
+    public final void synpred1_InternalWhileDsl_fragment() throws RecognitionException {   
+        // InternalWhileDsl.g:1303:4: ( ruleExprAnd )
+        // InternalWhileDsl.g:1303:5: ruleExprAnd
+        {
+        pushFollow(FOLLOW_2);
+        ruleExprAnd();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred1_InternalWhileDsl
+
+    // Delegated rules
+
+    public final boolean synpred1_InternalWhileDsl() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred1_InternalWhileDsl_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+
+
+    protected DFA15 dfa15 = new DFA15(this);
+    protected DFA16 dfa16 = new DFA16(this);
+    static final String dfa_1s = "\7\uffff";
+    static final String dfa_2s = "\1\5\6\uffff";
+    static final String dfa_3s = "\1\4\4\6\2\uffff";
+    static final String dfa_4s = "\1\55\4\53\2\uffff";
+    static final String dfa_5s = "\5\uffff\1\2\1\1";
+    static final String dfa_6s = "\7\uffff}>";
+    static final String[] dfa_7s = {
+            "\2\5\1\1\1\2\1\3\1\4\12\uffff\1\5\1\uffff\2\5\3\uffff\2\5\2\uffff\3\5\1\uffff\3\5\2\uffff\1\5\2\uffff\1\6\1\uffff\1\5",
+            "\1\1\1\2\1\3\1\4\12\uffff\1\5\6\uffff\2\5\2\uffff\3\5\1\uffff\1\5\7\uffff\1\6",
+            "\1\1\1\2\1\3\1\4\12\uffff\1\5\6\uffff\2\5\2\uffff\3\5\1\uffff\1\5\7\uffff\1\6",
+            "\1\1\1\2\1\3\1\4\12\uffff\1\5\6\uffff\2\5\2\uffff\3\5\1\uffff\1\5\7\uffff\1\6",
+            "\1\1\1\2\1\3\1\4\12\uffff\1\5\6\uffff\2\5\2\uffff\3\5\1\uffff\1\5\7\uffff\1\6",
+            "",
+            ""
+    };
+
+    static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
+    static final short[] dfa_2 = DFA.unpackEncodedString(dfa_2s);
+    static final char[] dfa_3 = DFA.unpackEncodedStringToUnsignedChars(dfa_3s);
+    static final char[] dfa_4 = DFA.unpackEncodedStringToUnsignedChars(dfa_4s);
+    static final short[] dfa_5 = DFA.unpackEncodedString(dfa_5s);
+    static final short[] dfa_6 = DFA.unpackEncodedString(dfa_6s);
+    static final short[][] dfa_7 = unpackEncodedStringArray(dfa_7s);
+
+    class DFA15 extends DFA {
+
+        public DFA15(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 15;
+            this.eot = dfa_1;
+            this.eof = dfa_2;
+            this.min = dfa_3;
+            this.max = dfa_4;
+            this.accept = dfa_5;
+            this.special = dfa_6;
+            this.transition = dfa_7;
+        }
+        public String getDescription() {
+            return "()* loopback of 1355:3: (this_LC_1= ruleLC kw= 'and' this_LC_3= ruleLC this_ExprOr_4= ruleExprOr )*";
+        }
+    }
+    static final String dfa_8s = "\1\55\4\54\2\uffff";
+    static final String[] dfa_9s = {
+            "\2\5\1\1\1\2\1\3\1\4\12\uffff\1\5\1\uffff\2\5\3\uffff\2\5\2\uffff\3\5\1\uffff\3\5\2\uffff\1\5\2\uffff\1\5\1\6\1\5",
+            "\1\1\1\2\1\3\1\4\12\uffff\1\5\6\uffff\2\5\2\uffff\3\5\1\uffff\1\5\7\uffff\1\5\1\6",
+            "\1\1\1\2\1\3\1\4\12\uffff\1\5\6\uffff\2\5\2\uffff\3\5\1\uffff\1\5\7\uffff\1\5\1\6",
+            "\1\1\1\2\1\3\1\4\12\uffff\1\5\6\uffff\2\5\2\uffff\3\5\1\uffff\1\5\7\uffff\1\5\1\6",
+            "\1\1\1\2\1\3\1\4\12\uffff\1\5\6\uffff\2\5\2\uffff\3\5\1\uffff\1\5\7\uffff\1\5\1\6",
+            "",
+            ""
+    };
+    static final char[] dfa_8 = DFA.unpackEncodedStringToUnsignedChars(dfa_8s);
+    static final short[][] dfa_9 = unpackEncodedStringArray(dfa_9s);
+
+    class DFA16 extends DFA {
+
+        public DFA16(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 16;
+            this.eot = dfa_1;
+            this.eof = dfa_2;
+            this.min = dfa_3;
+            this.max = dfa_8;
+            this.accept = dfa_5;
+            this.special = dfa_6;
+            this.transition = dfa_9;
+        }
+        public String getDescription() {
+            return "()* loopback of 1421:3: (this_LC_1= ruleLC kw= 'or' this_LC_3= ruleLC this_ExprNot_4= ruleExprNot )*";
+        }
+    }
+ 
+
+    public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x00000000000003D0L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x00000000000803C0L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000000000003C0L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x00000000000003E0L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x00000000001003C0L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000100000L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x00000004650003E0L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x00000000002003C0L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000000000200000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000800002L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x00000000020003C0L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x00002030000003F0L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x00000000080003C0L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x00000000100003C0L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x00000000800003C0L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x00000003000003C0L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000300000000L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x00000002000003C0L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x00000008000003C0L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x000000C000000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000060000000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x00002030000003F2L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x00000800000003C2L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000203000000030L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x00001000000003C2L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000003000000030L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x00000000000003C2L});
+
+}

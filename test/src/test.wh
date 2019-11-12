@@ -1,0 +1,28 @@
+function test:
+read Var1,Var2
+%
+	nop;
+	while nil do
+		nop;
+		nop;
+	od;
+	
+	if expr then
+		nop;
+		nop;
+		while nil=?nil do
+			nop;
+			nop
+		od;
+	else
+		nop;
+	fi;
+	
+	foreach eee in eee do
+		nop;
+		for eee do
+			nop;
+		od;
+	od
+%
+write Var1,Var2

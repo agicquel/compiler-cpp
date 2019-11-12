@@ -3,7 +3,83 @@ grammar esir.comp.cpp.WhileDsl with org.eclipse.xtext.common.Terminals
 generate whileDsl "http://www.comp.esir/cpp/WhileDsl"
 
 Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+	(program+=Function)*;
+
+// Structure de base
+Function:
+	'function' LC SYMBOL ':' LC Definition LC
+;
+Definition:
+	'read' LC Input LC '%' LC Commands LC '%' LC 'write' LC Output
+;
+Input:
+	VARIABLE (',' VARIABLE)*
+;
+Output:
+	VARIABLE (',' VARIABLE)*
+;
+
+// Commandes
+Commands:
+	Command (';' Command)* (';')?
+;
+Command:
+	('nop' | While | For | If | Foreach | Vars LC ':=' LC Exprs )
+;
+While:
+	'while' LC Expr LC 'do' LC Commands LC 'od'
+;
+For:
+	'for' LC Expr LC 'do' LC Commands LC 'od'
+;
+If:
+	'if' LC Expr LC 'then' LC Commands LC ('else' LC Commands LC 'fi' | 'fi' )
+;
+Foreach:
+	'foreach' LC Expr LC 'in' LC Expr LC 'do' LC Commands LC 'od'
+;
+Vars:
+	VARIABLE (','  VARIABLE)*
+;
+
+// Expressions
+ExprSimple:
+	'nil' | VARIABLE | SYMBOL | '(' ('cons'|'list') LExpr ')' | '('('hd'|'tl') LC Expr ')' | '(' SYMBOL LExpr ')'
+;
+LExpr:
+	(Expr)+
+;
+Exprs:
+	Expr (',' LC Expr)*
+;
+Expr:
+	=>ExprAnd | ExprSimple
+;
+ExprAnd:
+	ExprOr (LC 'and' LC ExprOr)*
+;     
+
+ExprOr:
+	ExprNot (LC 'or' LC ExprNot)*
+;  
+
+ExprNot:
+	'not' LC ExprEq | ExprEq
+;
+
+ExprEq:
+	ExprSimple '=?' ExprSimple  | '(' Expr ')'
+;
+
+// Separateur entre symbole non terminaux
+LC :
+	(SP | CR | TAB | LF)*
+;	
+
+// Symboles terminaux
+terminal VARIABLE :  ("A".."Z")("0".."9"|"a".."z"|"A".."Z")*("?"|"!")?;
+terminal SYMBOL : ("a".."z")("0".."9"|"a".."z"|"A".."Z")*("?"|"!")?;
+terminal SP : ' ';
+terminal CR : '\n';
+terminal TAB : '\t';
+terminal LF : '\r';
