@@ -1,0 +1,70 @@
+grammar org.xtext.example.tp3TL.While with org.eclipse.xtext.common.Terminals
+
+generate while "http://www.xtext.org/example/tp3TL/While"
+
+Model:
+	(p+=Function)*;
+
+Function:
+	'function' SYMBOL ':' Definition;
+
+Definition:
+	'read' Input '%' Commands '%' 'write' Output;
+
+Input:
+	VARIABLE ( ',' VARIABLE)*;
+
+Output:
+	VARIABLE ( ',' VARIABLE)*;
+
+Commands:
+	Command (';' Command)*;
+
+Command:
+	('not' | While | For | If | Foreach | Vars ':=' ExprS);
+
+Vars:
+	VARIABLE ( ',' VARIABLE)*;
+
+ExprS:
+	Expr ( ',' Expr)*;
+
+While:
+	'while' Expr 'do' Commands 'od';
+
+For:
+	'for' Expr 'do' Commands 'od';
+
+If:
+	'if' Expr 'then' Commands ('else' Commands 'od'| 'fi');
+
+Foreach:
+	'foreach' Expr 'in' Expr 'do' Commands 'od';
+
+Expr:
+	=>ExprAnd | ExprSimple;
+
+ExprSimple:
+	'nil' | VARIABLE | SYMBOL | '(' 'cons' LExpr ')' | '(' 'list' LExpr ')' |
+	'(' 'hd' Expr ')' | '(' 'tl' Expr ')' | '(' SYMBOL LExpr ')' ;
+
+LExpr:
+	(Expr)+;
+
+ExprAnd:
+	ExprOr ('and' ExprOr)*;
+
+ExprOr:
+	ExprNot ('or' ExprNot)*;
+
+ExprNot:
+	'not' ExprEq | ExprEq;
+
+ExprEq:
+	ExprSimple ('=?' ExprSimple)? | '(' Expr ')';
+
+terminal VARIABLE:
+	("A".."Z") ("0".."9"|"a".."z"|"A".."Z")*("?"|"!");
+
+terminal SYMBOL:
+	("a".."z") ("0".."9"|"a".."z"|"A".."Z")*("?"|"!");
