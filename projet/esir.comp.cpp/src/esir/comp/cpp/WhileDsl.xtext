@@ -1,0 +1,9 @@
+grammar esir.comp.cpp.WhileDsl with org.eclipse.xtext.common.Terminals
+
+generate whileDsl "http://www.comp.esir/cpp/WhileDsl"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
