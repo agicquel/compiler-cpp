@@ -91,6 +91,16 @@ public class WhileDslAdapterFactory extends AdapterFactoryImpl
         return createDefinitionAdapter();
       }
       @Override
+      public Adapter caseInput(Input object)
+      {
+        return createInputAdapter();
+      }
+      @Override
+      public Adapter caseOutput(Output object)
+      {
+        return createOutputAdapter();
+      }
+      @Override
       public Adapter caseCommands(Commands object)
       {
         return createCommandsAdapter();
@@ -124,6 +134,66 @@ public class WhileDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseVarsCommand(VarsCommand object)
       {
         return createVarsCommandAdapter();
+      }
+      @Override
+      public Adapter caseVars(Vars object)
+      {
+        return createVarsAdapter();
+      }
+      @Override
+      public Adapter caseExprSimple(ExprSimple object)
+      {
+        return createExprSimpleAdapter();
+      }
+      @Override
+      public Adapter caseExprSimpleWithLExpr(ExprSimpleWithLExpr object)
+      {
+        return createExprSimpleWithLExprAdapter();
+      }
+      @Override
+      public Adapter caseExprSimpleWithExpr(ExprSimpleWithExpr object)
+      {
+        return createExprSimpleWithExprAdapter();
+      }
+      @Override
+      public Adapter caseExprSimpleWithSymbolLExpr(ExprSimpleWithSymbolLExpr object)
+      {
+        return createExprSimpleWithSymbolLExprAdapter();
+      }
+      @Override
+      public Adapter caseLExpr(LExpr object)
+      {
+        return createLExprAdapter();
+      }
+      @Override
+      public Adapter caseExprs(Exprs object)
+      {
+        return createExprsAdapter();
+      }
+      @Override
+      public Adapter caseExpr(Expr object)
+      {
+        return createExprAdapter();
+      }
+      @Override
+      public Adapter caseExprAnd(ExprAnd object)
+      {
+        return createExprAndAdapter();
+      }
+      @Override
+      public Adapter caseExprOr(ExprOr object)
+      {
+        return createExprOrAdapter();
+      }
+      @Override
+      public Adapter caseExprNot(ExprNot object)
+      {
+        return createExprNotAdapter();
+      }
+      @Override
+      public Adapter caseExprEq(ExprEq object)
+      {
+        return createExprEqAdapter();
       }
       @Override
       public Adapter caseNopCommand(NopCommand object)
@@ -193,6 +263,36 @@ public class WhileDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.Input <em>Input</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.Input
+   * @generated
+   */
+  public Adapter createInputAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.Output <em>Output</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.Output
+   * @generated
+   */
+  public Adapter createOutputAdapter()
   {
     return null;
   }
@@ -298,6 +398,186 @@ public class WhileDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVarsCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.Vars <em>Vars</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.Vars
+   * @generated
+   */
+  public Adapter createVarsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.ExprSimple <em>Expr Simple</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.ExprSimple
+   * @generated
+   */
+  public Adapter createExprSimpleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.ExprSimpleWithLExpr <em>Expr Simple With LExpr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithLExpr
+   * @generated
+   */
+  public Adapter createExprSimpleWithLExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.ExprSimpleWithExpr <em>Expr Simple With Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithExpr
+   * @generated
+   */
+  public Adapter createExprSimpleWithExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr <em>Expr Simple With Symbol LExpr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr
+   * @generated
+   */
+  public Adapter createExprSimpleWithSymbolLExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.LExpr <em>LExpr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.LExpr
+   * @generated
+   */
+  public Adapter createLExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.Exprs <em>Exprs</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.Exprs
+   * @generated
+   */
+  public Adapter createExprsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.Expr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.Expr
+   * @generated
+   */
+  public Adapter createExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.ExprAnd <em>Expr And</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.ExprAnd
+   * @generated
+   */
+  public Adapter createExprAndAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.ExprOr <em>Expr Or</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.ExprOr
+   * @generated
+   */
+  public Adapter createExprOrAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.ExprNot <em>Expr Not</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.ExprNot
+   * @generated
+   */
+  public Adapter createExprNotAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.ExprEq <em>Expr Eq</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.ExprEq
+   * @generated
+   */
+  public Adapter createExprEqAdapter()
   {
     return null;
   }

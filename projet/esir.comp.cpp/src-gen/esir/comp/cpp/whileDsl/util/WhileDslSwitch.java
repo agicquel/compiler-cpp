@@ -94,6 +94,20 @@ public class WhileDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case WhileDslPackage.INPUT:
+      {
+        Input input = (Input)theEObject;
+        T result = caseInput(input);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.OUTPUT:
+      {
+        Output output = (Output)theEObject;
+        T result = caseOutput(output);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case WhileDslPackage.COMMANDS:
       {
         Commands commands = (Commands)theEObject;
@@ -145,6 +159,90 @@ public class WhileDslSwitch<T> extends Switch<T>
         VarsCommand varsCommand = (VarsCommand)theEObject;
         T result = caseVarsCommand(varsCommand);
         if (result == null) result = caseCommand(varsCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.VARS:
+      {
+        Vars vars = (Vars)theEObject;
+        T result = caseVars(vars);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.EXPR_SIMPLE:
+      {
+        ExprSimple exprSimple = (ExprSimple)theEObject;
+        T result = caseExprSimple(exprSimple);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.EXPR_SIMPLE_WITH_LEXPR:
+      {
+        ExprSimpleWithLExpr exprSimpleWithLExpr = (ExprSimpleWithLExpr)theEObject;
+        T result = caseExprSimpleWithLExpr(exprSimpleWithLExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.EXPR_SIMPLE_WITH_EXPR:
+      {
+        ExprSimpleWithExpr exprSimpleWithExpr = (ExprSimpleWithExpr)theEObject;
+        T result = caseExprSimpleWithExpr(exprSimpleWithExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR:
+      {
+        ExprSimpleWithSymbolLExpr exprSimpleWithSymbolLExpr = (ExprSimpleWithSymbolLExpr)theEObject;
+        T result = caseExprSimpleWithSymbolLExpr(exprSimpleWithSymbolLExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.LEXPR:
+      {
+        LExpr lExpr = (LExpr)theEObject;
+        T result = caseLExpr(lExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.EXPRS:
+      {
+        Exprs exprs = (Exprs)theEObject;
+        T result = caseExprs(exprs);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.EXPR:
+      {
+        Expr expr = (Expr)theEObject;
+        T result = caseExpr(expr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.EXPR_AND:
+      {
+        ExprAnd exprAnd = (ExprAnd)theEObject;
+        T result = caseExprAnd(exprAnd);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.EXPR_OR:
+      {
+        ExprOr exprOr = (ExprOr)theEObject;
+        T result = caseExprOr(exprOr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.EXPR_NOT:
+      {
+        ExprNot exprNot = (ExprNot)theEObject;
+        T result = caseExprNot(exprNot);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.EXPR_EQ:
+      {
+        ExprEq exprEq = (ExprEq)theEObject;
+        T result = caseExprEq(exprEq);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -204,6 +302,38 @@ public class WhileDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDefinition(Definition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Input</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Input</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInput(Input object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Output</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Output</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOutput(Output object)
   {
     return null;
   }
@@ -316,6 +446,198 @@ public class WhileDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseVarsCommand(VarsCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Vars</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Vars</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVars(Vars object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expr Simple</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expr Simple</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExprSimple(ExprSimple object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expr Simple With LExpr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expr Simple With LExpr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExprSimpleWithLExpr(ExprSimpleWithLExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expr Simple With Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expr Simple With Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExprSimpleWithExpr(ExprSimpleWithExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expr Simple With Symbol LExpr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expr Simple With Symbol LExpr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExprSimpleWithSymbolLExpr(ExprSimpleWithSymbolLExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>LExpr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>LExpr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLExpr(LExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Exprs</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Exprs</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExprs(Exprs object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpr(Expr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expr And</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expr And</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExprAnd(ExprAnd object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expr Or</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expr Or</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExprOr(ExprOr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expr Not</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expr Not</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExprNot(ExprNot object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expr Eq</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expr Eq</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExprEq(ExprEq object)
   {
     return null;
   }

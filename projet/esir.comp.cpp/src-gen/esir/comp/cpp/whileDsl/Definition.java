@@ -26,26 +26,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface Definition extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Intput</b></em>' attribute.
+   * Returns the value of the '<em><b>Intput</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Intput</em>' attribute.
-   * @see #setIntput(String)
+   * @return the value of the '<em>Intput</em>' containment reference.
+   * @see #setIntput(Input)
    * @see esir.comp.cpp.whileDsl.WhileDslPackage#getDefinition_Intput()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getIntput();
+  Input getIntput();
 
   /**
-   * Sets the value of the '{@link esir.comp.cpp.whileDsl.Definition#getIntput <em>Intput</em>}' attribute.
+   * Sets the value of the '{@link esir.comp.cpp.whileDsl.Definition#getIntput <em>Intput</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Intput</em>' attribute.
+   * @param value the new value of the '<em>Intput</em>' containment reference.
    * @see #getIntput()
    * @generated
    */
-  void setIntput(String value);
+  void setIntput(Input value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.
@@ -70,25 +70,25 @@ public interface Definition extends EObject
   void setBody(Commands value);
 
   /**
-   * Returns the value of the '<em><b>Output</b></em>' attribute.
+   * Returns the value of the '<em><b>Output</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Output</em>' attribute.
-   * @see #setOutput(String)
+   * @return the value of the '<em>Output</em>' containment reference.
+   * @see #setOutput(Output)
    * @see esir.comp.cpp.whileDsl.WhileDslPackage#getDefinition_Output()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getOutput();
+  Output getOutput();
 
   /**
-   * Sets the value of the '{@link esir.comp.cpp.whileDsl.Definition#getOutput <em>Output</em>}' attribute.
+   * Sets the value of the '{@link esir.comp.cpp.whileDsl.Definition#getOutput <em>Output</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Output</em>' attribute.
+   * @param value the new value of the '<em>Output</em>' containment reference.
    * @see #getOutput()
    * @generated
    */
-  void setOutput(String value);
+  void setOutput(Output value);
 
 } // Definition

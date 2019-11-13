@@ -25,48 +25,48 @@ package esir.comp.cpp.whileDsl;
 public interface ForeachCommand extends Command
 {
   /**
-   * Returns the value of the '<em><b>Exp Element</b></em>' attribute.
+   * Returns the value of the '<em><b>Exp Element</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp Element</em>' attribute.
-   * @see #setExpElement(String)
+   * @return the value of the '<em>Exp Element</em>' containment reference.
+   * @see #setExpElement(Expr)
    * @see esir.comp.cpp.whileDsl.WhileDslPackage#getForeachCommand_ExpElement()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getExpElement();
+  Expr getExpElement();
 
   /**
-   * Sets the value of the '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpElement <em>Exp Element</em>}' attribute.
+   * Sets the value of the '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpElement <em>Exp Element</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp Element</em>' attribute.
+   * @param value the new value of the '<em>Exp Element</em>' containment reference.
    * @see #getExpElement()
    * @generated
    */
-  void setExpElement(String value);
+  void setExpElement(Expr value);
 
   /**
-   * Returns the value of the '<em><b>Exp List</b></em>' attribute.
+   * Returns the value of the '<em><b>Exp List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp List</em>' attribute.
-   * @see #setExpList(String)
+   * @return the value of the '<em>Exp List</em>' containment reference.
+   * @see #setExpList(Expr)
    * @see esir.comp.cpp.whileDsl.WhileDslPackage#getForeachCommand_ExpList()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getExpList();
+  Expr getExpList();
 
   /**
-   * Sets the value of the '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpList <em>Exp List</em>}' attribute.
+   * Sets the value of the '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpList <em>Exp List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp List</em>' attribute.
+   * @param value the new value of the '<em>Exp List</em>' containment reference.
    * @see #getExpList()
    * @generated
    */
-  void setExpList(String value);
+  void setExpList(Expr value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

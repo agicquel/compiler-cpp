@@ -133,7 +133,7 @@ public interface WhileDslPackage extends EPackage
   int DEFINITION = 2;
 
   /**
-   * The feature id for the '<em><b>Intput</b></em>' attribute.
+   * The feature id for the '<em><b>Intput</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -151,7 +151,7 @@ public interface WhileDslPackage extends EPackage
   int DEFINITION__BODY = 1;
 
   /**
-   * The feature id for the '<em><b>Output</b></em>' attribute.
+   * The feature id for the '<em><b>Output</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -169,6 +169,62 @@ public interface WhileDslPackage extends EPackage
   int DEFINITION_FEATURE_COUNT = 3;
 
   /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.InputImpl <em>Input</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.InputImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getInput()
+   * @generated
+   */
+  int INPUT = 3;
+
+  /**
+   * The feature id for the '<em><b>Variables</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT__VARIABLES = 0;
+
+  /**
+   * The number of structural features of the '<em>Input</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INPUT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.OutputImpl <em>Output</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.OutputImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getOutput()
+   * @generated
+   */
+  int OUTPUT = 4;
+
+  /**
+   * The feature id for the '<em><b>Variables</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT__VARIABLES = 0;
+
+  /**
+   * The number of structural features of the '<em>Output</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.CommandsImpl <em>Commands</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -176,7 +232,7 @@ public interface WhileDslPackage extends EPackage
    * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getCommands()
    * @generated
    */
-  int COMMANDS = 3;
+  int COMMANDS = 5;
 
   /**
    * The feature id for the '<em><b>Commands</b></em>' containment reference list.
@@ -204,7 +260,7 @@ public interface WhileDslPackage extends EPackage
    * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 4;
+  int COMMAND = 6;
 
   /**
    * The number of structural features of the '<em>Command</em>' class.
@@ -223,10 +279,10 @@ public interface WhileDslPackage extends EPackage
    * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getWhileCommand()
    * @generated
    */
-  int WHILE_COMMAND = 5;
+  int WHILE_COMMAND = 7;
 
   /**
-   * The feature id for the '<em><b>Cond</b></em>' attribute.
+   * The feature id for the '<em><b>Cond</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -260,10 +316,10 @@ public interface WhileDslPackage extends EPackage
    * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getForCommand()
    * @generated
    */
-  int FOR_COMMAND = 6;
+  int FOR_COMMAND = 8;
 
   /**
-   * The feature id for the '<em><b>Cond</b></em>' attribute.
+   * The feature id for the '<em><b>Cond</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -297,10 +353,10 @@ public interface WhileDslPackage extends EPackage
    * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getIfCommand()
    * @generated
    */
-  int IF_COMMAND = 7;
+  int IF_COMMAND = 9;
 
   /**
-   * The feature id for the '<em><b>Cond</b></em>' attribute.
+   * The feature id for the '<em><b>Cond</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -343,10 +399,10 @@ public interface WhileDslPackage extends EPackage
    * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getForeachCommand()
    * @generated
    */
-  int FOREACH_COMMAND = 8;
+  int FOREACH_COMMAND = 10;
 
   /**
-   * The feature id for the '<em><b>Exp Element</b></em>' attribute.
+   * The feature id for the '<em><b>Exp Element</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -355,7 +411,7 @@ public interface WhileDslPackage extends EPackage
   int FOREACH_COMMAND__EXP_ELEMENT = COMMAND_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Exp List</b></em>' attribute.
+   * The feature id for the '<em><b>Exp List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -389,10 +445,10 @@ public interface WhileDslPackage extends EPackage
    * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getVarsCommand()
    * @generated
    */
-  int VARS_COMMAND = 9;
+  int VARS_COMMAND = 11;
 
   /**
-   * The feature id for the '<em><b>Variables</b></em>' attribute.
+   * The feature id for the '<em><b>Variables</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -401,7 +457,7 @@ public interface WhileDslPackage extends EPackage
   int VARS_COMMAND__VARIABLES = COMMAND_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Values</b></em>' attribute.
+   * The feature id for the '<em><b>Values</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -419,6 +475,396 @@ public interface WhileDslPackage extends EPackage
   int VARS_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.VarsImpl <em>Vars</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.VarsImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getVars()
+   * @generated
+   */
+  int VARS = 12;
+
+  /**
+   * The feature id for the '<em><b>Variables</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARS__VARIABLES = 0;
+
+  /**
+   * The number of structural features of the '<em>Vars</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ExprSimpleImpl <em>Expr Simple</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ExprSimpleImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprSimple()
+   * @generated
+   */
+  int EXPR_SIMPLE = 13;
+
+  /**
+   * The feature id for the '<em><b>Term</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE__TERM = 0;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE__EXPRESSION = 1;
+
+  /**
+   * The number of structural features of the '<em>Expr Simple</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ExprSimpleWithLExprImpl <em>Expr Simple With LExpr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ExprSimpleWithLExprImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprSimpleWithLExpr()
+   * @generated
+   */
+  int EXPR_SIMPLE_WITH_LEXPR = 14;
+
+  /**
+   * The feature id for the '<em><b>Operation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE_WITH_LEXPR__OPERATION = 0;
+
+  /**
+   * The feature id for the '<em><b>Lexpr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE_WITH_LEXPR__LEXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Expr Simple With LExpr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE_WITH_LEXPR_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ExprSimpleWithExprImpl <em>Expr Simple With Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ExprSimpleWithExprImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprSimpleWithExpr()
+   * @generated
+   */
+  int EXPR_SIMPLE_WITH_EXPR = 15;
+
+  /**
+   * The feature id for the '<em><b>Operation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE_WITH_EXPR__OPERATION = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE_WITH_EXPR__EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Expr Simple With Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE_WITH_EXPR_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ExprSimpleWithSymbolLExprImpl <em>Expr Simple With Symbol LExpr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ExprSimpleWithSymbolLExprImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprSimpleWithSymbolLExpr()
+   * @generated
+   */
+  int EXPR_SIMPLE_WITH_SYMBOL_LEXPR = 16;
+
+  /**
+   * The feature id for the '<em><b>Lexpr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR = 0;
+
+  /**
+   * The number of structural features of the '<em>Expr Simple With Symbol LExpr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE_WITH_SYMBOL_LEXPR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.LExprImpl <em>LExpr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.LExprImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getLExpr()
+   * @generated
+   */
+  int LEXPR = 17;
+
+  /**
+   * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LEXPR__EXPRESSIONS = 0;
+
+  /**
+   * The number of structural features of the '<em>LExpr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LEXPR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ExprsImpl <em>Exprs</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ExprsImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprs()
+   * @generated
+   */
+  int EXPRS = 18;
+
+  /**
+   * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRS__EXPRESSIONS = 0;
+
+  /**
+   * The number of structural features of the '<em>Exprs</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ExprImpl <em>Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ExprImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExpr()
+   * @generated
+   */
+  int EXPR = 19;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR__EXPRESSION = 0;
+
+  /**
+   * The number of structural features of the '<em>Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ExprAndImpl <em>Expr And</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ExprAndImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprAnd()
+   * @generated
+   */
+  int EXPR_AND = 20;
+
+  /**
+   * The feature id for the '<em><b>Expressions Or</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_AND__EXPRESSIONS_OR = 0;
+
+  /**
+   * The number of structural features of the '<em>Expr And</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_AND_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ExprOrImpl <em>Expr Or</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ExprOrImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprOr()
+   * @generated
+   */
+  int EXPR_OR = 21;
+
+  /**
+   * The feature id for the '<em><b>Expressions Not</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_OR__EXPRESSIONS_NOT = 0;
+
+  /**
+   * The number of structural features of the '<em>Expr Or</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_OR_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ExprNotImpl <em>Expr Not</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ExprNotImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprNot()
+   * @generated
+   */
+  int EXPR_NOT = 22;
+
+  /**
+   * The feature id for the '<em><b>Negation</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_NOT__NEGATION = 0;
+
+  /**
+   * The feature id for the '<em><b>Expression Eq</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_NOT__EXPRESSION_EQ = 1;
+
+  /**
+   * The number of structural features of the '<em>Expr Not</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_NOT_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ExprEqImpl <em>Expr Eq</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ExprEqImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprEq()
+   * @generated
+   */
+  int EXPR_EQ = 23;
+
+  /**
+   * The feature id for the '<em><b>Expr L</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_EQ__EXPR_L = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr RSimple</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_EQ__EXPR_RSIMPLE = 1;
+
+  /**
+   * The feature id for the '<em><b>Expr RExpr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_EQ__EXPR_REXPR = 2;
+
+  /**
+   * The number of structural features of the '<em>Expr Eq</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_EQ_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.NopCommandImpl <em>Nop Command</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -426,7 +872,7 @@ public interface WhileDslPackage extends EPackage
    * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getNopCommand()
    * @generated
    */
-  int NOP_COMMAND = 10;
+  int NOP_COMMAND = 24;
 
   /**
    * The number of structural features of the '<em>Nop Command</em>' class.
@@ -502,15 +948,15 @@ public interface WhileDslPackage extends EPackage
   EClass getDefinition();
 
   /**
-   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.Definition#getIntput <em>Intput</em>}'.
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.Definition#getIntput <em>Intput</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Intput</em>'.
+   * @return the meta object for the containment reference '<em>Intput</em>'.
    * @see esir.comp.cpp.whileDsl.Definition#getIntput()
    * @see #getDefinition()
    * @generated
    */
-  EAttribute getDefinition_Intput();
+  EReference getDefinition_Intput();
 
   /**
    * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.Definition#getBody <em>Body</em>}'.
@@ -524,15 +970,57 @@ public interface WhileDslPackage extends EPackage
   EReference getDefinition_Body();
 
   /**
-   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.Definition#getOutput <em>Output</em>}'.
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.Definition#getOutput <em>Output</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Output</em>'.
+   * @return the meta object for the containment reference '<em>Output</em>'.
    * @see esir.comp.cpp.whileDsl.Definition#getOutput()
    * @see #getDefinition()
    * @generated
    */
-  EAttribute getDefinition_Output();
+  EReference getDefinition_Output();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.Input <em>Input</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Input</em>'.
+   * @see esir.comp.cpp.whileDsl.Input
+   * @generated
+   */
+  EClass getInput();
+
+  /**
+   * Returns the meta object for the attribute list '{@link esir.comp.cpp.whileDsl.Input#getVariables <em>Variables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Variables</em>'.
+   * @see esir.comp.cpp.whileDsl.Input#getVariables()
+   * @see #getInput()
+   * @generated
+   */
+  EAttribute getInput_Variables();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.Output <em>Output</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Output</em>'.
+   * @see esir.comp.cpp.whileDsl.Output
+   * @generated
+   */
+  EClass getOutput();
+
+  /**
+   * Returns the meta object for the attribute list '{@link esir.comp.cpp.whileDsl.Output#getVariables <em>Variables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Variables</em>'.
+   * @see esir.comp.cpp.whileDsl.Output#getVariables()
+   * @see #getOutput()
+   * @generated
+   */
+  EAttribute getOutput_Variables();
 
   /**
    * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.Commands <em>Commands</em>}'.
@@ -576,15 +1064,15 @@ public interface WhileDslPackage extends EPackage
   EClass getWhileCommand();
 
   /**
-   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.WhileCommand#getCond <em>Cond</em>}'.
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.WhileCommand#getCond <em>Cond</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Cond</em>'.
+   * @return the meta object for the containment reference '<em>Cond</em>'.
    * @see esir.comp.cpp.whileDsl.WhileCommand#getCond()
    * @see #getWhileCommand()
    * @generated
    */
-  EAttribute getWhileCommand_Cond();
+  EReference getWhileCommand_Cond();
 
   /**
    * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.WhileCommand#getBody <em>Body</em>}'.
@@ -608,15 +1096,15 @@ public interface WhileDslPackage extends EPackage
   EClass getForCommand();
 
   /**
-   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ForCommand#getCond <em>Cond</em>}'.
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ForCommand#getCond <em>Cond</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Cond</em>'.
+   * @return the meta object for the containment reference '<em>Cond</em>'.
    * @see esir.comp.cpp.whileDsl.ForCommand#getCond()
    * @see #getForCommand()
    * @generated
    */
-  EAttribute getForCommand_Cond();
+  EReference getForCommand_Cond();
 
   /**
    * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ForCommand#getBody <em>Body</em>}'.
@@ -640,15 +1128,15 @@ public interface WhileDslPackage extends EPackage
   EClass getIfCommand();
 
   /**
-   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.IfCommand#getCond <em>Cond</em>}'.
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.IfCommand#getCond <em>Cond</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Cond</em>'.
+   * @return the meta object for the containment reference '<em>Cond</em>'.
    * @see esir.comp.cpp.whileDsl.IfCommand#getCond()
    * @see #getIfCommand()
    * @generated
    */
-  EAttribute getIfCommand_Cond();
+  EReference getIfCommand_Cond();
 
   /**
    * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.IfCommand#getThenBody <em>Then Body</em>}'.
@@ -683,26 +1171,26 @@ public interface WhileDslPackage extends EPackage
   EClass getForeachCommand();
 
   /**
-   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpElement <em>Exp Element</em>}'.
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpElement <em>Exp Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Exp Element</em>'.
+   * @return the meta object for the containment reference '<em>Exp Element</em>'.
    * @see esir.comp.cpp.whileDsl.ForeachCommand#getExpElement()
    * @see #getForeachCommand()
    * @generated
    */
-  EAttribute getForeachCommand_ExpElement();
+  EReference getForeachCommand_ExpElement();
 
   /**
-   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpList <em>Exp List</em>}'.
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpList <em>Exp List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Exp List</em>'.
+   * @return the meta object for the containment reference '<em>Exp List</em>'.
    * @see esir.comp.cpp.whileDsl.ForeachCommand#getExpList()
    * @see #getForeachCommand()
    * @generated
    */
-  EAttribute getForeachCommand_ExpList();
+  EReference getForeachCommand_ExpList();
 
   /**
    * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ForeachCommand#getBody <em>Body</em>}'.
@@ -726,26 +1214,344 @@ public interface WhileDslPackage extends EPackage
   EClass getVarsCommand();
 
   /**
-   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.VarsCommand#getVariables <em>Variables</em>}'.
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.VarsCommand#getVariables <em>Variables</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Variables</em>'.
+   * @return the meta object for the containment reference '<em>Variables</em>'.
    * @see esir.comp.cpp.whileDsl.VarsCommand#getVariables()
    * @see #getVarsCommand()
    * @generated
    */
-  EAttribute getVarsCommand_Variables();
+  EReference getVarsCommand_Variables();
 
   /**
-   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.VarsCommand#getValues <em>Values</em>}'.
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.VarsCommand#getValues <em>Values</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Values</em>'.
+   * @return the meta object for the containment reference '<em>Values</em>'.
    * @see esir.comp.cpp.whileDsl.VarsCommand#getValues()
    * @see #getVarsCommand()
    * @generated
    */
-  EAttribute getVarsCommand_Values();
+  EReference getVarsCommand_Values();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.Vars <em>Vars</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Vars</em>'.
+   * @see esir.comp.cpp.whileDsl.Vars
+   * @generated
+   */
+  EClass getVars();
+
+  /**
+   * Returns the meta object for the attribute list '{@link esir.comp.cpp.whileDsl.Vars#getVariables <em>Variables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Variables</em>'.
+   * @see esir.comp.cpp.whileDsl.Vars#getVariables()
+   * @see #getVars()
+   * @generated
+   */
+  EAttribute getVars_Variables();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.ExprSimple <em>Expr Simple</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr Simple</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimple
+   * @generated
+   */
+  EClass getExprSimple();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ExprSimple#getTerm <em>Term</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Term</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimple#getTerm()
+   * @see #getExprSimple()
+   * @generated
+   */
+  EAttribute getExprSimple_Term();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprSimple#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimple#getExpression()
+   * @see #getExprSimple()
+   * @generated
+   */
+  EReference getExprSimple_Expression();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.ExprSimpleWithLExpr <em>Expr Simple With LExpr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr Simple With LExpr</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithLExpr
+   * @generated
+   */
+  EClass getExprSimpleWithLExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ExprSimpleWithLExpr#getOperation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operation</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithLExpr#getOperation()
+   * @see #getExprSimpleWithLExpr()
+   * @generated
+   */
+  EAttribute getExprSimpleWithLExpr_Operation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprSimpleWithLExpr#getLexpr <em>Lexpr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lexpr</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithLExpr#getLexpr()
+   * @see #getExprSimpleWithLExpr()
+   * @generated
+   */
+  EReference getExprSimpleWithLExpr_Lexpr();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.ExprSimpleWithExpr <em>Expr Simple With Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr Simple With Expr</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithExpr
+   * @generated
+   */
+  EClass getExprSimpleWithExpr();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ExprSimpleWithExpr#getOperation <em>Operation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Operation</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithExpr#getOperation()
+   * @see #getExprSimpleWithExpr()
+   * @generated
+   */
+  EAttribute getExprSimpleWithExpr_Operation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprSimpleWithExpr#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithExpr#getExpr()
+   * @see #getExprSimpleWithExpr()
+   * @generated
+   */
+  EReference getExprSimpleWithExpr_Expr();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr <em>Expr Simple With Symbol LExpr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr Simple With Symbol LExpr</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr
+   * @generated
+   */
+  EClass getExprSimpleWithSymbolLExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr#getLexpr <em>Lexpr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lexpr</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr#getLexpr()
+   * @see #getExprSimpleWithSymbolLExpr()
+   * @generated
+   */
+  EReference getExprSimpleWithSymbolLExpr_Lexpr();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.LExpr <em>LExpr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>LExpr</em>'.
+   * @see esir.comp.cpp.whileDsl.LExpr
+   * @generated
+   */
+  EClass getLExpr();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link esir.comp.cpp.whileDsl.LExpr#getExpressions <em>Expressions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expressions</em>'.
+   * @see esir.comp.cpp.whileDsl.LExpr#getExpressions()
+   * @see #getLExpr()
+   * @generated
+   */
+  EReference getLExpr_Expressions();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.Exprs <em>Exprs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Exprs</em>'.
+   * @see esir.comp.cpp.whileDsl.Exprs
+   * @generated
+   */
+  EClass getExprs();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link esir.comp.cpp.whileDsl.Exprs#getExpressions <em>Expressions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expressions</em>'.
+   * @see esir.comp.cpp.whileDsl.Exprs#getExpressions()
+   * @see #getExprs()
+   * @generated
+   */
+  EReference getExprs_Expressions();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.Expr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr</em>'.
+   * @see esir.comp.cpp.whileDsl.Expr
+   * @generated
+   */
+  EClass getExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.Expr#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see esir.comp.cpp.whileDsl.Expr#getExpression()
+   * @see #getExpr()
+   * @generated
+   */
+  EReference getExpr_Expression();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.ExprAnd <em>Expr And</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr And</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprAnd
+   * @generated
+   */
+  EClass getExprAnd();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link esir.comp.cpp.whileDsl.ExprAnd#getExpressionsOr <em>Expressions Or</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expressions Or</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprAnd#getExpressionsOr()
+   * @see #getExprAnd()
+   * @generated
+   */
+  EReference getExprAnd_ExpressionsOr();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.ExprOr <em>Expr Or</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr Or</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprOr
+   * @generated
+   */
+  EClass getExprOr();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link esir.comp.cpp.whileDsl.ExprOr#getExpressionsNot <em>Expressions Not</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expressions Not</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprOr#getExpressionsNot()
+   * @see #getExprOr()
+   * @generated
+   */
+  EReference getExprOr_ExpressionsNot();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.ExprNot <em>Expr Not</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr Not</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprNot
+   * @generated
+   */
+  EClass getExprNot();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ExprNot#isNegation <em>Negation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Negation</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprNot#isNegation()
+   * @see #getExprNot()
+   * @generated
+   */
+  EAttribute getExprNot_Negation();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprNot#getExpressionEq <em>Expression Eq</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression Eq</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprNot#getExpressionEq()
+   * @see #getExprNot()
+   * @generated
+   */
+  EReference getExprNot_ExpressionEq();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.ExprEq <em>Expr Eq</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expr Eq</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprEq
+   * @generated
+   */
+  EClass getExprEq();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprEq#getExprL <em>Expr L</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr L</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprEq#getExprL()
+   * @see #getExprEq()
+   * @generated
+   */
+  EReference getExprEq_ExprL();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprEq#getExprRSimple <em>Expr RSimple</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr RSimple</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprEq#getExprRSimple()
+   * @see #getExprEq()
+   * @generated
+   */
+  EReference getExprEq_ExprRSimple();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprEq#getExprRExpr <em>Expr RExpr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr RExpr</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprEq#getExprRExpr()
+   * @see #getExprEq()
+   * @generated
+   */
+  EReference getExprEq_ExprRExpr();
 
   /**
    * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.NopCommand <em>Nop Command</em>}'.
@@ -835,12 +1641,12 @@ public interface WhileDslPackage extends EPackage
     EClass DEFINITION = eINSTANCE.getDefinition();
 
     /**
-     * The meta object literal for the '<em><b>Intput</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Intput</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DEFINITION__INTPUT = eINSTANCE.getDefinition_Intput();
+    EReference DEFINITION__INTPUT = eINSTANCE.getDefinition_Intput();
 
     /**
      * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
@@ -851,12 +1657,48 @@ public interface WhileDslPackage extends EPackage
     EReference DEFINITION__BODY = eINSTANCE.getDefinition_Body();
 
     /**
-     * The meta object literal for the '<em><b>Output</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Output</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DEFINITION__OUTPUT = eINSTANCE.getDefinition_Output();
+    EReference DEFINITION__OUTPUT = eINSTANCE.getDefinition_Output();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.InputImpl <em>Input</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.InputImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getInput()
+     * @generated
+     */
+    EClass INPUT = eINSTANCE.getInput();
+
+    /**
+     * The meta object literal for the '<em><b>Variables</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute INPUT__VARIABLES = eINSTANCE.getInput_Variables();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.OutputImpl <em>Output</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.OutputImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getOutput()
+     * @generated
+     */
+    EClass OUTPUT = eINSTANCE.getOutput();
+
+    /**
+     * The meta object literal for the '<em><b>Variables</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OUTPUT__VARIABLES = eINSTANCE.getOutput_Variables();
 
     /**
      * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.CommandsImpl <em>Commands</em>}' class.
@@ -897,12 +1739,12 @@ public interface WhileDslPackage extends EPackage
     EClass WHILE_COMMAND = eINSTANCE.getWhileCommand();
 
     /**
-     * The meta object literal for the '<em><b>Cond</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Cond</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute WHILE_COMMAND__COND = eINSTANCE.getWhileCommand_Cond();
+    EReference WHILE_COMMAND__COND = eINSTANCE.getWhileCommand_Cond();
 
     /**
      * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
@@ -923,12 +1765,12 @@ public interface WhileDslPackage extends EPackage
     EClass FOR_COMMAND = eINSTANCE.getForCommand();
 
     /**
-     * The meta object literal for the '<em><b>Cond</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Cond</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FOR_COMMAND__COND = eINSTANCE.getForCommand_Cond();
+    EReference FOR_COMMAND__COND = eINSTANCE.getForCommand_Cond();
 
     /**
      * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
@@ -949,12 +1791,12 @@ public interface WhileDslPackage extends EPackage
     EClass IF_COMMAND = eINSTANCE.getIfCommand();
 
     /**
-     * The meta object literal for the '<em><b>Cond</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Cond</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute IF_COMMAND__COND = eINSTANCE.getIfCommand_Cond();
+    EReference IF_COMMAND__COND = eINSTANCE.getIfCommand_Cond();
 
     /**
      * The meta object literal for the '<em><b>Then Body</b></em>' containment reference feature.
@@ -983,20 +1825,20 @@ public interface WhileDslPackage extends EPackage
     EClass FOREACH_COMMAND = eINSTANCE.getForeachCommand();
 
     /**
-     * The meta object literal for the '<em><b>Exp Element</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Exp Element</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FOREACH_COMMAND__EXP_ELEMENT = eINSTANCE.getForeachCommand_ExpElement();
+    EReference FOREACH_COMMAND__EXP_ELEMENT = eINSTANCE.getForeachCommand_ExpElement();
 
     /**
-     * The meta object literal for the '<em><b>Exp List</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Exp List</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FOREACH_COMMAND__EXP_LIST = eINSTANCE.getForeachCommand_ExpList();
+    EReference FOREACH_COMMAND__EXP_LIST = eINSTANCE.getForeachCommand_ExpList();
 
     /**
      * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
@@ -1017,20 +1859,284 @@ public interface WhileDslPackage extends EPackage
     EClass VARS_COMMAND = eINSTANCE.getVarsCommand();
 
     /**
-     * The meta object literal for the '<em><b>Variables</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Variables</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARS_COMMAND__VARIABLES = eINSTANCE.getVarsCommand_Variables();
+    EReference VARS_COMMAND__VARIABLES = eINSTANCE.getVarsCommand_Variables();
 
     /**
-     * The meta object literal for the '<em><b>Values</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Values</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute VARS_COMMAND__VALUES = eINSTANCE.getVarsCommand_Values();
+    EReference VARS_COMMAND__VALUES = eINSTANCE.getVarsCommand_Values();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.VarsImpl <em>Vars</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.VarsImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getVars()
+     * @generated
+     */
+    EClass VARS = eINSTANCE.getVars();
+
+    /**
+     * The meta object literal for the '<em><b>Variables</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARS__VARIABLES = eINSTANCE.getVars_Variables();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ExprSimpleImpl <em>Expr Simple</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ExprSimpleImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprSimple()
+     * @generated
+     */
+    EClass EXPR_SIMPLE = eINSTANCE.getExprSimple();
+
+    /**
+     * The meta object literal for the '<em><b>Term</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPR_SIMPLE__TERM = eINSTANCE.getExprSimple_Term();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_SIMPLE__EXPRESSION = eINSTANCE.getExprSimple_Expression();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ExprSimpleWithLExprImpl <em>Expr Simple With LExpr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ExprSimpleWithLExprImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprSimpleWithLExpr()
+     * @generated
+     */
+    EClass EXPR_SIMPLE_WITH_LEXPR = eINSTANCE.getExprSimpleWithLExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPR_SIMPLE_WITH_LEXPR__OPERATION = eINSTANCE.getExprSimpleWithLExpr_Operation();
+
+    /**
+     * The meta object literal for the '<em><b>Lexpr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_SIMPLE_WITH_LEXPR__LEXPR = eINSTANCE.getExprSimpleWithLExpr_Lexpr();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ExprSimpleWithExprImpl <em>Expr Simple With Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ExprSimpleWithExprImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprSimpleWithExpr()
+     * @generated
+     */
+    EClass EXPR_SIMPLE_WITH_EXPR = eINSTANCE.getExprSimpleWithExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Operation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPR_SIMPLE_WITH_EXPR__OPERATION = eINSTANCE.getExprSimpleWithExpr_Operation();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_SIMPLE_WITH_EXPR__EXPR = eINSTANCE.getExprSimpleWithExpr_Expr();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ExprSimpleWithSymbolLExprImpl <em>Expr Simple With Symbol LExpr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ExprSimpleWithSymbolLExprImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprSimpleWithSymbolLExpr()
+     * @generated
+     */
+    EClass EXPR_SIMPLE_WITH_SYMBOL_LEXPR = eINSTANCE.getExprSimpleWithSymbolLExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Lexpr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR = eINSTANCE.getExprSimpleWithSymbolLExpr_Lexpr();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.LExprImpl <em>LExpr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.LExprImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getLExpr()
+     * @generated
+     */
+    EClass LEXPR = eINSTANCE.getLExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LEXPR__EXPRESSIONS = eINSTANCE.getLExpr_Expressions();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ExprsImpl <em>Exprs</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ExprsImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprs()
+     * @generated
+     */
+    EClass EXPRS = eINSTANCE.getExprs();
+
+    /**
+     * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRS__EXPRESSIONS = eINSTANCE.getExprs_Expressions();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ExprImpl <em>Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ExprImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExpr()
+     * @generated
+     */
+    EClass EXPR = eINSTANCE.getExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR__EXPRESSION = eINSTANCE.getExpr_Expression();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ExprAndImpl <em>Expr And</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ExprAndImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprAnd()
+     * @generated
+     */
+    EClass EXPR_AND = eINSTANCE.getExprAnd();
+
+    /**
+     * The meta object literal for the '<em><b>Expressions Or</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_AND__EXPRESSIONS_OR = eINSTANCE.getExprAnd_ExpressionsOr();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ExprOrImpl <em>Expr Or</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ExprOrImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprOr()
+     * @generated
+     */
+    EClass EXPR_OR = eINSTANCE.getExprOr();
+
+    /**
+     * The meta object literal for the '<em><b>Expressions Not</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_OR__EXPRESSIONS_NOT = eINSTANCE.getExprOr_ExpressionsNot();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ExprNotImpl <em>Expr Not</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ExprNotImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprNot()
+     * @generated
+     */
+    EClass EXPR_NOT = eINSTANCE.getExprNot();
+
+    /**
+     * The meta object literal for the '<em><b>Negation</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPR_NOT__NEGATION = eINSTANCE.getExprNot_Negation();
+
+    /**
+     * The meta object literal for the '<em><b>Expression Eq</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_NOT__EXPRESSION_EQ = eINSTANCE.getExprNot_ExpressionEq();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ExprEqImpl <em>Expr Eq</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ExprEqImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getExprEq()
+     * @generated
+     */
+    EClass EXPR_EQ = eINSTANCE.getExprEq();
+
+    /**
+     * The meta object literal for the '<em><b>Expr L</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_EQ__EXPR_L = eINSTANCE.getExprEq_ExprL();
+
+    /**
+     * The meta object literal for the '<em><b>Expr RSimple</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_EQ__EXPR_RSIMPLE = eINSTANCE.getExprEq_ExprRSimple();
+
+    /**
+     * The meta object literal for the '<em><b>Expr RExpr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR_EQ__EXPR_REXPR = eINSTANCE.getExprEq_ExprRExpr();
 
     /**
      * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.NopCommandImpl <em>Nop Command</em>}' class.

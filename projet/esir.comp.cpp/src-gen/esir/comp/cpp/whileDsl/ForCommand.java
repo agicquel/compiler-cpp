@@ -24,26 +24,26 @@ package esir.comp.cpp.whileDsl;
 public interface ForCommand extends Command
 {
   /**
-   * Returns the value of the '<em><b>Cond</b></em>' attribute.
+   * Returns the value of the '<em><b>Cond</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Cond</em>' attribute.
-   * @see #setCond(String)
+   * @return the value of the '<em>Cond</em>' containment reference.
+   * @see #setCond(Expr)
    * @see esir.comp.cpp.whileDsl.WhileDslPackage#getForCommand_Cond()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getCond();
+  Expr getCond();
 
   /**
-   * Sets the value of the '{@link esir.comp.cpp.whileDsl.ForCommand#getCond <em>Cond</em>}' attribute.
+   * Sets the value of the '{@link esir.comp.cpp.whileDsl.ForCommand#getCond <em>Cond</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Cond</em>' attribute.
+   * @param value the new value of the '<em>Cond</em>' containment reference.
    * @see #getCond()
    * @generated
    */
-  void setCond(String value);
+  void setCond(Expr value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

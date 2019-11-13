@@ -4,6 +4,7 @@
 package esir.comp.cpp.whileDsl.impl;
 
 import esir.comp.cpp.whileDsl.Commands;
+import esir.comp.cpp.whileDsl.Expr;
 import esir.comp.cpp.whileDsl.IfCommand;
 import esir.comp.cpp.whileDsl.WhileDslPackage;
 
@@ -33,24 +34,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class IfCommandImpl extends CommandImpl implements IfCommand
 {
   /**
-   * The default value of the '{@link #getCond() <em>Cond</em>}' attribute.
+   * The cached value of the '{@link #getCond() <em>Cond</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getCond()
    * @generated
    * @ordered
    */
-  protected static final String COND_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getCond() <em>Cond</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getCond()
-   * @generated
-   * @ordered
-   */
-  protected String cond = COND_EDEFAULT;
+  protected Expr cond;
 
   /**
    * The cached value of the '{@link #getThenBody() <em>Then Body</em>}' containment reference.
@@ -99,7 +90,7 @@ public class IfCommandImpl extends CommandImpl implements IfCommand
    * @generated
    */
   @Override
-  public String getCond()
+  public Expr getCond()
   {
     return cond;
   }
@@ -109,13 +100,38 @@ public class IfCommandImpl extends CommandImpl implements IfCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setCond(String newCond)
+  public NotificationChain basicSetCond(Expr newCond, NotificationChain msgs)
   {
-    String oldCond = cond;
+    Expr oldCond = cond;
     cond = newCond;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.IF_COMMAND__COND, oldCond, cond));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileDslPackage.IF_COMMAND__COND, oldCond, newCond);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setCond(Expr newCond)
+  {
+    if (newCond != cond)
+    {
+      NotificationChain msgs = null;
+      if (cond != null)
+        msgs = ((InternalEObject)cond).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.IF_COMMAND__COND, null, msgs);
+      if (newCond != null)
+        msgs = ((InternalEObject)newCond).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.IF_COMMAND__COND, null, msgs);
+      msgs = basicSetCond(newCond, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.IF_COMMAND__COND, newCond, newCond));
   }
 
   /**
@@ -228,6 +244,8 @@ public class IfCommandImpl extends CommandImpl implements IfCommand
   {
     switch (featureID)
     {
+      case WhileDslPackage.IF_COMMAND__COND:
+        return basicSetCond(null, msgs);
       case WhileDslPackage.IF_COMMAND__THEN_BODY:
         return basicSetThenBody(null, msgs);
       case WhileDslPackage.IF_COMMAND__ELSE_BODY:
@@ -267,7 +285,7 @@ public class IfCommandImpl extends CommandImpl implements IfCommand
     switch (featureID)
     {
       case WhileDslPackage.IF_COMMAND__COND:
-        setCond((String)newValue);
+        setCond((Expr)newValue);
         return;
       case WhileDslPackage.IF_COMMAND__THEN_BODY:
         setThenBody((Commands)newValue);
@@ -290,7 +308,7 @@ public class IfCommandImpl extends CommandImpl implements IfCommand
     switch (featureID)
     {
       case WhileDslPackage.IF_COMMAND__COND:
-        setCond(COND_EDEFAULT);
+        setCond((Expr)null);
         return;
       case WhileDslPackage.IF_COMMAND__THEN_BODY:
         setThenBody((Commands)null);
@@ -313,30 +331,13 @@ public class IfCommandImpl extends CommandImpl implements IfCommand
     switch (featureID)
     {
       case WhileDslPackage.IF_COMMAND__COND:
-        return COND_EDEFAULT == null ? cond != null : !COND_EDEFAULT.equals(cond);
+        return cond != null;
       case WhileDslPackage.IF_COMMAND__THEN_BODY:
         return thenBody != null;
       case WhileDslPackage.IF_COMMAND__ELSE_BODY:
         return elseBody != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (cond: ");
-    result.append(cond);
-    result.append(')');
-    return result.toString();
   }
 
 } //IfCommandImpl

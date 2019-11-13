@@ -34,6 +34,8 @@ public class WhileDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getLCToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getNopCommandRule())
 			return getNopCommandToken(semanticObject, ruleCall, node);
+		else if (ruleCall.getRule() == grammarAccess.getSYMBOLRule())
+			return getSYMBOLToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -57,6 +59,15 @@ public class WhileDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		if (node != null)
 			return getTokenText(node);
 		return "nop";
+	}
+	
+	/**
+	 * terminal SYMBOL : ("a".."z")("0".."9"|"a".."z"|"A".."Z")*("?"|"!")?;
+	 */
+	protected String getSYMBOLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
+		if (node != null)
+			return getTokenText(node);
+		return "";
 	}
 	
 	@Override

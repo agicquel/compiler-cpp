@@ -13,16 +13,15 @@ Definition:
 	'read' LC intput=Input LC '%' LC body=Commands LC '%' LC 'write' LC output=Output
 ;
 Input:
-	VARIABLE (',' VARIABLE)*
+	variables+=VARIABLE (',' variables+=VARIABLE)*
 ;
 Output:
-	VARIABLE (',' VARIABLE)*
+	variables+=VARIABLE (',' variables+=VARIABLE)*
 ;
 
 // Commandes
 Commands:
 	commands+=Command (';' LC commands+=Command)* (';')?
-	//{Commands} (commands+=(Command) LC ';')*
 ;
 Command:
 	({NopCommand} NopCommand | WhileCommand | ForCommand | IfCommand | ForeachCommand | VarsCommand)
@@ -46,39 +45,53 @@ NopCommand:
 	'nop'
 ;
 Vars:
-	VARIABLE (','  VARIABLE)*
+	variables+=VARIABLE (',' variables+=VARIABLE)*
 ;
 
 // Expressions
 ExprSimple:
-	'nil' | VARIABLE | SYMBOL | '(' ('cons'|'list') LExpr ')' | '('('hd'|'tl') LC Expr ')' | '(' SYMBOL LExpr ')'
+	term=VARIABLE | 
+	term=SYMBOL | 
+	term='nil' | 
+	expression=ExprSimpleWithLExpr | 
+	expression=ExprSimpleWithExpr | 
+	expression=ExprSimpleWithSymbolLExpr
+;
+ExprSimpleWithLExpr:
+	'(' operation=('cons'|'list') LC lexpr=LExpr LC ')'
+;
+ExprSimpleWithExpr:
+	'(' operation=('hd'|'tl') LC expr=Expr LC ')'
+;
+ExprSimpleWithSymbolLExpr:
+	'(' LC SYMBOL LC lexpr=LExpr LC ')'
 ;
 LExpr:
-	(Expr)+
+	expressions+=Expr (LC expressions+=Expr)*
 ;
 Exprs:
-	Expr (',' LC Expr)*
+	expressions+=Expr (',' LC expressions+=Expr)*
 ;
 Expr:
-	=>ExprAnd | ExprSimple
+	=>(expression=ExprAnd) | (expression=ExprSimple)
 ;
 ExprAnd:
-	ExprOr (LC 'and' LC ExprOr)*
+	expressionsOr+=ExprOr (LC 'and' LC expressionsOr+=ExprOr)*
 ;     
 
 ExprOr:
-	ExprNot (LC 'or' LC ExprNot)*
+	expressionsNot+=ExprNot (LC 'or' LC expressionsNot+=ExprNot)*
 ;  
 
 ExprNot:
-	'not' LC ExprEq | ExprEq
+	(negation?='not' LC )? expressionEq=ExprEq
 ;
 
 ExprEq:
-	ExprSimple '=?' ExprSimple  | '(' Expr ')'
+	exprL=ExprSimple '=?' (exprRSimple=ExprSimple  | ('(' exprRExpr=Expr ')'))
 ;
 
-// Separateur entre symbole non terminaux
+// Separateur entre symboles non terminaux
 LC :
 	(SP | CR | TAB | LF)*
 ;	

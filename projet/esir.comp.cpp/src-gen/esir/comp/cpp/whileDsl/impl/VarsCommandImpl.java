@@ -3,12 +3,16 @@
  */
 package esir.comp.cpp.whileDsl.impl;
 
+import esir.comp.cpp.whileDsl.Exprs;
+import esir.comp.cpp.whileDsl.Vars;
 import esir.comp.cpp.whileDsl.VarsCommand;
 import esir.comp.cpp.whileDsl.WhileDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -29,44 +33,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class VarsCommandImpl extends CommandImpl implements VarsCommand
 {
   /**
-   * The default value of the '{@link #getVariables() <em>Variables</em>}' attribute.
+   * The cached value of the '{@link #getVariables() <em>Variables</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getVariables()
    * @generated
    * @ordered
    */
-  protected static final String VARIABLES_EDEFAULT = null;
+  protected Vars variables;
 
   /**
-   * The cached value of the '{@link #getVariables() <em>Variables</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getVariables()
-   * @generated
-   * @ordered
-   */
-  protected String variables = VARIABLES_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getValues() <em>Values</em>}' attribute.
+   * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getValues()
    * @generated
    * @ordered
    */
-  protected static final String VALUES_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getValues() <em>Values</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getValues()
-   * @generated
-   * @ordered
-   */
-  protected String values = VALUES_EDEFAULT;
+  protected Exprs values;
 
   /**
    * <!-- begin-user-doc -->
@@ -95,7 +79,7 @@ public class VarsCommandImpl extends CommandImpl implements VarsCommand
    * @generated
    */
   @Override
-  public String getVariables()
+  public Vars getVariables()
   {
     return variables;
   }
@@ -105,13 +89,16 @@ public class VarsCommandImpl extends CommandImpl implements VarsCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setVariables(String newVariables)
+  public NotificationChain basicSetVariables(Vars newVariables, NotificationChain msgs)
   {
-    String oldVariables = variables;
+    Vars oldVariables = variables;
     variables = newVariables;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.VARS_COMMAND__VARIABLES, oldVariables, variables));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileDslPackage.VARS_COMMAND__VARIABLES, oldVariables, newVariables);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
   }
 
   /**
@@ -120,7 +107,29 @@ public class VarsCommandImpl extends CommandImpl implements VarsCommand
    * @generated
    */
   @Override
-  public String getValues()
+  public void setVariables(Vars newVariables)
+  {
+    if (newVariables != variables)
+    {
+      NotificationChain msgs = null;
+      if (variables != null)
+        msgs = ((InternalEObject)variables).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.VARS_COMMAND__VARIABLES, null, msgs);
+      if (newVariables != null)
+        msgs = ((InternalEObject)newVariables).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.VARS_COMMAND__VARIABLES, null, msgs);
+      msgs = basicSetVariables(newVariables, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.VARS_COMMAND__VARIABLES, newVariables, newVariables));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Exprs getValues()
   {
     return values;
   }
@@ -130,13 +139,56 @@ public class VarsCommandImpl extends CommandImpl implements VarsCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setValues(String newValues)
+  public NotificationChain basicSetValues(Exprs newValues, NotificationChain msgs)
   {
-    String oldValues = values;
+    Exprs oldValues = values;
     values = newValues;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.VARS_COMMAND__VALUES, oldValues, values));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileDslPackage.VARS_COMMAND__VALUES, oldValues, newValues);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setValues(Exprs newValues)
+  {
+    if (newValues != values)
+    {
+      NotificationChain msgs = null;
+      if (values != null)
+        msgs = ((InternalEObject)values).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.VARS_COMMAND__VALUES, null, msgs);
+      if (newValues != null)
+        msgs = ((InternalEObject)newValues).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.VARS_COMMAND__VALUES, null, msgs);
+      msgs = basicSetValues(newValues, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.VARS_COMMAND__VALUES, newValues, newValues));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case WhileDslPackage.VARS_COMMAND__VARIABLES:
+        return basicSetVariables(null, msgs);
+      case WhileDslPackage.VARS_COMMAND__VALUES:
+        return basicSetValues(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -168,10 +220,10 @@ public class VarsCommandImpl extends CommandImpl implements VarsCommand
     switch (featureID)
     {
       case WhileDslPackage.VARS_COMMAND__VARIABLES:
-        setVariables((String)newValue);
+        setVariables((Vars)newValue);
         return;
       case WhileDslPackage.VARS_COMMAND__VALUES:
-        setValues((String)newValue);
+        setValues((Exprs)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -188,10 +240,10 @@ public class VarsCommandImpl extends CommandImpl implements VarsCommand
     switch (featureID)
     {
       case WhileDslPackage.VARS_COMMAND__VARIABLES:
-        setVariables(VARIABLES_EDEFAULT);
+        setVariables((Vars)null);
         return;
       case WhileDslPackage.VARS_COMMAND__VALUES:
-        setValues(VALUES_EDEFAULT);
+        setValues((Exprs)null);
         return;
     }
     super.eUnset(featureID);
@@ -208,30 +260,11 @@ public class VarsCommandImpl extends CommandImpl implements VarsCommand
     switch (featureID)
     {
       case WhileDslPackage.VARS_COMMAND__VARIABLES:
-        return VARIABLES_EDEFAULT == null ? variables != null : !VARIABLES_EDEFAULT.equals(variables);
+        return variables != null;
       case WhileDslPackage.VARS_COMMAND__VALUES:
-        return VALUES_EDEFAULT == null ? values != null : !VALUES_EDEFAULT.equals(values);
+        return values != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (variables: ");
-    result.append(variables);
-    result.append(", values: ");
-    result.append(values);
-    result.append(')');
-    return result.toString();
   }
 
 } //VarsCommandImpl

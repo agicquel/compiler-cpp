@@ -5,6 +5,8 @@ package esir.comp.cpp.whileDsl.impl;
 
 import esir.comp.cpp.whileDsl.Commands;
 import esir.comp.cpp.whileDsl.Definition;
+import esir.comp.cpp.whileDsl.Input;
+import esir.comp.cpp.whileDsl.Output;
 import esir.comp.cpp.whileDsl.WhileDslPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -34,24 +36,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class DefinitionImpl extends MinimalEObjectImpl.Container implements Definition
 {
   /**
-   * The default value of the '{@link #getIntput() <em>Intput</em>}' attribute.
+   * The cached value of the '{@link #getIntput() <em>Intput</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getIntput()
    * @generated
    * @ordered
    */
-  protected static final String INTPUT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getIntput() <em>Intput</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getIntput()
-   * @generated
-   * @ordered
-   */
-  protected String intput = INTPUT_EDEFAULT;
+  protected Input intput;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -64,24 +56,14 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
   protected Commands body;
 
   /**
-   * The default value of the '{@link #getOutput() <em>Output</em>}' attribute.
+   * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOutput()
    * @generated
    * @ordered
    */
-  protected static final String OUTPUT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOutput() <em>Output</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOutput()
-   * @generated
-   * @ordered
-   */
-  protected String output = OUTPUT_EDEFAULT;
+  protected Output output;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,7 +92,7 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
    * @generated
    */
   @Override
-  public String getIntput()
+  public Input getIntput()
   {
     return intput;
   }
@@ -120,13 +102,38 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setIntput(String newIntput)
+  public NotificationChain basicSetIntput(Input newIntput, NotificationChain msgs)
   {
-    String oldIntput = intput;
+    Input oldIntput = intput;
     intput = newIntput;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.DEFINITION__INTPUT, oldIntput, intput));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileDslPackage.DEFINITION__INTPUT, oldIntput, newIntput);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setIntput(Input newIntput)
+  {
+    if (newIntput != intput)
+    {
+      NotificationChain msgs = null;
+      if (intput != null)
+        msgs = ((InternalEObject)intput).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.DEFINITION__INTPUT, null, msgs);
+      if (newIntput != null)
+        msgs = ((InternalEObject)newIntput).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.DEFINITION__INTPUT, null, msgs);
+      msgs = basicSetIntput(newIntput, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.DEFINITION__INTPUT, newIntput, newIntput));
   }
 
   /**
@@ -185,7 +192,7 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
    * @generated
    */
   @Override
-  public String getOutput()
+  public Output getOutput()
   {
     return output;
   }
@@ -195,13 +202,38 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setOutput(String newOutput)
+  public NotificationChain basicSetOutput(Output newOutput, NotificationChain msgs)
   {
-    String oldOutput = output;
+    Output oldOutput = output;
     output = newOutput;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.DEFINITION__OUTPUT, oldOutput, output));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileDslPackage.DEFINITION__OUTPUT, oldOutput, newOutput);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOutput(Output newOutput)
+  {
+    if (newOutput != output)
+    {
+      NotificationChain msgs = null;
+      if (output != null)
+        msgs = ((InternalEObject)output).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.DEFINITION__OUTPUT, null, msgs);
+      if (newOutput != null)
+        msgs = ((InternalEObject)newOutput).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.DEFINITION__OUTPUT, null, msgs);
+      msgs = basicSetOutput(newOutput, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.DEFINITION__OUTPUT, newOutput, newOutput));
   }
 
   /**
@@ -214,8 +246,12 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
   {
     switch (featureID)
     {
+      case WhileDslPackage.DEFINITION__INTPUT:
+        return basicSetIntput(null, msgs);
       case WhileDslPackage.DEFINITION__BODY:
         return basicSetBody(null, msgs);
+      case WhileDslPackage.DEFINITION__OUTPUT:
+        return basicSetOutput(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -251,13 +287,13 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
     switch (featureID)
     {
       case WhileDslPackage.DEFINITION__INTPUT:
-        setIntput((String)newValue);
+        setIntput((Input)newValue);
         return;
       case WhileDslPackage.DEFINITION__BODY:
         setBody((Commands)newValue);
         return;
       case WhileDslPackage.DEFINITION__OUTPUT:
-        setOutput((String)newValue);
+        setOutput((Output)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -274,13 +310,13 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
     switch (featureID)
     {
       case WhileDslPackage.DEFINITION__INTPUT:
-        setIntput(INTPUT_EDEFAULT);
+        setIntput((Input)null);
         return;
       case WhileDslPackage.DEFINITION__BODY:
         setBody((Commands)null);
         return;
       case WhileDslPackage.DEFINITION__OUTPUT:
-        setOutput(OUTPUT_EDEFAULT);
+        setOutput((Output)null);
         return;
     }
     super.eUnset(featureID);
@@ -297,32 +333,13 @@ public class DefinitionImpl extends MinimalEObjectImpl.Container implements Defi
     switch (featureID)
     {
       case WhileDslPackage.DEFINITION__INTPUT:
-        return INTPUT_EDEFAULT == null ? intput != null : !INTPUT_EDEFAULT.equals(intput);
+        return intput != null;
       case WhileDslPackage.DEFINITION__BODY:
         return body != null;
       case WhileDslPackage.DEFINITION__OUTPUT:
-        return OUTPUT_EDEFAULT == null ? output != null : !OUTPUT_EDEFAULT.equals(output);
+        return output != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (intput: ");
-    result.append(intput);
-    result.append(", output: ");
-    result.append(output);
-    result.append(')');
-    return result.toString();
   }
 
 } //DefinitionImpl

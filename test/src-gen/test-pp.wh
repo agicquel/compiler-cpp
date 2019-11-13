@@ -16,7 +16,12 @@ read Var1,Var2
 	else
 		nop;
 	fi;
-	
+	foreach eee in eee do
+		nop;
+		for eee do
+			nop;
+		od;
+	od;
 %
 write Var1,Var2
 
@@ -37,7 +42,12 @@ read Var3,Var4
 	else
 		nop;
 	fi;
-	
+	foreach eee in eee do
+		nop;
+		for eee do
+			nop;
+		od;
+	od;
 %
 write Var3,Var4
 

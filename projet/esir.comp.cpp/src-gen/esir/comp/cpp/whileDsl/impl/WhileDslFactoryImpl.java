@@ -68,6 +68,8 @@ public class WhileDslFactoryImpl extends EFactoryImpl implements WhileDslFactory
       case WhileDslPackage.MODEL: return createModel();
       case WhileDslPackage.FUNCTION: return createFunction();
       case WhileDslPackage.DEFINITION: return createDefinition();
+      case WhileDslPackage.INPUT: return createInput();
+      case WhileDslPackage.OUTPUT: return createOutput();
       case WhileDslPackage.COMMANDS: return createCommands();
       case WhileDslPackage.COMMAND: return createCommand();
       case WhileDslPackage.WHILE_COMMAND: return createWhileCommand();
@@ -75,6 +77,18 @@ public class WhileDslFactoryImpl extends EFactoryImpl implements WhileDslFactory
       case WhileDslPackage.IF_COMMAND: return createIfCommand();
       case WhileDslPackage.FOREACH_COMMAND: return createForeachCommand();
       case WhileDslPackage.VARS_COMMAND: return createVarsCommand();
+      case WhileDslPackage.VARS: return createVars();
+      case WhileDslPackage.EXPR_SIMPLE: return createExprSimple();
+      case WhileDslPackage.EXPR_SIMPLE_WITH_LEXPR: return createExprSimpleWithLExpr();
+      case WhileDslPackage.EXPR_SIMPLE_WITH_EXPR: return createExprSimpleWithExpr();
+      case WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR: return createExprSimpleWithSymbolLExpr();
+      case WhileDslPackage.LEXPR: return createLExpr();
+      case WhileDslPackage.EXPRS: return createExprs();
+      case WhileDslPackage.EXPR: return createExpr();
+      case WhileDslPackage.EXPR_AND: return createExprAnd();
+      case WhileDslPackage.EXPR_OR: return createExprOr();
+      case WhileDslPackage.EXPR_NOT: return createExprNot();
+      case WhileDslPackage.EXPR_EQ: return createExprEq();
       case WhileDslPackage.NOP_COMMAND: return createNopCommand();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -115,6 +129,30 @@ public class WhileDslFactoryImpl extends EFactoryImpl implements WhileDslFactory
   {
     DefinitionImpl definition = new DefinitionImpl();
     return definition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Input createInput()
+  {
+    InputImpl input = new InputImpl();
+    return input;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Output createOutput()
+  {
+    OutputImpl output = new OutputImpl();
+    return output;
   }
 
   /**
@@ -199,6 +237,150 @@ public class WhileDslFactoryImpl extends EFactoryImpl implements WhileDslFactory
   {
     VarsCommandImpl varsCommand = new VarsCommandImpl();
     return varsCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Vars createVars()
+  {
+    VarsImpl vars = new VarsImpl();
+    return vars;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExprSimple createExprSimple()
+  {
+    ExprSimpleImpl exprSimple = new ExprSimpleImpl();
+    return exprSimple;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExprSimpleWithLExpr createExprSimpleWithLExpr()
+  {
+    ExprSimpleWithLExprImpl exprSimpleWithLExpr = new ExprSimpleWithLExprImpl();
+    return exprSimpleWithLExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExprSimpleWithExpr createExprSimpleWithExpr()
+  {
+    ExprSimpleWithExprImpl exprSimpleWithExpr = new ExprSimpleWithExprImpl();
+    return exprSimpleWithExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExprSimpleWithSymbolLExpr createExprSimpleWithSymbolLExpr()
+  {
+    ExprSimpleWithSymbolLExprImpl exprSimpleWithSymbolLExpr = new ExprSimpleWithSymbolLExprImpl();
+    return exprSimpleWithSymbolLExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public LExpr createLExpr()
+  {
+    LExprImpl lExpr = new LExprImpl();
+    return lExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Exprs createExprs()
+  {
+    ExprsImpl exprs = new ExprsImpl();
+    return exprs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Expr createExpr()
+  {
+    ExprImpl expr = new ExprImpl();
+    return expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExprAnd createExprAnd()
+  {
+    ExprAndImpl exprAnd = new ExprAndImpl();
+    return exprAnd;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExprOr createExprOr()
+  {
+    ExprOrImpl exprOr = new ExprOrImpl();
+    return exprOr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExprNot createExprNot()
+  {
+    ExprNotImpl exprNot = new ExprNotImpl();
+    return exprNot;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExprEq createExprEq()
+  {
+    ExprEqImpl exprEq = new ExprEqImpl();
+    return exprEq;
   }
 
   /**

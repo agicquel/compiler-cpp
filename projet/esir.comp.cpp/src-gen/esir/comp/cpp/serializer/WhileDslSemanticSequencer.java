@@ -7,12 +7,26 @@ import com.google.inject.Inject;
 import esir.comp.cpp.services.WhileDslGrammarAccess;
 import esir.comp.cpp.whileDsl.Commands;
 import esir.comp.cpp.whileDsl.Definition;
+import esir.comp.cpp.whileDsl.Expr;
+import esir.comp.cpp.whileDsl.ExprAnd;
+import esir.comp.cpp.whileDsl.ExprEq;
+import esir.comp.cpp.whileDsl.ExprNot;
+import esir.comp.cpp.whileDsl.ExprOr;
+import esir.comp.cpp.whileDsl.ExprSimple;
+import esir.comp.cpp.whileDsl.ExprSimpleWithExpr;
+import esir.comp.cpp.whileDsl.ExprSimpleWithLExpr;
+import esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr;
+import esir.comp.cpp.whileDsl.Exprs;
 import esir.comp.cpp.whileDsl.ForCommand;
 import esir.comp.cpp.whileDsl.ForeachCommand;
 import esir.comp.cpp.whileDsl.Function;
 import esir.comp.cpp.whileDsl.IfCommand;
+import esir.comp.cpp.whileDsl.Input;
+import esir.comp.cpp.whileDsl.LExpr;
 import esir.comp.cpp.whileDsl.Model;
 import esir.comp.cpp.whileDsl.NopCommand;
+import esir.comp.cpp.whileDsl.Output;
+import esir.comp.cpp.whileDsl.Vars;
 import esir.comp.cpp.whileDsl.VarsCommand;
 import esir.comp.cpp.whileDsl.WhileCommand;
 import esir.comp.cpp.whileDsl.WhileDslPackage;
@@ -47,6 +61,36 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case WhileDslPackage.DEFINITION:
 				sequence_Definition(context, (Definition) semanticObject); 
 				return; 
+			case WhileDslPackage.EXPR:
+				sequence_Expr(context, (Expr) semanticObject); 
+				return; 
+			case WhileDslPackage.EXPR_AND:
+				sequence_ExprAnd(context, (ExprAnd) semanticObject); 
+				return; 
+			case WhileDslPackage.EXPR_EQ:
+				sequence_ExprEq(context, (ExprEq) semanticObject); 
+				return; 
+			case WhileDslPackage.EXPR_NOT:
+				sequence_ExprNot(context, (ExprNot) semanticObject); 
+				return; 
+			case WhileDslPackage.EXPR_OR:
+				sequence_ExprOr(context, (ExprOr) semanticObject); 
+				return; 
+			case WhileDslPackage.EXPR_SIMPLE:
+				sequence_ExprSimple(context, (ExprSimple) semanticObject); 
+				return; 
+			case WhileDslPackage.EXPR_SIMPLE_WITH_EXPR:
+				sequence_ExprSimpleWithExpr(context, (ExprSimpleWithExpr) semanticObject); 
+				return; 
+			case WhileDslPackage.EXPR_SIMPLE_WITH_LEXPR:
+				sequence_ExprSimpleWithLExpr(context, (ExprSimpleWithLExpr) semanticObject); 
+				return; 
+			case WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR:
+				sequence_ExprSimpleWithSymbolLExpr(context, (ExprSimpleWithSymbolLExpr) semanticObject); 
+				return; 
+			case WhileDslPackage.EXPRS:
+				sequence_Exprs(context, (Exprs) semanticObject); 
+				return; 
 			case WhileDslPackage.FOR_COMMAND:
 				sequence_ForCommand(context, (ForCommand) semanticObject); 
 				return; 
@@ -59,11 +103,23 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case WhileDslPackage.IF_COMMAND:
 				sequence_IfCommand(context, (IfCommand) semanticObject); 
 				return; 
+			case WhileDslPackage.INPUT:
+				sequence_Input(context, (Input) semanticObject); 
+				return; 
+			case WhileDslPackage.LEXPR:
+				sequence_LExpr(context, (LExpr) semanticObject); 
+				return; 
 			case WhileDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
 				return; 
 			case WhileDslPackage.NOP_COMMAND:
 				sequence_Command(context, (NopCommand) semanticObject); 
+				return; 
+			case WhileDslPackage.OUTPUT:
+				sequence_Output(context, (Output) semanticObject); 
+				return; 
+			case WhileDslPackage.VARS:
+				sequence_Vars(context, (Vars) semanticObject); 
 				return; 
 			case WhileDslPackage.VARS_COMMAND:
 				sequence_VarsCommand(context, (VarsCommand) semanticObject); 
@@ -121,6 +177,139 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		feeder.accept(grammarAccess.getDefinitionAccess().getBodyCommandsParserRuleCall_6_0(), semanticObject.getBody());
 		feeder.accept(grammarAccess.getDefinitionAccess().getOutputOutputParserRuleCall_12_0(), semanticObject.getOutput());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExprAnd returns ExprAnd
+	 *
+	 * Constraint:
+	 *     (expressionsOr+=ExprOr expressionsOr+=ExprOr*)
+	 */
+	protected void sequence_ExprAnd(ISerializationContext context, ExprAnd semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExprEq returns ExprEq
+	 *
+	 * Constraint:
+	 *     (exprL=ExprSimple (exprRSimple=ExprSimple | exprRExpr=Expr))
+	 */
+	protected void sequence_ExprEq(ISerializationContext context, ExprEq semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExprNot returns ExprNot
+	 *
+	 * Constraint:
+	 *     (negation?='not'? expressionEq=ExprEq)
+	 */
+	protected void sequence_ExprNot(ISerializationContext context, ExprNot semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExprOr returns ExprOr
+	 *
+	 * Constraint:
+	 *     (expressionsNot+=ExprNot expressionsNot+=ExprNot*)
+	 */
+	protected void sequence_ExprOr(ISerializationContext context, ExprOr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExprSimpleWithExpr returns ExprSimpleWithExpr
+	 *
+	 * Constraint:
+	 *     ((operation='hd' | operation='tl') expr=Expr)
+	 */
+	protected void sequence_ExprSimpleWithExpr(ISerializationContext context, ExprSimpleWithExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExprSimpleWithLExpr returns ExprSimpleWithLExpr
+	 *
+	 * Constraint:
+	 *     ((operation='cons' | operation='list') lexpr=LExpr)
+	 */
+	protected void sequence_ExprSimpleWithLExpr(ISerializationContext context, ExprSimpleWithLExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExprSimpleWithSymbolLExpr returns ExprSimpleWithSymbolLExpr
+	 *
+	 * Constraint:
+	 *     lexpr=LExpr
+	 */
+	protected void sequence_ExprSimpleWithSymbolLExpr(ISerializationContext context, ExprSimpleWithSymbolLExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExprSimpleWithSymbolLExprAccess().getLexprLExprParserRuleCall_4_0(), semanticObject.getLexpr());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ExprSimple returns ExprSimple
+	 *
+	 * Constraint:
+	 *     (
+	 *         term=VARIABLE | 
+	 *         term=SYMBOL | 
+	 *         term='nil' | 
+	 *         expression=ExprSimpleWithLExpr | 
+	 *         expression=ExprSimpleWithExpr | 
+	 *         expression=ExprSimpleWithSymbolLExpr
+	 *     )
+	 */
+	protected void sequence_ExprSimple(ISerializationContext context, ExprSimple semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expr returns Expr
+	 *
+	 * Constraint:
+	 *     (expression=ExprAnd | expression=ExprSimple)
+	 */
+	protected void sequence_Expr(ISerializationContext context, Expr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Exprs returns Exprs
+	 *
+	 * Constraint:
+	 *     (expressions+=Expr expressions+=Expr*)
+	 */
+	protected void sequence_Exprs(ISerializationContext context, Exprs semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -207,12 +396,48 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     Input returns Input
+	 *
+	 * Constraint:
+	 *     (variables+=VARIABLE variables+=VARIABLE*)
+	 */
+	protected void sequence_Input(ISerializationContext context, Input semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LExpr returns LExpr
+	 *
+	 * Constraint:
+	 *     (expressions+=Expr expressions+=Expr*)
+	 */
+	protected void sequence_LExpr(ISerializationContext context, LExpr semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Model returns Model
 	 *
 	 * Constraint:
 	 *     program+=Function+
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Output returns Output
+	 *
+	 * Constraint:
+	 *     (variables+=VARIABLE variables+=VARIABLE*)
+	 */
+	protected void sequence_Output(ISerializationContext context, Output semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -236,6 +461,18 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		feeder.accept(grammarAccess.getVarsCommandAccess().getVariablesVarsParserRuleCall_0_0(), semanticObject.getVariables());
 		feeder.accept(grammarAccess.getVarsCommandAccess().getValuesExprsParserRuleCall_4_0(), semanticObject.getValues());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Vars returns Vars
+	 *
+	 * Constraint:
+	 *     (variables+=VARIABLE variables+=VARIABLE*)
+	 */
+	protected void sequence_Vars(ISerializationContext context, Vars semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
