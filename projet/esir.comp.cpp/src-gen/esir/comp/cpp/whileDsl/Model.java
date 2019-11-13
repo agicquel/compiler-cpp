@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Program</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Program</b></em>' containment reference list.
+   * The list contents are of type {@link esir.comp.cpp.whileDsl.Function}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Program</em>' attribute list.
+   * @return the value of the '<em>Program</em>' containment reference list.
    * @see esir.comp.cpp.whileDsl.WhileDslPackage#getModel_Program()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getProgram();
+  EList<Function> getProgram();
 
 } // Model

@@ -5,7 +5,16 @@ package esir.comp.cpp.serializer;
 
 import com.google.inject.Inject;
 import esir.comp.cpp.services.WhileDslGrammarAccess;
+import esir.comp.cpp.whileDsl.Commands;
+import esir.comp.cpp.whileDsl.Definition;
+import esir.comp.cpp.whileDsl.ForCommand;
+import esir.comp.cpp.whileDsl.ForeachCommand;
+import esir.comp.cpp.whileDsl.Function;
+import esir.comp.cpp.whileDsl.IfCommand;
 import esir.comp.cpp.whileDsl.Model;
+import esir.comp.cpp.whileDsl.NopCommand;
+import esir.comp.cpp.whileDsl.VarsCommand;
+import esir.comp.cpp.whileDsl.WhileCommand;
 import esir.comp.cpp.whileDsl.WhileDslPackage;
 import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
@@ -14,7 +23,9 @@ import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Parameter;
 import org.eclipse.xtext.ParserRule;
 import org.eclipse.xtext.serializer.ISerializationContext;
+import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
+import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -30,13 +41,169 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == WhileDslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case WhileDslPackage.COMMANDS:
+				sequence_Commands(context, (Commands) semanticObject); 
+				return; 
+			case WhileDslPackage.DEFINITION:
+				sequence_Definition(context, (Definition) semanticObject); 
+				return; 
+			case WhileDslPackage.FOR_COMMAND:
+				sequence_ForCommand(context, (ForCommand) semanticObject); 
+				return; 
+			case WhileDslPackage.FOREACH_COMMAND:
+				sequence_ForeachCommand(context, (ForeachCommand) semanticObject); 
+				return; 
+			case WhileDslPackage.FUNCTION:
+				sequence_Function(context, (Function) semanticObject); 
+				return; 
+			case WhileDslPackage.IF_COMMAND:
+				sequence_IfCommand(context, (IfCommand) semanticObject); 
+				return; 
 			case WhileDslPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
+				return; 
+			case WhileDslPackage.NOP_COMMAND:
+				sequence_Command(context, (NopCommand) semanticObject); 
+				return; 
+			case WhileDslPackage.VARS_COMMAND:
+				sequence_VarsCommand(context, (VarsCommand) semanticObject); 
+				return; 
+			case WhileDslPackage.WHILE_COMMAND:
+				sequence_WhileCommand(context, (WhileCommand) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Contexts:
+	 *     Command returns NopCommand
+	 *
+	 * Constraint:
+	 *     {NopCommand}
+	 */
+	protected void sequence_Command(ISerializationContext context, NopCommand semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Commands returns Commands
+	 *
+	 * Constraint:
+	 *     (commands+=Command commands+=Command*)
+	 */
+	protected void sequence_Commands(ISerializationContext context, Commands semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Definition returns Definition
+	 *
+	 * Constraint:
+	 *     (intput=Input body=Commands output=Output)
+	 */
+	protected void sequence_Definition(ISerializationContext context, Definition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.DEFINITION__INTPUT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.DEFINITION__INTPUT));
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.DEFINITION__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.DEFINITION__BODY));
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.DEFINITION__OUTPUT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.DEFINITION__OUTPUT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDefinitionAccess().getIntputInputParserRuleCall_2_0(), semanticObject.getIntput());
+		feeder.accept(grammarAccess.getDefinitionAccess().getBodyCommandsParserRuleCall_6_0(), semanticObject.getBody());
+		feeder.accept(grammarAccess.getDefinitionAccess().getOutputOutputParserRuleCall_12_0(), semanticObject.getOutput());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Command returns ForCommand
+	 *     ForCommand returns ForCommand
+	 *
+	 * Constraint:
+	 *     (cond=Expr body=Commands)
+	 */
+	protected void sequence_ForCommand(ISerializationContext context, ForCommand semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.FOR_COMMAND__COND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.FOR_COMMAND__COND));
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.FOR_COMMAND__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.FOR_COMMAND__BODY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getForCommandAccess().getCondExprParserRuleCall_2_0(), semanticObject.getCond());
+		feeder.accept(grammarAccess.getForCommandAccess().getBodyCommandsParserRuleCall_6_0(), semanticObject.getBody());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Command returns ForeachCommand
+	 *     ForeachCommand returns ForeachCommand
+	 *
+	 * Constraint:
+	 *     (expElement=Expr expList=Expr body=Commands)
+	 */
+	protected void sequence_ForeachCommand(ISerializationContext context, ForeachCommand semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.FOREACH_COMMAND__EXP_ELEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.FOREACH_COMMAND__EXP_ELEMENT));
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.FOREACH_COMMAND__EXP_LIST) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.FOREACH_COMMAND__EXP_LIST));
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.FOREACH_COMMAND__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.FOREACH_COMMAND__BODY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getForeachCommandAccess().getExpElementExprParserRuleCall_2_0(), semanticObject.getExpElement());
+		feeder.accept(grammarAccess.getForeachCommandAccess().getExpListExprParserRuleCall_6_0(), semanticObject.getExpList());
+		feeder.accept(grammarAccess.getForeachCommandAccess().getBodyCommandsParserRuleCall_10_0(), semanticObject.getBody());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Function returns Function
+	 *
+	 * Constraint:
+	 *     (functionName=SYMBOL functionDefinition=Definition)
+	 */
+	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.FUNCTION__FUNCTION_NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.FUNCTION__FUNCTION_NAME));
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.FUNCTION__FUNCTION_DEFINITION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.FUNCTION__FUNCTION_DEFINITION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getFunctionAccess().getFunctionNameSYMBOLTerminalRuleCall_2_0(), semanticObject.getFunctionName());
+		feeder.accept(grammarAccess.getFunctionAccess().getFunctionDefinitionDefinitionParserRuleCall_6_0(), semanticObject.getFunctionDefinition());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Command returns IfCommand
+	 *     IfCommand returns IfCommand
+	 *
+	 * Constraint:
+	 *     (cond=Expr thenBody=Commands elseBody=Commands?)
+	 */
+	protected void sequence_IfCommand(ISerializationContext context, IfCommand semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Contexts:
@@ -47,6 +214,50 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Command returns VarsCommand
+	 *     VarsCommand returns VarsCommand
+	 *
+	 * Constraint:
+	 *     (variables=Vars values=Exprs)
+	 */
+	protected void sequence_VarsCommand(ISerializationContext context, VarsCommand semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.VARS_COMMAND__VARIABLES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.VARS_COMMAND__VARIABLES));
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.VARS_COMMAND__VALUES) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.VARS_COMMAND__VALUES));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getVarsCommandAccess().getVariablesVarsParserRuleCall_0_0(), semanticObject.getVariables());
+		feeder.accept(grammarAccess.getVarsCommandAccess().getValuesExprsParserRuleCall_4_0(), semanticObject.getValues());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Command returns WhileCommand
+	 *     WhileCommand returns WhileCommand
+	 *
+	 * Constraint:
+	 *     (cond=Expr body=Commands)
+	 */
+	protected void sequence_WhileCommand(ISerializationContext context, WhileCommand semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.WHILE_COMMAND__COND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.WHILE_COMMAND__COND));
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.WHILE_COMMAND__BODY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.WHILE_COMMAND__BODY));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getWhileCommandAccess().getCondExprParserRuleCall_2_0(), semanticObject.getCond());
+		feeder.accept(grammarAccess.getWhileCommandAccess().getBodyCommandsParserRuleCall_6_0(), semanticObject.getBody());
+		feeder.finish();
 	}
 	
 	

@@ -7,19 +7,121 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import esir.comp.cpp.whileDsl.Model
+import esir.comp.cpp.whileDsl.Definition
+import esir.comp.cpp.whileDsl.Command
+import esir.comp.cpp.whileDsl.WhileCommand
+import esir.comp.cpp.whileDsl.NopCommand
+import esir.comp.cpp.whileDsl.ForCommand
+import esir.comp.cpp.whileDsl.IfCommand
+import esir.comp.cpp.whileDsl.ForeachCommand
+import esir.comp.cpp.whileDsl.VarsCommand
 
-/**
- * Generates code from your model files on save.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
- */
 class WhileDslGenerator extends AbstractGenerator {
+	var INDENT_DEFAULT = "	"
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		var test = "";
+		for(m : resource.allContents.toIterable.filter(Model)) {
+			test += m.indent();
+		}
+		fsa.generateFile(
+			"test-pp.wh",
+			test);
+	}
+	
+	def indent(Model model) {
+		'''
+		«FOR function : model.program»
+			function «function.functionName»:
+			«function.functionDefinition.indent() + '\n'»
+		«ENDFOR»
+		'''
+	}
+	
+	def indent(Definition definition) {
+		'''
+		read «definition.intput»
+		%
+		«FOR command : definition.body.commands»
+			«command.indentCommand().addTabulation()»
+		«ENDFOR»
+		%
+		write «definition.output»
+		'''
+	}
+	
+	def CharSequence indentCommand(Command command) {
+		switch command {
+			NopCommand: 
+				return "nop;"
+			WhileCommand: 
+				return (command as WhileCommand).indent()
+			ForCommand: 
+				return (command as ForCommand).indent()
+			IfCommand: 
+				return (command as IfCommand).indent()
+			ForeachCommand: 
+				return (command as ForeachCommand).indent()
+			VarsCommand: 
+				return (command as VarsCommand).indent()
+			default:
+				return "unknown command"
+			
+		}
+	}
+	
+	def indent(WhileCommand whileCommand) {
+		'''
+		while «whileCommand.cond» do
+		«FOR command : whileCommand.body.commands»
+			«command.indentCommand().addTabulation()»
+		«ENDFOR»
+		od;
+		'''
+	}
+	
+	def indent(ForCommand forCommand) {
+		'''
+		for «forCommand.cond» do
+		«FOR command : forCommand.body.commands»
+			«command.indentCommand().addTabulation()»
+		«ENDFOR»
+		od;
+		'''
+	}
+	
+	def indent(IfCommand ifCommand) {
+		'''
+		if «ifCommand.cond» then
+		«FOR command : ifCommand.thenBody.commands»
+			«command.indentCommand().addTabulation()»
+		«ENDFOR»
+		«IF ifCommand.elseBody.commands.size > 0»
+		else
+		«FOR command : ifCommand.elseBody.commands»
+			«command.indentCommand().addTabulation()»
+		«ENDFOR»
+		«ENDIF»
+		fi;
+		'''
+	}
+	
+	def indent(ForeachCommand foreachCommand) {
+		'''
+		'''
+	}
+	
+	def indent(VarsCommand varsCommand) {
+		'''
+		'''
+	}
+	
+	def addTabulation(CharSequence charSequence) {
+		var text = "";
+		for(String s : charSequence.toString.split(System.getProperty("line.separator"))) {
+			text += INDENT_DEFAULT + s + "\n";
+		}
+		return text;
 	}
 }

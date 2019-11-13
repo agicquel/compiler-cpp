@@ -80,6 +80,82 @@ public class WhileDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case WhileDslPackage.FUNCTION:
+      {
+        Function function = (Function)theEObject;
+        T result = caseFunction(function);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.DEFINITION:
+      {
+        Definition definition = (Definition)theEObject;
+        T result = caseDefinition(definition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.COMMANDS:
+      {
+        Commands commands = (Commands)theEObject;
+        T result = caseCommands(commands);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.COMMAND:
+      {
+        Command command = (Command)theEObject;
+        T result = caseCommand(command);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.WHILE_COMMAND:
+      {
+        WhileCommand whileCommand = (WhileCommand)theEObject;
+        T result = caseWhileCommand(whileCommand);
+        if (result == null) result = caseCommand(whileCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.FOR_COMMAND:
+      {
+        ForCommand forCommand = (ForCommand)theEObject;
+        T result = caseForCommand(forCommand);
+        if (result == null) result = caseCommand(forCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.IF_COMMAND:
+      {
+        IfCommand ifCommand = (IfCommand)theEObject;
+        T result = caseIfCommand(ifCommand);
+        if (result == null) result = caseCommand(ifCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.FOREACH_COMMAND:
+      {
+        ForeachCommand foreachCommand = (ForeachCommand)theEObject;
+        T result = caseForeachCommand(foreachCommand);
+        if (result == null) result = caseCommand(foreachCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.VARS_COMMAND:
+      {
+        VarsCommand varsCommand = (VarsCommand)theEObject;
+        T result = caseVarsCommand(varsCommand);
+        if (result == null) result = caseCommand(varsCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case WhileDslPackage.NOP_COMMAND:
+      {
+        NopCommand nopCommand = (NopCommand)theEObject;
+        T result = caseNopCommand(nopCommand);
+        if (result == null) result = caseCommand(nopCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -96,6 +172,166 @@ public class WhileDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunction(Function object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Definition</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Definition</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDefinition(Definition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Commands</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Commands</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommands(Commands object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommand(Command object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>While Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>While Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseWhileCommand(WhileCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>For Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>For Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForCommand(ForCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>If Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>If Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseIfCommand(IfCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Foreach Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Foreach Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseForeachCommand(ForeachCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Vars Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Vars Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVarsCommand(VarsCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Nop Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Nop Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNopCommand(NopCommand object)
   {
     return null;
   }

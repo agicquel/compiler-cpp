@@ -1,0 +1,43 @@
+function test1:
+read Var1,Var2
+%
+	nop;
+	while nil do
+		nop;
+		nop;
+	od;
+	if expr then
+		nop;
+		nop;
+		while nil=?nil do
+			nop;
+			nop;
+		od;
+	else
+		nop;
+	fi;
+	
+%
+write Var1,Var2
+
+function test2:
+read Var3,Var4
+%
+	nop;
+	while nil do
+		nop;
+	od;
+	if expr then
+		nop;
+		nop;
+		while nil=?nil do
+			nop;
+			nop;
+		od;
+	else
+		nop;
+	fi;
+	
+%
+write Var3,Var4
+

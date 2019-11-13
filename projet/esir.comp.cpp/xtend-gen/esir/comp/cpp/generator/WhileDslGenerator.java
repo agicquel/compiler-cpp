@@ -3,19 +3,219 @@
  */
 package esir.comp.cpp.generator;
 
+import com.google.common.collect.Iterables;
+import esir.comp.cpp.whileDsl.Command;
+import esir.comp.cpp.whileDsl.Definition;
+import esir.comp.cpp.whileDsl.ForCommand;
+import esir.comp.cpp.whileDsl.ForeachCommand;
+import esir.comp.cpp.whileDsl.Function;
+import esir.comp.cpp.whileDsl.IfCommand;
+import esir.comp.cpp.whileDsl.Model;
+import esir.comp.cpp.whileDsl.NopCommand;
+import esir.comp.cpp.whileDsl.VarsCommand;
+import esir.comp.cpp.whileDsl.WhileCommand;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
-/**
- * Generates code from your model files on save.
- * 
- * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
- */
 @SuppressWarnings("all")
 public class WhileDslGenerator extends AbstractGenerator {
+  private String INDENT_DEFAULT = "\t";
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    String test = "";
+    Iterable<Model> _filter = Iterables.<Model>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Model.class);
+    for (final Model m : _filter) {
+      String _test = test;
+      CharSequence _indent = this.indent(m);
+      test = (_test + _indent);
+    }
+    fsa.generateFile(
+      "test-pp.wh", test);
+  }
+  
+  public CharSequence indent(final Model model) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Function> _program = model.getProgram();
+      for(final Function function : _program) {
+        _builder.append("function ");
+        String _functionName = function.getFunctionName();
+        _builder.append(_functionName);
+        _builder.append(":");
+        _builder.newLineIfNotEmpty();
+        CharSequence _indent = this.indent(function.getFunctionDefinition());
+        String _plus = (_indent + "\n");
+        _builder.append(_plus);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence indent(final Definition definition) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("read ");
+    String _intput = definition.getIntput();
+    _builder.append(_intput);
+    _builder.newLineIfNotEmpty();
+    _builder.append("%");
+    _builder.newLine();
+    {
+      EList<Command> _commands = definition.getBody().getCommands();
+      for(final Command command : _commands) {
+        String _addTabulation = this.addTabulation(this.indentCommand(command));
+        _builder.append(_addTabulation);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("%");
+    _builder.newLine();
+    _builder.append("write ");
+    String _output = definition.getOutput();
+    _builder.append(_output);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence indentCommand(final Command command) {
+    boolean _matched = false;
+    if (command instanceof NopCommand) {
+      _matched=true;
+      return "nop;";
+    }
+    if (!_matched) {
+      if (command instanceof WhileCommand) {
+        _matched=true;
+        return this.indent(((WhileCommand) command));
+      }
+    }
+    if (!_matched) {
+      if (command instanceof ForCommand) {
+        _matched=true;
+        return this.indent(((ForCommand) command));
+      }
+    }
+    if (!_matched) {
+      if (command instanceof IfCommand) {
+        _matched=true;
+        return this.indent(((IfCommand) command));
+      }
+    }
+    if (!_matched) {
+      if (command instanceof ForeachCommand) {
+        _matched=true;
+        return this.indent(((ForeachCommand) command));
+      }
+    }
+    if (!_matched) {
+      if (command instanceof VarsCommand) {
+        _matched=true;
+        return this.indent(((VarsCommand) command));
+      }
+    }
+    return "unknown command";
+  }
+  
+  public CharSequence indent(final WhileCommand whileCommand) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("while ");
+    String _cond = whileCommand.getCond();
+    _builder.append(_cond);
+    _builder.append(" do");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Command> _commands = whileCommand.getBody().getCommands();
+      for(final Command command : _commands) {
+        String _addTabulation = this.addTabulation(this.indentCommand(command));
+        _builder.append(_addTabulation);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("od;");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence indent(final ForCommand forCommand) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("for ");
+    String _cond = forCommand.getCond();
+    _builder.append(_cond);
+    _builder.append(" do");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Command> _commands = forCommand.getBody().getCommands();
+      for(final Command command : _commands) {
+        String _addTabulation = this.addTabulation(this.indentCommand(command));
+        _builder.append(_addTabulation);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("od;");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence indent(final IfCommand ifCommand) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("if ");
+    String _cond = ifCommand.getCond();
+    _builder.append(_cond);
+    _builder.append(" then");
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Command> _commands = ifCommand.getThenBody().getCommands();
+      for(final Command command : _commands) {
+        String _addTabulation = this.addTabulation(this.indentCommand(command));
+        _builder.append(_addTabulation);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      int _size = ifCommand.getElseBody().getCommands().size();
+      boolean _greaterThan = (_size > 0);
+      if (_greaterThan) {
+        _builder.append("else");
+        _builder.newLine();
+        {
+          EList<Command> _commands_1 = ifCommand.getElseBody().getCommands();
+          for(final Command command_1 : _commands_1) {
+            String _addTabulation_1 = this.addTabulation(this.indentCommand(command_1));
+            _builder.append(_addTabulation_1);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    _builder.append("fi;");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence indent(final ForeachCommand foreachCommand) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public CharSequence indent(final VarsCommand varsCommand) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  public String addTabulation(final CharSequence charSequence) {
+    String text = "";
+    String[] _split = charSequence.toString().split(System.getProperty("line.separator"));
+    for (final String s : _split) {
+      String _text = text;
+      text = (_text + ((this.INDENT_DEFAULT + s) + "\n"));
+    }
+    return text;
   }
 }

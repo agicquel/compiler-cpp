@@ -3,18 +3,23 @@
  */
 package esir.comp.cpp.whileDsl.impl;
 
+import esir.comp.cpp.whileDsl.Function;
 import esir.comp.cpp.whileDsl.Model;
 import esir.comp.cpp.whileDsl.WhileDslPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,14 +37,14 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getProgram() <em>Program</em>}' attribute list.
+   * The cached value of the '{@link #getProgram() <em>Program</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getProgram()
    * @generated
    * @ordered
    */
-  protected EList<String> program;
+  protected EList<Function> program;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,13 +73,29 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<String> getProgram()
+  public EList<Function> getProgram()
   {
     if (program == null)
     {
-      program = new EDataTypeEList<String>(String.class, this, WhileDslPackage.MODEL__PROGRAM);
+      program = new EObjectContainmentEList<Function>(Function.class, this, WhileDslPackage.MODEL__PROGRAM);
     }
     return program;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case WhileDslPackage.MODEL__PROGRAM:
+        return ((InternalEList<?>)getProgram()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -106,7 +127,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case WhileDslPackage.MODEL__PROGRAM:
         getProgram().clear();
-        getProgram().addAll((Collection<? extends String>)newValue);
+        getProgram().addAll((Collection<? extends Function>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,23 +164,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return program != null && !program.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (program: ");
-    result.append(program);
-    result.append(')');
-    return result.toString();
   }
 
 } //ModelImpl

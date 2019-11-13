@@ -7,10 +7,10 @@ Model:
 
 // Structure de base
 Function:
-	'function' LC SYMBOL ':' LC Definition LC
+	'function' LC functionName=SYMBOL LC ':' LC functionDefinition=Definition LC
 ;
 Definition:
-	'read' LC Input LC '%' LC Commands LC '%' LC 'write' LC Output
+	'read' LC intput=Input LC '%' LC body=Commands LC '%' LC 'write' LC output=Output
 ;
 Input:
 	VARIABLE (',' VARIABLE)*
@@ -21,22 +21,29 @@ Output:
 
 // Commandes
 Commands:
-	Command (';' Command)* (';')?
+	commands+=Command (';' LC commands+=Command)* (';')?
+	//{Commands} (commands+=(Command) LC ';')*
 ;
 Command:
-	('nop' | While | For | If | Foreach | Vars LC ':=' LC Exprs )
+	({NopCommand} NopCommand | WhileCommand | ForCommand | IfCommand | ForeachCommand | VarsCommand)
 ;
-While:
-	'while' LC Expr LC 'do' LC Commands LC 'od'
+WhileCommand:
+	'while' LC cond=Expr LC 'do' LC body=Commands LC 'od'
 ;
-For:
-	'for' LC Expr LC 'do' LC Commands LC 'od'
+ForCommand:
+	'for' LC cond=Expr LC 'do' LC body=Commands LC 'od'
 ;
-If:
-	'if' LC Expr LC 'then' LC Commands LC ('else' LC Commands LC 'fi' | 'fi' )
+IfCommand:
+	'if' LC cond=Expr LC 'then' LC thenBody=Commands LC ('else' LC elseBody=Commands LC)? 'fi'
 ;
-Foreach:
-	'foreach' LC Expr LC 'in' LC Expr LC 'do' LC Commands LC 'od'
+ForeachCommand:
+	'foreach' LC expElement=Expr LC 'in' LC expList=Expr LC 'do' LC body=Commands LC 'od'
+;
+VarsCommand:
+	variables=Vars LC ':=' LC values=Exprs
+;
+NopCommand:
+	'nop'
 ;
 Vars:
 	VARIABLE (','  VARIABLE)*

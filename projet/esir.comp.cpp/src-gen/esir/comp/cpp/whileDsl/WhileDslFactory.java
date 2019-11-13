@@ -33,6 +33,96 @@ public interface WhileDslFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Function</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function</em>'.
+   * @generated
+   */
+  Function createFunction();
+
+  /**
+   * Returns a new object of class '<em>Definition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Definition</em>'.
+   * @generated
+   */
+  Definition createDefinition();
+
+  /**
+   * Returns a new object of class '<em>Commands</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Commands</em>'.
+   * @generated
+   */
+  Commands createCommands();
+
+  /**
+   * Returns a new object of class '<em>Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Command</em>'.
+   * @generated
+   */
+  Command createCommand();
+
+  /**
+   * Returns a new object of class '<em>While Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>While Command</em>'.
+   * @generated
+   */
+  WhileCommand createWhileCommand();
+
+  /**
+   * Returns a new object of class '<em>For Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>For Command</em>'.
+   * @generated
+   */
+  ForCommand createForCommand();
+
+  /**
+   * Returns a new object of class '<em>If Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>If Command</em>'.
+   * @generated
+   */
+  IfCommand createIfCommand();
+
+  /**
+   * Returns a new object of class '<em>Foreach Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Foreach Command</em>'.
+   * @generated
+   */
+  ForeachCommand createForeachCommand();
+
+  /**
+   * Returns a new object of class '<em>Vars Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Vars Command</em>'.
+   * @generated
+   */
+  VarsCommand createVarsCommand();
+
+  /**
+   * Returns a new object of class '<em>Nop Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Nop Command</em>'.
+   * @generated
+   */
+  NopCommand createNopCommand();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

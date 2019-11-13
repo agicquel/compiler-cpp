@@ -6,6 +6,7 @@ package esir.comp.cpp.whileDsl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,7 +68,7 @@ public interface WhileDslPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Program</b></em>' attribute list.
+   * The feature id for the '<em><b>Program</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -84,6 +85,358 @@ public interface WhileDslPackage extends EPackage
    */
   int MODEL_FEATURE_COUNT = 1;
 
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.FunctionImpl <em>Function</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.FunctionImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getFunction()
+   * @generated
+   */
+  int FUNCTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Function Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__FUNCTION_NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Function Definition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION__FUNCTION_DEFINITION = 1;
+
+  /**
+   * The number of structural features of the '<em>Function</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.DefinitionImpl <em>Definition</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.DefinitionImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getDefinition()
+   * @generated
+   */
+  int DEFINITION = 2;
+
+  /**
+   * The feature id for the '<em><b>Intput</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION__INTPUT = 0;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION__BODY = 1;
+
+  /**
+   * The feature id for the '<em><b>Output</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION__OUTPUT = 2;
+
+  /**
+   * The number of structural features of the '<em>Definition</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFINITION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.CommandsImpl <em>Commands</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.CommandsImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getCommands()
+   * @generated
+   */
+  int COMMANDS = 3;
+
+  /**
+   * The feature id for the '<em><b>Commands</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMANDS__COMMANDS = 0;
+
+  /**
+   * The number of structural features of the '<em>Commands</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMANDS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.CommandImpl <em>Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.CommandImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getCommand()
+   * @generated
+   */
+  int COMMAND = 4;
+
+  /**
+   * The number of structural features of the '<em>Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMMAND_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.WhileCommandImpl <em>While Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.WhileCommandImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getWhileCommand()
+   * @generated
+   */
+  int WHILE_COMMAND = 5;
+
+  /**
+   * The feature id for the '<em><b>Cond</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE_COMMAND__COND = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE_COMMAND__BODY = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>While Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int WHILE_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ForCommandImpl <em>For Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ForCommandImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getForCommand()
+   * @generated
+   */
+  int FOR_COMMAND = 6;
+
+  /**
+   * The feature id for the '<em><b>Cond</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_COMMAND__COND = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_COMMAND__BODY = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>For Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOR_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.IfCommandImpl <em>If Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.IfCommandImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getIfCommand()
+   * @generated
+   */
+  int IF_COMMAND = 7;
+
+  /**
+   * The feature id for the '<em><b>Cond</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_COMMAND__COND = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Then Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_COMMAND__THEN_BODY = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Else Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_COMMAND__ELSE_BODY = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>If Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IF_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.ForeachCommandImpl <em>Foreach Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.ForeachCommandImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getForeachCommand()
+   * @generated
+   */
+  int FOREACH_COMMAND = 8;
+
+  /**
+   * The feature id for the '<em><b>Exp Element</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH_COMMAND__EXP_ELEMENT = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Exp List</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH_COMMAND__EXP_LIST = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH_COMMAND__BODY = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Foreach Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FOREACH_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.VarsCommandImpl <em>Vars Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.VarsCommandImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getVarsCommand()
+   * @generated
+   */
+  int VARS_COMMAND = 9;
+
+  /**
+   * The feature id for the '<em><b>Variables</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARS_COMMAND__VARIABLES = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Values</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARS_COMMAND__VALUES = COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Vars Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARS_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.NopCommandImpl <em>Nop Command</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see esir.comp.cpp.whileDsl.impl.NopCommandImpl
+   * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getNopCommand()
+   * @generated
+   */
+  int NOP_COMMAND = 10;
+
+  /**
+   * The number of structural features of the '<em>Nop Command</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOP_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 0;
+
 
   /**
    * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.Model <em>Model</em>}'.
@@ -96,15 +449,313 @@ public interface WhileDslPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the attribute list '{@link esir.comp.cpp.whileDsl.Model#getProgram <em>Program</em>}'.
+   * Returns the meta object for the containment reference list '{@link esir.comp.cpp.whileDsl.Model#getProgram <em>Program</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Program</em>'.
+   * @return the meta object for the containment reference list '<em>Program</em>'.
    * @see esir.comp.cpp.whileDsl.Model#getProgram()
    * @see #getModel()
    * @generated
    */
-  EAttribute getModel_Program();
+  EReference getModel_Program();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function</em>'.
+   * @see esir.comp.cpp.whileDsl.Function
+   * @generated
+   */
+  EClass getFunction();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.Function#getFunctionName <em>Function Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Function Name</em>'.
+   * @see esir.comp.cpp.whileDsl.Function#getFunctionName()
+   * @see #getFunction()
+   * @generated
+   */
+  EAttribute getFunction_FunctionName();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.Function#getFunctionDefinition <em>Function Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Function Definition</em>'.
+   * @see esir.comp.cpp.whileDsl.Function#getFunctionDefinition()
+   * @see #getFunction()
+   * @generated
+   */
+  EReference getFunction_FunctionDefinition();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.Definition <em>Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Definition</em>'.
+   * @see esir.comp.cpp.whileDsl.Definition
+   * @generated
+   */
+  EClass getDefinition();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.Definition#getIntput <em>Intput</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Intput</em>'.
+   * @see esir.comp.cpp.whileDsl.Definition#getIntput()
+   * @see #getDefinition()
+   * @generated
+   */
+  EAttribute getDefinition_Intput();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.Definition#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see esir.comp.cpp.whileDsl.Definition#getBody()
+   * @see #getDefinition()
+   * @generated
+   */
+  EReference getDefinition_Body();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.Definition#getOutput <em>Output</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Output</em>'.
+   * @see esir.comp.cpp.whileDsl.Definition#getOutput()
+   * @see #getDefinition()
+   * @generated
+   */
+  EAttribute getDefinition_Output();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.Commands <em>Commands</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Commands</em>'.
+   * @see esir.comp.cpp.whileDsl.Commands
+   * @generated
+   */
+  EClass getCommands();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link esir.comp.cpp.whileDsl.Commands#getCommands <em>Commands</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Commands</em>'.
+   * @see esir.comp.cpp.whileDsl.Commands#getCommands()
+   * @see #getCommands()
+   * @generated
+   */
+  EReference getCommands_Commands();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.Command <em>Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Command</em>'.
+   * @see esir.comp.cpp.whileDsl.Command
+   * @generated
+   */
+  EClass getCommand();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.WhileCommand <em>While Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>While Command</em>'.
+   * @see esir.comp.cpp.whileDsl.WhileCommand
+   * @generated
+   */
+  EClass getWhileCommand();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.WhileCommand#getCond <em>Cond</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Cond</em>'.
+   * @see esir.comp.cpp.whileDsl.WhileCommand#getCond()
+   * @see #getWhileCommand()
+   * @generated
+   */
+  EAttribute getWhileCommand_Cond();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.WhileCommand#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see esir.comp.cpp.whileDsl.WhileCommand#getBody()
+   * @see #getWhileCommand()
+   * @generated
+   */
+  EReference getWhileCommand_Body();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.ForCommand <em>For Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>For Command</em>'.
+   * @see esir.comp.cpp.whileDsl.ForCommand
+   * @generated
+   */
+  EClass getForCommand();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ForCommand#getCond <em>Cond</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Cond</em>'.
+   * @see esir.comp.cpp.whileDsl.ForCommand#getCond()
+   * @see #getForCommand()
+   * @generated
+   */
+  EAttribute getForCommand_Cond();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ForCommand#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see esir.comp.cpp.whileDsl.ForCommand#getBody()
+   * @see #getForCommand()
+   * @generated
+   */
+  EReference getForCommand_Body();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.IfCommand <em>If Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>If Command</em>'.
+   * @see esir.comp.cpp.whileDsl.IfCommand
+   * @generated
+   */
+  EClass getIfCommand();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.IfCommand#getCond <em>Cond</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Cond</em>'.
+   * @see esir.comp.cpp.whileDsl.IfCommand#getCond()
+   * @see #getIfCommand()
+   * @generated
+   */
+  EAttribute getIfCommand_Cond();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.IfCommand#getThenBody <em>Then Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Then Body</em>'.
+   * @see esir.comp.cpp.whileDsl.IfCommand#getThenBody()
+   * @see #getIfCommand()
+   * @generated
+   */
+  EReference getIfCommand_ThenBody();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.IfCommand#getElseBody <em>Else Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else Body</em>'.
+   * @see esir.comp.cpp.whileDsl.IfCommand#getElseBody()
+   * @see #getIfCommand()
+   * @generated
+   */
+  EReference getIfCommand_ElseBody();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.ForeachCommand <em>Foreach Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Foreach Command</em>'.
+   * @see esir.comp.cpp.whileDsl.ForeachCommand
+   * @generated
+   */
+  EClass getForeachCommand();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpElement <em>Exp Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Exp Element</em>'.
+   * @see esir.comp.cpp.whileDsl.ForeachCommand#getExpElement()
+   * @see #getForeachCommand()
+   * @generated
+   */
+  EAttribute getForeachCommand_ExpElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpList <em>Exp List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Exp List</em>'.
+   * @see esir.comp.cpp.whileDsl.ForeachCommand#getExpList()
+   * @see #getForeachCommand()
+   * @generated
+   */
+  EAttribute getForeachCommand_ExpList();
+
+  /**
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ForeachCommand#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see esir.comp.cpp.whileDsl.ForeachCommand#getBody()
+   * @see #getForeachCommand()
+   * @generated
+   */
+  EReference getForeachCommand_Body();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.VarsCommand <em>Vars Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Vars Command</em>'.
+   * @see esir.comp.cpp.whileDsl.VarsCommand
+   * @generated
+   */
+  EClass getVarsCommand();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.VarsCommand#getVariables <em>Variables</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Variables</em>'.
+   * @see esir.comp.cpp.whileDsl.VarsCommand#getVariables()
+   * @see #getVarsCommand()
+   * @generated
+   */
+  EAttribute getVarsCommand_Variables();
+
+  /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.VarsCommand#getValues <em>Values</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Values</em>'.
+   * @see esir.comp.cpp.whileDsl.VarsCommand#getValues()
+   * @see #getVarsCommand()
+   * @generated
+   */
+  EAttribute getVarsCommand_Values();
+
+  /**
+   * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.NopCommand <em>Nop Command</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Nop Command</em>'.
+   * @see esir.comp.cpp.whileDsl.NopCommand
+   * @generated
+   */
+  EClass getNopCommand();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -140,12 +791,256 @@ public interface WhileDslPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Program</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Program</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute MODEL__PROGRAM = eINSTANCE.getModel_Program();
+    EReference MODEL__PROGRAM = eINSTANCE.getModel_Program();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.FunctionImpl <em>Function</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.FunctionImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getFunction()
+     * @generated
+     */
+    EClass FUNCTION = eINSTANCE.getFunction();
+
+    /**
+     * The meta object literal for the '<em><b>Function Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FUNCTION__FUNCTION_NAME = eINSTANCE.getFunction_FunctionName();
+
+    /**
+     * The meta object literal for the '<em><b>Function Definition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION__FUNCTION_DEFINITION = eINSTANCE.getFunction_FunctionDefinition();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.DefinitionImpl <em>Definition</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.DefinitionImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getDefinition()
+     * @generated
+     */
+    EClass DEFINITION = eINSTANCE.getDefinition();
+
+    /**
+     * The meta object literal for the '<em><b>Intput</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFINITION__INTPUT = eINSTANCE.getDefinition_Intput();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DEFINITION__BODY = eINSTANCE.getDefinition_Body();
+
+    /**
+     * The meta object literal for the '<em><b>Output</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFINITION__OUTPUT = eINSTANCE.getDefinition_Output();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.CommandsImpl <em>Commands</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.CommandsImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getCommands()
+     * @generated
+     */
+    EClass COMMANDS = eINSTANCE.getCommands();
+
+    /**
+     * The meta object literal for the '<em><b>Commands</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COMMANDS__COMMANDS = eINSTANCE.getCommands_Commands();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.CommandImpl <em>Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.CommandImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getCommand()
+     * @generated
+     */
+    EClass COMMAND = eINSTANCE.getCommand();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.WhileCommandImpl <em>While Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.WhileCommandImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getWhileCommand()
+     * @generated
+     */
+    EClass WHILE_COMMAND = eINSTANCE.getWhileCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Cond</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute WHILE_COMMAND__COND = eINSTANCE.getWhileCommand_Cond();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference WHILE_COMMAND__BODY = eINSTANCE.getWhileCommand_Body();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ForCommandImpl <em>For Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ForCommandImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getForCommand()
+     * @generated
+     */
+    EClass FOR_COMMAND = eINSTANCE.getForCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Cond</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FOR_COMMAND__COND = eINSTANCE.getForCommand_Cond();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOR_COMMAND__BODY = eINSTANCE.getForCommand_Body();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.IfCommandImpl <em>If Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.IfCommandImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getIfCommand()
+     * @generated
+     */
+    EClass IF_COMMAND = eINSTANCE.getIfCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Cond</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IF_COMMAND__COND = eINSTANCE.getIfCommand_Cond();
+
+    /**
+     * The meta object literal for the '<em><b>Then Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_COMMAND__THEN_BODY = eINSTANCE.getIfCommand_ThenBody();
+
+    /**
+     * The meta object literal for the '<em><b>Else Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IF_COMMAND__ELSE_BODY = eINSTANCE.getIfCommand_ElseBody();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.ForeachCommandImpl <em>Foreach Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.ForeachCommandImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getForeachCommand()
+     * @generated
+     */
+    EClass FOREACH_COMMAND = eINSTANCE.getForeachCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Exp Element</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FOREACH_COMMAND__EXP_ELEMENT = eINSTANCE.getForeachCommand_ExpElement();
+
+    /**
+     * The meta object literal for the '<em><b>Exp List</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FOREACH_COMMAND__EXP_LIST = eINSTANCE.getForeachCommand_ExpList();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FOREACH_COMMAND__BODY = eINSTANCE.getForeachCommand_Body();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.VarsCommandImpl <em>Vars Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.VarsCommandImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getVarsCommand()
+     * @generated
+     */
+    EClass VARS_COMMAND = eINSTANCE.getVarsCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Variables</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARS_COMMAND__VARIABLES = eINSTANCE.getVarsCommand_Variables();
+
+    /**
+     * The meta object literal for the '<em><b>Values</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute VARS_COMMAND__VALUES = eINSTANCE.getVarsCommand_Values();
+
+    /**
+     * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.NopCommandImpl <em>Nop Command</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see esir.comp.cpp.whileDsl.impl.NopCommandImpl
+     * @see esir.comp.cpp.whileDsl.impl.WhileDslPackageImpl#getNopCommand()
+     * @generated
+     */
+    EClass NOP_COMMAND = eINSTANCE.getNopCommand();
 
   }
 

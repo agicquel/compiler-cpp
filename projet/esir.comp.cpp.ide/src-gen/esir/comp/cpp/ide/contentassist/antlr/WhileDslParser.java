@@ -32,7 +32,6 @@ public class WhileDslParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, WhileDslGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getCommandAccess().getAlternatives(), "rule__Command__Alternatives");
-			builder.put(grammarAccess.getIfAccess().getAlternatives_8(), "rule__If__Alternatives_8");
 			builder.put(grammarAccess.getExprSimpleAccess().getAlternatives(), "rule__ExprSimple__Alternatives");
 			builder.put(grammarAccess.getExprSimpleAccess().getAlternatives_3_1(), "rule__ExprSimple__Alternatives_3_1");
 			builder.put(grammarAccess.getExprSimpleAccess().getAlternatives_4_1(), "rule__ExprSimple__Alternatives_4_1");
@@ -48,12 +47,13 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getOutputAccess().getGroup_1(), "rule__Output__Group_1__0");
 			builder.put(grammarAccess.getCommandsAccess().getGroup(), "rule__Commands__Group__0");
 			builder.put(grammarAccess.getCommandsAccess().getGroup_1(), "rule__Commands__Group_1__0");
-			builder.put(grammarAccess.getCommandAccess().getGroup_5(), "rule__Command__Group_5__0");
-			builder.put(grammarAccess.getWhileAccess().getGroup(), "rule__While__Group__0");
-			builder.put(grammarAccess.getForAccess().getGroup(), "rule__For__Group__0");
-			builder.put(grammarAccess.getIfAccess().getGroup(), "rule__If__Group__0");
-			builder.put(grammarAccess.getIfAccess().getGroup_8_0(), "rule__If__Group_8_0__0");
-			builder.put(grammarAccess.getForeachAccess().getGroup(), "rule__Foreach__Group__0");
+			builder.put(grammarAccess.getCommandAccess().getGroup_0(), "rule__Command__Group_0__0");
+			builder.put(grammarAccess.getWhileCommandAccess().getGroup(), "rule__WhileCommand__Group__0");
+			builder.put(grammarAccess.getForCommandAccess().getGroup(), "rule__ForCommand__Group__0");
+			builder.put(grammarAccess.getIfCommandAccess().getGroup(), "rule__IfCommand__Group__0");
+			builder.put(grammarAccess.getIfCommandAccess().getGroup_8(), "rule__IfCommand__Group_8__0");
+			builder.put(grammarAccess.getForeachCommandAccess().getGroup(), "rule__ForeachCommand__Group__0");
+			builder.put(grammarAccess.getVarsCommandAccess().getGroup(), "rule__VarsCommand__Group__0");
 			builder.put(grammarAccess.getVarsAccess().getGroup(), "rule__Vars__Group__0");
 			builder.put(grammarAccess.getVarsAccess().getGroup_1(), "rule__Vars__Group_1__0");
 			builder.put(grammarAccess.getExprSimpleAccess().getGroup_3(), "rule__ExprSimple__Group_3__0");
@@ -69,6 +69,25 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExprEqAccess().getGroup_0(), "rule__ExprEq__Group_0__0");
 			builder.put(grammarAccess.getExprEqAccess().getGroup_1(), "rule__ExprEq__Group_1__0");
 			builder.put(grammarAccess.getModelAccess().getProgramAssignment(), "rule__Model__ProgramAssignment");
+			builder.put(grammarAccess.getFunctionAccess().getFunctionNameAssignment_2(), "rule__Function__FunctionNameAssignment_2");
+			builder.put(grammarAccess.getFunctionAccess().getFunctionDefinitionAssignment_6(), "rule__Function__FunctionDefinitionAssignment_6");
+			builder.put(grammarAccess.getDefinitionAccess().getIntputAssignment_2(), "rule__Definition__IntputAssignment_2");
+			builder.put(grammarAccess.getDefinitionAccess().getBodyAssignment_6(), "rule__Definition__BodyAssignment_6");
+			builder.put(grammarAccess.getDefinitionAccess().getOutputAssignment_12(), "rule__Definition__OutputAssignment_12");
+			builder.put(grammarAccess.getCommandsAccess().getCommandsAssignment_0(), "rule__Commands__CommandsAssignment_0");
+			builder.put(grammarAccess.getCommandsAccess().getCommandsAssignment_1_2(), "rule__Commands__CommandsAssignment_1_2");
+			builder.put(grammarAccess.getWhileCommandAccess().getCondAssignment_2(), "rule__WhileCommand__CondAssignment_2");
+			builder.put(grammarAccess.getWhileCommandAccess().getBodyAssignment_6(), "rule__WhileCommand__BodyAssignment_6");
+			builder.put(grammarAccess.getForCommandAccess().getCondAssignment_2(), "rule__ForCommand__CondAssignment_2");
+			builder.put(grammarAccess.getForCommandAccess().getBodyAssignment_6(), "rule__ForCommand__BodyAssignment_6");
+			builder.put(grammarAccess.getIfCommandAccess().getCondAssignment_2(), "rule__IfCommand__CondAssignment_2");
+			builder.put(grammarAccess.getIfCommandAccess().getThenBodyAssignment_6(), "rule__IfCommand__ThenBodyAssignment_6");
+			builder.put(grammarAccess.getIfCommandAccess().getElseBodyAssignment_8_2(), "rule__IfCommand__ElseBodyAssignment_8_2");
+			builder.put(grammarAccess.getForeachCommandAccess().getExpElementAssignment_2(), "rule__ForeachCommand__ExpElementAssignment_2");
+			builder.put(grammarAccess.getForeachCommandAccess().getExpListAssignment_6(), "rule__ForeachCommand__ExpListAssignment_6");
+			builder.put(grammarAccess.getForeachCommandAccess().getBodyAssignment_10(), "rule__ForeachCommand__BodyAssignment_10");
+			builder.put(grammarAccess.getVarsCommandAccess().getVariablesAssignment_0(), "rule__VarsCommand__VariablesAssignment_0");
+			builder.put(grammarAccess.getVarsCommandAccess().getValuesAssignment_4(), "rule__VarsCommand__ValuesAssignment_4");
 		}
 	}
 	

@@ -81,6 +81,56 @@ public class WhileDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseFunction(Function object)
+      {
+        return createFunctionAdapter();
+      }
+      @Override
+      public Adapter caseDefinition(Definition object)
+      {
+        return createDefinitionAdapter();
+      }
+      @Override
+      public Adapter caseCommands(Commands object)
+      {
+        return createCommandsAdapter();
+      }
+      @Override
+      public Adapter caseCommand(Command object)
+      {
+        return createCommandAdapter();
+      }
+      @Override
+      public Adapter caseWhileCommand(WhileCommand object)
+      {
+        return createWhileCommandAdapter();
+      }
+      @Override
+      public Adapter caseForCommand(ForCommand object)
+      {
+        return createForCommandAdapter();
+      }
+      @Override
+      public Adapter caseIfCommand(IfCommand object)
+      {
+        return createIfCommandAdapter();
+      }
+      @Override
+      public Adapter caseForeachCommand(ForeachCommand object)
+      {
+        return createForeachCommandAdapter();
+      }
+      @Override
+      public Adapter caseVarsCommand(VarsCommand object)
+      {
+        return createVarsCommandAdapter();
+      }
+      @Override
+      public Adapter caseNopCommand(NopCommand object)
+      {
+        return createNopCommandAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -113,6 +163,156 @@ public class WhileDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.Function <em>Function</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.Function
+   * @generated
+   */
+  public Adapter createFunctionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.Definition <em>Definition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.Definition
+   * @generated
+   */
+  public Adapter createDefinitionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.Commands <em>Commands</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.Commands
+   * @generated
+   */
+  public Adapter createCommandsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.Command <em>Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.Command
+   * @generated
+   */
+  public Adapter createCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.WhileCommand <em>While Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.WhileCommand
+   * @generated
+   */
+  public Adapter createWhileCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.ForCommand <em>For Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.ForCommand
+   * @generated
+   */
+  public Adapter createForCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.IfCommand <em>If Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.IfCommand
+   * @generated
+   */
+  public Adapter createIfCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.ForeachCommand <em>Foreach Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.ForeachCommand
+   * @generated
+   */
+  public Adapter createForeachCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.VarsCommand <em>Vars Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.VarsCommand
+   * @generated
+   */
+  public Adapter createVarsCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link esir.comp.cpp.whileDsl.NopCommand <em>Nop Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see esir.comp.cpp.whileDsl.NopCommand
+   * @generated
+   */
+  public Adapter createNopCommandAdapter()
   {
     return null;
   }

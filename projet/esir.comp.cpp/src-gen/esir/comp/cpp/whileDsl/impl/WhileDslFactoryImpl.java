@@ -66,6 +66,16 @@ public class WhileDslFactoryImpl extends EFactoryImpl implements WhileDslFactory
     switch (eClass.getClassifierID())
     {
       case WhileDslPackage.MODEL: return createModel();
+      case WhileDslPackage.FUNCTION: return createFunction();
+      case WhileDslPackage.DEFINITION: return createDefinition();
+      case WhileDslPackage.COMMANDS: return createCommands();
+      case WhileDslPackage.COMMAND: return createCommand();
+      case WhileDslPackage.WHILE_COMMAND: return createWhileCommand();
+      case WhileDslPackage.FOR_COMMAND: return createForCommand();
+      case WhileDslPackage.IF_COMMAND: return createIfCommand();
+      case WhileDslPackage.FOREACH_COMMAND: return createForeachCommand();
+      case WhileDslPackage.VARS_COMMAND: return createVarsCommand();
+      case WhileDslPackage.NOP_COMMAND: return createNopCommand();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -81,6 +91,126 @@ public class WhileDslFactoryImpl extends EFactoryImpl implements WhileDslFactory
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Function createFunction()
+  {
+    FunctionImpl function = new FunctionImpl();
+    return function;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Definition createDefinition()
+  {
+    DefinitionImpl definition = new DefinitionImpl();
+    return definition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Commands createCommands()
+  {
+    CommandsImpl commands = new CommandsImpl();
+    return commands;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Command createCommand()
+  {
+    CommandImpl command = new CommandImpl();
+    return command;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public WhileCommand createWhileCommand()
+  {
+    WhileCommandImpl whileCommand = new WhileCommandImpl();
+    return whileCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ForCommand createForCommand()
+  {
+    ForCommandImpl forCommand = new ForCommandImpl();
+    return forCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public IfCommand createIfCommand()
+  {
+    IfCommandImpl ifCommand = new IfCommandImpl();
+    return ifCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ForeachCommand createForeachCommand()
+  {
+    ForeachCommandImpl foreachCommand = new ForeachCommandImpl();
+    return foreachCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public VarsCommand createVarsCommand()
+  {
+    VarsCommandImpl varsCommand = new VarsCommandImpl();
+    return varsCommand;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NopCommand createNopCommand()
+  {
+    NopCommandImpl nopCommand = new NopCommandImpl();
+    return nopCommand;
   }
 
   /**

@@ -7,7 +7,43 @@
   <genPackages prefix="WhileDsl" basePackage="esir.comp.cpp" disposableProviderFactory="true"
       fileExtensions="wh" ecorePackage="WhileDsl.ecore#/">
     <genClasses ecoreClass="WhileDsl.ecore#//Model">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//Model/program"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//Model/program"/>
     </genClasses>
+    <genClasses ecoreClass="WhileDsl.ecore#//Function">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//Function/functionName"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//Function/functionDefinition"/>
+    </genClasses>
+    <genClasses ecoreClass="WhileDsl.ecore#//Definition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//Definition/intput"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//Definition/body"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//Definition/output"/>
+    </genClasses>
+    <genClasses ecoreClass="WhileDsl.ecore#//Commands">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//Commands/commands"/>
+    </genClasses>
+    <genClasses ecoreClass="WhileDsl.ecore#//Command"/>
+    <genClasses ecoreClass="WhileDsl.ecore#//WhileCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//WhileCommand/cond"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//WhileCommand/body"/>
+    </genClasses>
+    <genClasses ecoreClass="WhileDsl.ecore#//ForCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//ForCommand/cond"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ForCommand/body"/>
+    </genClasses>
+    <genClasses ecoreClass="WhileDsl.ecore#//IfCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//IfCommand/cond"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//IfCommand/thenBody"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//IfCommand/elseBody"/>
+    </genClasses>
+    <genClasses ecoreClass="WhileDsl.ecore#//ForeachCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//ForeachCommand/expElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//ForeachCommand/expList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ForeachCommand/body"/>
+    </genClasses>
+    <genClasses ecoreClass="WhileDsl.ecore#//VarsCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//VarsCommand/variables"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//VarsCommand/values"/>
+    </genClasses>
+    <genClasses ecoreClass="WhileDsl.ecore#//NopCommand"/>
   </genPackages>
 </genmodel:GenModel>
