@@ -87,14 +87,9 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("%");
     _builder.newLine();
-    {
-      EList<Command> _commands = definition.getBody().getCommands();
-      for(final Command command : _commands) {
-        String _addTabulation = this.addTabulation(this.indentCommand(command), PrettyPrinterGenerator.INDENT_DEFAULT);
-        _builder.append(_addTabulation);
-        _builder.newLineIfNotEmpty();
-      }
-    }
+    String _addTabulation = this.addTabulation(this.indentCommands(definition.getBody().getCommands()), PrettyPrinterGenerator.INDENT_DEFAULT);
+    _builder.append(_addTabulation);
+    _builder.newLineIfNotEmpty();
     _builder.append("%");
     _builder.newLine();
     _builder.append("write ");
@@ -104,6 +99,26 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  public String indentCommands(final EList<Command> commands) {
+    String text = "";
+    for (int i = 0; (i < commands.size()); i++) {
+      {
+        String _text = text;
+        CharSequence _indentCommand = this.indentCommand(commands.get(i));
+        text = (_text + _indentCommand);
+        int _size = commands.size();
+        boolean _lessThan = ((i + 1) < _size);
+        if (_lessThan) {
+          String _text_1 = text;
+          text = (_text_1 + ";");
+        }
+        String _text_2 = text;
+        text = (_text_2 + "\n");
+      }
+    }
+    return text;
+  }
+  
   protected CharSequence _indentCommand(final WhileCommand whileCommand) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("while ");
@@ -111,21 +126,15 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
     _builder.append(_indentExpression);
     _builder.append(" do");
     _builder.newLineIfNotEmpty();
-    {
-      EList<Command> _commands = whileCommand.getBody().getCommands();
-      for(final Command command : _commands) {
-        String _addTabulation = this.addTabulation(this.indentCommand(command), this.parameters.getIndentationWhile());
-        _builder.append(_addTabulation);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("od;");
-    _builder.newLine();
+    String _addTabulation = this.addTabulation(this.indentCommands(whileCommand.getBody().getCommands()), this.parameters.getIndentationWhile());
+    _builder.append(_addTabulation);
+    _builder.newLineIfNotEmpty();
+    _builder.append("od");
     return _builder;
   }
   
   protected CharSequence _indentCommand(final NopCommand nopCommand) {
-    return "nop;";
+    return "nop";
   }
   
   protected CharSequence _indentCommand(final ForCommand forCommand) {
@@ -135,16 +144,10 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
     _builder.append(_indentExpression);
     _builder.append(" do");
     _builder.newLineIfNotEmpty();
-    {
-      EList<Command> _commands = forCommand.getBody().getCommands();
-      for(final Command command : _commands) {
-        String _addTabulation = this.addTabulation(this.indentCommand(command), this.parameters.getIndentationFor());
-        _builder.append(_addTabulation);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("od;");
-    _builder.newLine();
+    String _addTabulation = this.addTabulation(this.indentCommands(forCommand.getBody().getCommands()), this.parameters.getIndentationFor());
+    _builder.append(_addTabulation);
+    _builder.newLineIfNotEmpty();
+    _builder.append("od");
     return _builder;
   }
   
@@ -155,32 +158,21 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
     _builder.append(_indentExpression);
     _builder.append(" then");
     _builder.newLineIfNotEmpty();
-    {
-      EList<Command> _commands = ifCommand.getThenBody().getCommands();
-      for(final Command command : _commands) {
-        String _addTabulation = this.addTabulation(this.indentCommand(command), this.parameters.getIndentationIf());
-        _builder.append(_addTabulation);
-        _builder.newLineIfNotEmpty();
-      }
-    }
+    String _addTabulation = this.addTabulation(this.indentCommands(ifCommand.getThenBody().getCommands()), this.parameters.getIndentationIf());
+    _builder.append(_addTabulation);
+    _builder.newLineIfNotEmpty();
     {
       int _size = ifCommand.getElseBody().getCommands().size();
       boolean _greaterThan = (_size > 0);
       if (_greaterThan) {
         _builder.append("else");
         _builder.newLine();
-        {
-          EList<Command> _commands_1 = ifCommand.getElseBody().getCommands();
-          for(final Command command_1 : _commands_1) {
-            String _addTabulation_1 = this.addTabulation(this.indentCommand(command_1), this.parameters.getIndentationIf());
-            _builder.append(_addTabulation_1);
-            _builder.newLineIfNotEmpty();
-          }
-        }
+        String _addTabulation_1 = this.addTabulation(this.indentCommands(ifCommand.getElseBody().getCommands()), this.parameters.getIndentationIf());
+        _builder.append(_addTabulation_1);
+        _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("fi;");
-    _builder.newLine();
+    _builder.append("fi");
     return _builder;
   }
   
@@ -194,16 +186,10 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
     _builder.append(_indentExpression_1);
     _builder.append(" do");
     _builder.newLineIfNotEmpty();
-    {
-      EList<Command> _commands = foreachCommand.getBody().getCommands();
-      for(final Command command : _commands) {
-        String _addTabulation = this.addTabulation(this.indentCommand(command), this.parameters.getIndentationForEach());
-        _builder.append(_addTabulation);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("od;");
-    _builder.newLine();
+    String _addTabulation = this.addTabulation(this.indentCommands(foreachCommand.getBody().getCommands()), this.parameters.getIndentationForEach());
+    _builder.append(_addTabulation);
+    _builder.newLineIfNotEmpty();
+    _builder.append("od");
     return _builder;
   }
   
@@ -214,8 +200,6 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
     _builder.append(" := ");
     CharSequence _indentExpression = this.indentExpression(varsCommand.getValues());
     _builder.append(_indentExpression);
-    _builder.append(" ;");
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -323,8 +307,8 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
       if (_tripleNotEquals_1) {
         String _text_1 = text;
         CharSequence _indentExpression_2 = this.indentExpression(exprEq.getExprRSimple());
-        String _plus = ("( " + _indentExpression_2);
-        String _plus_1 = (_plus + " )");
+        String _plus = ("(" + _indentExpression_2);
+        String _plus_1 = (_plus + ")");
         text = (_text_1 + _plus_1);
       }
     }
@@ -343,26 +327,37 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
   
   protected CharSequence _indentExpression(final ExprSimpleWithLExpr exprSimpleWithLExpr) {
     String _operation = exprSimpleWithLExpr.getOperation();
-    String _plus = ("( " + _operation);
+    String _plus = ("(" + _operation);
     String _plus_1 = (_plus + " ");
     CharSequence _indentExpression = this.indentExpression(exprSimpleWithLExpr.getLexpr());
     String _plus_2 = (_plus_1 + _indentExpression);
-    return (_plus_2 + " )");
+    return (_plus_2 + ")");
   }
   
   protected CharSequence _indentExpression(final ExprSimpleWithExpr exprSimpleWithExpr) {
     String _operation = exprSimpleWithExpr.getOperation();
-    String _plus = ("( " + _operation);
+    String _plus = ("(" + _operation);
     String _plus_1 = (_plus + " ");
     CharSequence _indentExpression = this.indentExpression(exprSimpleWithExpr.getExpr());
     String _plus_2 = (_plus_1 + _indentExpression);
-    return (_plus_2 + " )");
+    return (_plus_2 + ")");
   }
   
   protected CharSequence _indentExpression(final ExprSimpleWithSymbolLExpr exprSimpleWithSymbolLExpr) {
+    String _symbol = exprSimpleWithSymbolLExpr.getSymbol();
+    String _plus = ("(" + _symbol);
+    String _xifexpression = null;
+    int _size = exprSimpleWithSymbolLExpr.getLexpr().getExpressions().size();
+    boolean _greaterThan = (_size > 0);
+    if (_greaterThan) {
+      _xifexpression = " ";
+    } else {
+      _xifexpression = "";
+    }
+    String _plus_1 = (_plus + _xifexpression);
     CharSequence _indentExpression = this.indentExpression(exprSimpleWithSymbolLExpr.getLexpr());
-    String _plus = ("( " + _indentExpression);
-    return (_plus + " )");
+    String _plus_2 = (_plus_1 + _indentExpression);
+    return (_plus_2 + ")");
   }
   
   public String addTabulation(final CharSequence charSequence, final String tab) {

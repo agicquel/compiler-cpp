@@ -785,9 +785,20 @@ public class WhileDslPackageImpl extends EPackageImpl implements WhileDslPackage
    * @generated
    */
   @Override
+  public EAttribute getExprSimpleWithSymbolLExpr_Symbol()
+  {
+    return (EAttribute)exprSimpleWithSymbolLExprEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getExprSimpleWithSymbolLExpr_Lexpr()
   {
-    return (EReference)exprSimpleWithSymbolLExprEClass.getEStructuralFeatures().get(0);
+    return (EReference)exprSimpleWithSymbolLExprEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1080,6 +1091,7 @@ public class WhileDslPackageImpl extends EPackageImpl implements WhileDslPackage
     createEReference(exprSimpleWithExprEClass, EXPR_SIMPLE_WITH_EXPR__EXPR);
 
     exprSimpleWithSymbolLExprEClass = createEClass(EXPR_SIMPLE_WITH_SYMBOL_LEXPR);
+    createEAttribute(exprSimpleWithSymbolLExprEClass, EXPR_SIMPLE_WITH_SYMBOL_LEXPR__SYMBOL);
     createEReference(exprSimpleWithSymbolLExprEClass, EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR);
 
     lExprEClass = createEClass(LEXPR);
@@ -1207,6 +1219,7 @@ public class WhileDslPackageImpl extends EPackageImpl implements WhileDslPackage
     initEReference(getExprSimpleWithExpr_Expr(), this.getExpr(), null, "expr", null, 0, 1, ExprSimpleWithExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprSimpleWithSymbolLExprEClass, ExprSimpleWithSymbolLExpr.class, "ExprSimpleWithSymbolLExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExprSimpleWithSymbolLExpr_Symbol(), ecorePackage.getEString(), "symbol", null, 0, 1, ExprSimpleWithSymbolLExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExprSimpleWithSymbolLExpr_Lexpr(), this.getLExpr(), null, "lexpr", null, 0, 1, ExprSimpleWithSymbolLExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(lExprEClass, LExpr.class, "LExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link esir.comp.cpp.whileDsl.impl.ExprSimpleWithSymbolLExprImpl#getSymbol <em>Symbol</em>}</li>
  *   <li>{@link esir.comp.cpp.whileDsl.impl.ExprSimpleWithSymbolLExprImpl#getLexpr <em>Lexpr</em>}</li>
  * </ul>
  *
@@ -31,6 +32,26 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class ExprSimpleWithSymbolLExprImpl extends MinimalEObjectImpl.Container implements ExprSimpleWithSymbolLExpr
 {
+  /**
+   * The default value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSymbol()
+   * @generated
+   * @ordered
+   */
+  protected static final String SYMBOL_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSymbol() <em>Symbol</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSymbol()
+   * @generated
+   * @ordered
+   */
+  protected String symbol = SYMBOL_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getLexpr() <em>Lexpr</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -60,6 +81,31 @@ public class ExprSimpleWithSymbolLExprImpl extends MinimalEObjectImpl.Container 
   protected EClass eStaticClass()
   {
     return WhileDslPackage.Literals.EXPR_SIMPLE_WITH_SYMBOL_LEXPR;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String getSymbol()
+  {
+    return symbol;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setSymbol(String newSymbol)
+  {
+    String oldSymbol = symbol;
+    symbol = newSymbol;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__SYMBOL, oldSymbol, symbol));
   }
 
   /**
@@ -138,6 +184,8 @@ public class ExprSimpleWithSymbolLExprImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
+      case WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__SYMBOL:
+        return getSymbol();
       case WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR:
         return getLexpr();
     }
@@ -154,6 +202,9 @@ public class ExprSimpleWithSymbolLExprImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
+      case WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__SYMBOL:
+        setSymbol((String)newValue);
+        return;
       case WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR:
         setLexpr((LExpr)newValue);
         return;
@@ -171,6 +222,9 @@ public class ExprSimpleWithSymbolLExprImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
+      case WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__SYMBOL:
+        setSymbol(SYMBOL_EDEFAULT);
+        return;
       case WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR:
         setLexpr((LExpr)null);
         return;
@@ -188,10 +242,29 @@ public class ExprSimpleWithSymbolLExprImpl extends MinimalEObjectImpl.Container 
   {
     switch (featureID)
     {
+      case WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__SYMBOL:
+        return SYMBOL_EDEFAULT == null ? symbol != null : !SYMBOL_EDEFAULT.equals(symbol);
       case WhileDslPackage.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR:
         return lexpr != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (symbol: ");
+    result.append(symbol);
+    result.append(')');
+    return result.toString();
   }
 
 } //ExprSimpleWithSymbolLExprImpl

@@ -624,13 +624,22 @@ public interface WhileDslPackage extends EPackage
   int EXPR_SIMPLE_WITH_SYMBOL_LEXPR = 16;
 
   /**
+   * The feature id for the '<em><b>Symbol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_SIMPLE_WITH_SYMBOL_LEXPR__SYMBOL = 0;
+
+  /**
    * The feature id for the '<em><b>Lexpr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR = 0;
+  int EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR = 1;
 
   /**
    * The number of structural features of the '<em>Expr Simple With Symbol LExpr</em>' class.
@@ -639,7 +648,7 @@ public interface WhileDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_SIMPLE_WITH_SYMBOL_LEXPR_FEATURE_COUNT = 1;
+  int EXPR_SIMPLE_WITH_SYMBOL_LEXPR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link esir.comp.cpp.whileDsl.impl.LExprImpl <em>LExpr</em>}' class.
@@ -1363,6 +1372,17 @@ public interface WhileDslPackage extends EPackage
   EClass getExprSimpleWithSymbolLExpr();
 
   /**
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr#getSymbol <em>Symbol</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Symbol</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr#getSymbol()
+   * @see #getExprSimpleWithSymbolLExpr()
+   * @generated
+   */
+  EAttribute getExprSimpleWithSymbolLExpr_Symbol();
+
+  /**
    * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr#getLexpr <em>Lexpr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1979,6 +1999,14 @@ public interface WhileDslPackage extends EPackage
      * @generated
      */
     EClass EXPR_SIMPLE_WITH_SYMBOL_LEXPR = eINSTANCE.getExprSimpleWithSymbolLExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Symbol</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPR_SIMPLE_WITH_SYMBOL_LEXPR__SYMBOL = eINSTANCE.getExprSimpleWithSymbolLExpr_Symbol();
 
     /**
      * The meta object literal for the '<em><b>Lexpr</b></em>' containment reference feature.

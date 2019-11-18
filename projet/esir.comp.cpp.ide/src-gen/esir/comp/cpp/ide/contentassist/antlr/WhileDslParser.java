@@ -36,7 +36,7 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExprSimpleWithLExprAccess().getOperationAlternatives_1_0(), "rule__ExprSimpleWithLExpr__OperationAlternatives_1_0");
 			builder.put(grammarAccess.getExprSimpleWithExprAccess().getOperationAlternatives_1_0(), "rule__ExprSimpleWithExpr__OperationAlternatives_1_0");
 			builder.put(grammarAccess.getExprAccess().getAlternatives(), "rule__Expr__Alternatives");
-			builder.put(grammarAccess.getExprEqAccess().getAlternatives_2(), "rule__ExprEq__Alternatives_2");
+			builder.put(grammarAccess.getExprEqAccess().getAlternatives_4(), "rule__ExprEq__Alternatives_4");
 			builder.put(grammarAccess.getLCAccess().getAlternatives(), "rule__LC__Alternatives");
 			builder.put(grammarAccess.getFunctionAccess().getGroup(), "rule__Function__Group__0");
 			builder.put(grammarAccess.getDefinitionAccess().getGroup(), "rule__Definition__Group__0");
@@ -70,7 +70,7 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExprNotAccess().getGroup(), "rule__ExprNot__Group__0");
 			builder.put(grammarAccess.getExprNotAccess().getGroup_0(), "rule__ExprNot__Group_0__0");
 			builder.put(grammarAccess.getExprEqAccess().getGroup(), "rule__ExprEq__Group__0");
-			builder.put(grammarAccess.getExprEqAccess().getGroup_2_1(), "rule__ExprEq__Group_2_1__0");
+			builder.put(grammarAccess.getExprEqAccess().getGroup_4_1(), "rule__ExprEq__Group_4_1__0");
 			builder.put(grammarAccess.getModelAccess().getProgramAssignment(), "rule__Model__ProgramAssignment");
 			builder.put(grammarAccess.getFunctionAccess().getFunctionNameAssignment_2(), "rule__Function__FunctionNameAssignment_2");
 			builder.put(grammarAccess.getFunctionAccess().getFunctionDefinitionAssignment_6(), "rule__Function__FunctionDefinitionAssignment_6");
@@ -107,6 +107,7 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExprSimpleWithLExprAccess().getLexprAssignment_3(), "rule__ExprSimpleWithLExpr__LexprAssignment_3");
 			builder.put(grammarAccess.getExprSimpleWithExprAccess().getOperationAssignment_1(), "rule__ExprSimpleWithExpr__OperationAssignment_1");
 			builder.put(grammarAccess.getExprSimpleWithExprAccess().getExprAssignment_3(), "rule__ExprSimpleWithExpr__ExprAssignment_3");
+			builder.put(grammarAccess.getExprSimpleWithSymbolLExprAccess().getSymbolAssignment_2(), "rule__ExprSimpleWithSymbolLExpr__SymbolAssignment_2");
 			builder.put(grammarAccess.getExprSimpleWithSymbolLExprAccess().getLexprAssignment_4(), "rule__ExprSimpleWithSymbolLExpr__LexprAssignment_4");
 			builder.put(grammarAccess.getLExprAccess().getExpressionsAssignment_0(), "rule__LExpr__ExpressionsAssignment_0");
 			builder.put(grammarAccess.getLExprAccess().getExpressionsAssignment_1_1(), "rule__LExpr__ExpressionsAssignment_1_1");
@@ -121,8 +122,8 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExprNotAccess().getNegationAssignment_0_0(), "rule__ExprNot__NegationAssignment_0_0");
 			builder.put(grammarAccess.getExprNotAccess().getExpressionEqAssignment_1(), "rule__ExprNot__ExpressionEqAssignment_1");
 			builder.put(grammarAccess.getExprEqAccess().getExprLAssignment_0(), "rule__ExprEq__ExprLAssignment_0");
-			builder.put(grammarAccess.getExprEqAccess().getExprRSimpleAssignment_2_0(), "rule__ExprEq__ExprRSimpleAssignment_2_0");
-			builder.put(grammarAccess.getExprEqAccess().getExprRExprAssignment_2_1_1(), "rule__ExprEq__ExprRExprAssignment_2_1_1");
+			builder.put(grammarAccess.getExprEqAccess().getExprRSimpleAssignment_4_0(), "rule__ExprEq__ExprRSimpleAssignment_4_0");
+			builder.put(grammarAccess.getExprEqAccess().getExprRExprAssignment_4_1_1(), "rule__ExprEq__ExprRExprAssignment_4_1_1");
 		}
 	}
 	

@@ -257,14 +257,17 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     ExprSimpleWithSymbolLExpr returns ExprSimpleWithSymbolLExpr
 	 *
 	 * Constraint:
-	 *     lexpr=LExpr
+	 *     (symbol=SYMBOL lexpr=LExpr)
 	 */
 	protected void sequence_ExprSimpleWithSymbolLExpr(ISerializationContext context, ExprSimpleWithSymbolLExpr semanticObject) {
 		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__SYMBOL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__SYMBOL));
 			if (transientValues.isValueTransient(semanticObject, WhileDslPackage.Literals.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.EXPR_SIMPLE_WITH_SYMBOL_LEXPR__LEXPR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getExprSimpleWithSymbolLExprAccess().getSymbolSYMBOLTerminalRuleCall_2_0(), semanticObject.getSymbol());
 		feeder.accept(grammarAccess.getExprSimpleWithSymbolLExprAccess().getLexprLExprParserRuleCall_4_0(), semanticObject.getLexpr());
 		feeder.finish();
 	}

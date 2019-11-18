@@ -66,6 +66,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ExprSimpleWithExpr/expr"/>
     </genClasses>
     <genClasses ecoreClass="WhileDsl.ecore#//ExprSimpleWithSymbolLExpr">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//ExprSimpleWithSymbolLExpr/symbol"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ExprSimpleWithSymbolLExpr/lexpr"/>
     </genClasses>
     <genClasses ecoreClass="WhileDsl.ecore#//LExpr">

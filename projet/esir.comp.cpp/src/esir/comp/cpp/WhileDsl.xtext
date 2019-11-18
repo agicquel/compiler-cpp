@@ -3,7 +3,8 @@ grammar esir.comp.cpp.WhileDsl with org.eclipse.xtext.common.Terminals
 generate whileDsl "http://www.comp.esir/cpp/WhileDsl"
 
 Model:
-	(program+=Function)*;
+	(program+=Function)*
+;
 
 // Structure de base
 Function:
@@ -21,7 +22,7 @@ Output:
 
 // Commandes
 Commands:
-	commands+=Command (';' LC commands+=Command)* (';')?
+	commands+=Command (';' LC commands+=Command)*
 ;
 Command:
 	({NopCommand} NopCommand | WhileCommand | ForCommand | IfCommand | ForeachCommand | VarsCommand)
@@ -64,7 +65,7 @@ ExprSimpleWithExpr:
 	'(' operation=('hd'|'tl') LC expr=Expr LC ')'
 ;
 ExprSimpleWithSymbolLExpr:
-	'(' LC SYMBOL LC lexpr=LExpr LC ')'
+	'(' LC symbol=SYMBOL LC lexpr=LExpr LC ')'
 ;
 LExpr:
 	expressions+=Expr (LC expressions+=Expr)*
@@ -88,7 +89,7 @@ ExprNot:
 ;
 
 ExprEq:
-	exprL=ExprSimple '=?' (exprRSimple=ExprSimple  | ('(' exprRExpr=Expr ')'))
+	exprL=ExprSimple LC '=?' LC (exprRSimple=ExprSimple  | ('(' exprRExpr=Expr ')'))
 ;
 
 // Separateur entre symboles non terminaux

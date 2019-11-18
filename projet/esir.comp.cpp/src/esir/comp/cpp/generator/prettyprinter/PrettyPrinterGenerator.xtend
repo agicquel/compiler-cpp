@@ -24,6 +24,7 @@ import esir.comp.cpp.whileDsl.ExprSimpleWithLExpr
 import esir.comp.cpp.whileDsl.ExprSimpleWithExpr
 import esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr
 import esir.comp.cpp.whileDsl.LExpr
+import esir.comp.cpp.whileDsl.Command
 
 class PrettyPrinterGenerator extends AbstractGenerator {
 	PrettyPrinterGeneratorParameters parameters;
@@ -62,9 +63,7 @@ class PrettyPrinterGenerator extends AbstractGenerator {
 		'''
 		read «definition.intput.variables.indentList()»
 		%
-		«FOR command : definition.body.commands»
-			«command.indentCommand().addTabulation(INDENT_DEFAULT)»
-		«ENDFOR»
+		«definition.body.commands.indentCommands.addTabulation(INDENT_DEFAULT)»
 		%
 		write «definition.output.variables.indentList()»
 		'''
@@ -72,60 +71,57 @@ class PrettyPrinterGenerator extends AbstractGenerator {
 	
 	// COMMANDS
 	
+	def indentCommands(EList<Command> commands) {
+		var text = "";
+		for(var i = 0; i < commands.size(); i++) {
+			text+= commands.get(i).indentCommand();
+			if((i+1) < commands.size()) {
+				text+=";"
+			}
+			text += "\n"
+		}
+		return text;
+	}
+	
 	def dispatch CharSequence indentCommand(WhileCommand whileCommand) {
 		'''
 		while «whileCommand.cond.indentExpression()» do
-		«FOR command : whileCommand.body.commands»
-			«command.indentCommand().addTabulation(parameters.indentationWhile)»
-		«ENDFOR»
-		od;
-		'''
+		«whileCommand.body.commands.indentCommands.addTabulation(parameters.indentationWhile)»
+		od'''
 	}
 	
 	def dispatch CharSequence indentCommand(NopCommand nopCommand) {
-		return "nop;"
+		return "nop"
 	}
 	
 	def dispatch CharSequence indentCommand(ForCommand forCommand) {
 		'''
 		for «forCommand.cond.indentExpression()» do
-		«FOR command : forCommand.body.commands»
-			«command.indentCommand().addTabulation(parameters.indentationFor)»
-		«ENDFOR»
-		od;
-		'''
+		«forCommand.body.commands.indentCommands.addTabulation(parameters.indentationFor)»
+		od'''
 	}
 	
 	def dispatch CharSequence indentCommand(IfCommand ifCommand) {
 		'''
 		if «ifCommand.cond.indentExpression()» then
-		«FOR command : ifCommand.thenBody.commands»
-			«command.indentCommand().addTabulation(parameters.indentationIf)»
-		«ENDFOR»
+		«ifCommand.thenBody.commands.indentCommands.addTabulation(parameters.indentationIf)»
 		«IF ifCommand.elseBody.commands.size > 0»
 		else
-		«FOR command : ifCommand.elseBody.commands»
-			«command.indentCommand().addTabulation(parameters.indentationIf)»
-		«ENDFOR»
+		«ifCommand.elseBody.commands.indentCommands.addTabulation(parameters.indentationIf)»
 		«ENDIF»
-		fi;
-		'''
+		fi'''
 	}
 	
 	def dispatch CharSequence indentCommand(ForeachCommand foreachCommand) {
 		'''
 		foreach «foreachCommand.expElement.indentExpression()» in «foreachCommand.expList.indentExpression()» do
-		«FOR command : foreachCommand.body.commands»
-			«command.indentCommand().addTabulation(parameters.indentationForEach)»
-		«ENDFOR»
-		od;
-		'''
+		«foreachCommand.body.commands.indentCommands.addTabulation(parameters.indentationForEach)»
+		od'''
 	}
 	
 	def dispatch CharSequence indentCommand(VarsCommand varsCommand) {
 		'''
-		«varsCommand.variables.variables.indentList()» := «varsCommand.values.indentExpression()» ;
-		'''
+		«varsCommand.variables.variables.indentList()» := «varsCommand.values.indentExpression()»'''
 	}
 	
 	// EXPRESSIONS
@@ -193,7 +189,7 @@ class PrettyPrinterGenerator extends AbstractGenerator {
 			text += exprEq.exprRSimple.indentExpression();
 		}
 		else if (exprEq.exprRExpr !== null) {
-			text += "( " + exprEq.exprRSimple.indentExpression() + " )";
+			text += "(" + exprEq.exprRSimple.indentExpression() + ")";
 		}
 		return text;
 	}
@@ -208,15 +204,18 @@ class PrettyPrinterGenerator extends AbstractGenerator {
 	}
 	
 	def dispatch CharSequence indentExpression(ExprSimpleWithLExpr exprSimpleWithLExpr) {
-		return "( " + exprSimpleWithLExpr.operation + " " + exprSimpleWithLExpr.lexpr.indentExpression() + " )";
+		return "(" + exprSimpleWithLExpr.operation + " " + exprSimpleWithLExpr.lexpr.indentExpression() + ")";
 	}
 	
 	def dispatch CharSequence indentExpression(ExprSimpleWithExpr exprSimpleWithExpr) {
-		return "( " + exprSimpleWithExpr.operation + " " + exprSimpleWithExpr.expr.indentExpression() + " )";
+		return "(" + exprSimpleWithExpr.operation + " " + exprSimpleWithExpr.expr.indentExpression() + ")";
 	}
 	
 	def dispatch CharSequence indentExpression(ExprSimpleWithSymbolLExpr exprSimpleWithSymbolLExpr) {
-		return "( " + exprSimpleWithSymbolLExpr.lexpr.indentExpression() + " )";
+		return "(" + exprSimpleWithSymbolLExpr.symbol + 
+			(exprSimpleWithSymbolLExpr.lexpr.expressions.size() > 0 ? " " : "") + 
+			exprSimpleWithSymbolLExpr.lexpr.indentExpression() + ")"
+		;
 	}	
 	
 	// UTILS

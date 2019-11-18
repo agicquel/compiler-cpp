@@ -4,25 +4,25 @@ read Var1,Var2
 	nop;
 	while nil do
 		nop;
-		nop;
+		nop
 	od;
-	if ( var ) then
+	if (var var) then
 		nop;
 		nop;
-		Var1 := Var1+1 ;
+		Var1 := Var1+1;
 		while nil =? nil do
 			nop;
-			nop;
-		od;
+			nop
+		od
 	else
-		nop;
+		nop
 	fi;
 	foreach eee in eee do
 		nop;
 		for eee do
-			nop;
-		od;
-	od;
+			nop
+		od
+	od
 %
 write Var1,Var2
 
@@ -31,24 +31,35 @@ read Var3,Var4
 %
 	nop;
 	while nil do
-		nop;
+		nop
 	od;
 	if expr then
 		nop;
 		nop;
 		while nil =? nil do
 			nop;
-			nop;
-		od;
+			nop
+		od
 	else
-		nop;
+		nop
 	fi;
 	foreach eee in eee do
 		nop;
 		for eee do
-			nop;
-		od;
-	od;
+			nop
+		od
+	od
 %
 write Var3,Var4
+
+function p:
+read X
+%
+	Y := nil;
+	while X do
+		Y := (cons (hd X) Y);
+		X := (tl X)
+	od
+%
+write Y
 

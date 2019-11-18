@@ -11,8 +11,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -20,12 +18,10 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class WhileDslSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected WhileDslGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Commands_SemicolonKeyword_2_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (WhileDslGrammarAccess) access;
-		match_Commands_SemicolonKeyword_2_q = new TokenAlias(false, true, grammarAccess.getCommandsAccess().getSemicolonKeyword_2());
 	}
 	
 	@Override
@@ -34,8 +30,6 @@ public class WhileDslSyntacticSequencer extends AbstractSyntacticSequencer {
 			return getLCToken(semanticObject, ruleCall, node);
 		else if (ruleCall.getRule() == grammarAccess.getNopCommandRule())
 			return getNopCommandToken(semanticObject, ruleCall, node);
-		else if (ruleCall.getRule() == grammarAccess.getSYMBOLRule())
-			return getSYMBOLToken(semanticObject, ruleCall, node);
 		return "";
 	}
 	
@@ -61,41 +55,14 @@ public class WhileDslSyntacticSequencer extends AbstractSyntacticSequencer {
 		return "nop";
 	}
 	
-	/**
-	 * terminal SYMBOL :
-	 * 	("a".."z")
-	 * 	("0".."9"|"a".."z"|"A".."Z")*
-	 * 	(('-' | '+' | '.' | '/' | '_' | '&' | "->")("0".."9"|"a".."z"|"A".."Z")?)*
-	 * 	("?"|"!")?
-	 * ;
-	 */
-	protected String getSYMBOLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
-		if (node != null)
-			return getTokenText(node);
-		return "";
-	}
-	
 	@Override
 	protected void emitUnassignedTokens(EObject semanticObject, ISynTransition transition, INode fromNode, INode toNode) {
 		if (transition.getAmbiguousSyntaxes().isEmpty()) return;
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_Commands_SemicolonKeyword_2_q.equals(syntax))
-				emit_Commands_SemicolonKeyword_2_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else acceptNodes(getLastNavigableState(), syntaxNodes);
+			acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
-	/**
-	 * Ambiguous syntax:
-	 *     ';'?
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     commands+=Command (ambiguity) (rule end)
-	 */
-	protected void emit_Commands_SemicolonKeyword_2_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
 }

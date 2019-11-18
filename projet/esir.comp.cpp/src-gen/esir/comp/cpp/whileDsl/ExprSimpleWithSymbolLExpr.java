@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr#getSymbol <em>Symbol</em>}</li>
  *   <li>{@link esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr#getLexpr <em>Lexpr</em>}</li>
  * </ul>
  *
@@ -23,6 +24,28 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ExprSimpleWithSymbolLExpr extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Symbol</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Symbol</em>' attribute.
+   * @see #setSymbol(String)
+   * @see esir.comp.cpp.whileDsl.WhileDslPackage#getExprSimpleWithSymbolLExpr_Symbol()
+   * @model
+   * @generated
+   */
+  String getSymbol();
+
+  /**
+   * Sets the value of the '{@link esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr#getSymbol <em>Symbol</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Symbol</em>' attribute.
+   * @see #getSymbol()
+   * @generated
+   */
+  void setSymbol(String value);
+
   /**
    * Returns the value of the '<em><b>Lexpr</b></em>' containment reference.
    * <!-- begin-user-doc -->
