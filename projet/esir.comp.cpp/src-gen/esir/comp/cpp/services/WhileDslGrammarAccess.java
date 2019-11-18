@@ -1558,13 +1558,15 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//terminal VARIABLE:
-	//	"A".."Z" ("0".."9" | "a".."z" | "A".."Z")* ("?" | "!")?;
+	//	"A".."Z" ("0".."9" | "a".."z" | "A".."Z")* (('-' | '+' | '.' | '/' | '_' | '&' | "->") ("0".."9" | "a".."z" |
+	//	"A".."Z")?)* ("?" | "!")?;
 	public TerminalRule getVARIABLERule() {
 		return tVARIABLE;
 	}
 	
 	//terminal SYMBOL:
-	//	"a".."z" ("0".."9" | "a".."z" | "A".."Z")* ("?" | "!")?;
+	//	"a".."z" ("0".."9" | "a".."z" | "A".."Z")* (('-' | '+' | '.' | '/' | '_' | '&' | "->") ("0".."9" | "a".."z" |
+	//	"A".."Z")?)* ("?" | "!")?;
 	public TerminalRule getSYMBOLRule() {
 		return tSYMBOL;
 	}

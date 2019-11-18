@@ -62,7 +62,12 @@ public class WhileDslSyntacticSequencer extends AbstractSyntacticSequencer {
 	}
 	
 	/**
-	 * terminal SYMBOL : ("a".."z")("0".."9"|"a".."z"|"A".."Z")*("?"|"!")?;
+	 * terminal SYMBOL :
+	 * 	("a".."z")
+	 * 	("0".."9"|"a".."z"|"A".."Z")*
+	 * 	(('-' | '+' | '.' | '/' | '_' | '&' | "->")("0".."9"|"a".."z"|"A".."Z")?)*
+	 * 	("?"|"!")?
+	 * ;
 	 */
 	protected String getSYMBOLToken(EObject semanticObject, RuleCall ruleCall, INode node) {
 		if (node != null)

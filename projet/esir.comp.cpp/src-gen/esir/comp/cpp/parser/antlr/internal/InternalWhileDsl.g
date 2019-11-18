@@ -2158,9 +2158,9 @@ ruleLC returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	)*
 ;
 
-RULE_VARIABLE : 'A'..'Z' ('0'..'9'|'a'..'z'|'A'..'Z')* ('?'|'!')?;
+RULE_VARIABLE : 'A'..'Z' ('0'..'9'|'a'..'z'|'A'..'Z')* (('-'|'+'|'.'|'/'|'_'|'&'|'->') ('0'..'9'|'a'..'z'|'A'..'Z')?)* ('?'|'!')?;
 
-RULE_SYMBOL : 'a'..'z' ('0'..'9'|'a'..'z'|'A'..'Z')* ('?'|'!')?;
+RULE_SYMBOL : 'a'..'z' ('0'..'9'|'a'..'z'|'A'..'Z')* (('-'|'+'|'.'|'/'|'_'|'&'|'->') ('0'..'9'|'a'..'z'|'A'..'Z')?)* ('?'|'!')?;
 
 RULE_SP : ' ';
 

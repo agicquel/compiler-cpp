@@ -6,10 +6,11 @@ read Var1,Var2
 		nop;
 		nop;
 	od;
-	if expr then
+	if ( var ) then
 		nop;
 		nop;
-		while nil=?nil do
+		Var1 := Var1+1 ;
+		while nil =? nil do
 			nop;
 			nop;
 		od;
@@ -35,7 +36,7 @@ read Var3,Var4
 	if expr then
 		nop;
 		nop;
-		while nil=?nil do
+		while nil =? nil do
 			nop;
 			nop;
 		od;
