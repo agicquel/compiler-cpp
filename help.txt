@@ -1,0 +1,14 @@
+La commande NOMDELACOMMANDE est un pretty printer : elle permet d'indenter correctement un fichier de type fichier.wh
+
+Les options : 
+
+-ui permet de changer l'indentation de tout le code, passez en paramètre une chaine de caractères contenant le nombre d'espaces voulus.
+-i permet de changer l'indentation d'une commande, passez en paramètre une chaine de caractères contenant le nombre d'espaces voulus et le nom de la commande
+-ti permet de changer l'indentation de chaque commandes, passez en paramètre le nom de la commande et le nombre d'espaces voulus associé sous la forme <nomCommande>=<nombreEspaces>
+
+Les paramètres : 
+1- le fichier d'entrée d'extension wh.
+2- le nom du fichier de sortie qui sera correctement indenté.
+[-i <args>]
+[-ui <args>]
+[-ti <args>]
