@@ -1762,9 +1762,9 @@ rule__Commands__Group_1__0__Impl
 	}
 :
 (
-	{ before(grammarAccess.getCommandsAccess().getSemicolonKeyword_1_0()); }
-	';'
-	{ after(grammarAccess.getCommandsAccess().getSemicolonKeyword_1_0()); }
+	{ before(grammarAccess.getCommandsAccess().getLCParserRuleCall_1_0()); }
+	ruleLC
+	{ after(grammarAccess.getCommandsAccess().getLCParserRuleCall_1_0()); }
 )
 ;
 finally {
@@ -1789,9 +1789,9 @@ rule__Commands__Group_1__1__Impl
 	}
 :
 (
-	{ before(grammarAccess.getCommandsAccess().getLCParserRuleCall_1_1()); }
-	ruleLC
-	{ after(grammarAccess.getCommandsAccess().getLCParserRuleCall_1_1()); }
+	{ before(grammarAccess.getCommandsAccess().getSemicolonKeyword_1_1()); }
+	';'
+	{ after(grammarAccess.getCommandsAccess().getSemicolonKeyword_1_1()); }
 )
 ;
 finally {
@@ -1804,6 +1804,7 @@ rule__Commands__Group_1__2
 	}
 :
 	rule__Commands__Group_1__2__Impl
+	rule__Commands__Group_1__3
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -1815,9 +1816,35 @@ rule__Commands__Group_1__2__Impl
 	}
 :
 (
-	{ before(grammarAccess.getCommandsAccess().getCommandsAssignment_1_2()); }
-	(rule__Commands__CommandsAssignment_1_2)
-	{ after(grammarAccess.getCommandsAccess().getCommandsAssignment_1_2()); }
+	{ before(grammarAccess.getCommandsAccess().getLCParserRuleCall_1_2()); }
+	ruleLC
+	{ after(grammarAccess.getCommandsAccess().getLCParserRuleCall_1_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Commands__Group_1__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__Commands__Group_1__3__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Commands__Group_1__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getCommandsAccess().getCommandsAssignment_1_3()); }
+	(rule__Commands__CommandsAssignment_1_3)
+	{ after(grammarAccess.getCommandsAccess().getCommandsAssignment_1_3()); }
 )
 ;
 finally {
@@ -4933,15 +4960,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Commands__CommandsAssignment_1_2
+rule__Commands__CommandsAssignment_1_3
 	@init {
 		int stackSize = keepStackSize();
 	}
 :
 	(
-		{ before(grammarAccess.getCommandsAccess().getCommandsCommandParserRuleCall_1_2_0()); }
+		{ before(grammarAccess.getCommandsAccess().getCommandsCommandParserRuleCall_1_3_0()); }
 		ruleCommand
-		{ after(grammarAccess.getCommandsAccess().getCommandsCommandParserRuleCall_1_2_0()); }
+		{ after(grammarAccess.getCommandsAccess().getCommandsCommandParserRuleCall_1_3_0()); }
 	)
 ;
 finally {

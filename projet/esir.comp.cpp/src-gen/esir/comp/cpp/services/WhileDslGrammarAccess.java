@@ -241,17 +241,18 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCommandsAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cCommandsCommandParserRuleCall_0_0 = (RuleCall)cCommandsAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cSemicolonKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Assignment cCommandsAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cCommandsCommandParserRuleCall_1_2_0 = (RuleCall)cCommandsAssignment_1_2.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Keyword cSemicolonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cCommandsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cCommandsCommandParserRuleCall_1_3_0 = (RuleCall)cCommandsAssignment_1_3.eContents().get(0);
 		
 		//// Commandes
 		//Commands:
-		//	commands+=Command (';' LC commands+=Command)*;
+		//	commands+=Command (LC ';' LC commands+=Command)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//commands+=Command (';' LC commands+=Command)*
+		//commands+=Command (LC ';' LC commands+=Command)*
 		public Group getGroup() { return cGroup; }
 		
 		//commands+=Command
@@ -260,20 +261,23 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Command
 		public RuleCall getCommandsCommandParserRuleCall_0_0() { return cCommandsCommandParserRuleCall_0_0; }
 		
-		//(';' LC commands+=Command)*
+		//(LC ';' LC commands+=Command)*
 		public Group getGroup_1() { return cGroup_1; }
 		
+		//LC
+		public RuleCall getLCParserRuleCall_1_0() { return cLCParserRuleCall_1_0; }
+		
 		//';'
-		public Keyword getSemicolonKeyword_1_0() { return cSemicolonKeyword_1_0; }
+		public Keyword getSemicolonKeyword_1_1() { return cSemicolonKeyword_1_1; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_1_1() { return cLCParserRuleCall_1_1; }
+		public RuleCall getLCParserRuleCall_1_2() { return cLCParserRuleCall_1_2; }
 		
 		//commands+=Command
-		public Assignment getCommandsAssignment_1_2() { return cCommandsAssignment_1_2; }
+		public Assignment getCommandsAssignment_1_3() { return cCommandsAssignment_1_3; }
 		
 		//Command
-		public RuleCall getCommandsCommandParserRuleCall_1_2_0() { return cCommandsCommandParserRuleCall_1_2_0; }
+		public RuleCall getCommandsCommandParserRuleCall_1_3_0() { return cCommandsCommandParserRuleCall_1_3_0; }
 	}
 	public class CommandElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "esir.comp.cpp.WhileDsl.Command");
@@ -1353,7 +1357,7 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// Commandes
 	//Commands:
-	//	commands+=Command (';' LC commands+=Command)*;
+	//	commands+=Command (LC ';' LC commands+=Command)*;
 	public CommandsElements getCommandsAccess() {
 		return pCommands;
 	}

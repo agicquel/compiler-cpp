@@ -25,27 +25,33 @@ import esir.comp.cpp.whileDsl.ExprSimpleWithExpr
 import esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr
 import esir.comp.cpp.whileDsl.LExpr
 import esir.comp.cpp.whileDsl.Command
+import org.eclipse.xtend.lib.annotations.Accessors
 
 class PrettyPrinterGenerator extends AbstractGenerator {
-	PrettyPrinterGeneratorParameters parameters;
-	static var INDENT_DEFAULT = "	"
+	static val INDENT_DEFAULT = "  "
+	
+	@Accessors PrettyPrinterGeneratorParameters parameters;
+	@Accessors String outputFile;
 
-	new (PrettyPrinterGeneratorParameters parameters) {
-		this.parameters = parameters;
+	new (PrettyPrinterGeneratorParameters parameters, String outputFile) {
+		this.parameters = parameters
+		this.outputFile = outputFile
 	}
 	
 	new () {
-		this(new PrettyPrinterGeneratorParameters(INDENT_DEFAULT, INDENT_DEFAULT, INDENT_DEFAULT, INDENT_DEFAULT));
+		this(new PrettyPrinterGeneratorParameters(INDENT_DEFAULT, INDENT_DEFAULT, INDENT_DEFAULT, INDENT_DEFAULT, INDENT_DEFAULT),
+			"output.whpp"
+		);
 	}
 
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {		
-		var test = "";
+	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		var prettyCode = "";
 		for(m : resource.allContents.toIterable.filter(Model)) {
-			test += m.indent();
+			prettyCode += m.indent()
 		}
 		fsa.generateFile(
-			"test-pp.wh",
-			test);
+			this.outputFile,
+			prettyCode)
 	}
 	
 	// STRUCTURES
@@ -63,7 +69,7 @@ class PrettyPrinterGenerator extends AbstractGenerator {
 		'''
 		read «definition.intput.variables.indentList()»
 		%
-		«definition.body.commands.indentCommands.addTabulation(INDENT_DEFAULT)»
+		«definition.body.commands.indentCommands.addTabulation(parameters.indentationFunction)»
 		%
 		write «definition.output.variables.indentList()»
 		'''
@@ -76,7 +82,7 @@ class PrettyPrinterGenerator extends AbstractGenerator {
 		for(var i = 0; i < commands.size(); i++) {
 			text+= commands.get(i).indentCommand();
 			if((i+1) < commands.size()) {
-				text+=";"
+				text+=" ;"
 			}
 			text += "\n"
 		}

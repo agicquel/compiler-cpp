@@ -4,17 +4,17 @@
 package esir.comp.cpp.ide
 
 import com.google.inject.Guice
-import esir.comp.cpp.WhileDslRuntimeModule
-import esir.comp.cpp.WhileDslStandaloneSetup
 import org.eclipse.xtext.util.Modules2
+import esir.comp.cpp.PrettyPrinterStandaloneSetup
+import esir.comp.cpp.PrettyPrinterRuntimeModule
 
 /**
  * Initialization support for running Xtext languages as language servers.
  */
-class WhileDslIdeSetup extends WhileDslStandaloneSetup {
+class WhileDslIdeSetup extends PrettyPrinterStandaloneSetup {
 
 	override createInjector() {
-		Guice.createInjector(Modules2.mixin(new WhileDslRuntimeModule, new WhileDslIdeModule))
+		Guice.createInjector(Modules2.mixin(new PrettyPrinterRuntimeModule, new WhileDslIdeModule))
 	}
 	
 }

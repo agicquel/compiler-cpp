@@ -7,4 +7,5 @@ import org.eclipse.xtend.lib.annotations.Data;
 	String indentationFor;
 	String indentationIf;
 	String indentationForEach;
+	String indentationFunction;
 }

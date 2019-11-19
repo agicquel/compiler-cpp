@@ -15,12 +15,15 @@ public class PrettyPrinterGeneratorParameters {
   
   private final String indentationForEach;
   
-  public PrettyPrinterGeneratorParameters(final String indentationWhile, final String indentationFor, final String indentationIf, final String indentationForEach) {
+  private final String indentationFunction;
+  
+  public PrettyPrinterGeneratorParameters(final String indentationWhile, final String indentationFor, final String indentationIf, final String indentationForEach, final String indentationFunction) {
     super();
     this.indentationWhile = indentationWhile;
     this.indentationFor = indentationFor;
     this.indentationIf = indentationIf;
     this.indentationForEach = indentationForEach;
+    this.indentationFunction = indentationFunction;
   }
   
   @Override
@@ -31,7 +34,8 @@ public class PrettyPrinterGeneratorParameters {
     result = prime * result + ((this.indentationWhile== null) ? 0 : this.indentationWhile.hashCode());
     result = prime * result + ((this.indentationFor== null) ? 0 : this.indentationFor.hashCode());
     result = prime * result + ((this.indentationIf== null) ? 0 : this.indentationIf.hashCode());
-    return prime * result + ((this.indentationForEach== null) ? 0 : this.indentationForEach.hashCode());
+    result = prime * result + ((this.indentationForEach== null) ? 0 : this.indentationForEach.hashCode());
+    return prime * result + ((this.indentationFunction== null) ? 0 : this.indentationFunction.hashCode());
   }
   
   @Override
@@ -64,6 +68,11 @@ public class PrettyPrinterGeneratorParameters {
         return false;
     } else if (!this.indentationForEach.equals(other.indentationForEach))
       return false;
+    if (this.indentationFunction == null) {
+      if (other.indentationFunction != null)
+        return false;
+    } else if (!this.indentationFunction.equals(other.indentationFunction))
+      return false;
     return true;
   }
   
@@ -75,6 +84,7 @@ public class PrettyPrinterGeneratorParameters {
     b.add("indentationFor", this.indentationFor);
     b.add("indentationIf", this.indentationIf);
     b.add("indentationForEach", this.indentationForEach);
+    b.add("indentationFunction", this.indentationFunction);
     return b.toString();
   }
   
@@ -96,5 +106,10 @@ public class PrettyPrinterGeneratorParameters {
   @Pure
   public String getIndentationForEach() {
     return this.indentationForEach;
+  }
+  
+  @Pure
+  public String getIndentationFunction() {
+    return this.indentationFunction;
   }
 }

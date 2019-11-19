@@ -27,37 +27,45 @@ import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend.lib.annotations.Accessors;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.Pure;
 
 @SuppressWarnings("all")
 public class PrettyPrinterGenerator extends AbstractGenerator {
+  private static final String INDENT_DEFAULT = "  ";
+  
+  @Accessors
   private PrettyPrinterGeneratorParameters parameters;
   
-  private static String INDENT_DEFAULT = "\t";
+  @Accessors
+  private String outputFile;
   
-  public PrettyPrinterGenerator(final PrettyPrinterGeneratorParameters parameters) {
+  public PrettyPrinterGenerator(final PrettyPrinterGeneratorParameters parameters, final String outputFile) {
     this.parameters = parameters;
+    this.outputFile = outputFile;
   }
   
   public PrettyPrinterGenerator() {
-    this(new PrettyPrinterGeneratorParameters(PrettyPrinterGenerator.INDENT_DEFAULT, PrettyPrinterGenerator.INDENT_DEFAULT, PrettyPrinterGenerator.INDENT_DEFAULT, PrettyPrinterGenerator.INDENT_DEFAULT));
+    this(new PrettyPrinterGeneratorParameters(PrettyPrinterGenerator.INDENT_DEFAULT, PrettyPrinterGenerator.INDENT_DEFAULT, PrettyPrinterGenerator.INDENT_DEFAULT, PrettyPrinterGenerator.INDENT_DEFAULT, PrettyPrinterGenerator.INDENT_DEFAULT), 
+      "output.whpp");
   }
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    String test = "";
+    String prettyCode = "";
     Iterable<Model> _filter = Iterables.<Model>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Model.class);
     for (final Model m : _filter) {
-      String _test = test;
+      String _prettyCode = prettyCode;
       CharSequence _indent = this.indent(m);
-      test = (_test + _indent);
+      prettyCode = (_prettyCode + _indent);
     }
     fsa.generateFile(
-      "test-pp.wh", test);
+      this.outputFile, prettyCode);
   }
   
   public CharSequence indent(final Model model) {
@@ -87,7 +95,7 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
     _builder.newLineIfNotEmpty();
     _builder.append("%");
     _builder.newLine();
-    String _addTabulation = this.addTabulation(this.indentCommands(definition.getBody().getCommands()), PrettyPrinterGenerator.INDENT_DEFAULT);
+    String _addTabulation = this.addTabulation(this.indentCommands(definition.getBody().getCommands()), this.parameters.getIndentationFunction());
     _builder.append(_addTabulation);
     _builder.newLineIfNotEmpty();
     _builder.append("%");
@@ -110,7 +118,7 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
         boolean _lessThan = ((i + 1) < _size);
         if (_lessThan) {
           String _text_1 = text;
-          text = (_text_1 + ";");
+          text = (_text_1 + " ;");
         }
         String _text_2 = text;
         text = (_text_2 + "\n");
@@ -428,5 +436,23 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(expr).toString());
     }
+  }
+  
+  @Pure
+  public PrettyPrinterGeneratorParameters getParameters() {
+    return this.parameters;
+  }
+  
+  public void setParameters(final PrettyPrinterGeneratorParameters parameters) {
+    this.parameters = parameters;
+  }
+  
+  @Pure
+  public String getOutputFile() {
+    return this.outputFile;
+  }
+  
+  public void setOutputFile(final String outputFile) {
+    this.outputFile = outputFile;
   }
 }

@@ -480,12 +480,19 @@ ruleCommands returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_1=';'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getCommandsAccess().getSemicolonKeyword_1_0());
+				newCompositeNode(grammarAccess.getCommandsAccess().getLCParserRuleCall_1_0());
+			}
+			ruleLC
+			{
+				afterParserOrEnumRuleCall();
+			}
+			otherlv_2=';'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getCommandsAccess().getSemicolonKeyword_1_1());
 			}
 			{
-				newCompositeNode(grammarAccess.getCommandsAccess().getLCParserRuleCall_1_1());
+				newCompositeNode(grammarAccess.getCommandsAccess().getLCParserRuleCall_1_2());
 			}
 			ruleLC
 			{
@@ -494,9 +501,9 @@ ruleCommands returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getCommandsAccess().getCommandsCommandParserRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getCommandsAccess().getCommandsCommandParserRuleCall_1_3_0());
 					}
-					lv_commands_3_0=ruleCommand
+					lv_commands_4_0=ruleCommand
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getCommandsRule());
@@ -504,7 +511,7 @@ ruleCommands returns [EObject current=null]
 						add(
 							$current,
 							"commands",
-							lv_commands_3_0,
+							lv_commands_4_0,
 							"esir.comp.cpp.WhileDsl.Command");
 						afterParserOrEnumRuleCall();
 					}

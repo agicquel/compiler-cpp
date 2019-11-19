@@ -22,7 +22,7 @@ Output:
 
 // Commandes
 Commands:
-	commands+=Command (';' LC commands+=Command)*
+	commands+=Command (LC ';' LC commands+=Command)*
 ;
 Command:
 	({NopCommand} NopCommand | WhileCommand | ForCommand | IfCommand | ForeachCommand | VarsCommand)
