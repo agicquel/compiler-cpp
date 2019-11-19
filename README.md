@@ -1,7 +1,7 @@
 # compiler-cpp
 Projet de compilation C++
 
-	Le but de ce projet est de créer un compilateur de while en java et xtext (+xtend)
+Le but de ce projet est de créer un compilateur de while en java et xtext (+xtend)
 
 ## Pour compiler et exécuter le projet :
 
