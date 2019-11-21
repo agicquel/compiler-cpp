@@ -47,7 +47,7 @@ public class PrettyPrinterMain {
       boolean _contains = ((List<String>)Conversions.doWrapArray(args)).contains("-help");
       if (_contains) {
         InputOutput.<String>println("Affiche de l\'aide ici...");
-        File fileHelp = new File("../../help.txt");
+        File fileHelp = new File("../help.txt");
         FileInputStream _fileInputStream = new FileInputStream(fileHelp);
         InputStreamReader _inputStreamReader = new InputStreamReader(_fileInputStream, "UTF-8");
         BufferedReader buf = new BufferedReader(_inputStreamReader);

@@ -24,7 +24,7 @@ class PrettyPrinterMain {
 	def static main(String[] args) {
 		if(args.contains("-help")) {
 			println("Affiche de l'aide ici...")
-			var fileHelp = new File("../../help.txt");
+			var fileHelp = new File("../help.txt");
 			var buf = new BufferedReader(new InputStreamReader(new FileInputStream(fileHelp), "UTF-8"));
 			var line = buf.readLine();
 			while(line != null) {

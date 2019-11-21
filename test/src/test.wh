@@ -55,5 +55,5 @@ while X do Y	:= (cons
 		  (hd X
 )Y);X:=(tl
 		X) od % write Y
-		
+		  
 	
