@@ -2,6 +2,10 @@ package esir.comp.cpp.generator.prettyprinter
 
 import com.google.inject.Inject
 import com.google.inject.Provider
+import java.io.BufferedReader
+import java.io.File
+import java.io.FileInputStream
+import java.io.InputStreamReader
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.ResourceSet
 import org.eclipse.xtext.generator.GeneratorContext
@@ -20,6 +24,13 @@ class PrettyPrinterMain {
 	def static main(String[] args) {
 		if(args.contains("-help")) {
 			println("Affiche de l'aide ici...")
+			var fileHelp = new File("../../help.txt");
+			var buf = new BufferedReader(new InputStreamReader(new FileInputStream(fileHelp), "UTF-8"));
+			var line = buf.readLine();
+			while(line != null) {
+				System.out.println(line);
+				line = buf.readLine();
+			}
 			return
 		}
 		else if (args.empty) {

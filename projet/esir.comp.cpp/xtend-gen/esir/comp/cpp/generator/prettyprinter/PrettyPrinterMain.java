@@ -1,11 +1,16 @@
 package esir.comp.cpp.generator.prettyprinter;
 
+import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
 import esir.comp.cpp.generator.prettyprinter.PrettyPrinterGenerator;
 import esir.comp.cpp.generator.prettyprinter.PrettyPrinterGeneratorParameters;
 import esir.comp.cpp.generator.prettyprinter.PrettyPrinterStandaloneSetup;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 import java.util.function.Consumer;
 import org.eclipse.emf.common.util.URI;
@@ -38,69 +43,84 @@ public class PrettyPrinterMain {
   private JavaIoFileSystemAccess fileAccess;
   
   public static void main(final String[] args) {
-    boolean _contains = ((List<String>)Conversions.doWrapArray(args)).contains("-help");
-    if (_contains) {
-      InputOutput.<String>println("Affiche de l\'aide ici...");
-      return;
-    } else {
-      boolean _isEmpty = ((List<String>)Conversions.doWrapArray(args)).isEmpty();
-      if (_isEmpty) {
-        InputOutput.<String>println("Erreur : Aucun fichier source en paramètre.");
-        return;
-      } else {
-        String indentationWhile = "  ";
-        String indentationFor = "  ";
-        String indentationIf = "  ";
-        String indentationForEach = "  ";
-        String indentationFunction = "  ";
-        String outputFile = "";
-        try {
-          outputFile = PrettyPrinterMain.generateDefaultOutputFile(args[0]);
-          boolean _contains_1 = ((List<String>)Conversions.doWrapArray(args)).contains("-all");
-          if (_contains_1) {
-            int _indexOf = ((List<String>)Conversions.doWrapArray(args)).indexOf("-all");
-            final int allValIndex = (_indexOf + 1);
-            indentationWhile = (indentationFor = (indentationIf = (indentationForEach = (indentationFunction = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[allValIndex]))))));
-          }
-          for (int i = 0; (i < args.length); i++) {
-            String _get = args[i];
-            if (_get != null) {
-              switch (_get) {
-                case "-while":
-                  indentationWhile = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[(i + 1)]));
-                  break;
-                case "-for":
-                  indentationFor = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[(i + 1)]));
-                  break;
-                case "-if":
-                  indentationIf = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[(i + 1)]));
-                  break;
-                case "-foreach":
-                  indentationForEach = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[(i + 1)]));
-                  break;
-                case "-function":
-                  indentationFunction = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[(i + 1)]));
-                  break;
-                case "-o":
-                  outputFile = args[(i + 1)];
-                  break;
-              }
-            }
-          }
-        } catch (final Throwable _t) {
-          if (_t instanceof Exception) {
-            InputOutput.<String>println("Erreur : Les paramètres saisis sont incorrects.");
-            InputOutput.<String>println("Essayer -help pour davanatage d\'informations.");
-            return;
-          } else {
-            throw Exceptions.sneakyThrow(_t);
+    try {
+      boolean _contains = ((List<String>)Conversions.doWrapArray(args)).contains("-help");
+      if (_contains) {
+        InputOutput.<String>println("Affiche de l\'aide ici...");
+        File fileHelp = new File("../../help.txt");
+        FileInputStream _fileInputStream = new FileInputStream(fileHelp);
+        InputStreamReader _inputStreamReader = new InputStreamReader(_fileInputStream, "UTF-8");
+        BufferedReader buf = new BufferedReader(_inputStreamReader);
+        String line = buf.readLine();
+        while ((!Objects.equal(line, null))) {
+          {
+            System.out.println(line);
+            line = buf.readLine();
           }
         }
-        final PrettyPrinterGeneratorParameters generatorParameters = new PrettyPrinterGeneratorParameters(indentationWhile, indentationFor, indentationIf, indentationForEach, indentationFunction);
-        final Injector injector = new PrettyPrinterStandaloneSetup().createInjectorAndDoEMFRegistration();
-        final PrettyPrinterMain main = injector.<PrettyPrinterMain>getInstance(PrettyPrinterMain.class);
-        main.runGenerator(args[0], outputFile, generatorParameters);
+        return;
+      } else {
+        boolean _isEmpty = ((List<String>)Conversions.doWrapArray(args)).isEmpty();
+        if (_isEmpty) {
+          InputOutput.<String>println("Erreur : Aucun fichier source en paramètre.");
+          return;
+        } else {
+          String indentationWhile = "  ";
+          String indentationFor = "  ";
+          String indentationIf = "  ";
+          String indentationForEach = "  ";
+          String indentationFunction = "  ";
+          String outputFile = "";
+          try {
+            outputFile = PrettyPrinterMain.generateDefaultOutputFile(args[0]);
+            boolean _contains_1 = ((List<String>)Conversions.doWrapArray(args)).contains("-all");
+            if (_contains_1) {
+              int _indexOf = ((List<String>)Conversions.doWrapArray(args)).indexOf("-all");
+              final int allValIndex = (_indexOf + 1);
+              indentationWhile = (indentationFor = (indentationIf = (indentationForEach = (indentationFunction = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[allValIndex]))))));
+            }
+            for (int i = 0; (i < args.length); i++) {
+              String _get = args[i];
+              if (_get != null) {
+                switch (_get) {
+                  case "-while":
+                    indentationWhile = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[(i + 1)]));
+                    break;
+                  case "-for":
+                    indentationFor = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[(i + 1)]));
+                    break;
+                  case "-if":
+                    indentationIf = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[(i + 1)]));
+                    break;
+                  case "-foreach":
+                    indentationForEach = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[(i + 1)]));
+                    break;
+                  case "-function":
+                    indentationFunction = PrettyPrinterMain.convertParamToSpace(Integer.parseInt(args[(i + 1)]));
+                    break;
+                  case "-o":
+                    outputFile = args[(i + 1)];
+                    break;
+                }
+              }
+            }
+          } catch (final Throwable _t) {
+            if (_t instanceof Exception) {
+              InputOutput.<String>println("Erreur : Les paramètres saisis sont incorrects.");
+              InputOutput.<String>println("Essayer -help pour davanatage d\'informations.");
+              return;
+            } else {
+              throw Exceptions.sneakyThrow(_t);
+            }
+          }
+          final PrettyPrinterGeneratorParameters generatorParameters = new PrettyPrinterGeneratorParameters(indentationWhile, indentationFor, indentationIf, indentationForEach, indentationFunction);
+          final Injector injector = new PrettyPrinterStandaloneSetup().createInjectorAndDoEMFRegistration();
+          final PrettyPrinterMain main = injector.<PrettyPrinterMain>getInstance(PrettyPrinterMain.class);
+          main.runGenerator(args[0], outputFile, generatorParameters);
+        }
       }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
     }
   }
   
