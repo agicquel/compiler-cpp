@@ -1,14 +1,16 @@
-La commande NOMDELACOMMANDE est un pretty printer : elle permet d'indenter correctement un fichier de type fichier.wh
+La commande java -jar bin/whpp.jar est un pretty printer : elle permet d'indenter correctement un fichier de type fichier.wh
 
 Les options : 
 
--ui permet de changer l'indentation de tout le code, passez en paramètre une chaine de caractères contenant le nombre d'espaces voulus.
--i permet de changer l'indentation d'une commande, passez en paramètre une chaine de caractères contenant le nombre d'espaces voulus et le nom de la commande
--ti permet de changer l'indentation de chaque commandes, passez en paramètre le nom de la commande et le nombre d'espaces voulus associé sous la forme <nomCommande>=<nombreEspaces>
+-all NbEspaces permet de changer l'indentation de tout le code, passez en paramètre le nombre d'espaces voulus.
+-NomCommande NbEspaces permet de changer l'indentation pour une ou plusieurs commandes spécifiques avec le nombre d'espaces voulus.
 
 Les paramètres : 
 1- le fichier d'entrée d'extension wh.
 2- le nom du fichier de sortie qui sera correctement indenté.
-[-i <args>]
 [-ui <args>]
-[-ti <args>]
+[-nomCommande NbEspace]
+
+Par exemple :
+java -jar bin/whpp.jar -if 3 -while 6
+java -jar bin/whpp.jar -all 4
