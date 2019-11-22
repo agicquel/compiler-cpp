@@ -33,8 +33,8 @@ public class WhileDslParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, WhileDslGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getCommandAccess().getAlternatives(), "rule__Command__Alternatives");
 			builder.put(grammarAccess.getExprSimpleAccess().getAlternatives(), "rule__ExprSimple__Alternatives");
-			builder.put(grammarAccess.getExprSimpleWithLExprAccess().getOperationAlternatives_1_0(), "rule__ExprSimpleWithLExpr__OperationAlternatives_1_0");
-			builder.put(grammarAccess.getExprSimpleWithExprAccess().getOperationAlternatives_1_0(), "rule__ExprSimpleWithExpr__OperationAlternatives_1_0");
+			builder.put(grammarAccess.getExprSimpleWithLExprAccess().getOperationAlternatives_2_0(), "rule__ExprSimpleWithLExpr__OperationAlternatives_2_0");
+			builder.put(grammarAccess.getExprSimpleWithExprAccess().getOperationAlternatives_2_0(), "rule__ExprSimpleWithExpr__OperationAlternatives_2_0");
 			builder.put(grammarAccess.getExprAccess().getAlternatives(), "rule__Expr__Alternatives");
 			builder.put(grammarAccess.getExprEqAccess().getAlternatives_4(), "rule__ExprEq__Alternatives_4");
 			builder.put(grammarAccess.getLCAccess().getAlternatives(), "rule__LC__Alternatives");
@@ -103,10 +103,10 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExprSimpleAccess().getExpressionAssignment_3(), "rule__ExprSimple__ExpressionAssignment_3");
 			builder.put(grammarAccess.getExprSimpleAccess().getExpressionAssignment_4(), "rule__ExprSimple__ExpressionAssignment_4");
 			builder.put(grammarAccess.getExprSimpleAccess().getExpressionAssignment_5(), "rule__ExprSimple__ExpressionAssignment_5");
-			builder.put(grammarAccess.getExprSimpleWithLExprAccess().getOperationAssignment_1(), "rule__ExprSimpleWithLExpr__OperationAssignment_1");
-			builder.put(grammarAccess.getExprSimpleWithLExprAccess().getLexprAssignment_3(), "rule__ExprSimpleWithLExpr__LexprAssignment_3");
-			builder.put(grammarAccess.getExprSimpleWithExprAccess().getOperationAssignment_1(), "rule__ExprSimpleWithExpr__OperationAssignment_1");
-			builder.put(grammarAccess.getExprSimpleWithExprAccess().getExprAssignment_3(), "rule__ExprSimpleWithExpr__ExprAssignment_3");
+			builder.put(grammarAccess.getExprSimpleWithLExprAccess().getOperationAssignment_2(), "rule__ExprSimpleWithLExpr__OperationAssignment_2");
+			builder.put(grammarAccess.getExprSimpleWithLExprAccess().getLexprAssignment_4(), "rule__ExprSimpleWithLExpr__LexprAssignment_4");
+			builder.put(grammarAccess.getExprSimpleWithExprAccess().getOperationAssignment_2(), "rule__ExprSimpleWithExpr__OperationAssignment_2");
+			builder.put(grammarAccess.getExprSimpleWithExprAccess().getExprAssignment_4(), "rule__ExprSimpleWithExpr__ExprAssignment_4");
 			builder.put(grammarAccess.getExprSimpleWithSymbolLExprAccess().getSymbolAssignment_2(), "rule__ExprSimpleWithSymbolLExpr__SymbolAssignment_2");
 			builder.put(grammarAccess.getExprSimpleWithSymbolLExprAccess().getLexprAssignment_4(), "rule__ExprSimpleWithSymbolLExpr__LexprAssignment_4");
 			builder.put(grammarAccess.getLExprAccess().getExpressionsAssignment_0(), "rule__LExpr__ExpressionsAssignment_0");

@@ -59,10 +59,10 @@ ExprSimple:
 	expression=ExprSimpleWithSymbolLExpr
 ;
 ExprSimpleWithLExpr:
-	'(' operation=('cons'|'list') LC lexpr=LExpr LC ')'
+	'(' LC operation=('cons'|'list') LC lexpr=LExpr LC ')'
 ;
 ExprSimpleWithExpr:
-	'(' operation=('hd'|'tl') LC expr=Expr LC ')'
+	'(' LC operation=('hd'|'tl') LC expr=Expr LC ')'
 ;
 ExprSimpleWithSymbolLExpr:
 	'(' LC symbol=SYMBOL LC lexpr=LExpr LC ')'

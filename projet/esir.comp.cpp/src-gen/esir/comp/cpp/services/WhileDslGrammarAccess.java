@@ -745,103 +745,111 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "esir.comp.cpp.WhileDsl.ExprSimpleWithLExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cOperationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cOperationAlternatives_1_0 = (Alternatives)cOperationAssignment_1.eContents().get(0);
-		private final Keyword cOperationConsKeyword_1_0_0 = (Keyword)cOperationAlternatives_1_0.eContents().get(0);
-		private final Keyword cOperationListKeyword_1_0_1 = (Keyword)cOperationAlternatives_1_0.eContents().get(1);
-		private final RuleCall cLCParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Assignment cLexprAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cLexprLExprParserRuleCall_3_0 = (RuleCall)cLexprAssignment_3.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cOperationAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Alternatives cOperationAlternatives_2_0 = (Alternatives)cOperationAssignment_2.eContents().get(0);
+		private final Keyword cOperationConsKeyword_2_0_0 = (Keyword)cOperationAlternatives_2_0.eContents().get(0);
+		private final Keyword cOperationListKeyword_2_0_1 = (Keyword)cOperationAlternatives_2_0.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cLexprAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cLexprLExprParserRuleCall_4_0 = (RuleCall)cLexprAssignment_4.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//ExprSimpleWithLExpr:
-		//	'(' operation=('cons' | 'list') LC lexpr=LExpr LC ')';
+		//	'(' LC operation=('cons' | 'list') LC lexpr=LExpr LC ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' operation=('cons' | 'list') LC lexpr=LExpr LC ')'
+		//'(' LC operation=('cons' | 'list') LC lexpr=LExpr LC ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 		
+		//LC
+		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
+		
 		//operation=('cons' | 'list')
-		public Assignment getOperationAssignment_1() { return cOperationAssignment_1; }
+		public Assignment getOperationAssignment_2() { return cOperationAssignment_2; }
 		
 		//('cons' | 'list')
-		public Alternatives getOperationAlternatives_1_0() { return cOperationAlternatives_1_0; }
+		public Alternatives getOperationAlternatives_2_0() { return cOperationAlternatives_2_0; }
 		
 		//'cons'
-		public Keyword getOperationConsKeyword_1_0_0() { return cOperationConsKeyword_1_0_0; }
+		public Keyword getOperationConsKeyword_2_0_0() { return cOperationConsKeyword_2_0_0; }
 		
 		//'list'
-		public Keyword getOperationListKeyword_1_0_1() { return cOperationListKeyword_1_0_1; }
+		public Keyword getOperationListKeyword_2_0_1() { return cOperationListKeyword_2_0_1; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_2() { return cLCParserRuleCall_2; }
+		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
 		
 		//lexpr=LExpr
-		public Assignment getLexprAssignment_3() { return cLexprAssignment_3; }
+		public Assignment getLexprAssignment_4() { return cLexprAssignment_4; }
 		
 		//LExpr
-		public RuleCall getLexprLExprParserRuleCall_3_0() { return cLexprLExprParserRuleCall_3_0; }
+		public RuleCall getLexprLExprParserRuleCall_4_0() { return cLexprLExprParserRuleCall_4_0; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_4() { return cLCParserRuleCall_4; }
+		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 	}
 	public class ExprSimpleWithExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "esir.comp.cpp.WhileDsl.ExprSimpleWithExpr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cOperationAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cOperationAlternatives_1_0 = (Alternatives)cOperationAssignment_1.eContents().get(0);
-		private final Keyword cOperationHdKeyword_1_0_0 = (Keyword)cOperationAlternatives_1_0.eContents().get(0);
-		private final Keyword cOperationTlKeyword_1_0_1 = (Keyword)cOperationAlternatives_1_0.eContents().get(1);
-		private final RuleCall cLCParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
-		private final Assignment cExprAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cExprExprParserRuleCall_3_0 = (RuleCall)cExprAssignment_3.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cOperationAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Alternatives cOperationAlternatives_2_0 = (Alternatives)cOperationAssignment_2.eContents().get(0);
+		private final Keyword cOperationHdKeyword_2_0_0 = (Keyword)cOperationAlternatives_2_0.eContents().get(0);
+		private final Keyword cOperationTlKeyword_2_0_1 = (Keyword)cOperationAlternatives_2_0.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
+		private final Assignment cExprAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cExprExprParserRuleCall_4_0 = (RuleCall)cExprAssignment_4.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//ExprSimpleWithExpr:
-		//	'(' operation=('hd' | 'tl') LC expr=Expr LC ')';
+		//	'(' LC operation=('hd' | 'tl') LC expr=Expr LC ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' operation=('hd' | 'tl') LC expr=Expr LC ')'
+		//'(' LC operation=('hd' | 'tl') LC expr=Expr LC ')'
 		public Group getGroup() { return cGroup; }
 		
 		//'('
 		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
 		
+		//LC
+		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
+		
 		//operation=('hd' | 'tl')
-		public Assignment getOperationAssignment_1() { return cOperationAssignment_1; }
+		public Assignment getOperationAssignment_2() { return cOperationAssignment_2; }
 		
 		//('hd' | 'tl')
-		public Alternatives getOperationAlternatives_1_0() { return cOperationAlternatives_1_0; }
+		public Alternatives getOperationAlternatives_2_0() { return cOperationAlternatives_2_0; }
 		
 		//'hd'
-		public Keyword getOperationHdKeyword_1_0_0() { return cOperationHdKeyword_1_0_0; }
+		public Keyword getOperationHdKeyword_2_0_0() { return cOperationHdKeyword_2_0_0; }
 		
 		//'tl'
-		public Keyword getOperationTlKeyword_1_0_1() { return cOperationTlKeyword_1_0_1; }
+		public Keyword getOperationTlKeyword_2_0_1() { return cOperationTlKeyword_2_0_1; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_2() { return cLCParserRuleCall_2; }
+		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
 		
 		//expr=Expr
-		public Assignment getExprAssignment_3() { return cExprAssignment_3; }
+		public Assignment getExprAssignment_4() { return cExprAssignment_4; }
 		
 		//Expr
-		public RuleCall getExprExprParserRuleCall_3_0() { return cExprExprParserRuleCall_3_0; }
+		public RuleCall getExprExprParserRuleCall_4_0() { return cExprExprParserRuleCall_4_0; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_4() { return cLCParserRuleCall_4; }
+		public RuleCall getLCParserRuleCall_5() { return cLCParserRuleCall_5; }
 		
 		//')'
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 	}
 	public class ExprSimpleWithSymbolLExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "esir.comp.cpp.WhileDsl.ExprSimpleWithSymbolLExpr");
@@ -1471,7 +1479,7 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ExprSimpleWithLExpr:
-	//	'(' operation=('cons' | 'list') LC lexpr=LExpr LC ')';
+	//	'(' LC operation=('cons' | 'list') LC lexpr=LExpr LC ')';
 	public ExprSimpleWithLExprElements getExprSimpleWithLExprAccess() {
 		return pExprSimpleWithLExpr;
 	}
@@ -1481,7 +1489,7 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ExprSimpleWithExpr:
-	//	'(' operation=('hd' | 'tl') LC expr=Expr LC ')';
+	//	'(' LC operation=('hd' | 'tl') LC expr=Expr LC ')';
 	public ExprSimpleWithExprElements getExprSimpleWithExprAccess() {
 		return pExprSimpleWithExpr;
 	}
