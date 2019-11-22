@@ -71,7 +71,7 @@ LExpr:
 	expressions+=Expr (LC expressions+=Expr)*
 ;
 Exprs:
-	expressions+=Expr (',' LC expressions+=Expr)*
+	expressions+=Expr (LC ',' LC expressions+=Expr)*
 ;
 Expr:
 	=>(expression=ExprAnd) | (expression=ExprSimple)

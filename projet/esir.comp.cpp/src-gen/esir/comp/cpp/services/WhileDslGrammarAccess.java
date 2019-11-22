@@ -931,16 +931,17 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExpressionsAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cExpressionsExprParserRuleCall_0_0 = (RuleCall)cExpressionsAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
-		private final Assignment cExpressionsAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cExpressionsExprParserRuleCall_1_2_0 = (RuleCall)cExpressionsAssignment_1_2.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Keyword cCommaKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cExpressionsAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cExpressionsExprParserRuleCall_1_3_0 = (RuleCall)cExpressionsAssignment_1_3.eContents().get(0);
 		
 		//Exprs:
-		//	expressions+=Expr (',' LC expressions+=Expr)*;
+		//	expressions+=Expr (LC ',' LC expressions+=Expr)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//expressions+=Expr (',' LC expressions+=Expr)*
+		//expressions+=Expr (LC ',' LC expressions+=Expr)*
 		public Group getGroup() { return cGroup; }
 		
 		//expressions+=Expr
@@ -949,20 +950,23 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		//Expr
 		public RuleCall getExpressionsExprParserRuleCall_0_0() { return cExpressionsExprParserRuleCall_0_0; }
 		
-		//(',' LC expressions+=Expr)*
+		//(LC ',' LC expressions+=Expr)*
 		public Group getGroup_1() { return cGroup_1; }
 		
+		//LC
+		public RuleCall getLCParserRuleCall_1_0() { return cLCParserRuleCall_1_0; }
+		
 		//','
-		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
+		public Keyword getCommaKeyword_1_1() { return cCommaKeyword_1_1; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_1_1() { return cLCParserRuleCall_1_1; }
+		public RuleCall getLCParserRuleCall_1_2() { return cLCParserRuleCall_1_2; }
 		
 		//expressions+=Expr
-		public Assignment getExpressionsAssignment_1_2() { return cExpressionsAssignment_1_2; }
+		public Assignment getExpressionsAssignment_1_3() { return cExpressionsAssignment_1_3; }
 		
 		//Expr
-		public RuleCall getExpressionsExprParserRuleCall_1_2_0() { return cExpressionsExprParserRuleCall_1_2_0; }
+		public RuleCall getExpressionsExprParserRuleCall_1_3_0() { return cExpressionsExprParserRuleCall_1_3_0; }
 	}
 	public class ExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "esir.comp.cpp.WhileDsl.Expr");
@@ -1507,7 +1511,7 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Exprs:
-	//	expressions+=Expr (',' LC expressions+=Expr)*;
+	//	expressions+=Expr (LC ',' LC expressions+=Expr)*;
 	public ExprsElements getExprsAccess() {
 		return pExprs;
 	}

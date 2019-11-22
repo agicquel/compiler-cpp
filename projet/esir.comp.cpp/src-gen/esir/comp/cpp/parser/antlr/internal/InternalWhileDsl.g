@@ -1729,12 +1729,19 @@ ruleExprs returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_1=','
 			{
-				newLeafNode(otherlv_1, grammarAccess.getExprsAccess().getCommaKeyword_1_0());
+				newCompositeNode(grammarAccess.getExprsAccess().getLCParserRuleCall_1_0());
+			}
+			ruleLC
+			{
+				afterParserOrEnumRuleCall();
+			}
+			otherlv_2=','
+			{
+				newLeafNode(otherlv_2, grammarAccess.getExprsAccess().getCommaKeyword_1_1());
 			}
 			{
-				newCompositeNode(grammarAccess.getExprsAccess().getLCParserRuleCall_1_1());
+				newCompositeNode(grammarAccess.getExprsAccess().getLCParserRuleCall_1_2());
 			}
 			ruleLC
 			{
@@ -1743,9 +1750,9 @@ ruleExprs returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getExprsAccess().getExpressionsExprParserRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getExprsAccess().getExpressionsExprParserRuleCall_1_3_0());
 					}
-					lv_expressions_3_0=ruleExpr
+					lv_expressions_4_0=ruleExpr
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getExprsRule());
@@ -1753,7 +1760,7 @@ ruleExprs returns [EObject current=null]
 						add(
 							$current,
 							"expressions",
-							lv_expressions_3_0,
+							lv_expressions_4_0,
 							"esir.comp.cpp.WhileDsl.Expr");
 						afterParserOrEnumRuleCall();
 					}
