@@ -14,10 +14,10 @@ Definition:
 	'read' LC intput=Input LC '%' LC body=Commands LC '%' LC 'write' LC output=Output
 ;
 Input:
-	variables+=VARIABLE (',' variables+=VARIABLE)*
+	variables+=VARIABLE (LC ',' LC variables+=VARIABLE)*
 ;
 Output:
-	variables+=VARIABLE (',' variables+=VARIABLE)*
+	variables+=VARIABLE (LC ',' LC variables+=VARIABLE)*
 ;
 
 // Commandes

@@ -78,9 +78,9 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getDefinitionAccess().getBodyAssignment_6(), "rule__Definition__BodyAssignment_6");
 			builder.put(grammarAccess.getDefinitionAccess().getOutputAssignment_12(), "rule__Definition__OutputAssignment_12");
 			builder.put(grammarAccess.getInputAccess().getVariablesAssignment_0(), "rule__Input__VariablesAssignment_0");
-			builder.put(grammarAccess.getInputAccess().getVariablesAssignment_1_1(), "rule__Input__VariablesAssignment_1_1");
+			builder.put(grammarAccess.getInputAccess().getVariablesAssignment_1_3(), "rule__Input__VariablesAssignment_1_3");
 			builder.put(grammarAccess.getOutputAccess().getVariablesAssignment_0(), "rule__Output__VariablesAssignment_0");
-			builder.put(grammarAccess.getOutputAccess().getVariablesAssignment_1_1(), "rule__Output__VariablesAssignment_1_1");
+			builder.put(grammarAccess.getOutputAccess().getVariablesAssignment_1_3(), "rule__Output__VariablesAssignment_1_3");
 			builder.put(grammarAccess.getCommandsAccess().getCommandsAssignment_0(), "rule__Commands__CommandsAssignment_0");
 			builder.put(grammarAccess.getCommandsAccess().getCommandsAssignment_1_3(), "rule__Commands__CommandsAssignment_1_3");
 			builder.put(grammarAccess.getWhileCommandAccess().getCondAssignment_2(), "rule__WhileCommand__CondAssignment_2");
