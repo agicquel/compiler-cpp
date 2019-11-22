@@ -46,7 +46,7 @@ NopCommand:
 	'nop'
 ;
 Vars:
-	variables+=VARIABLE (',' variables+=VARIABLE)*
+	variables+=VARIABLE (LC ',' LC variables+=VARIABLE)*
 ;
 
 // Expressions

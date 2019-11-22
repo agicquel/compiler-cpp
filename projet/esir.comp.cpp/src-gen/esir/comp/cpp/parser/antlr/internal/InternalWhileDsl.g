@@ -1197,15 +1197,29 @@ ruleVars returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_1=','
 			{
-				newLeafNode(otherlv_1, grammarAccess.getVarsAccess().getCommaKeyword_1_0());
+				newCompositeNode(grammarAccess.getVarsAccess().getLCParserRuleCall_1_0());
+			}
+			ruleLC
+			{
+				afterParserOrEnumRuleCall();
+			}
+			otherlv_2=','
+			{
+				newLeafNode(otherlv_2, grammarAccess.getVarsAccess().getCommaKeyword_1_1());
+			}
+			{
+				newCompositeNode(grammarAccess.getVarsAccess().getLCParserRuleCall_1_2());
+			}
+			ruleLC
+			{
+				afterParserOrEnumRuleCall();
 			}
 			(
 				(
-					lv_variables_2_0=RULE_VARIABLE
+					lv_variables_4_0=RULE_VARIABLE
 					{
-						newLeafNode(lv_variables_2_0, grammarAccess.getVarsAccess().getVariablesVARIABLETerminalRuleCall_1_1_0());
+						newLeafNode(lv_variables_4_0, grammarAccess.getVarsAccess().getVariablesVARIABLETerminalRuleCall_1_3_0());
 					}
 					{
 						if ($current==null) {
@@ -1214,7 +1228,7 @@ ruleVars returns [EObject current=null]
 						addWithLastConsumed(
 							$current,
 							"variables",
-							lv_variables_2_0,
+							lv_variables_4_0,
 							"esir.comp.cpp.WhileDsl.VARIABLE");
 					}
 				)

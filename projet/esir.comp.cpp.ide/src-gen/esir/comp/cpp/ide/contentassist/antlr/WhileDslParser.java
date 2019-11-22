@@ -96,7 +96,7 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getVarsCommandAccess().getVariablesAssignment_0(), "rule__VarsCommand__VariablesAssignment_0");
 			builder.put(grammarAccess.getVarsCommandAccess().getValuesAssignment_4(), "rule__VarsCommand__ValuesAssignment_4");
 			builder.put(grammarAccess.getVarsAccess().getVariablesAssignment_0(), "rule__Vars__VariablesAssignment_0");
-			builder.put(grammarAccess.getVarsAccess().getVariablesAssignment_1_1(), "rule__Vars__VariablesAssignment_1_1");
+			builder.put(grammarAccess.getVarsAccess().getVariablesAssignment_1_3(), "rule__Vars__VariablesAssignment_1_3");
 			builder.put(grammarAccess.getExprSimpleAccess().getTermAssignment_0(), "rule__ExprSimple__TermAssignment_0");
 			builder.put(grammarAccess.getExprSimpleAccess().getTermAssignment_1(), "rule__ExprSimple__TermAssignment_1");
 			builder.put(grammarAccess.getExprSimpleAccess().getTermAssignment_2(), "rule__ExprSimple__TermAssignment_2");

@@ -642,15 +642,17 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cVariablesAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cVariablesVARIABLETerminalRuleCall_0_0 = (RuleCall)cVariablesAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cCommaKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final Assignment cVariablesAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cVariablesVARIABLETerminalRuleCall_1_1_0 = (RuleCall)cVariablesAssignment_1_1.eContents().get(0);
+		private final RuleCall cLCParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Keyword cCommaKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cVariablesAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cVariablesVARIABLETerminalRuleCall_1_3_0 = (RuleCall)cVariablesAssignment_1_3.eContents().get(0);
 		
 		//Vars:
-		//	variables+=VARIABLE (',' variables+=VARIABLE)*;
+		//	variables+=VARIABLE (LC ',' LC variables+=VARIABLE)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//variables+=VARIABLE (',' variables+=VARIABLE)*
+		//variables+=VARIABLE (LC ',' LC variables+=VARIABLE)*
 		public Group getGroup() { return cGroup; }
 		
 		//variables+=VARIABLE
@@ -659,17 +661,23 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		//VARIABLE
 		public RuleCall getVariablesVARIABLETerminalRuleCall_0_0() { return cVariablesVARIABLETerminalRuleCall_0_0; }
 		
-		//(',' variables+=VARIABLE)*
+		//(LC ',' LC variables+=VARIABLE)*
 		public Group getGroup_1() { return cGroup_1; }
 		
+		//LC
+		public RuleCall getLCParserRuleCall_1_0() { return cLCParserRuleCall_1_0; }
+		
 		//','
-		public Keyword getCommaKeyword_1_0() { return cCommaKeyword_1_0; }
+		public Keyword getCommaKeyword_1_1() { return cCommaKeyword_1_1; }
+		
+		//LC
+		public RuleCall getLCParserRuleCall_1_2() { return cLCParserRuleCall_1_2; }
 		
 		//variables+=VARIABLE
-		public Assignment getVariablesAssignment_1_1() { return cVariablesAssignment_1_1; }
+		public Assignment getVariablesAssignment_1_3() { return cVariablesAssignment_1_3; }
 		
 		//VARIABLE
-		public RuleCall getVariablesVARIABLETerminalRuleCall_1_1_0() { return cVariablesVARIABLETerminalRuleCall_1_1_0; }
+		public RuleCall getVariablesVARIABLETerminalRuleCall_1_3_0() { return cVariablesVARIABLETerminalRuleCall_1_3_0; }
 	}
 	public class ExprSimpleElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "esir.comp.cpp.WhileDsl.ExprSimple");
@@ -1437,7 +1445,7 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//Vars:
-	//	variables+=VARIABLE (',' variables+=VARIABLE)*;
+	//	variables+=VARIABLE (LC ',' LC variables+=VARIABLE)*;
 	public VarsElements getVarsAccess() {
 		return pVars;
 	}
