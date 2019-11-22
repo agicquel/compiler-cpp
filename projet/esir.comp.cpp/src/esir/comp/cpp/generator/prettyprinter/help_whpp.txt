@@ -1,16 +1,35 @@
-La commande java -jar bin/whpp.jar est un pretty printer : elle permet d'indenter correctement un fichier de type fichier.wh
+NAME
+whpp - permet de prettyprinter un fichier while
 
-Les options : 
+SYNOPSIS
+java -jar bin/whpp.jar <FILE> [-all <INT>] [-nomCommande <INT>]
 
--all NbEspaces permet de changer l'indentation de tout le code, passez en paramètre le nombre d'espaces voulus.
--NomCommande NbEspaces permet de changer l'indentation pour une ou plusieurs commandes spécifiques avec le nombre d'espaces voulus.
 
-Les paramètres : 
-1- le fichier d'entrée d'extension wh.
-2- le nom du fichier de sortie qui sera correctement indenté.
-[-ui <args>]
-[-nomCommande NbEspace]
+DESCRIPTION
+Cette commande permet de générer un fichier correctement indenté à partir d'un fichier while mal indenté mais syntaxiquement correct.
 
-Par exemple :
+1.
+Si aucun fichier n'est passé en paramètre, la commande affichera un message et s'arrêtera.
+2.
+Si un fichier est passé en paramètre mais aucune information supplémentaire par rapport aux indentations, la commande est exécutée avec des indentations valides par défaut.
+
+OPTIONS
+
+Les options suivantes peuvent être ajoutées:
+
+-all <INT>
+Permet de changer l'indentation de toutes les commandes.
+-IF <INT>
+Modifie l'indentation pour la commande IF
+
+ETC ETC A COMPLETERRRRRRRRRRRRRRRRRRR
+
+OPERANDS
+The following operands shall be supported:
+
+OUTPUT FILES
+Une copie du fichier paramètre correctement indenté.
+
+EXAMPLE
 java -jar bin/whpp.jar -if 3 -while 6
 java -jar bin/whpp.jar -all 4
