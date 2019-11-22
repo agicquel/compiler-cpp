@@ -1,6 +1,5 @@
 package esir.comp.cpp.generator.prettyprinter;
 
-import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
@@ -8,8 +7,7 @@ import esir.comp.cpp.generator.prettyprinter.PrettyPrinterGenerator;
 import esir.comp.cpp.generator.prettyprinter.PrettyPrinterGeneratorParameters;
 import esir.comp.cpp.generator.prettyprinter.PrettyPrinterStandaloneSetup;
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.function.Consumer;
@@ -30,6 +28,8 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 @SuppressWarnings("all")
 public class PrettyPrinterMain {
+  private static final String HELP_FILE_LOCATION = "help_whpp.txt";
+  
   @Inject
   private Provider<ResourceSet> resourceSetProvider;
   
@@ -46,24 +46,20 @@ public class PrettyPrinterMain {
     try {
       boolean _contains = ((List<String>)Conversions.doWrapArray(args)).contains("-help");
       if (_contains) {
-        InputOutput.<String>println("Affiche de l\'aide ici...");
-        File fileHelp = new File("../help.txt");
-        FileInputStream _fileInputStream = new FileInputStream(fileHelp);
-        InputStreamReader _inputStreamReader = new InputStreamReader(_fileInputStream, "UTF-8");
-        BufferedReader buf = new BufferedReader(_inputStreamReader);
+        InputStream is = PrettyPrinterMain.class.getResourceAsStream(PrettyPrinterMain.HELP_FILE_LOCATION);
+        InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader buf = new BufferedReader(isr);
         String line = buf.readLine();
-        while ((!Objects.equal(line, null))) {
+        while ((line != null)) {
           {
-            System.out.println(line);
+            InputOutput.<String>println(line);
             line = buf.readLine();
           }
         }
-        return;
       } else {
         boolean _isEmpty = ((List<String>)Conversions.doWrapArray(args)).isEmpty();
         if (_isEmpty) {
           InputOutput.<String>println("Erreur : Aucun fichier source en paramètre.");
-          return;
         } else {
           String indentationWhile = "  ";
           String indentationFor = "  ";

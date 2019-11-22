@@ -3,16 +3,22 @@
  */
 package esir.comp.cpp.ide;
 
+import com.google.inject.Guice;
 import com.google.inject.Injector;
+import esir.comp.cpp.WhileDslRuntimeModule;
+import esir.comp.cpp.WhileDslStandaloneSetup;
+import esir.comp.cpp.ide.WhileDslIdeModule;
+import org.eclipse.xtext.util.Modules2;
 
 /**
  * Initialization support for running Xtext languages as language servers.
  */
 @SuppressWarnings("all")
-public class WhileDslIdeSetup /* implements PrettyPrinterStandaloneSetup  */{
+public class WhileDslIdeSetup extends WhileDslStandaloneSetup {
   @Override
   public Injector createInjector() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nPrettyPrinterRuntimeModule cannot be resolved.");
+    WhileDslRuntimeModule _whileDslRuntimeModule = new WhileDslRuntimeModule();
+    WhileDslIdeModule _whileDslIdeModule = new WhileDslIdeModule();
+    return Guice.createInjector(Modules2.mixin(_whileDslRuntimeModule, _whileDslIdeModule));
   }
 }

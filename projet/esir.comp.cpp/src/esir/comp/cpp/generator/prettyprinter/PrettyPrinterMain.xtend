@@ -13,9 +13,10 @@ import org.eclipse.xtext.generator.JavaIoFileSystemAccess
 import org.eclipse.xtext.util.CancelIndicator
 import org.eclipse.xtext.validation.CheckMode
 import org.eclipse.xtext.validation.IResourceValidator
+import java.io.InputStream
 
 class PrettyPrinterMain {
-
+	static final String HELP_FILE_LOCATION = "help_whpp.txt"
 	@Inject Provider<ResourceSet> resourceSetProvider
 	@Inject IResourceValidator validator
 	@Inject PrettyPrinterGenerator generator
@@ -23,19 +24,18 @@ class PrettyPrinterMain {
 	
 	def static main(String[] args) {
 		if(args.contains("-help")) {
-			println("Affiche de l'aide ici...")
-			var fileHelp = new File("../help.txt");
-			var buf = new BufferedReader(new InputStreamReader(new FileInputStream(fileHelp), "UTF-8"));
-			var line = buf.readLine();
-			while(line != null) {
-				System.out.println(line);
-				line = buf.readLine();
+			var is = PrettyPrinterMain.getResourceAsStream(HELP_FILE_LOCATION)
+			var isr = new InputStreamReader(is)
+			var buf = new BufferedReader(isr);
+
+			var line = buf.readLine()
+			while(line !== null) {
+				println(line)
+				line = buf.readLine()
 			}
-			return
 		}
 		else if (args.empty) {
 			println("Erreur : Aucun fichier source en paramètre.")
-			return
 		}
 		else {
 				var indentationWhile = "  "
