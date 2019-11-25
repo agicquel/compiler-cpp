@@ -1,0 +1,18 @@
+function testFor!:
+read A!
+%
+  for nil do
+    A! := B!
+  od
+%
+write C!
+
+function testFor!:
+read A!
+%
+  for nil do
+    A! := B!
+  od
+%
+write C!
+

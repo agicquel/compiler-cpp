@@ -1,0 +1,9 @@
+function testHd!:       
+read A!        
+%               
+	for (hd A!) do 
+		A! := B!     
+	od 
+%   
+write C!,V!
+

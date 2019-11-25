@@ -1,0 +1,18 @@
+function testForeach!:
+read A!      
+%  
+	foreach nil in nil do  
+		A! := D! 
+	od         
+%
+write F!
+
+function testForeach!:
+read A!      
+%  
+	foreach nil in nil do  
+		A! := D! 
+	od         
+%
+write F!
+

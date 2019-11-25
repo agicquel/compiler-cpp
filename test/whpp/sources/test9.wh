@@ -1,0 +1,28 @@
+
+    function test       :
+     read
+      X 
+% 
+  while X do 
+    X     ,        Y := (tl X            )    ,    
+           (cons                (hd          X)Y            )
+  od   
+% 
+           write      X    ,      Y
+
+
+function test2       :
+          read    A,     B
+   % 
+  while     B        do 
+  X,         Y :=
+   (      tl    X)
+   ,
+                 (cons
+                 	(hd
+                 		X
+                 	)Y
+                 ) 
+             od 
+           %
+                            write X

@@ -1,0 +1,7 @@
+function testFunc1!: 
+read A! 
+% 
+ nop                 
+%    
+write B!
+
