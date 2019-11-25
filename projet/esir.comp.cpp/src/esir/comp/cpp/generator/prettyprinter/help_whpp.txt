@@ -4,7 +4,6 @@ whpp - permet de prettyprinter un fichier while
 SYNOPSIS
 java -jar bin/whpp.jar <FILE> [-all <INT>] [-nomCommande <INT>]
 
-
 DESCRIPTION
 Cette commande permet de générer un fichier correctement indenté à partir d'un fichier while mal indenté mais syntaxiquement correct.
 
@@ -21,8 +20,14 @@ Les options suivantes peuvent être ajoutées:
 Permet de changer l'indentation de toutes les commandes.
 -IF <INT>
 Modifie l'indentation pour la commande IF
-
-ETC ETC A COMPLETERRRRRRRRRRRRRRRRRRR
+-WHILE <INT>
+Modifie l'indentation pour la commande WHILE
+-FOR <INT>
+Modifie l'indentation pour la commande FOR
+-FOREACH <INT>
+Modifie l'indentation pour la commande FOREACH
+-NOP <INT>
+Modifie l'indentation pour la commande NOP
 
 OPERANDS
 The following operands shall be supported:
