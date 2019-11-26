@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir -p ./results/
 rm -f ./results/*
 for testFile in ./sources/*.wh; do
     java -jar ./whpp.jar $testFile -o ./results/`echo $testFile | cut -d\/ -f3`pp
