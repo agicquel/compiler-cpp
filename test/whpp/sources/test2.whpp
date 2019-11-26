@@ -1,7 +1,7 @@
-function testFunc1!: 
-read A! 
-% 
- nop                 
-%    
+function testFunc1!:
+read A!
+%
+  nop
+%
 write B!
 
