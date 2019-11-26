@@ -4,7 +4,8 @@ read A!
   while nil do
     A! := D!
   od
-% write C!
+%
+write C!
 
 function testWhile!:
 read A!
@@ -12,4 +13,5 @@ read A!
   while nil do
     A! := D!
   od
-% write C!
+%
+write C!

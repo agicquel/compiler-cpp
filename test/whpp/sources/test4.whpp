@@ -4,7 +4,8 @@ read A!
   for nil do
     A! := B!
   od
-% write C!
+%
+write C!
 
 function testFor!:
 read A!
@@ -12,4 +13,5 @@ read A!
   for nil do
     A! := B!
   od
-% write C!
+%
+write C!

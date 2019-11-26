@@ -16,7 +16,6 @@ import esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr;
 import esir.comp.cpp.whileDsl.Exprs;
 import esir.comp.cpp.whileDsl.ForCommand;
 import esir.comp.cpp.whileDsl.ForeachCommand;
-import esir.comp.cpp.whileDsl.Function;
 import esir.comp.cpp.whileDsl.IfCommand;
 import esir.comp.cpp.whileDsl.LExpr;
 import esir.comp.cpp.whileDsl.Model;
@@ -61,30 +60,34 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
     Iterable<Model> _filter = Iterables.<Model>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Model.class);
     for (final Model m : _filter) {
       String _prettyCode = prettyCode;
-      CharSequence _indent = this.indent(m);
+      String _indent = this.indent(m);
       prettyCode = (_prettyCode + _indent);
     }
     fsa.generateFile(
       this.outputFile, prettyCode);
   }
   
-  public CharSequence indent(final Model model) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<Function> _program = model.getProgram();
-      for(final Function function : _program) {
-        _builder.append("function ");
-        String _functionName = function.getFunctionName();
-        _builder.append(_functionName);
-        _builder.append(":");
-        _builder.newLineIfNotEmpty();
-        CharSequence _indent = this.indent(function.getFunctionDefinition());
-        String _plus = (_indent + "\n");
-        _builder.append(_plus);
-        _builder.newLineIfNotEmpty();
+  public String indent(final Model model) {
+    String text = "";
+    for (int i = 0; (i < model.getProgram().size()); i++) {
+      {
+        String _text = text;
+        String _functionName = model.getProgram().get(i).getFunctionName();
+        String _plus = ("function " + _functionName);
+        String _plus_1 = (_plus + ":\n");
+        text = (_text + _plus_1);
+        String _text_1 = text;
+        CharSequence _indent = this.indent(model.getProgram().get(i).getFunctionDefinition());
+        text = (_text_1 + _indent);
+        int _size = model.getProgram().size();
+        boolean _lessThan = ((i + 1) < _size);
+        if (_lessThan) {
+          String _text_2 = text;
+          text = (_text_2 + "\n");
+        }
       }
     }
-    return _builder;
+    return text;
   }
   
   public CharSequence indent(final Definition definition) {

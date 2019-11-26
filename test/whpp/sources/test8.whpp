@@ -3,6 +3,6 @@ read A!
 %
   for (hd A!) do
     A! := B!
-od
+  od
 %
 write C!,V!

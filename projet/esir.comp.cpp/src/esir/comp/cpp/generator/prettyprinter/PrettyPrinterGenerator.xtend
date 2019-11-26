@@ -57,12 +57,15 @@ class PrettyPrinterGenerator extends AbstractGenerator {
 	// STRUCTURES
 	
 	def indent(Model model) {
-		'''
-		«FOR function : model.program»
-			function «function.functionName»:
-			«function.functionDefinition.indent() + '\n'»
-		«ENDFOR»
-		'''
+		var text = "";
+		for(var i = 0; i < model.program.size(); i++) {
+			text += "function " + model.program.get(i).functionName + ":\n";
+			text += model.program.get(i).functionDefinition.indent()
+			if((i+1) < model.program.size()) {
+				text+="\n"
+			}
+		}
+		return text;
 	}
 	
 	def indent(Definition definition) {
