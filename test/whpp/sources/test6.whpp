@@ -1,22 +1,21 @@
-function testIf!: 
+function testIf!:
 read A!
-% 
-	if nil then 
-		A! := D!
-	else 
-		A! := V!
-	fi
-%       
-write C!
- 
-function testIf!: 
-read A!
-% 
-	if nil then 
-		A! := D!
-	else 
-		A! := V!
-	fi
-%       
+%
+  if nil then
+    A! := D!
+  else
+    A! := V!
+  fi
+%
 write C!
 
+function testIf!:
+read A!
+%
+  if nil then
+    A! := D!
+  else
+    A! := V!
+  fi
+%
+write C!

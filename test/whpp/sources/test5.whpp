@@ -1,16 +1,15 @@
 function testWhile!:
-read A!    
-% 
-	while nil do
-		A! := D! 
-	od                                 
+read A!
+%
+  while nil do
+    A! := D!
+  od
 % write C!
 
 function testWhile!:
-read A!    
-% 
-	while nil do
-		A! := D! 
-	od                                 
+read A!
+%
+  while nil do
+    A! := D!
+  od
 % write C!
-

@@ -1,7 +1,7 @@
 function testFunc1!:
 read A!
 %
-  nop     
+  nop
 %
 write B!
 
@@ -18,4 +18,3 @@ read C1!,C2!,C3!
   C1!,C2!,C3! := C1!,C2!,C3!
 %
 write C1!,C2!,C3!
-

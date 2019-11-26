@@ -1,9 +1,8 @@
 function test:
-read X 
-% 
- 	while X do 
-    	X,Y := (tl X),(cons(hd X)Y)
-	od   
-% 
+read X
+%
+  while X do
+    X,Y := (tl X),(cons(hd X)Y)
+  od
+%
 write X,Y
-

@@ -1,16 +1,15 @@
-function testForEach: 
+function testForEach:
 read X!
-%     
-	foreach B! in (list X!) do 
-		nop     
-	od     
-% 
-write Y! 
+%
+  foreach B! in (list X!) do
+    nop
+  od
+%
+write Y!
 
 function testFunc3!:
 read C1!,C2!,C3!
 %
-	C1!,C2!,C3! := C1!,C2!,C3!
-% 
+  C1!,C2!,C3! := C1!,C2!,C3!
+%
 write C1!,C2!,C3!
-
