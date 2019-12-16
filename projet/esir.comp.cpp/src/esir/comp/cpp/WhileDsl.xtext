@@ -8,7 +8,7 @@ Model:
 
 // Structure de base
 Function:
-	'function' LC functionName=SYMBOL LC ':' LC functionDefinition=Definition LC
+	'function' LC functionName=ValidID LC ':' LC functionDefinition=Definition LC
 ;
 Definition:
 	'read' LC intput=Input LC '%' LC body=Commands LC '%' LC 'write' LC output=Output
@@ -114,3 +114,7 @@ terminal SP : ' ';
 terminal CR : '\n';
 terminal TAB : '\t';
 terminal LF : '\r';
+
+ValidID : 
+	ID | SYMBOL
+;

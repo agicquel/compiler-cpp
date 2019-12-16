@@ -3,9 +3,9 @@
  */
 package esir.comp.cpp;
 
-import esir.comp.cpp.AbstractWhileDslRuntimeModule;
-import esir.comp.cpp.generator.prettyprinter.PrettyPrinterGenerator;
 import org.eclipse.xtext.generator.IGenerator2;
+
+import esir.comp.cpp.generator.prettyprinter.PrettyPrinterGenerator;
 
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.

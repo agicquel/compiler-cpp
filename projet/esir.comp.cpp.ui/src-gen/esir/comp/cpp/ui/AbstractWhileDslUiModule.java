@@ -14,7 +14,6 @@ import esir.comp.cpp.ui.labeling.WhileDslDescriptionLabelProvider;
 import esir.comp.cpp.ui.labeling.WhileDslLabelProvider;
 import esir.comp.cpp.ui.outline.WhileDslOutlineTreeProvider;
 import esir.comp.cpp.ui.quickfix.WhileDslQuickfixProvider;
-import esir.comp.cpp.validation.WhileDslValidatorConfigurationBlock;
 import org.eclipse.compare.IViewerCreator;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -77,7 +76,6 @@ import org.eclipse.xtext.ui.refactoring.ui.IRenameSupport;
 import org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferences;
 import org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider;
 import org.eclipse.xtext.ui.shared.Access;
-import org.eclipse.xtext.ui.validation.AbstractValidatorConfigurationBlock;
 
 /**
  * Manual modifications go to {@link WhileDslUiModule}.
@@ -133,11 +131,6 @@ public abstract class AbstractWhileDslUiModule extends DefaultUiModule {
 	// contributed by org.eclipse.xtext.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment2
 	public void configureContentAssistLexerProvider(Binder binder) {
 		binder.bind(InternalWhileDslLexer.class).toProvider(LexerProvider.create(InternalWhileDslLexer.class));
-	}
-	
-	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
-	public Class<? extends AbstractValidatorConfigurationBlock> bindAbstractValidatorConfigurationBlock() {
-		return WhileDslValidatorConfigurationBlock.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.exporting.QualifiedNamesFragment2

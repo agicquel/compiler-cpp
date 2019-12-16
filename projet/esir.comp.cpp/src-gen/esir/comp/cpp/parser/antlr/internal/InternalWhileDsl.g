@@ -125,19 +125,20 @@ ruleFunction returns [EObject current=null]
 		}
 		(
 			(
-				lv_functionName_2_0=RULE_SYMBOL
 				{
-					newLeafNode(lv_functionName_2_0, grammarAccess.getFunctionAccess().getFunctionNameSYMBOLTerminalRuleCall_2_0());
+					newCompositeNode(grammarAccess.getFunctionAccess().getFunctionNameValidIDParserRuleCall_2_0());
 				}
+				lv_functionName_2_0=ruleValidID
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getFunctionRule());
+						$current = createModelElementForParent(grammarAccess.getFunctionRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"functionName",
 						lv_functionName_2_0,
-						"esir.comp.cpp.WhileDsl.SYMBOL");
+						"esir.comp.cpp.WhileDsl.ValidID");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -2248,6 +2249,40 @@ ruleLC returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 			newLeafNode(this_LF_3, grammarAccess.getLCAccess().getLFTerminalRuleCall_3());
 		}
 	)*
+;
+
+// Entry rule entryRuleValidID
+entryRuleValidID returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getValidIDRule()); }
+	iv_ruleValidID=ruleValidID
+	{ $current=$iv_ruleValidID.current.getText(); }
+	EOF;
+
+// Rule ValidID
+ruleValidID returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		this_ID_0=RULE_ID
+		{
+			$current.merge(this_ID_0);
+		}
+		{
+			newLeafNode(this_ID_0, grammarAccess.getValidIDAccess().getIDTerminalRuleCall_0());
+		}
+		    |
+		this_SYMBOL_1=RULE_SYMBOL
+		{
+			$current.merge(this_SYMBOL_1);
+		}
+		{
+			newLeafNode(this_SYMBOL_1, grammarAccess.getValidIDAccess().getSYMBOLTerminalRuleCall_1());
+		}
+	)
 ;
 
 RULE_VARIABLE : 'A'..'Z' ('0'..'9'|'a'..'z'|'A'..'Z')* (('-'|'+'|'.'|'/'|'_'|'&'|'->') ('0'..'9'|'a'..'z'|'A'..'Z')?)* ('?'|'!')?;

@@ -2,27 +2,34 @@ function test1:
 read Var1,Var2
 %
   nop ;
-  while nil do
+while nil do
     nop ;
-    nop
+  nop
+  
   od ;
-  if (var var) then
+if (var var) then
     nop ;
-    nop ;
-    Var1 := Var1+1 ;
-    while nil =? nil do
+  nop ;
+  Var1 := Var1+1 ;
+  while nil =? nil do
       nop ;
-      nop
+    nop
+    
     od
+  
   else
     nop
+  
   fi ;
-  foreach eee in eee do
+foreach eee in eee do
     nop ;
-    for eee do
+  for eee do
       nop
+    
     od
+  
   od
+
 %
 write Var1,Var2
 
@@ -30,25 +37,32 @@ function test2:
 read Var3,Var4
 %
   nop ;
-  while nil do
+while nil do
     nop
+  
   od ;
-  if expr then
+if expr then
     nop ;
-    nop ;
-    while nil =? nil do
+  nop ;
+  while nil =? nil do
       nop ;
-      nop
+    nop
+    
     od
+  
   else
     nop
+  
   fi ;
-  foreach eee in eee do
+foreach eee in eee do
     nop ;
-    for eee do
+  for eee do
       nop
+    
     od
+  
   od
+
 %
 write Var3,Var4
 
@@ -56,10 +70,11 @@ function p:
 read X
 %
   Y := nil ;
-  while X do
+while X do
     Y := (cons (hd X) Y) ;
-    X := (tl X)
+  X := (tl X)
+  
   od
+
 %
 write Y
-
