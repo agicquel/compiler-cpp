@@ -4,6 +4,14 @@
 package esir.comp.cpp.validation;
 
 import esir.comp.cpp.validation.AbstractWhileDslValidator;
+import esir.comp.cpp.whileDsl.Definition;
+import esir.comp.cpp.whileDsl.Function;
+import esir.comp.cpp.whileDsl.Model;
+import esir.comp.cpp.whileDsl.WhileDslPackage;
+import java.util.ArrayList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.InputOutput;
 
 /**
  * This class contains custom validation rules.
@@ -12,4 +20,29 @@ import esir.comp.cpp.validation.AbstractWhileDslValidator;
  */
 @SuppressWarnings("all")
 public class WhileDslValidator extends AbstractWhileDslValidator {
+  public static final String DUPLICATE_NAME = "duplicateName";
+  
+  public static final String INVALID_NUMBER_VARIABLE_DEF = "invalidVariableNumber";
+  
+  @Check
+  public void checkNamesAreUnique(final Model model) {
+    EList<Function> listeFunc = model.getProgram();
+    ArrayList<String> listeNom = new ArrayList<String>();
+    for (final Function f : listeFunc) {
+      boolean _contains = listeNom.contains(f.getFunctionName());
+      if (_contains) {
+        this.error("Function name must be unique", f, WhileDslPackage.Literals.FUNCTION__FUNCTION_NAME, WhileDslValidator.DUPLICATE_NAME);
+      } else {
+        listeNom.add(f.getFunctionName());
+      }
+    }
+  }
+  
+  @Check
+  public void checkNumberVariablesDef(final Model model) {
+    EList<Function> listeFunc = model.getProgram();
+    for (final Function f : listeFunc) {
+      InputOutput.<Definition>println(f.getFunctionDefinition());
+    }
+  }
 }

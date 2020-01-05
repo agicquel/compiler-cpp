@@ -44,7 +44,7 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cFunctionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Assignment cFunctionNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cFunctionNameSYMBOLTerminalRuleCall_2_0 = (RuleCall)cFunctionNameAssignment_2.eContents().get(0);
+		private final RuleCall cFunctionNameValidIDParserRuleCall_2_0 = (RuleCall)cFunctionNameAssignment_2.eContents().get(0);
 		private final RuleCall cLCParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
 		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final RuleCall cLCParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
@@ -54,10 +54,10 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// Structure de base
 		//Function:
-		//	'function' LC functionName=SYMBOL LC ':' LC functionDefinition=Definition LC;
+		//	'function' LC functionName=ValidID LC ':' LC functionDefinition=Definition LC;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'function' LC functionName=SYMBOL LC ':' LC functionDefinition=Definition LC
+		//'function' LC functionName=ValidID LC ':' LC functionDefinition=Definition LC
 		public Group getGroup() { return cGroup; }
 		
 		//'function'
@@ -66,11 +66,11 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		//LC
 		public RuleCall getLCParserRuleCall_1() { return cLCParserRuleCall_1; }
 		
-		//functionName=SYMBOL
+		//functionName=ValidID
 		public Assignment getFunctionNameAssignment_2() { return cFunctionNameAssignment_2; }
 		
-		//SYMBOL
-		public RuleCall getFunctionNameSYMBOLTerminalRuleCall_2_0() { return cFunctionNameSYMBOLTerminalRuleCall_2_0; }
+		//ValidID
+		public RuleCall getFunctionNameValidIDParserRuleCall_2_0() { return cFunctionNameValidIDParserRuleCall_2_0; }
 		
 		//LC
 		public RuleCall getLCParserRuleCall_3() { return cLCParserRuleCall_3; }
@@ -1235,6 +1235,25 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		//LF
 		public RuleCall getLFTerminalRuleCall_3() { return cLFTerminalRuleCall_3; }
 	}
+	public class ValidIDElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "esir.comp.cpp.WhileDsl.ValidID");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSYMBOLTerminalRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//ValidID:
+		//	ID | SYMBOL;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID | SYMBOL
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//SYMBOL
+		public RuleCall getSYMBOLTerminalRuleCall_1() { return cSYMBOLTerminalRuleCall_1; }
+	}
 	
 	
 	private final ModelElements pModel;
@@ -1269,6 +1288,7 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 	private final TerminalRule tCR;
 	private final TerminalRule tTAB;
 	private final TerminalRule tLF;
+	private final ValidIDElements pValidID;
 	
 	private final Grammar grammar;
 	
@@ -1311,6 +1331,7 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		this.tCR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "esir.comp.cpp.WhileDsl.CR");
 		this.tTAB = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "esir.comp.cpp.WhileDsl.TAB");
 		this.tLF = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "esir.comp.cpp.WhileDsl.LF");
+		this.pValidID = new ValidIDElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1352,7 +1373,7 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//// Structure de base
 	//Function:
-	//	'function' LC functionName=SYMBOL LC ':' LC functionDefinition=Definition LC;
+	//	'function' LC functionName=ValidID LC ':' LC functionDefinition=Definition LC;
 	public FunctionElements getFunctionAccess() {
 		return pFunction;
 	}
@@ -1641,6 +1662,16 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 	//	'\r';
 	public TerminalRule getLFRule() {
 		return tLF;
+	}
+	
+	//ValidID:
+	//	ID | SYMBOL;
+	public ValidIDElements getValidIDAccess() {
+		return pValidID;
+	}
+	
+	public ParserRule getValidIDRule() {
+		return getValidIDAccess().getRule();
 	}
 	
 	//terminal ID:

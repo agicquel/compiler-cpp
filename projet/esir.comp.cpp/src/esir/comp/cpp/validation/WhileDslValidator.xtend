@@ -3,6 +3,11 @@
  */
 package esir.comp.cpp.validation
 
+import esir.comp.cpp.whileDsl.Model
+import org.eclipse.xtext.validation.Check
+import esir.comp.cpp.whileDsl.Function
+import java.util.ArrayList
+import esir.comp.cpp.whileDsl.WhileDslPackage
 
 /**
  * This class contains custom validation rules. 
@@ -11,15 +16,33 @@ package esir.comp.cpp.validation
  */
 class WhileDslValidator extends AbstractWhileDslValidator {
 	
-//	public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					WhileDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+	public static val DUPLICATE_NAME = "duplicateName";
+	public static val INVALID_NUMBER_VARIABLE_DEF = "invalidVariableNumber"
+
+	@Check
+	def checkNamesAreUnique(Model model) {
+		var listeFunc = model.program;
+		var listeNom = new ArrayList<String>();
+		for(Function f : listeFunc) {
+			if(listeNom.contains(f.functionName)){
+				error('Function name must be unique', f , WhileDslPackage.Literals.FUNCTION__FUNCTION_NAME
+					,DUPLICATE_NAME);
+			} else {
+				listeNom.add(f.functionName);
+			}
+		}
+		
+		
+	}
+	
+	@Check
+	def checkNumberVariablesDef(Model model) {
+		var listeFunc = model.program;
+		for(Function f : listeFunc){
+			println(f.functionDefinition)
+		}
+		
+		
+	}
 	
 }

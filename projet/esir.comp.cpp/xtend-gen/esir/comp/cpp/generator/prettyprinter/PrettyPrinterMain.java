@@ -1,16 +1,11 @@
 package esir.comp.cpp.generator.prettyprinter;
 
-import com.google.inject.Inject;
-import com.google.inject.Injector;
-import com.google.inject.Provider;
-import esir.comp.cpp.generator.prettyprinter.PrettyPrinterGenerator;
-import esir.comp.cpp.generator.prettyprinter.PrettyPrinterGeneratorParameters;
-import esir.comp.cpp.generator.prettyprinter.PrettyPrinterStandaloneSetup;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.List;
 import java.util.function.Consumer;
+
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
@@ -25,6 +20,10 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+
+import com.google.inject.Inject;
+import com.google.inject.Injector;
+import com.google.inject.Provider;
 
 @SuppressWarnings("all")
 public class PrettyPrinterMain {

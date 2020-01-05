@@ -14,7 +14,6 @@ import esir.comp.cpp.scoping.WhileDslScopeProvider;
 import esir.comp.cpp.serializer.WhileDslSemanticSequencer;
 import esir.comp.cpp.serializer.WhileDslSyntacticSequencer;
 import esir.comp.cpp.services.WhileDslGrammarAccess;
-import esir.comp.cpp.validation.WhileDslConfigurableIssueCodesProvider;
 import esir.comp.cpp.validation.WhileDslValidator;
 import java.util.Properties;
 import org.eclipse.xtext.Constants;
@@ -50,7 +49,6 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ISyntacticSequencer;
 import org.eclipse.xtext.service.DefaultRuntimeModule;
 import org.eclipse.xtext.service.SingletonBinding;
-import org.eclipse.xtext.validation.ConfigurableIssueCodesProvider;
 
 /**
  * Manual modifications go to {@link WhileDslRuntimeModule}.
@@ -141,11 +139,6 @@ public abstract class AbstractWhileDslRuntimeModule extends DefaultRuntimeModule
 	@SingletonBinding(eager=true)
 	public Class<? extends WhileDslValidator> bindWhileDslValidator() {
 		return WhileDslValidator.class;
-	}
-	
-	// contributed by org.eclipse.xtext.xtext.generator.validation.ValidatorFragment2
-	public Class<? extends ConfigurableIssueCodesProvider> bindConfigurableIssueCodesProvider() {
-		return WhileDslConfigurableIssueCodesProvider.class;
 	}
 	
 	// contributed by org.eclipse.xtext.xtext.generator.scoping.ImportNamespacesScopingFragment2

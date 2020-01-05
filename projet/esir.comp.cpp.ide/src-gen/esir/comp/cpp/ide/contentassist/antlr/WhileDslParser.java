@@ -38,6 +38,7 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExprAccess().getAlternatives(), "rule__Expr__Alternatives");
 			builder.put(grammarAccess.getExprEqAccess().getAlternatives_4(), "rule__ExprEq__Alternatives_4");
 			builder.put(grammarAccess.getLCAccess().getAlternatives(), "rule__LC__Alternatives");
+			builder.put(grammarAccess.getValidIDAccess().getAlternatives(), "rule__ValidID__Alternatives");
 			builder.put(grammarAccess.getFunctionAccess().getGroup(), "rule__Function__Group__0");
 			builder.put(grammarAccess.getDefinitionAccess().getGroup(), "rule__Definition__Group__0");
 			builder.put(grammarAccess.getInputAccess().getGroup(), "rule__Input__Group__0");

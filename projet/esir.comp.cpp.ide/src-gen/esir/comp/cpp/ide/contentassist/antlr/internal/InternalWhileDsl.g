@@ -700,6 +700,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleValidID
+entryRuleValidID
+:
+{ before(grammarAccess.getValidIDRule()); }
+	 ruleValidID
+{ after(grammarAccess.getValidIDRule()); } 
+	 EOF 
+;
+
+// Rule ValidID
+ruleValidID 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getValidIDAccess().getAlternatives()); }
+		(rule__ValidID__Alternatives)
+		{ after(grammarAccess.getValidIDAccess().getAlternatives()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Command__Alternatives
 	@init {
 		int stackSize = keepStackSize();
@@ -901,6 +926,27 @@ rule__LC__Alternatives
 		{ before(grammarAccess.getLCAccess().getLFTerminalRuleCall_3()); }
 		RULE_LF
 		{ after(grammarAccess.getLCAccess().getLFTerminalRuleCall_3()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ValidID__Alternatives
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getValidIDAccess().getIDTerminalRuleCall_0()); }
+		RULE_ID
+		{ after(grammarAccess.getValidIDAccess().getIDTerminalRuleCall_0()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getValidIDAccess().getSYMBOLTerminalRuleCall_1()); }
+		RULE_SYMBOL
+		{ after(grammarAccess.getValidIDAccess().getSYMBOLTerminalRuleCall_1()); }
 	)
 ;
 finally {
@@ -5059,9 +5105,9 @@ rule__Function__FunctionNameAssignment_2
 	}
 :
 	(
-		{ before(grammarAccess.getFunctionAccess().getFunctionNameSYMBOLTerminalRuleCall_2_0()); }
-		RULE_SYMBOL
-		{ after(grammarAccess.getFunctionAccess().getFunctionNameSYMBOLTerminalRuleCall_2_0()); }
+		{ before(grammarAccess.getFunctionAccess().getFunctionNameValidIDParserRuleCall_2_0()); }
+		ruleValidID
+		{ after(grammarAccess.getFunctionAccess().getFunctionNameValidIDParserRuleCall_2_0()); }
 	)
 ;
 finally {

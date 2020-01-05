@@ -368,7 +368,7 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Function returns Function
 	 *
 	 * Constraint:
-	 *     (functionName=SYMBOL functionDefinition=Definition)
+	 *     (functionName=ValidID functionDefinition=Definition)
 	 */
 	protected void sequence_Function(ISerializationContext context, Function semanticObject) {
 		if (errorAcceptor != null) {
@@ -378,7 +378,7 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.FUNCTION__FUNCTION_DEFINITION));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getFunctionAccess().getFunctionNameSYMBOLTerminalRuleCall_2_0(), semanticObject.getFunctionName());
+		feeder.accept(grammarAccess.getFunctionAccess().getFunctionNameValidIDParserRuleCall_2_0(), semanticObject.getFunctionName());
 		feeder.accept(grammarAccess.getFunctionAccess().getFunctionDefinitionDefinitionParserRuleCall_6_0(), semanticObject.getFunctionDefinition());
 		feeder.finish();
 	}
