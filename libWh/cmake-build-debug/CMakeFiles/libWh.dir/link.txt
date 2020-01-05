@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/libWh.dir/main.cpp.o CMakeFiles/libWh.dir/BinTree.cpp.o  -o libWh 

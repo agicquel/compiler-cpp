@@ -7,6 +7,9 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import esir.comp.cpp.whileDsl.Function
+import esir.comp.cpp.generator.ir.WhileDslIRGenerator
+import esir.comp.cpp.generator.ir.FunctionImpl
 
 /**
  * Generates code from your model files on save.
@@ -14,12 +17,103 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class WhileDslGenerator extends AbstractGenerator {
-
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		for(function : resource.allContents.toIterable.filter(Function)) {
+			var ir = WhileDslIRGenerator.compileIR(function)
+			println(ir)
+			println(ir.compile())
+		}
 	}
+	
+	def String compile(FunctionImpl ir) {
+		var cpp = "\n"
+
+		// generate function declaration
+		if(ir.env.outputCounter > 1) {
+			cpp += ""
+		}
+		cpp += "bin_tree * " + ir.function.functionName + '('
+		
+		for(in: ir.inputs) {
+			if(in.op.equals("read")) {
+				cpp += "bin_tree *" + in.dest + ", "	
+			}
+		}
+		cpp = cpp.substring(0, cpp.length() - 2); // remove last comma
+		cpp += ")\n{\n"
+		
+		cpp += "std::stack<bin_tree *> f_stack;\n"
+		
+		// declare local variables
+		for(var i = 0; i < ir.env.variableCounter; i++) {
+			cpp += "bin_tree *V" + i + " = new bin_tree();\n"; // 
+		}
+		
+		cpp += "\n"
+		
+		// generate core function code
+		for(quad : ir.quads) {
+			var op_arr = quad.op.split("\\s+")
+			switch op_arr.get(0) {
+				case "nil" : {
+					cpp += quad.dest + " = bin_tree::nil();\n"
+				}
+				case "cons" : {
+					cpp += quad.dest + " = " + quad.dest + "->cons(" + quad.arg1 + ", " + quad.arg2 + ");\n"
+				}
+				case "list" : {
+					cpp += quad.dest + " = " + quad.dest + "->list(" + quad.arg1 + ", " + quad.arg2 + ");\n"
+				}
+				case "hd" : {
+					cpp += quad.dest + " = " + quad.dest + "->hd(" + quad.arg1 + ");\n"
+				}
+				case "tl" : {
+					cpp += quad.dest + " = " + quad.dest + "->tl(" + quad.arg1 + ");\n"
+				}
+				case "ifeq" : {
+					cpp += "if(bin_tree::equals(" + quad.arg1 + ", " + quad.arg2 + ")) { goto " + op_arr.get(1) + "; }\n"
+				}
+				case "ift" : {
+					cpp += "if(" + quad.arg1 + "->isTrue()) { goto " + op_arr.get(1) + "; }\n"
+				}
+				case "iff" : {
+					cpp += "if(" + quad.arg1 + "->isFalse()) { goto " + op_arr.get(1) + "; }\n"
+				}
+				case "goto" : {
+					cpp += "goto "+ op_arr.get(1) + ";\n"
+				}
+				case "label" : {
+					cpp += op_arr.get(1) + " :\n"
+				}
+				case "write" : {
+					cpp += "f_stack.push(" + quad.arg1 + ");\n"
+				}
+				case "read" : {
+					cpp +=  quad.dest + " = f_stack.top();\nf_stack.pop();\n"
+				}
+				case "nop" : {
+					cpp += "bin_tree::nop();\n"
+				}
+				case "true" : {
+					cpp += quad.dest + " = bin_tree::getTrue();\n"
+				}
+				case "false" : {
+					cpp += quad.dest + " = bin_tree::getFalse();\n"
+				}
+			}
+		}
+		
+		// generate output
+		if(ir.outputs.size > 1) {
+			cpp += "// pas fait encore \n return null;\n"
+		}
+		else {
+			cpp += "\nreturn " + ir.outputs.get(0).arg1 + ";\n"
+		}
+		
+		cpp += "}\n"
+		return cpp
+	}
+	
 }

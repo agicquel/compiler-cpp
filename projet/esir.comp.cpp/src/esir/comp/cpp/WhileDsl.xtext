@@ -51,11 +51,11 @@ Vars:
 
 // Expressions
 ExprSimple:
-	term=VARIABLE | 
-	term=SYMBOL | 
-	term='nil' | 
-	expression=ExprSimpleWithLExpr | 
-	expression=ExprSimpleWithExpr | 
+	term=VARIABLE |
+	term=SYMBOL |
+	term='nil' |
+	expression=ExprSimpleWithLExpr |
+	expression=ExprSimpleWithExpr |
 	expression=ExprSimpleWithSymbolLExpr
 ;
 ExprSimpleWithLExpr:

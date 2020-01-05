@@ -2,3 +2,11 @@
 /.PrettyPrinter.java._trace
 /.Main.java._trace
 /.PrettyPrinterMain.java._trace
+/.Quad.java._trace
+/.Op.java._trace
+/.OpCode.java._trace
+/.Env.java._trace
+/.Token.java._trace
+/.FunctionImpl.java._trace
+/.IR.java._trace
+/.WhileDslIRGenerator.java._trace
