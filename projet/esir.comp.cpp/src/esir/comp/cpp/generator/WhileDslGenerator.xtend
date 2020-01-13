@@ -9,6 +9,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import esir.comp.cpp.generator.ir.WhileDslIRGenerator
 import esir.comp.cpp.generator.ir.FunctionImpl
+import java.util.List
 
 /**
  * Generates code from your model files on save.
@@ -16,38 +17,48 @@ import esir.comp.cpp.generator.ir.FunctionImpl
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class WhileDslGenerator extends AbstractGenerator {
-	
-	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		var irGenerator = new WhileDslIRGenerator()
-		var ir = irGenerator.compileIR(resource)
+		WhileDslIRGenerator irGenerator
+		List<FunctionImpl> ir
+		
+		override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
+		this.irGenerator = new WhileDslIRGenerator()
+		this.ir = irGenerator.compileIR(resource)
+		
+		var generatedCode = ""
 		for(irFunction : ir) {
 			println(irFunction)
-			println(irFunction.compile())
+			generatedCode += irFunction.compile() + "\n\n"
 		}
+		
+		fsa.generateFile(
+			"code.cpp",
+			generatedCode)
 	}
 	
 	def String compile(FunctionImpl ir) {
-		var cpp = "\n"
+		var cpp = "// Function : " + ir.function.functionName + "\n"
 
 		// generate function declaration
 		if(ir.env.outputCounter > 1) {
 			cpp += ""
 		}
-		cpp += "bin_tree * " + ir.functionName + '('
+		cpp += "void " + ir.functionName + '(std::stack<bin_tree> * f_stack)\n{\n'
 		
-		for(in: ir.inputs) {
+		/*for(in: ir.inputs) {
 			if(in.op.equals("read")) {
 				cpp += "bin_tree *" + in.dest + ", "	
 			}
-		}
-		cpp = cpp.substring(0, cpp.length() - 2); // remove last comma
-		cpp += ")\n{\n"
-		
-		cpp += "std::stack<bin_tree *> f_stack;\n"
+		}*/
+		//cpp = cpp.substring(0, cpp.length() - 2); // remove last comma
 		
 		// declare local variables
+		
+		
+		for(var i = 0; i < ir.env.inputCounter; i++) {
+			cpp += "bin_tree I" + i + ";\n"; // 
+		}
 		for(var i = 0; i < ir.env.variableCounter; i++) {
-			cpp += "bin_tree *V" + i + " = new bin_tree();\n"; // 
+			cpp += "bin_tree V" + i + ";\n"; // 
 		}
 		
 		cpp += "\n"
@@ -62,9 +73,6 @@ class WhileDslGenerator extends AbstractGenerator {
 				case "cons" : {
 					cpp += quad.dest + " = " + "bin_tree::cons(" + quad.arg1 + ", " + quad.arg2 + ");\n"
 				}
-				case "list" : {
-					cpp += quad.dest + " = " + "bin_tree::list(" + quad.arg1 + ", " + quad.arg2 + ");\n"
-				}
 				case "hd" : {
 					cpp += quad.dest + " = " + "bin_tree::hd(" + quad.arg1 + ");\n"
 				}
@@ -72,13 +80,13 @@ class WhileDslGenerator extends AbstractGenerator {
 					cpp += quad.dest + " = " + "bin_tree::tl(" + quad.arg1 + ");\n"
 				}
 				case "ifeq" : {
-					cpp += "if(bin_tree::equals(" + quad.arg1 + ", " + quad.arg2 + ")) { goto " + op_arr.get(1) + "; }\n"
+					cpp += "if(bin_tree::equals(&" + quad.arg1 + ", &" + quad.arg2 + ")) { goto " + op_arr.get(1) + "; }\n"
 				}
 				case "ift" : {
-					cpp += "if(" + quad.arg1 + "->isTrue()) { goto " + op_arr.get(1) + "; }\n"
+					cpp += "if(" + quad.arg1 + ".isTrue()) { goto " + op_arr.get(1) + "; }\n"
 				}
 				case "iff" : {
-					cpp += "if(" + quad.arg1 + "->isFalse()) { goto " + op_arr.get(1) + "; }\n"
+					cpp += "if(" + quad.arg1 + ".isFalse()) { goto " + op_arr.get(1) + "; }\n"
 				}
 				case "goto" : {
 					cpp += "goto "+ op_arr.get(1) + ";\n"
@@ -87,10 +95,10 @@ class WhileDslGenerator extends AbstractGenerator {
 					cpp += op_arr.get(1) + " :\n"
 				}
 				case "write" : {
-					cpp += "f_stack.push(" + quad.arg1 + ");\n"
+					cpp += "f_stack->push(" + quad.arg1 + ");\n"
 				}
 				case "read" : {
-					cpp +=  quad.dest + " = f_stack.top();\nf_stack.pop();\n"
+					cpp +=  quad.dest + " = f_stack->top();\nf_stack->pop();\n"
 				}
 				case "nop" : {
 					cpp += "bin_tree::nop();\n"
@@ -101,22 +109,28 @@ class WhileDslGenerator extends AbstractGenerator {
 				case "false" : {
 					cpp += quad.dest + " = bin_tree::getFalse();\n"
 				}
-				case "arg" : {
-					cpp += "\n"
-				}
 				case "call" : {
-					cpp += "\n"
+					var funName = ""
+					for(f : this.ir) {
+						if(f.function.functionName.equals(op_arr.get(1))) {
+							funName = f.functionName
+						}
+					}
+					if(funName.isNullOrEmpty()) {
+						throw new Exception("Function " + op_arr.get(1) + " does not exist.")
+					}
+					cpp += funName + "(f_stack);\n"
 				}
 			}
 		}
 		
 		// generate output
-		if(ir.outputs.size > 1) {
+		/*if(ir.outputs.size > 1) {
 			cpp += "// pas fait encore \n return null;\n"
 		}
 		else {
 			cpp += "\nreturn " + ir.outputs.get(0).arg1 + ";\n"
-		}
+		}*/
 		
 		cpp += "}\n"
 		return cpp

@@ -60,7 +60,7 @@ public class WhileDslIRGenerator {
         ArrayList<Quad> quads = CollectionLiterals.<Quad>newArrayList();
         ArrayList<Quad> intputs = CollectionLiterals.<Quad>newArrayList();
         ArrayList<Quad> outputs = CollectionLiterals.<Quad>newArrayList();
-        FunctionImpl functionImpl = new FunctionImpl(env, quads, intputs, outputs, ("F" + Integer.valueOf(this.functionCounter)));
+        FunctionImpl functionImpl = new FunctionImpl(env, quads, intputs, outputs, ("F" + Integer.valueOf(this.functionCounter)), function);
         this.compile(function, functionImpl);
         this.functions.put(function.getFunctionName(), functionImpl);
         this.functionCounter++;
@@ -82,7 +82,7 @@ public class WhileDslIRGenerator {
         String _place = e.getPlace();
         Quad _quad = new Quad("read", _place, "", "");
         e.getCode().add(_quad);
-        functionImpl.getInputs().addAll(e.getCode());
+        functionImpl.getQuads().addAll(e.getCode());
       }
     }
     EList<Command> _commands = definition.getBody().getCommands();
@@ -104,7 +104,7 @@ public class WhileDslIRGenerator {
         int _outputCounter = functionImpl.getEnv().getOutputCounter();
         int _plus = (_outputCounter + 1);
         _env.setOutputCounter(_plus);
-        functionImpl.getOutputs().addAll(e.getCode());
+        functionImpl.getQuads().addAll(e.getCode());
       }
     }
   }
@@ -346,25 +346,34 @@ public class WhileDslIRGenerator {
   }
   
   private Instr _compileExpression(final ExprAnd exprAnd, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
-    int _size = exprAnd.getExpressionsOr().size();
-    boolean _equals = (_size == 1);
-    if (_equals) {
-      return this.compileExpression(exprAnd.getExpressionsOr().get(0), functionImpl, labelTrue, labelFalse);
-    }
     Instr e = new Instr();
     if ((StringExtensions.isNullOrEmpty(labelTrue) && StringExtensions.isNullOrEmpty(labelFalse))) {
-      EList<ExprOr> _expressionsOr = exprAnd.getExpressionsOr();
-      for (final ExprOr exp : _expressionsOr) {
-        e.getCode().addAll(this.compileExpression(exp, functionImpl, "", "").getCode());
+      InputOutput.<String>println("exprAnd -> labels null");
+      int _size = exprAnd.getExpressionsOr().size();
+      boolean _equals = (_size == 1);
+      if (_equals) {
+        return this.compileExpression(exprAnd.getExpressionsOr().get(0), functionImpl, "", "");
+      } else {
+        EList<ExprOr> _expressionsOr = exprAnd.getExpressionsOr();
+        for (final ExprOr exp : _expressionsOr) {
+          e.getCode().addAll(this.compileExpression(exp, functionImpl, "", "").getCode());
+        }
       }
     } else {
       e.setPlace(functionImpl.getEnv().newVariable(""));
       String labelIfTrue = functionImpl.getEnv().newLabel();
       String labelIfFalse = functionImpl.getEnv().newLabel();
+      int _size_1 = exprAnd.getExpressionsOr().size();
+      String _plus = ("exprAnd.expressionsOr size = " + Integer.valueOf(_size_1));
+      InputOutput.<String>println(_plus);
       EList<ExprOr> _expressionsOr_1 = exprAnd.getExpressionsOr();
       for (final ExprOr exp_1 : _expressionsOr_1) {
         {
           Instr expComp = this.compileExpression(exp_1, functionImpl, labelIfTrue, labelIfFalse);
+          String _string = expComp.toString();
+          String _plus_1 = ("\nexpComp = " + _string);
+          String _plus_2 = (_plus_1 + "\n");
+          InputOutput.<String>println(_plus_2);
           e.getCode().addAll(expComp.getCode());
           String _place = expComp.getPlace();
           Quad _quad = new Quad(("iff " + labelIfFalse), "", _place, "");
@@ -392,9 +401,16 @@ public class WhileDslIRGenerator {
   private Instr _compileExpression(final ExprOr exprOr, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
     Instr e = new Instr();
     if ((StringExtensions.isNullOrEmpty(labelTrue) && StringExtensions.isNullOrEmpty(labelFalse))) {
-      EList<ExprNot> _expressionsNot = exprOr.getExpressionsNot();
-      for (final ExprNot exp : _expressionsNot) {
-        e.getCode().addAll(this.compileExpression(exp, functionImpl, "", "").getCode());
+      InputOutput.<String>println("ExprOr -> labels null");
+      int _size = exprOr.getExpressionsNot().size();
+      boolean _equals = (_size == 1);
+      if (_equals) {
+        return this.compileExpression(exprOr.getExpressionsNot().get(0), functionImpl, "", "");
+      } else {
+        EList<ExprNot> _expressionsNot = exprOr.getExpressionsNot();
+        for (final ExprNot exp : _expressionsNot) {
+          e.getCode().addAll(this.compileExpression(exp, functionImpl, "", "").getCode());
+        }
       }
     } else {
       e.setPlace(functionImpl.getEnv().newVariable(""));
@@ -467,12 +483,30 @@ public class WhileDslIRGenerator {
     Expr _expr = exprEq.getExpr();
     boolean _tripleNotEquals = (_expr != null);
     if (_tripleNotEquals) {
+      String labelIfTrue = functionImpl.getEnv().newLabel();
+      String labelIfFalse = functionImpl.getEnv().newLabel();
       String labelEnd = functionImpl.getEnv().newLabel();
-      Instr e1 = this.compileExpression(exprEq.getExpr(), functionImpl, labelEnd, labelEnd);
+      e.setPlace(functionImpl.getEnv().newVariable(""));
+      Instr e1 = this.compileExpression(exprEq.getExpr().getExpression(), functionImpl, labelIfTrue, labelIfFalse);
+      this.compileIfBooleanExpr(exprEq.getExpr().getExpression(), e1, labelIfTrue, labelIfFalse);
       e.getCode().addAll(e1.getCode());
-      Quad _quad = new Quad(("label " + labelEnd), "", "", "");
+      Quad _quad = new Quad(("label " + labelIfTrue), "", "", "");
       e.getCode().add(_quad);
-      e.setPlace(e1.getPlace());
+      String _place = e.getPlace();
+      Quad _quad_1 = new Quad("true", _place, "", "");
+      e.getCode().add(_quad_1);
+      Quad _quad_2 = new Quad(("goto " + labelEnd), "", "", "");
+      e.getCode().add(_quad_2);
+      Quad _quad_3 = new Quad(("label " + labelIfFalse), "", "", "");
+      e.getCode().add(_quad_3);
+      String _place_1 = e.getPlace();
+      Quad _quad_4 = new Quad("false", _place_1, "", "");
+      e.getCode().add(_quad_4);
+      Quad _quad_5 = new Quad(("label " + labelEnd), "", "", "");
+      e.getCode().add(_quad_5);
+      String _string = e.toString();
+      String _plus = ("var e pour eq = " + _string);
+      InputOutput.<String>println(_plus);
     } else {
       if (((exprEq.getExprLSimple() != null) && (exprEq.getExprRSimple() != null))) {
         Instr e1_1 = this.compileExpression(exprEq.getExprLSimple(), functionImpl, labelTrue, labelFalse);
@@ -482,22 +516,22 @@ public class WhileDslIRGenerator {
         e.getCode().addAll(e1_1.getCode());
         e.getCode().addAll(e2.getCode());
         e.setPlace(functionImpl.getEnv().newVariable(""));
-        String _place = e1_1.getPlace();
-        String _place_1 = e2.getPlace();
-        Quad _quad_1 = new Quad(("ifeq " + labelEqual), "", _place, _place_1);
-        e.getCode().add(_quad_1);
-        String _place_2 = e.getPlace();
-        Quad _quad_2 = new Quad("false", _place_2, "", "");
-        e.getCode().add(_quad_2);
-        Quad _quad_3 = new Quad(("goto " + labelEnd_1), "", "", "");
-        e.getCode().add(_quad_3);
-        Quad _quad_4 = new Quad(("label " + labelEqual), "", "", "");
-        e.getCode().add(_quad_4);
-        String _place_3 = e.getPlace();
-        Quad _quad_5 = new Quad("true", _place_3, "", "");
-        e.getCode().add(_quad_5);
-        Quad _quad_6 = new Quad(("label " + labelEnd_1), "", "", "");
+        String _place_2 = e1_1.getPlace();
+        String _place_3 = e2.getPlace();
+        Quad _quad_6 = new Quad(("ifeq " + labelEqual), "", _place_2, _place_3);
         e.getCode().add(_quad_6);
+        String _place_4 = e.getPlace();
+        Quad _quad_7 = new Quad("false", _place_4, "", "");
+        e.getCode().add(_quad_7);
+        Quad _quad_8 = new Quad(("goto " + labelEnd_1), "", "", "");
+        e.getCode().add(_quad_8);
+        Quad _quad_9 = new Quad(("label " + labelEqual), "", "", "");
+        e.getCode().add(_quad_9);
+        String _place_5 = e.getPlace();
+        Quad _quad_10 = new Quad("true", _place_5, "", "");
+        e.getCode().add(_quad_10);
+        Quad _quad_11 = new Quad(("label " + labelEnd_1), "", "", "");
+        e.getCode().add(_quad_11);
       } else {
         if (((exprEq.getExprLSimple() != null) && (exprEq.getExprRSimple() == null))) {
           e = this.compileExpression(exprEq.getExprLSimple(), functionImpl, labelTrue, labelFalse);
@@ -560,8 +594,8 @@ public class WhileDslIRGenerator {
     boolean _equals = Objects.equal(_operation, "cons");
     if (_equals) {
       Instr e = new Instr();
-      Instr e1 = this.compileExpression(exprSimpleWithLExpr.getLexpr().getExpressions().get(0), functionImpl, labelTrue, labelFalse);
-      Instr e2 = this.compileExpression(exprSimpleWithLExpr.getLexpr().getExpressions().get(1), functionImpl, labelTrue, labelFalse);
+      Instr e1 = this.compileExpression(exprSimpleWithLExpr.getLexpr().getExpressions().get(0), functionImpl, "", "");
+      Instr e2 = this.compileExpression(exprSimpleWithLExpr.getLexpr().getExpressions().get(1), functionImpl, "", "");
       e.setPlace(functionImpl.getEnv().newVariable(""));
       e.getCode().addAll(e1.getCode());
       e.getCode().addAll(e2.getCode());
@@ -583,7 +617,7 @@ public class WhileDslIRGenerator {
   
   private Instr _compileExpression(final ExprSimpleWithExpr exprSimpleWithExpr, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
     Instr e = new Instr();
-    Instr e1 = this.compileExpression(exprSimpleWithExpr.getExpr(), functionImpl, labelTrue, labelFalse);
+    Instr e1 = this.compileExpression(exprSimpleWithExpr.getExpr(), functionImpl, "", "");
     e.setPlace(functionImpl.getEnv().newVariable(""));
     e.getCode().addAll(e1.getCode());
     String _operation = exprSimpleWithExpr.getOperation();
@@ -609,13 +643,13 @@ public class WhileDslIRGenerator {
       EList<Expr> _expressions = exprSimpleWithSymbolLExpr.getLexpr().getExpressions();
       for (final Expr exp : _expressions) {
         {
-          Instr expIr = this.compileExpression(exp, functionImpl, labelTrue, labelFalse);
+          Instr expIr = this.compileExpression(exp, functionImpl, "", "");
           e.getCode().addAll(expIr.getCode());
           params.add(expIr.getPlace());
         }
       }
       for (final String param : params) {
-        Quad _quad = new Quad("arg", "", param, "");
+        Quad _quad = new Quad("write", "", param, "");
         e.getCode().add(_quad);
       }
       String _functionName = this.getFunctionFromResource(exprSimpleWithSymbolLExpr.getSymbol()).getFunctionName();

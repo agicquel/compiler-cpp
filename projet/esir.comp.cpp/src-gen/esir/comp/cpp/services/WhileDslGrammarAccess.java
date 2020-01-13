@@ -1150,11 +1150,12 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Assignment cExprLSimpleAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
 		private final RuleCall cExprLSimpleExprSimpleParserRuleCall_0_0_0 = (RuleCall)cExprLSimpleAssignment_0_0.eContents().get(0);
-		private final RuleCall cLCParserRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
-		private final Keyword cEqualsSignQuestionMarkKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final RuleCall cLCParserRuleCall_0_3 = (RuleCall)cGroup_0.eContents().get(3);
-		private final Assignment cExprRSimpleAssignment_0_4 = (Assignment)cGroup_0.eContents().get(4);
-		private final RuleCall cExprRSimpleExprSimpleParserRuleCall_0_4_0 = (RuleCall)cExprRSimpleAssignment_0_4.eContents().get(0);
+		private final Group cGroup_0_1 = (Group)cGroup_0.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_0_1_0 = (RuleCall)cGroup_0_1.eContents().get(0);
+		private final Keyword cEqualsSignQuestionMarkKeyword_0_1_1 = (Keyword)cGroup_0_1.eContents().get(1);
+		private final RuleCall cLCParserRuleCall_0_1_2 = (RuleCall)cGroup_0_1.eContents().get(2);
+		private final Assignment cExprRSimpleAssignment_0_1_3 = (Assignment)cGroup_0_1.eContents().get(3);
+		private final RuleCall cExprRSimpleExprSimpleParserRuleCall_0_1_3_0 = (RuleCall)cExprRSimpleAssignment_0_1_3.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
 		private final Assignment cExprAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
@@ -1162,13 +1163,13 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		
 		//ExprEq:
-		//	exprLSimple=ExprSimple LC '=?' LC exprRSimple=ExprSimple | '(' expr=Expr ')';
+		//	exprLSimple=ExprSimple (LC '=?' LC exprRSimple=ExprSimple)? | '(' expr=Expr ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//exprLSimple=ExprSimple LC '=?' LC exprRSimple=ExprSimple | '(' expr=Expr ')'
+		//exprLSimple=ExprSimple (LC '=?' LC exprRSimple=ExprSimple)? | '(' expr=Expr ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//exprLSimple=ExprSimple LC '=?' LC exprRSimple=ExprSimple
+		//exprLSimple=ExprSimple (LC '=?' LC exprRSimple=ExprSimple)?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//exprLSimple=ExprSimple
@@ -1177,20 +1178,23 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ExprSimple
 		public RuleCall getExprLSimpleExprSimpleParserRuleCall_0_0_0() { return cExprLSimpleExprSimpleParserRuleCall_0_0_0; }
 		
+		//(LC '=?' LC exprRSimple=ExprSimple)?
+		public Group getGroup_0_1() { return cGroup_0_1; }
+		
 		//LC
-		public RuleCall getLCParserRuleCall_0_1() { return cLCParserRuleCall_0_1; }
+		public RuleCall getLCParserRuleCall_0_1_0() { return cLCParserRuleCall_0_1_0; }
 		
 		//'=?'
-		public Keyword getEqualsSignQuestionMarkKeyword_0_2() { return cEqualsSignQuestionMarkKeyword_0_2; }
+		public Keyword getEqualsSignQuestionMarkKeyword_0_1_1() { return cEqualsSignQuestionMarkKeyword_0_1_1; }
 		
 		//LC
-		public RuleCall getLCParserRuleCall_0_3() { return cLCParserRuleCall_0_3; }
+		public RuleCall getLCParserRuleCall_0_1_2() { return cLCParserRuleCall_0_1_2; }
 		
 		//exprRSimple=ExprSimple
-		public Assignment getExprRSimpleAssignment_0_4() { return cExprRSimpleAssignment_0_4; }
+		public Assignment getExprRSimpleAssignment_0_1_3() { return cExprRSimpleAssignment_0_1_3; }
 		
 		//ExprSimple
-		public RuleCall getExprRSimpleExprSimpleParserRuleCall_0_4_0() { return cExprRSimpleExprSimpleParserRuleCall_0_4_0; }
+		public RuleCall getExprRSimpleExprSimpleParserRuleCall_0_1_3_0() { return cExprRSimpleExprSimpleParserRuleCall_0_1_3_0; }
 		
 		//'(' expr=Expr ')'
 		public Group getGroup_1() { return cGroup_1; }
@@ -1606,7 +1610,7 @@ public class WhileDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ExprEq:
-	//	exprLSimple=ExprSimple LC '=?' LC exprRSimple=ExprSimple | '(' expr=Expr ')';
+	//	exprLSimple=ExprSimple (LC '=?' LC exprRSimple=ExprSimple)? | '(' expr=Expr ')';
 	public ExprEqElements getExprEqAccess() {
 		return pExprEq;
 	}

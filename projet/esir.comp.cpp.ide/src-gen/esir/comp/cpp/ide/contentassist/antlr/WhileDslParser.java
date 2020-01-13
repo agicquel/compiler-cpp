@@ -71,6 +71,7 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExprNotAccess().getGroup(), "rule__ExprNot__Group__0");
 			builder.put(grammarAccess.getExprNotAccess().getGroup_0(), "rule__ExprNot__Group_0__0");
 			builder.put(grammarAccess.getExprEqAccess().getGroup_0(), "rule__ExprEq__Group_0__0");
+			builder.put(grammarAccess.getExprEqAccess().getGroup_0_1(), "rule__ExprEq__Group_0_1__0");
 			builder.put(grammarAccess.getExprEqAccess().getGroup_1(), "rule__ExprEq__Group_1__0");
 			builder.put(grammarAccess.getModelAccess().getProgramAssignment(), "rule__Model__ProgramAssignment");
 			builder.put(grammarAccess.getFunctionAccess().getFunctionNameAssignment_2(), "rule__Function__FunctionNameAssignment_2");
@@ -123,7 +124,7 @@ public class WhileDslParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExprNotAccess().getNegationAssignment_0_0(), "rule__ExprNot__NegationAssignment_0_0");
 			builder.put(grammarAccess.getExprNotAccess().getExpressionEqAssignment_1(), "rule__ExprNot__ExpressionEqAssignment_1");
 			builder.put(grammarAccess.getExprEqAccess().getExprLSimpleAssignment_0_0(), "rule__ExprEq__ExprLSimpleAssignment_0_0");
-			builder.put(grammarAccess.getExprEqAccess().getExprRSimpleAssignment_0_4(), "rule__ExprEq__ExprRSimpleAssignment_0_4");
+			builder.put(grammarAccess.getExprEqAccess().getExprRSimpleAssignment_0_1_3(), "rule__ExprEq__ExprRSimpleAssignment_0_1_3");
 			builder.put(grammarAccess.getExprEqAccess().getExprAssignment_1_1(), "rule__ExprEq__ExprAssignment_1_1");
 		}
 	}

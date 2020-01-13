@@ -13,7 +13,7 @@
 
 class bin_tree
 {
-private:
+protected:
     //bin_tree *root;
     bin_tree *head;
     bin_tree *tail;
@@ -21,23 +21,23 @@ private:
 
 public:
     bin_tree();
-    bin_tree(std::string root_value);
+    bin_tree(bin_tree const& tree);
+    explicit bin_tree(std::string root_value);
     ~bin_tree();
 
     std::string getValue();
     bool isTrue();
     bool isFalse();
+    int toInt();
     std::string toString();
 
-    static bin_tree * cons(bin_tree *tree1, bin_tree *tree2);
-    static bin_tree * list(bin_tree *tree1, bin_tree *tree2);
-    static bin_tree * hd(bin_tree *tree);
-
-    static bin_tree * tl(bin_tree *tree);
-    static bin_tree * getTrue();
-    static bin_tree * getFalse();
+    static bin_tree cons(bin_tree tree1, bin_tree tree2);
+    static bin_tree hd(const bin_tree& tree);
+    static bin_tree tl(const bin_tree& tree);
+    static bin_tree getTrue();
+    static bin_tree getFalse();
     static bool equals(bin_tree *t1, bin_tree *t2);
-    static bin_tree * nil();
+    static bin_tree nil();
     static void nop();
 };
 

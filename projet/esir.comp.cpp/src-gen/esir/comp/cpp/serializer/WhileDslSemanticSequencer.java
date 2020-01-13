@@ -197,7 +197,7 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     ExprEq returns ExprEq
 	 *
 	 * Constraint:
-	 *     ((exprLSimple=ExprSimple exprRSimple=ExprSimple) | expr=Expr)
+	 *     ((exprLSimple=ExprSimple exprRSimple=ExprSimple?) | expr=Expr)
 	 */
 	protected void sequence_ExprEq(ISerializationContext context, ExprEq semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

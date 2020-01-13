@@ -2,6 +2,7 @@ package esir.comp.cpp.generator.ir;
 
 import esir.comp.cpp.generator.ir.Env;
 import esir.comp.cpp.generator.ir.Quad;
+import esir.comp.cpp.whileDsl.Function;
 import java.util.ArrayList;
 import org.eclipse.xtend.lib.Data;
 import org.eclipse.xtext.xbase.lib.Pure;
@@ -18,6 +19,8 @@ public class FunctionImpl {
   private final ArrayList<Quad> _outputs;
   
   private final String _functionName;
+  
+  private final Function _function;
   
   @Override
   public String toString() {
@@ -53,13 +56,14 @@ public class FunctionImpl {
     return res;
   }
   
-  public FunctionImpl(final Env env, final ArrayList<Quad> quads, final ArrayList<Quad> inputs, final ArrayList<Quad> outputs, final String functionName) {
+  public FunctionImpl(final Env env, final ArrayList<Quad> quads, final ArrayList<Quad> inputs, final ArrayList<Quad> outputs, final String functionName, final Function function) {
     super();
     this._env = env;
     this._quads = quads;
     this._inputs = inputs;
     this._outputs = outputs;
     this._functionName = functionName;
+    this._function = function;
   }
   
   @Override
@@ -71,7 +75,8 @@ public class FunctionImpl {
     result = prime * result + ((this._quads== null) ? 0 : this._quads.hashCode());
     result = prime * result + ((this._inputs== null) ? 0 : this._inputs.hashCode());
     result = prime * result + ((this._outputs== null) ? 0 : this._outputs.hashCode());
-    return prime * result + ((this._functionName== null) ? 0 : this._functionName.hashCode());
+    result = prime * result + ((this._functionName== null) ? 0 : this._functionName.hashCode());
+    return prime * result + ((this._function== null) ? 0 : this._function.hashCode());
   }
   
   @Override
@@ -109,6 +114,11 @@ public class FunctionImpl {
         return false;
     } else if (!this._functionName.equals(other._functionName))
       return false;
+    if (this._function == null) {
+      if (other._function != null)
+        return false;
+    } else if (!this._function.equals(other._function))
+      return false;
     return true;
   }
   
@@ -135,5 +145,10 @@ public class FunctionImpl {
   @Pure
   public String getFunctionName() {
     return this._functionName;
+  }
+  
+  @Pure
+  public Function getFunction() {
+    return this._function;
   }
 }

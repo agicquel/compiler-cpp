@@ -94,7 +94,7 @@ ExprNot:
 ;
 
 ExprEq:
-	(exprLSimple=ExprSimple LC '=?' LC exprRSimple=ExprSimple)  | ('(' expr=Expr ')')
+	(exprLSimple=ExprSimple (LC '=?' LC exprRSimple=ExprSimple)?)  | ('(' expr=Expr ')')
 ;
 
 // Separateur entre symboles non terminaux
