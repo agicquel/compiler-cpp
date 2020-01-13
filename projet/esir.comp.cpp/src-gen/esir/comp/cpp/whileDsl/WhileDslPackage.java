@@ -402,7 +402,7 @@ public interface WhileDslPackage extends EPackage
   int FOREACH_COMMAND = 10;
 
   /**
-   * The feature id for the '<em><b>Exp Element</b></em>' containment reference.
+   * The feature id for the '<em><b>Exp Element</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -838,13 +838,13 @@ public interface WhileDslPackage extends EPackage
   int EXPR_EQ = 23;
 
   /**
-   * The feature id for the '<em><b>Expr L</b></em>' containment reference.
+   * The feature id for the '<em><b>Expr LSimple</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_EQ__EXPR_L = 0;
+  int EXPR_EQ__EXPR_LSIMPLE = 0;
 
   /**
    * The feature id for the '<em><b>Expr RSimple</b></em>' containment reference.
@@ -856,13 +856,13 @@ public interface WhileDslPackage extends EPackage
   int EXPR_EQ__EXPR_RSIMPLE = 1;
 
   /**
-   * The feature id for the '<em><b>Expr RExpr</b></em>' containment reference.
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_EQ__EXPR_REXPR = 2;
+  int EXPR_EQ__EXPR = 2;
 
   /**
    * The number of structural features of the '<em>Expr Eq</em>' class.
@@ -1180,15 +1180,15 @@ public interface WhileDslPackage extends EPackage
   EClass getForeachCommand();
 
   /**
-   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpElement <em>Exp Element</em>}'.
+   * Returns the meta object for the attribute '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpElement <em>Exp Element</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Exp Element</em>'.
+   * @return the meta object for the attribute '<em>Exp Element</em>'.
    * @see esir.comp.cpp.whileDsl.ForeachCommand#getExpElement()
    * @see #getForeachCommand()
    * @generated
    */
-  EReference getForeachCommand_ExpElement();
+  EAttribute getForeachCommand_ExpElement();
 
   /**
    * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ForeachCommand#getExpList <em>Exp List</em>}'.
@@ -1541,15 +1541,15 @@ public interface WhileDslPackage extends EPackage
   EClass getExprEq();
 
   /**
-   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprEq#getExprL <em>Expr L</em>}'.
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprEq#getExprLSimple <em>Expr LSimple</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr L</em>'.
-   * @see esir.comp.cpp.whileDsl.ExprEq#getExprL()
+   * @return the meta object for the containment reference '<em>Expr LSimple</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprEq#getExprLSimple()
    * @see #getExprEq()
    * @generated
    */
-  EReference getExprEq_ExprL();
+  EReference getExprEq_ExprLSimple();
 
   /**
    * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprEq#getExprRSimple <em>Expr RSimple</em>}'.
@@ -1563,15 +1563,15 @@ public interface WhileDslPackage extends EPackage
   EReference getExprEq_ExprRSimple();
 
   /**
-   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprEq#getExprRExpr <em>Expr RExpr</em>}'.
+   * Returns the meta object for the containment reference '{@link esir.comp.cpp.whileDsl.ExprEq#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr RExpr</em>'.
-   * @see esir.comp.cpp.whileDsl.ExprEq#getExprRExpr()
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see esir.comp.cpp.whileDsl.ExprEq#getExpr()
    * @see #getExprEq()
    * @generated
    */
-  EReference getExprEq_ExprRExpr();
+  EReference getExprEq_Expr();
 
   /**
    * Returns the meta object for class '{@link esir.comp.cpp.whileDsl.NopCommand <em>Nop Command</em>}'.
@@ -1845,12 +1845,12 @@ public interface WhileDslPackage extends EPackage
     EClass FOREACH_COMMAND = eINSTANCE.getForeachCommand();
 
     /**
-     * The meta object literal for the '<em><b>Exp Element</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Exp Element</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference FOREACH_COMMAND__EXP_ELEMENT = eINSTANCE.getForeachCommand_ExpElement();
+    EAttribute FOREACH_COMMAND__EXP_ELEMENT = eINSTANCE.getForeachCommand_ExpElement();
 
     /**
      * The meta object literal for the '<em><b>Exp List</b></em>' containment reference feature.
@@ -2143,12 +2143,12 @@ public interface WhileDslPackage extends EPackage
     EClass EXPR_EQ = eINSTANCE.getExprEq();
 
     /**
-     * The meta object literal for the '<em><b>Expr L</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Expr LSimple</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR_EQ__EXPR_L = eINSTANCE.getExprEq_ExprL();
+    EReference EXPR_EQ__EXPR_LSIMPLE = eINSTANCE.getExprEq_ExprLSimple();
 
     /**
      * The meta object literal for the '<em><b>Expr RSimple</b></em>' containment reference feature.
@@ -2159,12 +2159,12 @@ public interface WhileDslPackage extends EPackage
     EReference EXPR_EQ__EXPR_RSIMPLE = eINSTANCE.getExprEq_ExprRSimple();
 
     /**
-     * The meta object literal for the '<em><b>Expr RExpr</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPR_EQ__EXPR_REXPR = eINSTANCE.getExprEq_ExprRExpr();
+    EReference EXPR_EQ__EXPR = eINSTANCE.getExprEq_Expr();
 
     /**
      * The meta object literal for the '{@link esir.comp.cpp.whileDsl.impl.NopCommandImpl <em>Nop Command</em>}' class.

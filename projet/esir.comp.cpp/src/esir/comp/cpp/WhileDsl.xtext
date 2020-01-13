@@ -25,7 +25,12 @@ Commands:
 	commands+=Command (LC ';' LC commands+=Command)*
 ;
 Command:
-	({NopCommand} NopCommand | WhileCommand | ForCommand | IfCommand | ForeachCommand | VarsCommand)
+	({NopCommand} NopCommand) | 
+	WhileCommand | 
+	ForCommand | 
+	IfCommand | 
+	ForeachCommand | 
+	VarsCommand
 ;
 WhileCommand:
 	'while' LC cond=Expr LC 'do' LC body=Commands LC 'od'
@@ -37,7 +42,7 @@ IfCommand:
 	'if' LC cond=Expr LC 'then' LC thenBody=Commands LC ('else' LC elseBody=Commands LC)? 'fi'
 ;
 ForeachCommand:
-	'foreach' LC expElement=Expr LC 'in' LC expList=Expr LC 'do' LC body=Commands LC 'od'
+	'foreach' LC expElement=VARIABLE LC 'in' LC expList=Expr LC 'do' LC body=Commands LC 'od'
 ;
 VarsCommand:
 	variables=Vars LC ':=' LC values=Exprs
@@ -89,7 +94,7 @@ ExprNot:
 ;
 
 ExprEq:
-	exprL=ExprSimple LC '=?' LC (exprRSimple=ExprSimple  | ('(' exprRExpr=Expr ')'))
+	(exprLSimple=ExprSimple LC '=?' LC exprRSimple=ExprSimple)  | ('(' expr=Expr ')')
 ;
 
 // Separateur entre symboles non terminaux

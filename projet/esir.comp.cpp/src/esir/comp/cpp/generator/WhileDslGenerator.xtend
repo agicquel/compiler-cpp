@@ -7,7 +7,6 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import esir.comp.cpp.whileDsl.Function
 import esir.comp.cpp.generator.ir.WhileDslIRGenerator
 import esir.comp.cpp.generator.ir.FunctionImpl
 
@@ -19,10 +18,11 @@ import esir.comp.cpp.generator.ir.FunctionImpl
 class WhileDslGenerator extends AbstractGenerator {
 	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		for(function : resource.allContents.toIterable.filter(Function)) {
-			var ir = WhileDslIRGenerator.compileIR(function)
-			println(ir)
-			println(ir.compile())
+		var irGenerator = new WhileDslIRGenerator()
+		var ir = irGenerator.compileIR(resource)
+		for(irFunction : ir) {
+			println(irFunction)
+			println(irFunction.compile())
 		}
 	}
 	
@@ -33,7 +33,7 @@ class WhileDslGenerator extends AbstractGenerator {
 		if(ir.env.outputCounter > 1) {
 			cpp += ""
 		}
-		cpp += "bin_tree * " + ir.function.functionName + '('
+		cpp += "bin_tree * " + ir.functionName + '('
 		
 		for(in: ir.inputs) {
 			if(in.op.equals("read")) {
@@ -60,16 +60,16 @@ class WhileDslGenerator extends AbstractGenerator {
 					cpp += quad.dest + " = bin_tree::nil();\n"
 				}
 				case "cons" : {
-					cpp += quad.dest + " = " + quad.dest + "->cons(" + quad.arg1 + ", " + quad.arg2 + ");\n"
+					cpp += quad.dest + " = " + "bin_tree::cons(" + quad.arg1 + ", " + quad.arg2 + ");\n"
 				}
 				case "list" : {
-					cpp += quad.dest + " = " + quad.dest + "->list(" + quad.arg1 + ", " + quad.arg2 + ");\n"
+					cpp += quad.dest + " = " + "bin_tree::list(" + quad.arg1 + ", " + quad.arg2 + ");\n"
 				}
 				case "hd" : {
-					cpp += quad.dest + " = " + quad.dest + "->hd(" + quad.arg1 + ");\n"
+					cpp += quad.dest + " = " + "bin_tree::hd(" + quad.arg1 + ");\n"
 				}
 				case "tl" : {
-					cpp += quad.dest + " = " + quad.dest + "->tl(" + quad.arg1 + ");\n"
+					cpp += quad.dest + " = " + "bin_tree::tl(" + quad.arg1 + ");\n"
 				}
 				case "ifeq" : {
 					cpp += "if(bin_tree::equals(" + quad.arg1 + ", " + quad.arg2 + ")) { goto " + op_arr.get(1) + "; }\n"
@@ -100,6 +100,12 @@ class WhileDslGenerator extends AbstractGenerator {
 				}
 				case "false" : {
 					cpp += quad.dest + " = bin_tree::getFalse();\n"
+				}
+				case "arg" : {
+					cpp += "\n"
+				}
+				case "call" : {
+					cpp += "\n"
 				}
 			}
 		}

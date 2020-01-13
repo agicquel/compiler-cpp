@@ -3,6 +3,8 @@
  */
 package esir.comp.cpp.scoping;
 
+import esir.comp.cpp.scoping.AbstractWhileDslScopeProvider;
+
 /**
  * This class contains custom scoping description.
  * 

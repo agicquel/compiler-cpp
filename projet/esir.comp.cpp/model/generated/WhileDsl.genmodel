@@ -42,7 +42,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//IfCommand/elseBody"/>
     </genClasses>
     <genClasses ecoreClass="WhileDsl.ecore#//ForeachCommand">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ForeachCommand/expElement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute WhileDsl.ecore#//ForeachCommand/expElement"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ForeachCommand/expList"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ForeachCommand/body"/>
     </genClasses>
@@ -89,9 +89,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ExprNot/expressionEq"/>
     </genClasses>
     <genClasses ecoreClass="WhileDsl.ecore#//ExprEq">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ExprEq/exprL"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ExprEq/exprLSimple"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ExprEq/exprRSimple"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ExprEq/exprRExpr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference WhileDsl.ecore#//ExprEq/expr"/>
     </genClasses>
     <genClasses ecoreClass="WhileDsl.ecore#//NopCommand"/>
   </genPackages>

@@ -197,7 +197,7 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     ExprEq returns ExprEq
 	 *
 	 * Constraint:
-	 *     (exprL=ExprSimple (exprRSimple=ExprSimple | exprRExpr=Expr))
+	 *     ((exprLSimple=ExprSimple exprRSimple=ExprSimple) | expr=Expr)
 	 */
 	protected void sequence_ExprEq(ISerializationContext context, ExprEq semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -344,7 +344,7 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     ForeachCommand returns ForeachCommand
 	 *
 	 * Constraint:
-	 *     (expElement=Expr expList=Expr body=Commands)
+	 *     (expElement=VARIABLE expList=Expr body=Commands)
 	 */
 	protected void sequence_ForeachCommand(ISerializationContext context, ForeachCommand semanticObject) {
 		if (errorAcceptor != null) {
@@ -356,7 +356,7 @@ public class WhileDslSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, WhileDslPackage.Literals.FOREACH_COMMAND__BODY));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getForeachCommandAccess().getExpElementExprParserRuleCall_2_0(), semanticObject.getExpElement());
+		feeder.accept(grammarAccess.getForeachCommandAccess().getExpElementVARIABLETerminalRuleCall_2_0(), semanticObject.getExpElement());
 		feeder.accept(grammarAccess.getForeachCommandAccess().getExpListExprParserRuleCall_6_0(), semanticObject.getExpList());
 		feeder.accept(grammarAccess.getForeachCommandAccess().getBodyCommandsParserRuleCall_10_0(), semanticObject.getBody());
 		feeder.finish();

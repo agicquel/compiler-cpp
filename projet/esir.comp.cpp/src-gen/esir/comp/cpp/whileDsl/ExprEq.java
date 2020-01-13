@@ -14,9 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link esir.comp.cpp.whileDsl.ExprEq#getExprL <em>Expr L</em>}</li>
+ *   <li>{@link esir.comp.cpp.whileDsl.ExprEq#getExprLSimple <em>Expr LSimple</em>}</li>
  *   <li>{@link esir.comp.cpp.whileDsl.ExprEq#getExprRSimple <em>Expr RSimple</em>}</li>
- *   <li>{@link esir.comp.cpp.whileDsl.ExprEq#getExprRExpr <em>Expr RExpr</em>}</li>
+ *   <li>{@link esir.comp.cpp.whileDsl.ExprEq#getExpr <em>Expr</em>}</li>
  * </ul>
  *
  * @see esir.comp.cpp.whileDsl.WhileDslPackage#getExprEq()
@@ -26,26 +26,26 @@ import org.eclipse.emf.ecore.EObject;
 public interface ExprEq extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Expr L</b></em>' containment reference.
+   * Returns the value of the '<em><b>Expr LSimple</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr L</em>' containment reference.
-   * @see #setExprL(ExprSimple)
-   * @see esir.comp.cpp.whileDsl.WhileDslPackage#getExprEq_ExprL()
+   * @return the value of the '<em>Expr LSimple</em>' containment reference.
+   * @see #setExprLSimple(ExprSimple)
+   * @see esir.comp.cpp.whileDsl.WhileDslPackage#getExprEq_ExprLSimple()
    * @model containment="true"
    * @generated
    */
-  ExprSimple getExprL();
+  ExprSimple getExprLSimple();
 
   /**
-   * Sets the value of the '{@link esir.comp.cpp.whileDsl.ExprEq#getExprL <em>Expr L</em>}' containment reference.
+   * Sets the value of the '{@link esir.comp.cpp.whileDsl.ExprEq#getExprLSimple <em>Expr LSimple</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expr L</em>' containment reference.
-   * @see #getExprL()
+   * @param value the new value of the '<em>Expr LSimple</em>' containment reference.
+   * @see #getExprLSimple()
    * @generated
    */
-  void setExprL(ExprSimple value);
+  void setExprLSimple(ExprSimple value);
 
   /**
    * Returns the value of the '<em><b>Expr RSimple</b></em>' containment reference.
@@ -70,25 +70,25 @@ public interface ExprEq extends EObject
   void setExprRSimple(ExprSimple value);
 
   /**
-   * Returns the value of the '<em><b>Expr RExpr</b></em>' containment reference.
+   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr RExpr</em>' containment reference.
-   * @see #setExprRExpr(Expr)
-   * @see esir.comp.cpp.whileDsl.WhileDslPackage#getExprEq_ExprRExpr()
+   * @return the value of the '<em>Expr</em>' containment reference.
+   * @see #setExpr(Expr)
+   * @see esir.comp.cpp.whileDsl.WhileDslPackage#getExprEq_Expr()
    * @model containment="true"
    * @generated
    */
-  Expr getExprRExpr();
+  Expr getExpr();
 
   /**
-   * Sets the value of the '{@link esir.comp.cpp.whileDsl.ExprEq#getExprRExpr <em>Expr RExpr</em>}' containment reference.
+   * Sets the value of the '{@link esir.comp.cpp.whileDsl.ExprEq#getExpr <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expr RExpr</em>' containment reference.
-   * @see #getExprRExpr()
+   * @param value the new value of the '<em>Expr</em>' containment reference.
+   * @see #getExpr()
    * @generated
    */
-  void setExprRExpr(Expr value);
+  void setExpr(Expr value);
 
 } // ExprEq

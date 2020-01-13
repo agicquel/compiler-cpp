@@ -5,64 +5,83 @@
 #include "bin_tree.h"
 
 #include <utility>
+#include <iostream>
 
 bin_tree::bin_tree() {
-    this->value = "";
+    head = tail = nullptr;
+    node_key = NIL;
 }
 
-bin_tree::bin_tree(std::string value) {
-    this->value = value;
+bin_tree::bin_tree(std::string root_value) {
+    head = tail = nullptr;
+    node_key = root_value;
 }
 
 bin_tree::~bin_tree() {
-    delete this->head;
-    delete this->tail;
+
 }
 
 bool bin_tree::isTrue() {
-    return false;
+    return head != nullptr && tail != nullptr;
 }
 
 bool bin_tree::isFalse() {
-    return false;
+    return !isTrue();
 }
 
-std::string bin_tree::getValue() {
-    return this->value;
-}
-
-bin_tree *bin_tree::cons(bin_tree *t1, bin_tree *t2) {
-    return nullptr;
-}
-
-bin_tree *bin_tree::list(bin_tree *t1, bin_tree *t2) {
-    return nullptr;
-}
-
-bin_tree *bin_tree::hd(bin_tree *t1) {
-    return nullptr;
-}
-
-bin_tree *bin_tree::tl(bin_tree *t1) {
-    return nullptr;
-}
-
-bin_tree *bin_tree::getTrue() {
+bin_tree *bin_tree::cons(bin_tree *tree1, bin_tree *tree2) {
     bin_tree *tree = new bin_tree();
-    *tree->head = *bin_tree::nil();
-    *tree->tail = *bin_tree::nil();
+    tree->head = tree1;
+    tree->tail = tree2;
     return tree;
 }
 
+bin_tree *bin_tree::list(bin_tree *tree1, bin_tree *tree2) {
+    return nullptr;
+}
+
+bin_tree *bin_tree::hd(bin_tree *tree) {
+    if(tree->head != nullptr) return tree->head;
+    else return nil();
+}
+
+bin_tree *bin_tree::tl(bin_tree *tree) {
+    if(tree->tail != nullptr) return tree->tail;
+    else return nil();
+}
+
+bin_tree *bin_tree::getTrue() {
+    return cons(nil(), nil());
+}
+
 bin_tree *bin_tree::getFalse() {
-    return bin_tree::nil();
+    return nil();
 }
 
 bool bin_tree::equals(bin_tree *t1, bin_tree *t2) {
-    return false;
+    if((t1 == nullptr && t2 != nullptr) || (t1 != nullptr && t2 == nullptr)) {
+        return false;
+    }
+    return t1->toString() == t2->toString();
 }
 
 bin_tree *bin_tree::nil() {
-    return new bin_tree(nullptr);
+    return new bin_tree(NIL);
 }
 
+std::string bin_tree::getValue() {
+    return node_key;
+}
+
+std::string bin_tree::toString() {
+    std::string res = "{\n";
+    res += "\tvalue = " + node_key + "\n";
+    if(head != nullptr) res += "\thead = " + head->toString() + "\n";
+    if(tail != nullptr) res += "\ttail = " + tail->toString() + "\n";
+    res += "}\n";
+    return res;
+}
+
+void bin_tree::nop() {
+
+}

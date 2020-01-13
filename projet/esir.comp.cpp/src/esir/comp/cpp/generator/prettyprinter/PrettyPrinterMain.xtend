@@ -3,8 +3,6 @@ package esir.comp.cpp.generator.prettyprinter
 import com.google.inject.Inject
 import com.google.inject.Provider
 import java.io.BufferedReader
-import java.io.File
-import java.io.FileInputStream
 import java.io.InputStreamReader
 import org.eclipse.emf.common.util.URI
 import org.eclipse.emf.ecore.resource.ResourceSet
@@ -13,7 +11,6 @@ import org.eclipse.xtext.generator.JavaIoFileSystemAccess
 import org.eclipse.xtext.util.CancelIndicator
 import org.eclipse.xtext.validation.CheckMode
 import org.eclipse.xtext.validation.IResourceValidator
-import java.io.InputStream
 
 class PrettyPrinterMain {
 	static final String HELP_FILE_LOCATION = "help_whpp.txt"

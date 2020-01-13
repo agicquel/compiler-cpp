@@ -123,32 +123,59 @@ libWh/fast:
 	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/build
 .PHONY : libWh/fast
 
-BinTree.o: BinTree.cpp.o
+bin_tree.o: bin_tree.cpp.o
 
-.PHONY : BinTree.o
+.PHONY : bin_tree.o
 
 # target to build an object file
-BinTree.cpp.o:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/BinTree.cpp.o
-.PHONY : BinTree.cpp.o
+bin_tree.cpp.o:
+	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree.cpp.o
+.PHONY : bin_tree.cpp.o
 
-BinTree.i: BinTree.cpp.i
+bin_tree.i: bin_tree.cpp.i
 
-.PHONY : BinTree.i
+.PHONY : bin_tree.i
 
 # target to preprocess a source file
-BinTree.cpp.i:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/BinTree.cpp.i
-.PHONY : BinTree.cpp.i
+bin_tree.cpp.i:
+	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree.cpp.i
+.PHONY : bin_tree.cpp.i
 
-BinTree.s: BinTree.cpp.s
+bin_tree.s: bin_tree.cpp.s
 
-.PHONY : BinTree.s
+.PHONY : bin_tree.s
 
 # target to generate assembly for a file
-BinTree.cpp.s:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/BinTree.cpp.s
-.PHONY : BinTree.cpp.s
+bin_tree.cpp.s:
+	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree.cpp.s
+.PHONY : bin_tree.cpp.s
+
+bin_tree_node.o: bin_tree_node.cpp.o
+
+.PHONY : bin_tree_node.o
+
+# target to build an object file
+bin_tree_node.cpp.o:
+	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree_node.cpp.o
+.PHONY : bin_tree_node.cpp.o
+
+bin_tree_node.i: bin_tree_node.cpp.i
+
+.PHONY : bin_tree_node.i
+
+# target to preprocess a source file
+bin_tree_node.cpp.i:
+	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree_node.cpp.i
+.PHONY : bin_tree_node.cpp.i
+
+bin_tree_node.s: bin_tree_node.cpp.s
+
+.PHONY : bin_tree_node.s
+
+# target to generate assembly for a file
+bin_tree_node.cpp.s:
+	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree_node.cpp.s
+.PHONY : bin_tree_node.cpp.s
 
 main.o: main.cpp.o
 
@@ -186,9 +213,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... libWh"
 	@echo "... edit_cache"
-	@echo "... BinTree.o"
-	@echo "... BinTree.i"
-	@echo "... BinTree.s"
+	@echo "... bin_tree.o"
+	@echo "... bin_tree.i"
+	@echo "... bin_tree.s"
+	@echo "... bin_tree_node.o"
+	@echo "... bin_tree_node.i"
+	@echo "... bin_tree_node.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

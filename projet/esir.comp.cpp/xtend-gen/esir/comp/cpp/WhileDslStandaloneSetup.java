@@ -3,6 +3,8 @@
  */
 package esir.comp.cpp;
 
+import esir.comp.cpp.WhileDslStandaloneSetupGenerated;
+
 /**
  * Initialization support for running Xtext languages without Equinox extension registry.
  */

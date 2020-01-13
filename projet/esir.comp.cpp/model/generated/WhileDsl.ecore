@@ -49,8 +49,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ForeachCommand" eSuperTypes="#//Command">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expElement" eType="#//Expr"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="expElement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expList" eType="#//Expr"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//Commands"
@@ -111,12 +110,11 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExprEq">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exprL" eType="#//ExprSimple"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exprLSimple" eType="#//ExprSimple"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exprRSimple" eType="#//ExprSimple"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exprRExpr" eType="#//Expr"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NopCommand" eSuperTypes="#//Command"/>
 </ecore:EPackage>

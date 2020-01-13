@@ -70,32 +70,47 @@ CMakeFiles/libWh.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libWh.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agicquel/workspace/esir/esir2/comp/libWh/main.cpp -o CMakeFiles/libWh.dir/main.cpp.s
 
-CMakeFiles/libWh.dir/BinTree.cpp.o: CMakeFiles/libWh.dir/flags.make
-CMakeFiles/libWh.dir/BinTree.cpp.o: ../BinTree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/libWh.dir/BinTree.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libWh.dir/BinTree.cpp.o -c /home/agicquel/workspace/esir/esir2/comp/libWh/BinTree.cpp
+CMakeFiles/libWh.dir/bin_tree.cpp.o: CMakeFiles/libWh.dir/flags.make
+CMakeFiles/libWh.dir/bin_tree.cpp.o: ../bin_tree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/libWh.dir/bin_tree.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libWh.dir/bin_tree.cpp.o -c /home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.cpp
 
-CMakeFiles/libWh.dir/BinTree.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libWh.dir/BinTree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agicquel/workspace/esir/esir2/comp/libWh/BinTree.cpp > CMakeFiles/libWh.dir/BinTree.cpp.i
+CMakeFiles/libWh.dir/bin_tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libWh.dir/bin_tree.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.cpp > CMakeFiles/libWh.dir/bin_tree.cpp.i
 
-CMakeFiles/libWh.dir/BinTree.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libWh.dir/BinTree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agicquel/workspace/esir/esir2/comp/libWh/BinTree.cpp -o CMakeFiles/libWh.dir/BinTree.cpp.s
+CMakeFiles/libWh.dir/bin_tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libWh.dir/bin_tree.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.cpp -o CMakeFiles/libWh.dir/bin_tree.cpp.s
+
+CMakeFiles/libWh.dir/bin_tree_node.cpp.o: CMakeFiles/libWh.dir/flags.make
+CMakeFiles/libWh.dir/bin_tree_node.cpp.o: ../bin_tree_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/libWh.dir/bin_tree_node.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/libWh.dir/bin_tree_node.cpp.o -c /home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree_node.cpp
+
+CMakeFiles/libWh.dir/bin_tree_node.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libWh.dir/bin_tree_node.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree_node.cpp > CMakeFiles/libWh.dir/bin_tree_node.cpp.i
+
+CMakeFiles/libWh.dir/bin_tree_node.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libWh.dir/bin_tree_node.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree_node.cpp -o CMakeFiles/libWh.dir/bin_tree_node.cpp.s
 
 # Object files for target libWh
 libWh_OBJECTS = \
 "CMakeFiles/libWh.dir/main.cpp.o" \
-"CMakeFiles/libWh.dir/BinTree.cpp.o"
+"CMakeFiles/libWh.dir/bin_tree.cpp.o" \
+"CMakeFiles/libWh.dir/bin_tree_node.cpp.o"
 
 # External object files for target libWh
 libWh_EXTERNAL_OBJECTS =
 
 libWh: CMakeFiles/libWh.dir/main.cpp.o
-libWh: CMakeFiles/libWh.dir/BinTree.cpp.o
+libWh: CMakeFiles/libWh.dir/bin_tree.cpp.o
+libWh: CMakeFiles/libWh.dir/bin_tree_node.cpp.o
 libWh: CMakeFiles/libWh.dir/build.make
 libWh: CMakeFiles/libWh.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable libWh"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable libWh"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libWh.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

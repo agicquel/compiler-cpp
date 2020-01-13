@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
+/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.h
+string
+-
+
 /home/agicquel/workspace/esir/esir2/comp/libWh/main.cpp
 iostream
+-
+bin_tree.h
+/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.h
+string
+-
+stack
 -
 

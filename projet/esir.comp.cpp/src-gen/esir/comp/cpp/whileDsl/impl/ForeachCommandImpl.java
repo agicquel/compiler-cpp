@@ -34,14 +34,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 public class ForeachCommandImpl extends CommandImpl implements ForeachCommand
 {
   /**
-   * The cached value of the '{@link #getExpElement() <em>Exp Element</em>}' containment reference.
+   * The default value of the '{@link #getExpElement() <em>Exp Element</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExpElement()
    * @generated
    * @ordered
    */
-  protected Expr expElement;
+  protected static final String EXP_ELEMENT_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getExpElement() <em>Exp Element</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExpElement()
+   * @generated
+   * @ordered
+   */
+  protected String expElement = EXP_ELEMENT_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExpList() <em>Exp List</em>}' containment reference.
@@ -90,7 +100,7 @@ public class ForeachCommandImpl extends CommandImpl implements ForeachCommand
    * @generated
    */
   @Override
-  public Expr getExpElement()
+  public String getExpElement()
   {
     return expElement;
   }
@@ -100,38 +110,13 @@ public class ForeachCommandImpl extends CommandImpl implements ForeachCommand
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpElement(Expr newExpElement, NotificationChain msgs)
+  @Override
+  public void setExpElement(String newExpElement)
   {
-    Expr oldExpElement = expElement;
+    String oldExpElement = expElement;
     expElement = newExpElement;
     if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileDslPackage.FOREACH_COMMAND__EXP_ELEMENT, oldExpElement, newExpElement);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setExpElement(Expr newExpElement)
-  {
-    if (newExpElement != expElement)
-    {
-      NotificationChain msgs = null;
-      if (expElement != null)
-        msgs = ((InternalEObject)expElement).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.FOREACH_COMMAND__EXP_ELEMENT, null, msgs);
-      if (newExpElement != null)
-        msgs = ((InternalEObject)newExpElement).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.FOREACH_COMMAND__EXP_ELEMENT, null, msgs);
-      msgs = basicSetExpElement(newExpElement, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.FOREACH_COMMAND__EXP_ELEMENT, newExpElement, newExpElement));
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.FOREACH_COMMAND__EXP_ELEMENT, oldExpElement, expElement));
   }
 
   /**
@@ -244,8 +229,6 @@ public class ForeachCommandImpl extends CommandImpl implements ForeachCommand
   {
     switch (featureID)
     {
-      case WhileDslPackage.FOREACH_COMMAND__EXP_ELEMENT:
-        return basicSetExpElement(null, msgs);
       case WhileDslPackage.FOREACH_COMMAND__EXP_LIST:
         return basicSetExpList(null, msgs);
       case WhileDslPackage.FOREACH_COMMAND__BODY:
@@ -285,7 +268,7 @@ public class ForeachCommandImpl extends CommandImpl implements ForeachCommand
     switch (featureID)
     {
       case WhileDslPackage.FOREACH_COMMAND__EXP_ELEMENT:
-        setExpElement((Expr)newValue);
+        setExpElement((String)newValue);
         return;
       case WhileDslPackage.FOREACH_COMMAND__EXP_LIST:
         setExpList((Expr)newValue);
@@ -308,7 +291,7 @@ public class ForeachCommandImpl extends CommandImpl implements ForeachCommand
     switch (featureID)
     {
       case WhileDslPackage.FOREACH_COMMAND__EXP_ELEMENT:
-        setExpElement((Expr)null);
+        setExpElement(EXP_ELEMENT_EDEFAULT);
         return;
       case WhileDslPackage.FOREACH_COMMAND__EXP_LIST:
         setExpList((Expr)null);
@@ -331,13 +314,30 @@ public class ForeachCommandImpl extends CommandImpl implements ForeachCommand
     switch (featureID)
     {
       case WhileDslPackage.FOREACH_COMMAND__EXP_ELEMENT:
-        return expElement != null;
+        return EXP_ELEMENT_EDEFAULT == null ? expElement != null : !EXP_ELEMENT_EDEFAULT.equals(expElement);
       case WhileDslPackage.FOREACH_COMMAND__EXP_LIST:
         return expList != null;
       case WhileDslPackage.FOREACH_COMMAND__BODY:
         return body != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuilder result = new StringBuilder(super.toString());
+    result.append(" (expElement: ");
+    result.append(expElement);
+    result.append(')');
+    return result.toString();
   }
 
 } //ForeachCommandImpl

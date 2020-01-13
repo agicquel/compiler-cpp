@@ -587,9 +587,9 @@ public class WhileDslPackageImpl extends EPackageImpl implements WhileDslPackage
    * @generated
    */
   @Override
-  public EReference getForeachCommand_ExpElement()
+  public EAttribute getForeachCommand_ExpElement()
   {
-    return (EReference)foreachCommandEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)foreachCommandEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -961,7 +961,7 @@ public class WhileDslPackageImpl extends EPackageImpl implements WhileDslPackage
    * @generated
    */
   @Override
-  public EReference getExprEq_ExprL()
+  public EReference getExprEq_ExprLSimple()
   {
     return (EReference)exprEqEClass.getEStructuralFeatures().get(0);
   }
@@ -983,7 +983,7 @@ public class WhileDslPackageImpl extends EPackageImpl implements WhileDslPackage
    * @generated
    */
   @Override
-  public EReference getExprEq_ExprRExpr()
+  public EReference getExprEq_Expr()
   {
     return (EReference)exprEqEClass.getEStructuralFeatures().get(2);
   }
@@ -1067,7 +1067,7 @@ public class WhileDslPackageImpl extends EPackageImpl implements WhileDslPackage
     createEReference(ifCommandEClass, IF_COMMAND__ELSE_BODY);
 
     foreachCommandEClass = createEClass(FOREACH_COMMAND);
-    createEReference(foreachCommandEClass, FOREACH_COMMAND__EXP_ELEMENT);
+    createEAttribute(foreachCommandEClass, FOREACH_COMMAND__EXP_ELEMENT);
     createEReference(foreachCommandEClass, FOREACH_COMMAND__EXP_LIST);
     createEReference(foreachCommandEClass, FOREACH_COMMAND__BODY);
 
@@ -1114,9 +1114,9 @@ public class WhileDslPackageImpl extends EPackageImpl implements WhileDslPackage
     createEReference(exprNotEClass, EXPR_NOT__EXPRESSION_EQ);
 
     exprEqEClass = createEClass(EXPR_EQ);
-    createEReference(exprEqEClass, EXPR_EQ__EXPR_L);
+    createEReference(exprEqEClass, EXPR_EQ__EXPR_LSIMPLE);
     createEReference(exprEqEClass, EXPR_EQ__EXPR_RSIMPLE);
-    createEReference(exprEqEClass, EXPR_EQ__EXPR_REXPR);
+    createEReference(exprEqEClass, EXPR_EQ__EXPR);
 
     nopCommandEClass = createEClass(NOP_COMMAND);
   }
@@ -1195,7 +1195,7 @@ public class WhileDslPackageImpl extends EPackageImpl implements WhileDslPackage
     initEReference(getIfCommand_ElseBody(), this.getCommands(), null, "elseBody", null, 0, 1, IfCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(foreachCommandEClass, ForeachCommand.class, "ForeachCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getForeachCommand_ExpElement(), this.getExpr(), null, "expElement", null, 0, 1, ForeachCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getForeachCommand_ExpElement(), ecorePackage.getEString(), "expElement", null, 0, 1, ForeachCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getForeachCommand_ExpList(), this.getExpr(), null, "expList", null, 0, 1, ForeachCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getForeachCommand_Body(), this.getCommands(), null, "body", null, 0, 1, ForeachCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1242,9 +1242,9 @@ public class WhileDslPackageImpl extends EPackageImpl implements WhileDslPackage
     initEReference(getExprNot_ExpressionEq(), this.getExprEq(), null, "expressionEq", null, 0, 1, ExprNot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprEqEClass, ExprEq.class, "ExprEq", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExprEq_ExprL(), this.getExprSimple(), null, "exprL", null, 0, 1, ExprEq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprEq_ExprLSimple(), this.getExprSimple(), null, "exprLSimple", null, 0, 1, ExprEq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExprEq_ExprRSimple(), this.getExprSimple(), null, "exprRSimple", null, 0, 1, ExprEq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getExprEq_ExprRExpr(), this.getExpr(), null, "exprRExpr", null, 0, 1, ExprEq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExprEq_Expr(), this.getExpr(), null, "expr", null, 0, 1, ExprEq.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nopCommandEClass, NopCommand.class, "NopCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

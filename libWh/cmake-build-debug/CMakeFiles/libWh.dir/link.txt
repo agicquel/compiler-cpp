@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/libWh.dir/main.cpp.o CMakeFiles/libWh.dir/BinTree.cpp.o  -o libWh 
+/usr/bin/c++  -g   CMakeFiles/libWh.dir/main.cpp.o CMakeFiles/libWh.dir/bin_tree.cpp.o CMakeFiles/libWh.dir/bin_tree_node.cpp.o  -o libWh 

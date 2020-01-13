@@ -2188,26 +2188,26 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "ruleExprEq"
-    // InternalWhileDsl.g:663:1: ruleExprEq : ( ( rule__ExprEq__Group__0 ) ) ;
+    // InternalWhileDsl.g:663:1: ruleExprEq : ( ( rule__ExprEq__Alternatives ) ) ;
     public final void ruleExprEq() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:667:2: ( ( ( rule__ExprEq__Group__0 ) ) )
-            // InternalWhileDsl.g:668:2: ( ( rule__ExprEq__Group__0 ) )
+            // InternalWhileDsl.g:667:2: ( ( ( rule__ExprEq__Alternatives ) ) )
+            // InternalWhileDsl.g:668:2: ( ( rule__ExprEq__Alternatives ) )
             {
-            // InternalWhileDsl.g:668:2: ( ( rule__ExprEq__Group__0 ) )
-            // InternalWhileDsl.g:669:3: ( rule__ExprEq__Group__0 )
+            // InternalWhileDsl.g:668:2: ( ( rule__ExprEq__Alternatives ) )
+            // InternalWhileDsl.g:669:3: ( rule__ExprEq__Alternatives )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getGroup()); 
+               before(grammarAccess.getExprEqAccess().getAlternatives()); 
             }
-            // InternalWhileDsl.g:670:3: ( rule__ExprEq__Group__0 )
-            // InternalWhileDsl.g:670:4: rule__ExprEq__Group__0
+            // InternalWhileDsl.g:670:3: ( rule__ExprEq__Alternatives )
+            // InternalWhileDsl.g:670:4: rule__ExprEq__Alternatives
             {
             pushFollow(FOLLOW_2);
-            rule__ExprEq__Group__0();
+            rule__ExprEq__Alternatives();
 
             state._fsp--;
             if (state.failed) return ;
@@ -2215,7 +2215,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getGroup()); 
+               after(grammarAccess.getExprEqAccess().getAlternatives()); 
             }
 
             }
@@ -3173,31 +3173,59 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Expr__Alternatives"
 
 
-    // $ANTLR start "rule__ExprEq__Alternatives_4"
-    // InternalWhileDsl.g:881:1: rule__ExprEq__Alternatives_4 : ( ( ( rule__ExprEq__ExprRSimpleAssignment_4_0 ) ) | ( ( rule__ExprEq__Group_4_1__0 ) ) );
-    public final void rule__ExprEq__Alternatives_4() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Alternatives"
+    // InternalWhileDsl.g:881:1: rule__ExprEq__Alternatives : ( ( ( rule__ExprEq__Group_0__0 ) ) | ( ( rule__ExprEq__Group_1__0 ) ) );
+    public final void rule__ExprEq__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:885:1: ( ( ( rule__ExprEq__ExprRSimpleAssignment_4_0 ) ) | ( ( rule__ExprEq__Group_4_1__0 ) ) )
+            // InternalWhileDsl.g:885:1: ( ( ( rule__ExprEq__Group_0__0 ) ) | ( ( rule__ExprEq__Group_1__0 ) ) )
             int alt8=2;
-            alt8 = dfa8.predict(input);
+            int LA8_0 = input.LA(1);
+
+            if ( ((LA8_0>=RULE_SYMBOL && LA8_0<=RULE_VARIABLE)||LA8_0==45) ) {
+                alt8=1;
+            }
+            else if ( (LA8_0==40) ) {
+                int LA8_4 = input.LA(2);
+
+                if ( (synpred16_InternalWhileDsl()) ) {
+                    alt8=1;
+                }
+                else if ( (true) ) {
+                    alt8=2;
+                }
+                else {
+                    if (state.backtracking>0) {state.failed=true; return ;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("", 8, 4, input);
+
+                    throw nvae;
+                }
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return ;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 8, 0, input);
+
+                throw nvae;
+            }
             switch (alt8) {
                 case 1 :
-                    // InternalWhileDsl.g:886:2: ( ( rule__ExprEq__ExprRSimpleAssignment_4_0 ) )
+                    // InternalWhileDsl.g:886:2: ( ( rule__ExprEq__Group_0__0 ) )
                     {
-                    // InternalWhileDsl.g:886:2: ( ( rule__ExprEq__ExprRSimpleAssignment_4_0 ) )
-                    // InternalWhileDsl.g:887:3: ( rule__ExprEq__ExprRSimpleAssignment_4_0 )
+                    // InternalWhileDsl.g:886:2: ( ( rule__ExprEq__Group_0__0 ) )
+                    // InternalWhileDsl.g:887:3: ( rule__ExprEq__Group_0__0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getExprEqAccess().getExprRSimpleAssignment_4_0()); 
+                       before(grammarAccess.getExprEqAccess().getGroup_0()); 
                     }
-                    // InternalWhileDsl.g:888:3: ( rule__ExprEq__ExprRSimpleAssignment_4_0 )
-                    // InternalWhileDsl.g:888:4: rule__ExprEq__ExprRSimpleAssignment_4_0
+                    // InternalWhileDsl.g:888:3: ( rule__ExprEq__Group_0__0 )
+                    // InternalWhileDsl.g:888:4: rule__ExprEq__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__ExprEq__ExprRSimpleAssignment_4_0();
+                    rule__ExprEq__Group_0__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -3205,7 +3233,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getExprEqAccess().getExprRSimpleAssignment_4_0()); 
+                       after(grammarAccess.getExprEqAccess().getGroup_0()); 
                     }
 
                     }
@@ -3214,19 +3242,19 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalWhileDsl.g:892:2: ( ( rule__ExprEq__Group_4_1__0 ) )
+                    // InternalWhileDsl.g:892:2: ( ( rule__ExprEq__Group_1__0 ) )
                     {
-                    // InternalWhileDsl.g:892:2: ( ( rule__ExprEq__Group_4_1__0 ) )
-                    // InternalWhileDsl.g:893:3: ( rule__ExprEq__Group_4_1__0 )
+                    // InternalWhileDsl.g:892:2: ( ( rule__ExprEq__Group_1__0 ) )
+                    // InternalWhileDsl.g:893:3: ( rule__ExprEq__Group_1__0 )
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getExprEqAccess().getGroup_4_1()); 
+                       before(grammarAccess.getExprEqAccess().getGroup_1()); 
                     }
-                    // InternalWhileDsl.g:894:3: ( rule__ExprEq__Group_4_1__0 )
-                    // InternalWhileDsl.g:894:4: rule__ExprEq__Group_4_1__0
+                    // InternalWhileDsl.g:894:3: ( rule__ExprEq__Group_1__0 )
+                    // InternalWhileDsl.g:894:4: rule__ExprEq__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__ExprEq__Group_4_1__0();
+                    rule__ExprEq__Group_1__0();
 
                     state._fsp--;
                     if (state.failed) return ;
@@ -3234,7 +3262,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
                     }
 
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getExprEqAccess().getGroup_4_1()); 
+                       after(grammarAccess.getExprEqAccess().getGroup_1()); 
                     }
 
                     }
@@ -3256,7 +3284,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Alternatives_4"
+    // $ANTLR end "rule__ExprEq__Alternatives"
 
 
     // $ANTLR start "rule__LC__Alternatives"
@@ -9653,7 +9681,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             // InternalWhileDsl.g:2958:1: ( rule__ForeachCommand__Group__1__Impl rule__ForeachCommand__Group__2 )
             // InternalWhileDsl.g:2959:2: rule__ForeachCommand__Group__1__Impl rule__ForeachCommand__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_9);
             rule__ForeachCommand__Group__1__Impl();
 
             state._fsp--;
@@ -15641,23 +15669,23 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__ExprNot__Group_0__1__Impl"
 
 
-    // $ANTLR start "rule__ExprEq__Group__0"
-    // InternalWhileDsl.g:4871:1: rule__ExprEq__Group__0 : rule__ExprEq__Group__0__Impl rule__ExprEq__Group__1 ;
-    public final void rule__ExprEq__Group__0() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_0__0"
+    // InternalWhileDsl.g:4871:1: rule__ExprEq__Group_0__0 : rule__ExprEq__Group_0__0__Impl rule__ExprEq__Group_0__1 ;
+    public final void rule__ExprEq__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:4875:1: ( rule__ExprEq__Group__0__Impl rule__ExprEq__Group__1 )
-            // InternalWhileDsl.g:4876:2: rule__ExprEq__Group__0__Impl rule__ExprEq__Group__1
+            // InternalWhileDsl.g:4875:1: ( rule__ExprEq__Group_0__0__Impl rule__ExprEq__Group_0__1 )
+            // InternalWhileDsl.g:4876:2: rule__ExprEq__Group_0__0__Impl rule__ExprEq__Group_0__1
             {
             pushFollow(FOLLOW_5);
-            rule__ExprEq__Group__0__Impl();
+            rule__ExprEq__Group_0__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__ExprEq__Group__1();
+            rule__ExprEq__Group_0__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15676,30 +15704,30 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group__0"
+    // $ANTLR end "rule__ExprEq__Group_0__0"
 
 
-    // $ANTLR start "rule__ExprEq__Group__0__Impl"
-    // InternalWhileDsl.g:4883:1: rule__ExprEq__Group__0__Impl : ( ( rule__ExprEq__ExprLAssignment_0 ) ) ;
-    public final void rule__ExprEq__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_0__0__Impl"
+    // InternalWhileDsl.g:4883:1: rule__ExprEq__Group_0__0__Impl : ( ( rule__ExprEq__ExprLSimpleAssignment_0_0 ) ) ;
+    public final void rule__ExprEq__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:4887:1: ( ( ( rule__ExprEq__ExprLAssignment_0 ) ) )
-            // InternalWhileDsl.g:4888:1: ( ( rule__ExprEq__ExprLAssignment_0 ) )
+            // InternalWhileDsl.g:4887:1: ( ( ( rule__ExprEq__ExprLSimpleAssignment_0_0 ) ) )
+            // InternalWhileDsl.g:4888:1: ( ( rule__ExprEq__ExprLSimpleAssignment_0_0 ) )
             {
-            // InternalWhileDsl.g:4888:1: ( ( rule__ExprEq__ExprLAssignment_0 ) )
-            // InternalWhileDsl.g:4889:2: ( rule__ExprEq__ExprLAssignment_0 )
+            // InternalWhileDsl.g:4888:1: ( ( rule__ExprEq__ExprLSimpleAssignment_0_0 ) )
+            // InternalWhileDsl.g:4889:2: ( rule__ExprEq__ExprLSimpleAssignment_0_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getExprLAssignment_0()); 
+               before(grammarAccess.getExprEqAccess().getExprLSimpleAssignment_0_0()); 
             }
-            // InternalWhileDsl.g:4890:2: ( rule__ExprEq__ExprLAssignment_0 )
-            // InternalWhileDsl.g:4890:3: rule__ExprEq__ExprLAssignment_0
+            // InternalWhileDsl.g:4890:2: ( rule__ExprEq__ExprLSimpleAssignment_0_0 )
+            // InternalWhileDsl.g:4890:3: rule__ExprEq__ExprLSimpleAssignment_0_0
             {
             pushFollow(FOLLOW_2);
-            rule__ExprEq__ExprLAssignment_0();
+            rule__ExprEq__ExprLSimpleAssignment_0_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15707,7 +15735,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getExprLAssignment_0()); 
+               after(grammarAccess.getExprEqAccess().getExprLSimpleAssignment_0_0()); 
             }
 
             }
@@ -15727,26 +15755,26 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group__0__Impl"
+    // $ANTLR end "rule__ExprEq__Group_0__0__Impl"
 
 
-    // $ANTLR start "rule__ExprEq__Group__1"
-    // InternalWhileDsl.g:4898:1: rule__ExprEq__Group__1 : rule__ExprEq__Group__1__Impl rule__ExprEq__Group__2 ;
-    public final void rule__ExprEq__Group__1() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_0__1"
+    // InternalWhileDsl.g:4898:1: rule__ExprEq__Group_0__1 : rule__ExprEq__Group_0__1__Impl rule__ExprEq__Group_0__2 ;
+    public final void rule__ExprEq__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:4902:1: ( rule__ExprEq__Group__1__Impl rule__ExprEq__Group__2 )
-            // InternalWhileDsl.g:4903:2: rule__ExprEq__Group__1__Impl rule__ExprEq__Group__2
+            // InternalWhileDsl.g:4902:1: ( rule__ExprEq__Group_0__1__Impl rule__ExprEq__Group_0__2 )
+            // InternalWhileDsl.g:4903:2: rule__ExprEq__Group_0__1__Impl rule__ExprEq__Group_0__2
             {
             pushFollow(FOLLOW_29);
-            rule__ExprEq__Group__1__Impl();
+            rule__ExprEq__Group_0__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__ExprEq__Group__2();
+            rule__ExprEq__Group_0__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15765,12 +15793,12 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group__1"
+    // $ANTLR end "rule__ExprEq__Group_0__1"
 
 
-    // $ANTLR start "rule__ExprEq__Group__1__Impl"
-    // InternalWhileDsl.g:4910:1: rule__ExprEq__Group__1__Impl : ( ruleLC ) ;
-    public final void rule__ExprEq__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_0__1__Impl"
+    // InternalWhileDsl.g:4910:1: rule__ExprEq__Group_0__1__Impl : ( ruleLC ) ;
+    public final void rule__ExprEq__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15782,7 +15810,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             // InternalWhileDsl.g:4916:2: ruleLC
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getLCParserRuleCall_1()); 
+               before(grammarAccess.getExprEqAccess().getLCParserRuleCall_0_1()); 
             }
             pushFollow(FOLLOW_2);
             ruleLC();
@@ -15790,7 +15818,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getLCParserRuleCall_1()); 
+               after(grammarAccess.getExprEqAccess().getLCParserRuleCall_0_1()); 
             }
 
             }
@@ -15810,26 +15838,26 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group__1__Impl"
+    // $ANTLR end "rule__ExprEq__Group_0__1__Impl"
 
 
-    // $ANTLR start "rule__ExprEq__Group__2"
-    // InternalWhileDsl.g:4925:1: rule__ExprEq__Group__2 : rule__ExprEq__Group__2__Impl rule__ExprEq__Group__3 ;
-    public final void rule__ExprEq__Group__2() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_0__2"
+    // InternalWhileDsl.g:4925:1: rule__ExprEq__Group_0__2 : rule__ExprEq__Group_0__2__Impl rule__ExprEq__Group_0__3 ;
+    public final void rule__ExprEq__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:4929:1: ( rule__ExprEq__Group__2__Impl rule__ExprEq__Group__3 )
-            // InternalWhileDsl.g:4930:2: rule__ExprEq__Group__2__Impl rule__ExprEq__Group__3
+            // InternalWhileDsl.g:4929:1: ( rule__ExprEq__Group_0__2__Impl rule__ExprEq__Group_0__3 )
+            // InternalWhileDsl.g:4930:2: rule__ExprEq__Group_0__2__Impl rule__ExprEq__Group_0__3
             {
             pushFollow(FOLLOW_5);
-            rule__ExprEq__Group__2__Impl();
+            rule__ExprEq__Group_0__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__ExprEq__Group__3();
+            rule__ExprEq__Group_0__3();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15848,12 +15876,12 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group__2"
+    // $ANTLR end "rule__ExprEq__Group_0__2"
 
 
-    // $ANTLR start "rule__ExprEq__Group__2__Impl"
-    // InternalWhileDsl.g:4937:1: rule__ExprEq__Group__2__Impl : ( '=?' ) ;
-    public final void rule__ExprEq__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_0__2__Impl"
+    // InternalWhileDsl.g:4937:1: rule__ExprEq__Group_0__2__Impl : ( '=?' ) ;
+    public final void rule__ExprEq__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15865,11 +15893,11 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             // InternalWhileDsl.g:4943:2: '=?'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getEqualsSignQuestionMarkKeyword_2()); 
+               before(grammarAccess.getExprEqAccess().getEqualsSignQuestionMarkKeyword_0_2()); 
             }
             match(input,44,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getEqualsSignQuestionMarkKeyword_2()); 
+               after(grammarAccess.getExprEqAccess().getEqualsSignQuestionMarkKeyword_0_2()); 
             }
 
             }
@@ -15889,26 +15917,26 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group__2__Impl"
+    // $ANTLR end "rule__ExprEq__Group_0__2__Impl"
 
 
-    // $ANTLR start "rule__ExprEq__Group__3"
-    // InternalWhileDsl.g:4952:1: rule__ExprEq__Group__3 : rule__ExprEq__Group__3__Impl rule__ExprEq__Group__4 ;
-    public final void rule__ExprEq__Group__3() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_0__3"
+    // InternalWhileDsl.g:4952:1: rule__ExprEq__Group_0__3 : rule__ExprEq__Group_0__3__Impl rule__ExprEq__Group_0__4 ;
+    public final void rule__ExprEq__Group_0__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:4956:1: ( rule__ExprEq__Group__3__Impl rule__ExprEq__Group__4 )
-            // InternalWhileDsl.g:4957:2: rule__ExprEq__Group__3__Impl rule__ExprEq__Group__4
+            // InternalWhileDsl.g:4956:1: ( rule__ExprEq__Group_0__3__Impl rule__ExprEq__Group_0__4 )
+            // InternalWhileDsl.g:4957:2: rule__ExprEq__Group_0__3__Impl rule__ExprEq__Group_0__4
             {
-            pushFollow(FOLLOW_16);
-            rule__ExprEq__Group__3__Impl();
+            pushFollow(FOLLOW_30);
+            rule__ExprEq__Group_0__3__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__ExprEq__Group__4();
+            rule__ExprEq__Group_0__4();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15927,12 +15955,12 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group__3"
+    // $ANTLR end "rule__ExprEq__Group_0__3"
 
 
-    // $ANTLR start "rule__ExprEq__Group__3__Impl"
-    // InternalWhileDsl.g:4964:1: rule__ExprEq__Group__3__Impl : ( ruleLC ) ;
-    public final void rule__ExprEq__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_0__3__Impl"
+    // InternalWhileDsl.g:4964:1: rule__ExprEq__Group_0__3__Impl : ( ruleLC ) ;
+    public final void rule__ExprEq__Group_0__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -15944,7 +15972,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             // InternalWhileDsl.g:4970:2: ruleLC
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getLCParserRuleCall_3()); 
+               before(grammarAccess.getExprEqAccess().getLCParserRuleCall_0_3()); 
             }
             pushFollow(FOLLOW_2);
             ruleLC();
@@ -15952,7 +15980,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getLCParserRuleCall_3()); 
+               after(grammarAccess.getExprEqAccess().getLCParserRuleCall_0_3()); 
             }
 
             }
@@ -15972,21 +16000,21 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group__3__Impl"
+    // $ANTLR end "rule__ExprEq__Group_0__3__Impl"
 
 
-    // $ANTLR start "rule__ExprEq__Group__4"
-    // InternalWhileDsl.g:4979:1: rule__ExprEq__Group__4 : rule__ExprEq__Group__4__Impl ;
-    public final void rule__ExprEq__Group__4() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_0__4"
+    // InternalWhileDsl.g:4979:1: rule__ExprEq__Group_0__4 : rule__ExprEq__Group_0__4__Impl ;
+    public final void rule__ExprEq__Group_0__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:4983:1: ( rule__ExprEq__Group__4__Impl )
-            // InternalWhileDsl.g:4984:2: rule__ExprEq__Group__4__Impl
+            // InternalWhileDsl.g:4983:1: ( rule__ExprEq__Group_0__4__Impl )
+            // InternalWhileDsl.g:4984:2: rule__ExprEq__Group_0__4__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__ExprEq__Group__4__Impl();
+            rule__ExprEq__Group_0__4__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16005,30 +16033,30 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group__4"
+    // $ANTLR end "rule__ExprEq__Group_0__4"
 
 
-    // $ANTLR start "rule__ExprEq__Group__4__Impl"
-    // InternalWhileDsl.g:4990:1: rule__ExprEq__Group__4__Impl : ( ( rule__ExprEq__Alternatives_4 ) ) ;
-    public final void rule__ExprEq__Group__4__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_0__4__Impl"
+    // InternalWhileDsl.g:4990:1: rule__ExprEq__Group_0__4__Impl : ( ( rule__ExprEq__ExprRSimpleAssignment_0_4 ) ) ;
+    public final void rule__ExprEq__Group_0__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:4994:1: ( ( ( rule__ExprEq__Alternatives_4 ) ) )
-            // InternalWhileDsl.g:4995:1: ( ( rule__ExprEq__Alternatives_4 ) )
+            // InternalWhileDsl.g:4994:1: ( ( ( rule__ExprEq__ExprRSimpleAssignment_0_4 ) ) )
+            // InternalWhileDsl.g:4995:1: ( ( rule__ExprEq__ExprRSimpleAssignment_0_4 ) )
             {
-            // InternalWhileDsl.g:4995:1: ( ( rule__ExprEq__Alternatives_4 ) )
-            // InternalWhileDsl.g:4996:2: ( rule__ExprEq__Alternatives_4 )
+            // InternalWhileDsl.g:4995:1: ( ( rule__ExprEq__ExprRSimpleAssignment_0_4 ) )
+            // InternalWhileDsl.g:4996:2: ( rule__ExprEq__ExprRSimpleAssignment_0_4 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getAlternatives_4()); 
+               before(grammarAccess.getExprEqAccess().getExprRSimpleAssignment_0_4()); 
             }
-            // InternalWhileDsl.g:4997:2: ( rule__ExprEq__Alternatives_4 )
-            // InternalWhileDsl.g:4997:3: rule__ExprEq__Alternatives_4
+            // InternalWhileDsl.g:4997:2: ( rule__ExprEq__ExprRSimpleAssignment_0_4 )
+            // InternalWhileDsl.g:4997:3: rule__ExprEq__ExprRSimpleAssignment_0_4
             {
             pushFollow(FOLLOW_2);
-            rule__ExprEq__Alternatives_4();
+            rule__ExprEq__ExprRSimpleAssignment_0_4();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16036,7 +16064,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getAlternatives_4()); 
+               after(grammarAccess.getExprEqAccess().getExprRSimpleAssignment_0_4()); 
             }
 
             }
@@ -16056,26 +16084,26 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group__4__Impl"
+    // $ANTLR end "rule__ExprEq__Group_0__4__Impl"
 
 
-    // $ANTLR start "rule__ExprEq__Group_4_1__0"
-    // InternalWhileDsl.g:5006:1: rule__ExprEq__Group_4_1__0 : rule__ExprEq__Group_4_1__0__Impl rule__ExprEq__Group_4_1__1 ;
-    public final void rule__ExprEq__Group_4_1__0() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_1__0"
+    // InternalWhileDsl.g:5006:1: rule__ExprEq__Group_1__0 : rule__ExprEq__Group_1__0__Impl rule__ExprEq__Group_1__1 ;
+    public final void rule__ExprEq__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:5010:1: ( rule__ExprEq__Group_4_1__0__Impl rule__ExprEq__Group_4_1__1 )
-            // InternalWhileDsl.g:5011:2: rule__ExprEq__Group_4_1__0__Impl rule__ExprEq__Group_4_1__1
+            // InternalWhileDsl.g:5010:1: ( rule__ExprEq__Group_1__0__Impl rule__ExprEq__Group_1__1 )
+            // InternalWhileDsl.g:5011:2: rule__ExprEq__Group_1__0__Impl rule__ExprEq__Group_1__1
             {
             pushFollow(FOLLOW_16);
-            rule__ExprEq__Group_4_1__0__Impl();
+            rule__ExprEq__Group_1__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__ExprEq__Group_4_1__1();
+            rule__ExprEq__Group_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16094,12 +16122,12 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group_4_1__0"
+    // $ANTLR end "rule__ExprEq__Group_1__0"
 
 
-    // $ANTLR start "rule__ExprEq__Group_4_1__0__Impl"
-    // InternalWhileDsl.g:5018:1: rule__ExprEq__Group_4_1__0__Impl : ( '(' ) ;
-    public final void rule__ExprEq__Group_4_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_1__0__Impl"
+    // InternalWhileDsl.g:5018:1: rule__ExprEq__Group_1__0__Impl : ( '(' ) ;
+    public final void rule__ExprEq__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -16111,11 +16139,11 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             // InternalWhileDsl.g:5024:2: '('
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getLeftParenthesisKeyword_4_1_0()); 
+               before(grammarAccess.getExprEqAccess().getLeftParenthesisKeyword_1_0()); 
             }
             match(input,40,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getLeftParenthesisKeyword_4_1_0()); 
+               after(grammarAccess.getExprEqAccess().getLeftParenthesisKeyword_1_0()); 
             }
 
             }
@@ -16135,26 +16163,26 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group_4_1__0__Impl"
+    // $ANTLR end "rule__ExprEq__Group_1__0__Impl"
 
 
-    // $ANTLR start "rule__ExprEq__Group_4_1__1"
-    // InternalWhileDsl.g:5033:1: rule__ExprEq__Group_4_1__1 : rule__ExprEq__Group_4_1__1__Impl rule__ExprEq__Group_4_1__2 ;
-    public final void rule__ExprEq__Group_4_1__1() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_1__1"
+    // InternalWhileDsl.g:5033:1: rule__ExprEq__Group_1__1 : rule__ExprEq__Group_1__1__Impl rule__ExprEq__Group_1__2 ;
+    public final void rule__ExprEq__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:5037:1: ( rule__ExprEq__Group_4_1__1__Impl rule__ExprEq__Group_4_1__2 )
-            // InternalWhileDsl.g:5038:2: rule__ExprEq__Group_4_1__1__Impl rule__ExprEq__Group_4_1__2
+            // InternalWhileDsl.g:5037:1: ( rule__ExprEq__Group_1__1__Impl rule__ExprEq__Group_1__2 )
+            // InternalWhileDsl.g:5038:2: rule__ExprEq__Group_1__1__Impl rule__ExprEq__Group_1__2
             {
             pushFollow(FOLLOW_24);
-            rule__ExprEq__Group_4_1__1__Impl();
+            rule__ExprEq__Group_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__ExprEq__Group_4_1__2();
+            rule__ExprEq__Group_1__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16173,30 +16201,30 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group_4_1__1"
+    // $ANTLR end "rule__ExprEq__Group_1__1"
 
 
-    // $ANTLR start "rule__ExprEq__Group_4_1__1__Impl"
-    // InternalWhileDsl.g:5045:1: rule__ExprEq__Group_4_1__1__Impl : ( ( rule__ExprEq__ExprRExprAssignment_4_1_1 ) ) ;
-    public final void rule__ExprEq__Group_4_1__1__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_1__1__Impl"
+    // InternalWhileDsl.g:5045:1: rule__ExprEq__Group_1__1__Impl : ( ( rule__ExprEq__ExprAssignment_1_1 ) ) ;
+    public final void rule__ExprEq__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:5049:1: ( ( ( rule__ExprEq__ExprRExprAssignment_4_1_1 ) ) )
-            // InternalWhileDsl.g:5050:1: ( ( rule__ExprEq__ExprRExprAssignment_4_1_1 ) )
+            // InternalWhileDsl.g:5049:1: ( ( ( rule__ExprEq__ExprAssignment_1_1 ) ) )
+            // InternalWhileDsl.g:5050:1: ( ( rule__ExprEq__ExprAssignment_1_1 ) )
             {
-            // InternalWhileDsl.g:5050:1: ( ( rule__ExprEq__ExprRExprAssignment_4_1_1 ) )
-            // InternalWhileDsl.g:5051:2: ( rule__ExprEq__ExprRExprAssignment_4_1_1 )
+            // InternalWhileDsl.g:5050:1: ( ( rule__ExprEq__ExprAssignment_1_1 ) )
+            // InternalWhileDsl.g:5051:2: ( rule__ExprEq__ExprAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getExprRExprAssignment_4_1_1()); 
+               before(grammarAccess.getExprEqAccess().getExprAssignment_1_1()); 
             }
-            // InternalWhileDsl.g:5052:2: ( rule__ExprEq__ExprRExprAssignment_4_1_1 )
-            // InternalWhileDsl.g:5052:3: rule__ExprEq__ExprRExprAssignment_4_1_1
+            // InternalWhileDsl.g:5052:2: ( rule__ExprEq__ExprAssignment_1_1 )
+            // InternalWhileDsl.g:5052:3: rule__ExprEq__ExprAssignment_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__ExprEq__ExprRExprAssignment_4_1_1();
+            rule__ExprEq__ExprAssignment_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16204,7 +16232,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getExprRExprAssignment_4_1_1()); 
+               after(grammarAccess.getExprEqAccess().getExprAssignment_1_1()); 
             }
 
             }
@@ -16224,21 +16252,21 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group_4_1__1__Impl"
+    // $ANTLR end "rule__ExprEq__Group_1__1__Impl"
 
 
-    // $ANTLR start "rule__ExprEq__Group_4_1__2"
-    // InternalWhileDsl.g:5060:1: rule__ExprEq__Group_4_1__2 : rule__ExprEq__Group_4_1__2__Impl ;
-    public final void rule__ExprEq__Group_4_1__2() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_1__2"
+    // InternalWhileDsl.g:5060:1: rule__ExprEq__Group_1__2 : rule__ExprEq__Group_1__2__Impl ;
+    public final void rule__ExprEq__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:5064:1: ( rule__ExprEq__Group_4_1__2__Impl )
-            // InternalWhileDsl.g:5065:2: rule__ExprEq__Group_4_1__2__Impl
+            // InternalWhileDsl.g:5064:1: ( rule__ExprEq__Group_1__2__Impl )
+            // InternalWhileDsl.g:5065:2: rule__ExprEq__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__ExprEq__Group_4_1__2__Impl();
+            rule__ExprEq__Group_1__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16257,12 +16285,12 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group_4_1__2"
+    // $ANTLR end "rule__ExprEq__Group_1__2"
 
 
-    // $ANTLR start "rule__ExprEq__Group_4_1__2__Impl"
-    // InternalWhileDsl.g:5071:1: rule__ExprEq__Group_4_1__2__Impl : ( ')' ) ;
-    public final void rule__ExprEq__Group_4_1__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__Group_1__2__Impl"
+    // InternalWhileDsl.g:5071:1: rule__ExprEq__Group_1__2__Impl : ( ')' ) ;
+    public final void rule__ExprEq__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -16274,11 +16302,11 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             // InternalWhileDsl.g:5077:2: ')'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getRightParenthesisKeyword_4_1_2()); 
+               before(grammarAccess.getExprEqAccess().getRightParenthesisKeyword_1_2()); 
             }
             match(input,41,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getRightParenthesisKeyword_4_1_2()); 
+               after(grammarAccess.getExprEqAccess().getRightParenthesisKeyword_1_2()); 
             }
 
             }
@@ -16298,7 +16326,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__Group_4_1__2__Impl"
+    // $ANTLR end "rule__ExprEq__Group_1__2__Impl"
 
 
     // $ANTLR start "rule__Model__ProgramAssignment"
@@ -17141,28 +17169,24 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ForeachCommand__ExpElementAssignment_2"
-    // InternalWhileDsl.g:5372:1: rule__ForeachCommand__ExpElementAssignment_2 : ( ruleExpr ) ;
+    // InternalWhileDsl.g:5372:1: rule__ForeachCommand__ExpElementAssignment_2 : ( RULE_VARIABLE ) ;
     public final void rule__ForeachCommand__ExpElementAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalWhileDsl.g:5376:1: ( ( ruleExpr ) )
-            // InternalWhileDsl.g:5377:2: ( ruleExpr )
+            // InternalWhileDsl.g:5376:1: ( ( RULE_VARIABLE ) )
+            // InternalWhileDsl.g:5377:2: ( RULE_VARIABLE )
             {
-            // InternalWhileDsl.g:5377:2: ( ruleExpr )
-            // InternalWhileDsl.g:5378:3: ruleExpr
+            // InternalWhileDsl.g:5377:2: ( RULE_VARIABLE )
+            // InternalWhileDsl.g:5378:3: RULE_VARIABLE
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getForeachCommandAccess().getExpElementExprParserRuleCall_2_0()); 
+               before(grammarAccess.getForeachCommandAccess().getExpElementVARIABLETerminalRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_2);
-            ruleExpr();
-
-            state._fsp--;
-            if (state.failed) return ;
+            match(input,RULE_VARIABLE,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getForeachCommandAccess().getExpElementExprParserRuleCall_2_0()); 
+               after(grammarAccess.getForeachCommandAccess().getExpElementVARIABLETerminalRuleCall_2_0()); 
             }
 
             }
@@ -18543,9 +18567,9 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__ExprNot__ExpressionEqAssignment_1"
 
 
-    // $ANTLR start "rule__ExprEq__ExprLAssignment_0"
-    // InternalWhileDsl.g:5845:1: rule__ExprEq__ExprLAssignment_0 : ( ruleExprSimple ) ;
-    public final void rule__ExprEq__ExprLAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__ExprLSimpleAssignment_0_0"
+    // InternalWhileDsl.g:5845:1: rule__ExprEq__ExprLSimpleAssignment_0_0 : ( ruleExprSimple ) ;
+    public final void rule__ExprEq__ExprLSimpleAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -18557,7 +18581,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             // InternalWhileDsl.g:5851:3: ruleExprSimple
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getExprLExprSimpleParserRuleCall_0_0()); 
+               before(grammarAccess.getExprEqAccess().getExprLSimpleExprSimpleParserRuleCall_0_0_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleExprSimple();
@@ -18565,7 +18589,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getExprLExprSimpleParserRuleCall_0_0()); 
+               after(grammarAccess.getExprEqAccess().getExprLSimpleExprSimpleParserRuleCall_0_0_0()); 
             }
 
             }
@@ -18585,12 +18609,12 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__ExprLAssignment_0"
+    // $ANTLR end "rule__ExprEq__ExprLSimpleAssignment_0_0"
 
 
-    // $ANTLR start "rule__ExprEq__ExprRSimpleAssignment_4_0"
-    // InternalWhileDsl.g:5860:1: rule__ExprEq__ExprRSimpleAssignment_4_0 : ( ruleExprSimple ) ;
-    public final void rule__ExprEq__ExprRSimpleAssignment_4_0() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__ExprRSimpleAssignment_0_4"
+    // InternalWhileDsl.g:5860:1: rule__ExprEq__ExprRSimpleAssignment_0_4 : ( ruleExprSimple ) ;
+    public final void rule__ExprEq__ExprRSimpleAssignment_0_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -18602,7 +18626,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             // InternalWhileDsl.g:5866:3: ruleExprSimple
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getExprRSimpleExprSimpleParserRuleCall_4_0_0()); 
+               before(grammarAccess.getExprEqAccess().getExprRSimpleExprSimpleParserRuleCall_0_4_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleExprSimple();
@@ -18610,7 +18634,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getExprRSimpleExprSimpleParserRuleCall_4_0_0()); 
+               after(grammarAccess.getExprEqAccess().getExprRSimpleExprSimpleParserRuleCall_0_4_0()); 
             }
 
             }
@@ -18630,12 +18654,12 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__ExprRSimpleAssignment_4_0"
+    // $ANTLR end "rule__ExprEq__ExprRSimpleAssignment_0_4"
 
 
-    // $ANTLR start "rule__ExprEq__ExprRExprAssignment_4_1_1"
-    // InternalWhileDsl.g:5875:1: rule__ExprEq__ExprRExprAssignment_4_1_1 : ( ruleExpr ) ;
-    public final void rule__ExprEq__ExprRExprAssignment_4_1_1() throws RecognitionException {
+    // $ANTLR start "rule__ExprEq__ExprAssignment_1_1"
+    // InternalWhileDsl.g:5875:1: rule__ExprEq__ExprAssignment_1_1 : ( ruleExpr ) ;
+    public final void rule__ExprEq__ExprAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
@@ -18647,7 +18671,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             // InternalWhileDsl.g:5881:3: ruleExpr
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getExprEqAccess().getExprRExprExprParserRuleCall_4_1_1_0()); 
+               before(grammarAccess.getExprEqAccess().getExprExprParserRuleCall_1_1_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleExpr();
@@ -18655,7 +18679,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getExprEqAccess().getExprRExprExprParserRuleCall_4_1_1_0()); 
+               after(grammarAccess.getExprEqAccess().getExprExprParserRuleCall_1_1_0()); 
             }
 
             }
@@ -18675,7 +18699,7 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__ExprEq__ExprRExprAssignment_4_1_1"
+    // $ANTLR end "rule__ExprEq__ExprAssignment_1_1"
 
     // $ANTLR start synpred15_InternalWhileDsl
     public final void synpred15_InternalWhileDsl_fragment() throws RecognitionException {   
@@ -18707,6 +18731,36 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
     }
     // $ANTLR end synpred15_InternalWhileDsl
 
+    // $ANTLR start synpred16_InternalWhileDsl
+    public final void synpred16_InternalWhileDsl_fragment() throws RecognitionException {   
+        // InternalWhileDsl.g:886:2: ( ( ( rule__ExprEq__Group_0__0 ) ) )
+        // InternalWhileDsl.g:886:2: ( ( rule__ExprEq__Group_0__0 ) )
+        {
+        // InternalWhileDsl.g:886:2: ( ( rule__ExprEq__Group_0__0 ) )
+        // InternalWhileDsl.g:887:3: ( rule__ExprEq__Group_0__0 )
+        {
+        if ( state.backtracking==0 ) {
+           before(grammarAccess.getExprEqAccess().getGroup_0()); 
+        }
+        // InternalWhileDsl.g:888:3: ( rule__ExprEq__Group_0__0 )
+        // InternalWhileDsl.g:888:4: rule__ExprEq__Group_0__0
+        {
+        pushFollow(FOLLOW_2);
+        rule__ExprEq__Group_0__0();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+
+
+        }
+
+
+        }
+    }
+    // $ANTLR end synpred16_InternalWhileDsl
+
     // Delegated rules
 
     public final boolean synpred15_InternalWhileDsl() {
@@ -18723,10 +18777,23 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
         state.failed=false;
         return success;
     }
+    public final boolean synpred16_InternalWhileDsl() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred16_InternalWhileDsl_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
 
 
     protected DFA4 dfa4 = new DFA4(this);
-    protected DFA8 dfa8 = new DFA8(this);
     protected DFA11 dfa11 = new DFA11(this);
     protected DFA12 dfa12 = new DFA12(this);
     protected DFA13 dfa13 = new DFA13(this);
@@ -18779,54 +18846,13 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             return "773:1: rule__ExprSimple__Alternatives : ( ( ( rule__ExprSimple__TermAssignment_0 ) ) | ( ( rule__ExprSimple__TermAssignment_1 ) ) | ( ( rule__ExprSimple__TermAssignment_2 ) ) | ( ( rule__ExprSimple__ExpressionAssignment_3 ) ) | ( ( rule__ExprSimple__ExpressionAssignment_4 ) ) | ( ( rule__ExprSimple__ExpressionAssignment_5 ) ) );";
         }
     }
-    static final String dfa_7s = "\11\uffff";
-    static final String dfa_8s = "\1\11\1\uffff\1\4\1\uffff\5\4";
-    static final String dfa_9s = "\1\55\1\uffff\1\56\1\uffff\5\56";
-    static final String dfa_10s = "\1\uffff\1\1\1\uffff\1\2\5\uffff";
-    static final String dfa_11s = "\11\uffff}>";
-    static final String[] dfa_12s = {
-            "\2\1\35\uffff\1\2\4\uffff\1\1",
-            "",
-            "\4\1\1\uffff\1\4\1\3\7\uffff\4\1\22\uffff\1\3\4\uffff\2\3",
-            "",
-            "\1\5\1\6\1\7\1\10\1\uffff\2\1\35\uffff\1\1\1\3\2\uffff\1\3\2\1",
-            "\1\5\1\6\1\7\1\10\1\uffff\2\1\35\uffff\1\1\3\uffff\1\3\2\1",
-            "\1\5\1\6\1\7\1\10\1\uffff\2\1\35\uffff\1\1\3\uffff\1\3\2\1",
-            "\1\5\1\6\1\7\1\10\1\uffff\2\1\35\uffff\1\1\3\uffff\1\3\2\1",
-            "\1\5\1\6\1\7\1\10\1\uffff\2\1\35\uffff\1\1\3\uffff\1\3\2\1"
-    };
-
-    static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
-    static final char[] dfa_8 = DFA.unpackEncodedStringToUnsignedChars(dfa_8s);
-    static final char[] dfa_9 = DFA.unpackEncodedStringToUnsignedChars(dfa_9s);
-    static final short[] dfa_10 = DFA.unpackEncodedString(dfa_10s);
-    static final short[] dfa_11 = DFA.unpackEncodedString(dfa_11s);
-    static final short[][] dfa_12 = unpackEncodedStringArray(dfa_12s);
-
-    class DFA8 extends DFA {
-
-        public DFA8(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 8;
-            this.eot = dfa_7;
-            this.eof = dfa_7;
-            this.min = dfa_8;
-            this.max = dfa_9;
-            this.accept = dfa_10;
-            this.special = dfa_11;
-            this.transition = dfa_12;
-        }
-        public String getDescription() {
-            return "881:1: rule__ExprEq__Alternatives_4 : ( ( ( rule__ExprEq__ExprRSimpleAssignment_4_0 ) ) | ( ( rule__ExprEq__Group_4_1__0 ) ) );";
-        }
-    }
-    static final String dfa_13s = "\7\uffff";
-    static final String dfa_14s = "\1\1\6\uffff";
-    static final String dfa_15s = "\1\4\1\uffff\4\4\1\uffff";
-    static final String dfa_16s = "\1\33\1\uffff\4\33\1\uffff";
-    static final String dfa_17s = "\1\uffff\1\2\4\uffff\1\1";
-    static final String dfa_18s = "\7\uffff}>";
-    static final String[] dfa_19s = {
+    static final String dfa_7s = "\7\uffff";
+    static final String dfa_8s = "\1\1\6\uffff";
+    static final String dfa_9s = "\1\4\1\uffff\4\4\1\uffff";
+    static final String dfa_10s = "\1\33\1\uffff\4\33\1\uffff";
+    static final String dfa_11s = "\1\uffff\1\2\4\uffff\1\1";
+    static final String dfa_12s = "\7\uffff}>";
+    static final String[] dfa_13s = {
             "\1\2\1\3\1\4\1\5\21\uffff\1\1\1\uffff\1\6",
             "",
             "\1\2\1\3\1\4\1\5\21\uffff\1\1\1\uffff\1\6",
@@ -18836,33 +18862,33 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             ""
     };
 
-    static final short[] dfa_13 = DFA.unpackEncodedString(dfa_13s);
-    static final short[] dfa_14 = DFA.unpackEncodedString(dfa_14s);
-    static final char[] dfa_15 = DFA.unpackEncodedStringToUnsignedChars(dfa_15s);
-    static final char[] dfa_16 = DFA.unpackEncodedStringToUnsignedChars(dfa_16s);
-    static final short[] dfa_17 = DFA.unpackEncodedString(dfa_17s);
-    static final short[] dfa_18 = DFA.unpackEncodedString(dfa_18s);
-    static final short[][] dfa_19 = unpackEncodedStringArray(dfa_19s);
+    static final short[] dfa_7 = DFA.unpackEncodedString(dfa_7s);
+    static final short[] dfa_8 = DFA.unpackEncodedString(dfa_8s);
+    static final char[] dfa_9 = DFA.unpackEncodedStringToUnsignedChars(dfa_9s);
+    static final char[] dfa_10 = DFA.unpackEncodedStringToUnsignedChars(dfa_10s);
+    static final short[] dfa_11 = DFA.unpackEncodedString(dfa_11s);
+    static final short[] dfa_12 = DFA.unpackEncodedString(dfa_12s);
+    static final short[][] dfa_13 = unpackEncodedStringArray(dfa_13s);
 
     class DFA11 extends DFA {
 
         public DFA11(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 11;
-            this.eot = dfa_13;
-            this.eof = dfa_14;
-            this.min = dfa_15;
-            this.max = dfa_16;
-            this.accept = dfa_17;
-            this.special = dfa_18;
-            this.transition = dfa_19;
+            this.eot = dfa_7;
+            this.eof = dfa_8;
+            this.min = dfa_9;
+            this.max = dfa_10;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_13;
         }
         public String getDescription() {
             return "()* loopback of 1568:2: ( rule__Input__Group_1__0 )*";
         }
     }
-    static final String dfa_20s = "\1\1\1\uffff\4\1\1\uffff";
-    static final String[] dfa_21s = {
+    static final String dfa_14s = "\1\1\1\uffff\4\1\1\uffff";
+    static final String[] dfa_15s = {
             "\1\2\1\3\1\4\1\5\16\uffff\1\1\4\uffff\1\6",
             "",
             "\1\2\1\3\1\4\1\5\16\uffff\1\1\4\uffff\1\6",
@@ -18871,28 +18897,28 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             "\1\2\1\3\1\4\1\5\16\uffff\1\1\4\uffff\1\6",
             ""
     };
-    static final short[] dfa_20 = DFA.unpackEncodedString(dfa_20s);
-    static final short[][] dfa_21 = unpackEncodedStringArray(dfa_21s);
+    static final short[] dfa_14 = DFA.unpackEncodedString(dfa_14s);
+    static final short[][] dfa_15 = unpackEncodedStringArray(dfa_15s);
 
     class DFA12 extends DFA {
 
         public DFA12(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 12;
-            this.eot = dfa_13;
-            this.eof = dfa_20;
-            this.min = dfa_15;
-            this.max = dfa_16;
-            this.accept = dfa_17;
-            this.special = dfa_18;
-            this.transition = dfa_21;
+            this.eot = dfa_7;
+            this.eof = dfa_14;
+            this.min = dfa_9;
+            this.max = dfa_10;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_15;
         }
         public String getDescription() {
             return "()* loopback of 1730:2: ( rule__Output__Group_1__0 )*";
         }
     }
-    static final String dfa_22s = "\1\44\1\uffff\4\44\1\uffff";
-    static final String[] dfa_23s = {
+    static final String dfa_16s = "\1\44\1\uffff\4\44\1\uffff";
+    static final String[] dfa_17s = {
             "\1\2\1\3\1\4\1\5\21\uffff\1\1\2\uffff\1\6\2\uffff\1\1\3\uffff\2\1",
             "",
             "\1\2\1\3\1\4\1\5\21\uffff\1\1\2\uffff\1\6\2\uffff\1\1\3\uffff\2\1",
@@ -18901,28 +18927,28 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             "\1\2\1\3\1\4\1\5\21\uffff\1\1\2\uffff\1\6\2\uffff\1\1\3\uffff\2\1",
             ""
     };
-    static final char[] dfa_22 = DFA.unpackEncodedStringToUnsignedChars(dfa_22s);
-    static final short[][] dfa_23 = unpackEncodedStringArray(dfa_23s);
+    static final char[] dfa_16 = DFA.unpackEncodedStringToUnsignedChars(dfa_16s);
+    static final short[][] dfa_17 = unpackEncodedStringArray(dfa_17s);
 
     class DFA13 extends DFA {
 
         public DFA13(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 13;
-            this.eot = dfa_13;
-            this.eof = dfa_20;
-            this.min = dfa_15;
-            this.max = dfa_22;
-            this.accept = dfa_17;
-            this.special = dfa_18;
-            this.transition = dfa_23;
+            this.eot = dfa_7;
+            this.eof = dfa_14;
+            this.min = dfa_9;
+            this.max = dfa_16;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_17;
         }
         public String getDescription() {
             return "()* loopback of 1892:2: ( rule__Commands__Group_1__0 )*";
         }
     }
-    static final String dfa_24s = "\1\47\1\uffff\4\47\1\uffff";
-    static final String[] dfa_25s = {
+    static final String dfa_18s = "\1\47\1\uffff\4\47\1\uffff";
+    static final String[] dfa_19s = {
             "\1\2\1\3\1\4\1\5\23\uffff\1\6\13\uffff\1\1",
             "",
             "\1\2\1\3\1\4\1\5\23\uffff\1\6\13\uffff\1\1",
@@ -18931,28 +18957,28 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             "\1\2\1\3\1\4\1\5\23\uffff\1\6\13\uffff\1\1",
             ""
     };
-    static final char[] dfa_24 = DFA.unpackEncodedStringToUnsignedChars(dfa_24s);
-    static final short[][] dfa_25 = unpackEncodedStringArray(dfa_25s);
+    static final char[] dfa_18 = DFA.unpackEncodedStringToUnsignedChars(dfa_18s);
+    static final short[][] dfa_19 = unpackEncodedStringArray(dfa_19s);
 
     class DFA15 extends DFA {
 
         public DFA15(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 15;
-            this.eot = dfa_13;
-            this.eof = dfa_14;
-            this.min = dfa_15;
-            this.max = dfa_24;
-            this.accept = dfa_17;
-            this.special = dfa_18;
-            this.transition = dfa_25;
+            this.eot = dfa_7;
+            this.eof = dfa_8;
+            this.min = dfa_9;
+            this.max = dfa_18;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_19;
         }
         public String getDescription() {
             return "()* loopback of 3458:2: ( rule__Vars__Group_1__0 )*";
         }
     }
-    static final String dfa_26s = "\1\56\1\uffff\4\56\1\uffff";
-    static final String[] dfa_27s = {
+    static final String dfa_20s = "\1\56\1\uffff\4\56\1\uffff";
+    static final String[] dfa_21s = {
             "\1\2\1\3\1\4\1\5\1\uffff\2\6\35\uffff\1\6\1\1\3\uffff\2\6",
             "",
             "\1\2\1\3\1\4\1\5\1\uffff\2\6\35\uffff\1\6\1\1\3\uffff\2\6",
@@ -18961,27 +18987,27 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             "\1\2\1\3\1\4\1\5\1\uffff\2\6\35\uffff\1\6\1\1\3\uffff\2\6",
             ""
     };
-    static final char[] dfa_26 = DFA.unpackEncodedStringToUnsignedChars(dfa_26s);
-    static final short[][] dfa_27 = unpackEncodedStringArray(dfa_27s);
+    static final char[] dfa_20 = DFA.unpackEncodedStringToUnsignedChars(dfa_20s);
+    static final short[][] dfa_21 = unpackEncodedStringArray(dfa_21s);
 
     class DFA16 extends DFA {
 
         public DFA16(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 16;
-            this.eot = dfa_13;
-            this.eof = dfa_14;
-            this.min = dfa_15;
-            this.max = dfa_26;
-            this.accept = dfa_17;
-            this.special = dfa_18;
-            this.transition = dfa_27;
+            this.eot = dfa_7;
+            this.eof = dfa_8;
+            this.min = dfa_9;
+            this.max = dfa_20;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_21;
         }
         public String getDescription() {
             return "()* loopback of 4187:2: ( rule__LExpr__Group_1__0 )*";
         }
     }
-    static final String[] dfa_28s = {
+    static final String[] dfa_22s = {
             "\1\2\1\3\1\4\1\5\21\uffff\1\1\1\uffff\1\6\1\1\2\uffff\1\1\3\uffff\2\1",
             "",
             "\1\2\1\3\1\4\1\5\21\uffff\1\1\1\uffff\1\6\1\1\2\uffff\1\1\3\uffff\2\1",
@@ -18990,76 +19016,76 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
             "\1\2\1\3\1\4\1\5\21\uffff\1\1\1\uffff\1\6\1\1\2\uffff\1\1\3\uffff\2\1",
             ""
     };
-    static final short[][] dfa_28 = unpackEncodedStringArray(dfa_28s);
+    static final short[][] dfa_22 = unpackEncodedStringArray(dfa_22s);
 
     class DFA17 extends DFA {
 
         public DFA17(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 17;
-            this.eot = dfa_13;
-            this.eof = dfa_20;
-            this.min = dfa_15;
-            this.max = dfa_22;
-            this.accept = dfa_17;
-            this.special = dfa_18;
-            this.transition = dfa_28;
+            this.eot = dfa_7;
+            this.eof = dfa_14;
+            this.min = dfa_9;
+            this.max = dfa_16;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_22;
         }
         public String getDescription() {
             return "()* loopback of 4295:2: ( rule__Exprs__Group_1__0 )*";
         }
     }
-    static final String[] dfa_29s = {
-            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\1\uffff\1\1\1\uffff\2\1\1\6\2\uffff\2\1",
+    static final String[] dfa_23s = {
+            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\3\uffff\2\1\1\6\2\uffff\2\1",
             "",
-            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\1\uffff\1\1\1\uffff\2\1\1\6\2\uffff\2\1",
-            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\1\uffff\1\1\1\uffff\2\1\1\6\2\uffff\2\1",
-            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\1\uffff\1\1\1\uffff\2\1\1\6\2\uffff\2\1",
-            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\1\uffff\1\1\1\uffff\2\1\1\6\2\uffff\2\1",
+            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\3\uffff\2\1\1\6\2\uffff\2\1",
+            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\3\uffff\2\1\1\6\2\uffff\2\1",
+            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\3\uffff\2\1\1\6\2\uffff\2\1",
+            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\3\uffff\2\1\1\6\2\uffff\2\1",
             ""
     };
-    static final short[][] dfa_29 = unpackEncodedStringArray(dfa_29s);
+    static final short[][] dfa_23 = unpackEncodedStringArray(dfa_23s);
 
     class DFA18 extends DFA {
 
         public DFA18(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 18;
-            this.eot = dfa_13;
-            this.eof = dfa_20;
-            this.min = dfa_15;
-            this.max = dfa_26;
-            this.accept = dfa_17;
-            this.special = dfa_18;
-            this.transition = dfa_29;
+            this.eot = dfa_7;
+            this.eof = dfa_14;
+            this.min = dfa_9;
+            this.max = dfa_20;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_23;
         }
         public String getDescription() {
             return "()* loopback of 4484:2: ( rule__ExprAnd__Group_1__0 )*";
         }
     }
-    static final String[] dfa_30s = {
-            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\1\uffff\1\1\1\uffff\3\1\1\6\1\uffff\2\1",
+    static final String[] dfa_24s = {
+            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\3\uffff\3\1\1\6\1\uffff\2\1",
             "",
-            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\1\uffff\1\1\1\uffff\3\1\1\6\1\uffff\2\1",
-            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\1\uffff\1\1\1\uffff\3\1\1\6\1\uffff\2\1",
-            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\1\uffff\1\1\1\uffff\3\1\1\6\1\uffff\2\1",
-            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\1\uffff\1\1\1\uffff\3\1\1\6\1\uffff\2\1",
+            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\3\uffff\3\1\1\6\1\uffff\2\1",
+            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\3\uffff\3\1\1\6\1\uffff\2\1",
+            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\3\uffff\3\1\1\6\1\uffff\2\1",
+            "\1\2\1\3\1\4\1\5\1\uffff\2\1\16\uffff\1\1\1\uffff\2\1\1\uffff\2\1\2\uffff\3\1\3\uffff\3\1\1\6\1\uffff\2\1",
             ""
     };
-    static final short[][] dfa_30 = unpackEncodedStringArray(dfa_30s);
+    static final short[][] dfa_24 = unpackEncodedStringArray(dfa_24s);
 
     class DFA19 extends DFA {
 
         public DFA19(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 19;
-            this.eot = dfa_13;
-            this.eof = dfa_20;
-            this.min = dfa_15;
-            this.max = dfa_26;
-            this.accept = dfa_17;
-            this.special = dfa_18;
-            this.transition = dfa_30;
+            this.eot = dfa_7;
+            this.eof = dfa_14;
+            this.min = dfa_9;
+            this.max = dfa_20;
+            this.accept = dfa_11;
+            this.special = dfa_12;
+            this.transition = dfa_24;
         }
         public String getDescription() {
             return "()* loopback of 4646:2: ( rule__ExprOr__Group_1__0 )*";
@@ -19096,5 +19122,6 @@ public class InternalWhileDslParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000040000000000L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000080000000000L});
     public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000210000000600L});
 
 }

@@ -80,10 +80,16 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/BinTree.cpp">
+		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.cpp">
 			<Option target="libWh"/>
 		</Unit>
-		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/BinTree.h">
+		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.h">
+			<Option target="libWh"/>
+		</Unit>
+		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree_node.cpp">
+			<Option target="libWh"/>
+		</Unit>
+		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree_node.h">
 			<Option target="libWh"/>
 		</Unit>
 		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/main.cpp">

@@ -190,11 +190,11 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
   protected CharSequence _indentCommand(final ForeachCommand foreachCommand) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("foreach ");
-    CharSequence _indentExpression = this.indentExpression(foreachCommand.getExpElement());
-    _builder.append(_indentExpression);
+    String _expElement = foreachCommand.getExpElement();
+    _builder.append(_expElement);
     _builder.append(" in ");
-    CharSequence _indentExpression_1 = this.indentExpression(foreachCommand.getExpList());
-    _builder.append(_indentExpression_1);
+    CharSequence _indentExpression = this.indentExpression(foreachCommand.getExpList());
+    _builder.append(_indentExpression);
     _builder.append(" do");
     _builder.newLineIfNotEmpty();
     String _addTabulation = this.addTabulation(this.indentCommands(foreachCommand.getBody().getCommands()), this.parameters.getIndentationForEach());
@@ -304,23 +304,30 @@ public class PrettyPrinterGenerator extends AbstractGenerator {
   }
   
   protected CharSequence _indentExpression(final ExprEq exprEq) {
-    CharSequence _indentExpression = this.indentExpression(exprEq.getExprL());
-    String text = (_indentExpression + " =? ");
-    ExprSimple _exprRSimple = exprEq.getExprRSimple();
-    boolean _tripleNotEquals = (_exprRSimple != null);
+    String text = "";
+    Expr _expr = exprEq.getExpr();
+    boolean _tripleNotEquals = (_expr != null);
     if (_tripleNotEquals) {
       String _text = text;
-      CharSequence _indentExpression_1 = this.indentExpression(exprEq.getExprRSimple());
-      text = (_text + _indentExpression_1);
+      CharSequence _indentExpression = this.indentExpression(exprEq.getExpr());
+      String _plus = ("(" + _indentExpression);
+      String _plus_1 = (_plus + ")");
+      text = (_text + _plus_1);
     } else {
-      Expr _exprRExpr = exprEq.getExprRExpr();
-      boolean _tripleNotEquals_1 = (_exprRExpr != null);
-      if (_tripleNotEquals_1) {
+      if (((exprEq.getExprLSimple() != null) && (exprEq.getExprRSimple() != null))) {
         String _text_1 = text;
+        CharSequence _indentExpression_1 = this.indentExpression(exprEq.getExprLSimple());
+        String _plus_2 = (_indentExpression_1 + " =? ");
+        text = (_text_1 + _plus_2);
+        String _text_2 = text;
         CharSequence _indentExpression_2 = this.indentExpression(exprEq.getExprRSimple());
-        String _plus = ("(" + _indentExpression_2);
-        String _plus_1 = (_plus + ")");
-        text = (_text_1 + _plus_1);
+        text = (_text_2 + _indentExpression_2);
+      } else {
+        if (((exprEq.getExprLSimple() != null) && (exprEq.getExprRSimple() == null))) {
+          String _text_3 = text;
+          CharSequence _indentExpression_3 = this.indentExpression(exprEq.getExprLSimple());
+          text = (_text_3 + _indentExpression_3);
+        }
       }
     }
     return text;

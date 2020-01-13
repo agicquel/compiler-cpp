@@ -123,7 +123,7 @@ class PrettyPrinterGenerator extends AbstractGenerator {
 	
 	def dispatch CharSequence indentCommand(ForeachCommand foreachCommand) {
 		'''
-		foreach «foreachCommand.expElement.indentExpression()» in «foreachCommand.expList.indentExpression()» do
+		foreach «foreachCommand.expElement» in «foreachCommand.expList.indentExpression()» do
 		«foreachCommand.body.commands.indentCommands.addTabulation(parameters.indentationForEach)»
 		od'''
 	}
@@ -193,13 +193,19 @@ class PrettyPrinterGenerator extends AbstractGenerator {
 	}
 	
 	def dispatch CharSequence indentExpression(ExprEq exprEq) {
-		var text = exprEq.exprL.indentExpression() + " =? ";
-		if(exprEq.exprRSimple !== null) {
-			text += exprEq.exprRSimple.indentExpression();
+		var text = ""
+		
+		if(exprEq.expr !== null) {
+			text += "(" + exprEq.expr.indentExpression() + ")"
 		}
-		else if (exprEq.exprRExpr !== null) {
-			text += "(" + exprEq.exprRSimple.indentExpression() + ")";
+		else if(exprEq.exprLSimple !== null && exprEq.exprRSimple !== null) {
+			text += exprEq.exprLSimple.indentExpression() + " =? "
+			text += exprEq.exprRSimple.indentExpression()
 		}
+		else if(exprEq.exprLSimple !== null && exprEq.exprRSimple === null) {
+			text += exprEq.exprLSimple.indentExpression()
+		}
+		
 		return text;
 	}
 	

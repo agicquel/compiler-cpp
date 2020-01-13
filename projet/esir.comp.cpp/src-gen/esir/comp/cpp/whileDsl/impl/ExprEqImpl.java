@@ -25,9 +25,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link esir.comp.cpp.whileDsl.impl.ExprEqImpl#getExprL <em>Expr L</em>}</li>
+ *   <li>{@link esir.comp.cpp.whileDsl.impl.ExprEqImpl#getExprLSimple <em>Expr LSimple</em>}</li>
  *   <li>{@link esir.comp.cpp.whileDsl.impl.ExprEqImpl#getExprRSimple <em>Expr RSimple</em>}</li>
- *   <li>{@link esir.comp.cpp.whileDsl.impl.ExprEqImpl#getExprRExpr <em>Expr RExpr</em>}</li>
+ *   <li>{@link esir.comp.cpp.whileDsl.impl.ExprEqImpl#getExpr <em>Expr</em>}</li>
  * </ul>
  *
  * @generated
@@ -35,14 +35,14 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
 {
   /**
-   * The cached value of the '{@link #getExprL() <em>Expr L</em>}' containment reference.
+   * The cached value of the '{@link #getExprLSimple() <em>Expr LSimple</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExprL()
+   * @see #getExprLSimple()
    * @generated
    * @ordered
    */
-  protected ExprSimple exprL;
+  protected ExprSimple exprLSimple;
 
   /**
    * The cached value of the '{@link #getExprRSimple() <em>Expr RSimple</em>}' containment reference.
@@ -55,14 +55,14 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
   protected ExprSimple exprRSimple;
 
   /**
-   * The cached value of the '{@link #getExprRExpr() <em>Expr RExpr</em>}' containment reference.
+   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExprRExpr()
+   * @see #getExpr()
    * @generated
    * @ordered
    */
-  protected Expr exprRExpr;
+  protected Expr expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -91,9 +91,9 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
    * @generated
    */
   @Override
-  public ExprSimple getExprL()
+  public ExprSimple getExprLSimple()
   {
-    return exprL;
+    return exprLSimple;
   }
 
   /**
@@ -101,13 +101,13 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExprL(ExprSimple newExprL, NotificationChain msgs)
+  public NotificationChain basicSetExprLSimple(ExprSimple newExprLSimple, NotificationChain msgs)
   {
-    ExprSimple oldExprL = exprL;
-    exprL = newExprL;
+    ExprSimple oldExprLSimple = exprLSimple;
+    exprLSimple = newExprLSimple;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileDslPackage.EXPR_EQ__EXPR_L, oldExprL, newExprL);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileDslPackage.EXPR_EQ__EXPR_LSIMPLE, oldExprLSimple, newExprLSimple);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -119,20 +119,20 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
    * @generated
    */
   @Override
-  public void setExprL(ExprSimple newExprL)
+  public void setExprLSimple(ExprSimple newExprLSimple)
   {
-    if (newExprL != exprL)
+    if (newExprLSimple != exprLSimple)
     {
       NotificationChain msgs = null;
-      if (exprL != null)
-        msgs = ((InternalEObject)exprL).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.EXPR_EQ__EXPR_L, null, msgs);
-      if (newExprL != null)
-        msgs = ((InternalEObject)newExprL).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.EXPR_EQ__EXPR_L, null, msgs);
-      msgs = basicSetExprL(newExprL, msgs);
+      if (exprLSimple != null)
+        msgs = ((InternalEObject)exprLSimple).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.EXPR_EQ__EXPR_LSIMPLE, null, msgs);
+      if (newExprLSimple != null)
+        msgs = ((InternalEObject)newExprLSimple).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.EXPR_EQ__EXPR_LSIMPLE, null, msgs);
+      msgs = basicSetExprLSimple(newExprLSimple, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.EXPR_EQ__EXPR_L, newExprL, newExprL));
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.EXPR_EQ__EXPR_LSIMPLE, newExprLSimple, newExprLSimple));
   }
 
   /**
@@ -191,9 +191,9 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
    * @generated
    */
   @Override
-  public Expr getExprRExpr()
+  public Expr getExpr()
   {
-    return exprRExpr;
+    return expr;
   }
 
   /**
@@ -201,13 +201,13 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExprRExpr(Expr newExprRExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(Expr newExpr, NotificationChain msgs)
   {
-    Expr oldExprRExpr = exprRExpr;
-    exprRExpr = newExprRExpr;
+    Expr oldExpr = expr;
+    expr = newExpr;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileDslPackage.EXPR_EQ__EXPR_REXPR, oldExprRExpr, newExprRExpr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, WhileDslPackage.EXPR_EQ__EXPR, oldExpr, newExpr);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -219,20 +219,20 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
    * @generated
    */
   @Override
-  public void setExprRExpr(Expr newExprRExpr)
+  public void setExpr(Expr newExpr)
   {
-    if (newExprRExpr != exprRExpr)
+    if (newExpr != expr)
     {
       NotificationChain msgs = null;
-      if (exprRExpr != null)
-        msgs = ((InternalEObject)exprRExpr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.EXPR_EQ__EXPR_REXPR, null, msgs);
-      if (newExprRExpr != null)
-        msgs = ((InternalEObject)newExprRExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.EXPR_EQ__EXPR_REXPR, null, msgs);
-      msgs = basicSetExprRExpr(newExprRExpr, msgs);
+      if (expr != null)
+        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.EXPR_EQ__EXPR, null, msgs);
+      if (newExpr != null)
+        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - WhileDslPackage.EXPR_EQ__EXPR, null, msgs);
+      msgs = basicSetExpr(newExpr, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.EXPR_EQ__EXPR_REXPR, newExprRExpr, newExprRExpr));
+      eNotify(new ENotificationImpl(this, Notification.SET, WhileDslPackage.EXPR_EQ__EXPR, newExpr, newExpr));
   }
 
   /**
@@ -245,12 +245,12 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
   {
     switch (featureID)
     {
-      case WhileDslPackage.EXPR_EQ__EXPR_L:
-        return basicSetExprL(null, msgs);
+      case WhileDslPackage.EXPR_EQ__EXPR_LSIMPLE:
+        return basicSetExprLSimple(null, msgs);
       case WhileDslPackage.EXPR_EQ__EXPR_RSIMPLE:
         return basicSetExprRSimple(null, msgs);
-      case WhileDslPackage.EXPR_EQ__EXPR_REXPR:
-        return basicSetExprRExpr(null, msgs);
+      case WhileDslPackage.EXPR_EQ__EXPR:
+        return basicSetExpr(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -265,12 +265,12 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
   {
     switch (featureID)
     {
-      case WhileDslPackage.EXPR_EQ__EXPR_L:
-        return getExprL();
+      case WhileDslPackage.EXPR_EQ__EXPR_LSIMPLE:
+        return getExprLSimple();
       case WhileDslPackage.EXPR_EQ__EXPR_RSIMPLE:
         return getExprRSimple();
-      case WhileDslPackage.EXPR_EQ__EXPR_REXPR:
-        return getExprRExpr();
+      case WhileDslPackage.EXPR_EQ__EXPR:
+        return getExpr();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -285,14 +285,14 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
   {
     switch (featureID)
     {
-      case WhileDslPackage.EXPR_EQ__EXPR_L:
-        setExprL((ExprSimple)newValue);
+      case WhileDslPackage.EXPR_EQ__EXPR_LSIMPLE:
+        setExprLSimple((ExprSimple)newValue);
         return;
       case WhileDslPackage.EXPR_EQ__EXPR_RSIMPLE:
         setExprRSimple((ExprSimple)newValue);
         return;
-      case WhileDslPackage.EXPR_EQ__EXPR_REXPR:
-        setExprRExpr((Expr)newValue);
+      case WhileDslPackage.EXPR_EQ__EXPR:
+        setExpr((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -308,14 +308,14 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
   {
     switch (featureID)
     {
-      case WhileDslPackage.EXPR_EQ__EXPR_L:
-        setExprL((ExprSimple)null);
+      case WhileDslPackage.EXPR_EQ__EXPR_LSIMPLE:
+        setExprLSimple((ExprSimple)null);
         return;
       case WhileDslPackage.EXPR_EQ__EXPR_RSIMPLE:
         setExprRSimple((ExprSimple)null);
         return;
-      case WhileDslPackage.EXPR_EQ__EXPR_REXPR:
-        setExprRExpr((Expr)null);
+      case WhileDslPackage.EXPR_EQ__EXPR:
+        setExpr((Expr)null);
         return;
     }
     super.eUnset(featureID);
@@ -331,12 +331,12 @@ public class ExprEqImpl extends MinimalEObjectImpl.Container implements ExprEq
   {
     switch (featureID)
     {
-      case WhileDslPackage.EXPR_EQ__EXPR_L:
-        return exprL != null;
+      case WhileDslPackage.EXPR_EQ__EXPR_LSIMPLE:
+        return exprLSimple != null;
       case WhileDslPackage.EXPR_EQ__EXPR_RSIMPLE:
         return exprRSimple != null;
-      case WhileDslPackage.EXPR_EQ__EXPR_REXPR:
-        return exprRExpr != null;
+      case WhileDslPackage.EXPR_EQ__EXPR:
+        return expr != null;
     }
     return super.eIsSet(featureID);
   }

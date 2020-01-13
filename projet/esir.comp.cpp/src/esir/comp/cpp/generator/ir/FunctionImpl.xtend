@@ -1,7 +1,6 @@
 package esir.comp.cpp.generator.ir
 
 import java.util.ArrayList
-import esir.comp.cpp.whileDsl.Function
 
 @Data
 class FunctionImpl {
@@ -9,10 +8,10 @@ class FunctionImpl {
 	ArrayList<Quad> quads
 	ArrayList<Quad> inputs
 	ArrayList<Quad> outputs
-	Function function
+	String functionName
 	
 	override String toString() {
-		var res = "Function : " + function.functionName
+		var res = "Function : " + functionName
 		res += "\nEnv : I" + env.inputCounter + " | O" + env.outputCounter + " | L" + env.labelCounter
 		res += " | V" + env.variableCounter + " | S" + env.symbolCounter
 		res += "\nCode : \n"
