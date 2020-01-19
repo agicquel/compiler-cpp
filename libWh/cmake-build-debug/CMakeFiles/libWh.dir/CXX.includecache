@@ -13,9 +13,13 @@ utility
 -
 iostream
 -
+memory
+-
 
 /home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.h
 string
+-
+memory
 -
 
 /home/agicquel/workspace/esir/esir2/comp/libWh/main.cpp
@@ -26,5 +30,7 @@ bin_tree.h
 string
 -
 stack
+-
+memory
 -
 

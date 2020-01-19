@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/libWh.dir/bin_tree.cpp.o"
-  "CMakeFiles/libWh.dir/bin_tree_node.cpp.o"
   "CMakeFiles/libWh.dir/main.cpp.o"
   "libWh"
   "libWh.pdb"

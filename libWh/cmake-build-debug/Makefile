@@ -150,33 +150,6 @@ bin_tree.cpp.s:
 	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree.cpp.s
 .PHONY : bin_tree.cpp.s
 
-bin_tree_node.o: bin_tree_node.cpp.o
-
-.PHONY : bin_tree_node.o
-
-# target to build an object file
-bin_tree_node.cpp.o:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree_node.cpp.o
-.PHONY : bin_tree_node.cpp.o
-
-bin_tree_node.i: bin_tree_node.cpp.i
-
-.PHONY : bin_tree_node.i
-
-# target to preprocess a source file
-bin_tree_node.cpp.i:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree_node.cpp.i
-.PHONY : bin_tree_node.cpp.i
-
-bin_tree_node.s: bin_tree_node.cpp.s
-
-.PHONY : bin_tree_node.s
-
-# target to generate assembly for a file
-bin_tree_node.cpp.s:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree_node.cpp.s
-.PHONY : bin_tree_node.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -216,9 +189,6 @@ help:
 	@echo "... bin_tree.o"
 	@echo "... bin_tree.i"
 	@echo "... bin_tree.s"
-	@echo "... bin_tree_node.o"
-	@echo "... bin_tree_node.i"
-	@echo "... bin_tree_node.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

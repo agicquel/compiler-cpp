@@ -86,12 +86,6 @@
 		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.h">
 			<Option target="libWh"/>
 		</Unit>
-		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree_node.cpp">
-			<Option target="libWh"/>
-		</Unit>
-		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree_node.h">
-			<Option target="libWh"/>
-		</Unit>
 		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/main.cpp">
 			<Option target="libWh"/>
 		</Unit>
