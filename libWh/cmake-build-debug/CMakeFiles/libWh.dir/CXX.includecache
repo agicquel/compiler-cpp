@@ -6,23 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.cpp
-bin_tree.h
-/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.h
-utility
--
-iostream
--
-memory
--
-
 /home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.h
 string
 -
 memory
 -
 
-/home/agicquel/workspace/esir/esir2/comp/libWh/main.cpp
+/home/agicquel/workspace/esir/esir2/comp/libWh/code_test.cpp
+code_test.h
+/home/agicquel/workspace/esir/esir2/comp/libWh/code_test.h
+
+/home/agicquel/workspace/esir/esir2/comp/libWh/code_test.h
 iostream
 -
 bin_tree.h

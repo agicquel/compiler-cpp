@@ -25,14 +25,16 @@ class WhileDslGenerator extends AbstractGenerator {
 		this.ir = irGenerator.compileIR(resource)
 		
 		var generatedCode = ""
+		var functionDecl = "#include \"code_test.h\"\n\n"
 		for(irFunction : ir) {
 			println(irFunction)
+			functionDecl += "void " + irFunction.functionName + "(std::stack<bin_tree::bin_tree_ptr> * f_stack);\n"
 			generatedCode += irFunction.compile() + "\n\n"
 		}
 		
 		fsa.generateFile(
 			"code.cpp",
-			generatedCode)
+			functionDecl + "\n\n" + generatedCode)
 	}
 	
 	def String compile(FunctionImpl ir) {
@@ -42,7 +44,7 @@ class WhileDslGenerator extends AbstractGenerator {
 		if(ir.env.outputCounter > 1) {
 			cpp += ""
 		}
-		cpp += "void " + ir.functionName + '(std::stack<bin_tree> * f_stack)\n{\n'
+		cpp += "void " + ir.functionName + '(std::stack<bin_tree::bin_tree_ptr> * f_stack)\n{\n'
 		
 		/*for(in: ir.inputs) {
 			if(in.op.equals("read")) {
@@ -55,10 +57,10 @@ class WhileDslGenerator extends AbstractGenerator {
 		
 		
 		for(var i = 0; i < ir.env.inputCounter; i++) {
-			cpp += "bin_tree I" + i + ";\n"; // 
+			cpp += "bin_tree::bin_tree_ptr I" + i + " = bin_tree::nil();\n"; // 
 		}
 		for(var i = 0; i < ir.env.variableCounter; i++) {
-			cpp += "bin_tree V" + i + ";\n"; // 
+			cpp += "bin_tree::bin_tree_ptr	 V" + i + " = bin_tree::nil();\n"; // 
 		}
 		
 		cpp += "\n"
@@ -80,13 +82,13 @@ class WhileDslGenerator extends AbstractGenerator {
 					cpp += quad.dest + " = " + "bin_tree::tl(" + quad.arg1 + ");\n"
 				}
 				case "ifeq" : {
-					cpp += "if(bin_tree::equals(&" + quad.arg1 + ", &" + quad.arg2 + ")) { goto " + op_arr.get(1) + "; }\n"
+					cpp += "if(bin_tree::equals(" + quad.arg1 + "," + quad.arg2 + ")) { goto " + op_arr.get(1) + "; }\n"
 				}
 				case "ift" : {
-					cpp += "if(" + quad.arg1 + ".isTrue()) { goto " + op_arr.get(1) + "; }\n"
+					cpp += "if(" + quad.arg1 + "->isTrue()) { goto " + op_arr.get(1) + "; }\n"
 				}
 				case "iff" : {
-					cpp += "if(" + quad.arg1 + ".isFalse()) { goto " + op_arr.get(1) + "; }\n"
+					cpp += "if(" + quad.arg1 + "->isFalse()) { goto " + op_arr.get(1) + "; }\n"
 				}
 				case "goto" : {
 					cpp += "goto "+ op_arr.get(1) + ";\n"

@@ -33,17 +33,24 @@ public class WhileDslGenerator extends AbstractGenerator {
     this.irGenerator = _whileDslIRGenerator;
     this.ir = this.irGenerator.compileIR(resource);
     String generatedCode = "";
+    String functionDecl = "#include \"code_test.h\"\n\n";
     for (final FunctionImpl irFunction : this.ir) {
       {
         InputOutput.<FunctionImpl>println(irFunction);
+        String _functionDecl = functionDecl;
+        String _functionName = irFunction.getFunctionName();
+        String _plus = ("void " + _functionName);
+        String _plus_1 = (_plus + "(std::stack<bin_tree::bin_tree_ptr> * f_stack);\n");
+        functionDecl = (_functionDecl + _plus_1);
         String _generatedCode = generatedCode;
         String _compile = this.compile(irFunction);
-        String _plus = (_compile + "\n\n");
-        generatedCode = (_generatedCode + _plus);
+        String _plus_2 = (_compile + "\n\n");
+        generatedCode = (_generatedCode + _plus_2);
       }
     }
     fsa.generateFile(
-      "code.cpp", generatedCode);
+      "code.cpp", 
+      ((functionDecl + "\n\n") + generatedCode));
   }
   
   public String compile(final FunctionImpl ir) {
@@ -60,15 +67,15 @@ public class WhileDslGenerator extends AbstractGenerator {
       String _cpp_1 = cpp;
       String _functionName_1 = ir.getFunctionName();
       String _plus_1 = ("void " + _functionName_1);
-      String _plus_2 = (_plus_1 + "(std::stack<bin_tree> * f_stack)\n{\n");
+      String _plus_2 = (_plus_1 + "(std::stack<bin_tree::bin_tree_ptr> * f_stack)\n{\n");
       cpp = (_cpp_1 + _plus_2);
       for (int i = 0; (i < ir.getEnv().getInputCounter()); i++) {
         String _cpp_2 = cpp;
-        cpp = (_cpp_2 + (("bin_tree I" + Integer.valueOf(i)) + ";\n"));
+        cpp = (_cpp_2 + (("bin_tree::bin_tree_ptr I" + Integer.valueOf(i)) + " = bin_tree::nil();\n"));
       }
       for (int i = 0; (i < ir.getEnv().getVariableCounter()); i++) {
         String _cpp_2 = cpp;
-        cpp = (_cpp_2 + (("bin_tree V" + Integer.valueOf(i)) + ";\n"));
+        cpp = (_cpp_2 + (("bin_tree::bin_tree_ptr\t V" + Integer.valueOf(i)) + " = bin_tree::nil();\n"));
       }
       String _cpp_2 = cpp;
       cpp = (_cpp_2 + "\n");
@@ -121,8 +128,8 @@ public class WhileDslGenerator extends AbstractGenerator {
               case "ifeq":
                 String _cpp_7 = cpp;
                 String _arg1_3 = quad.getArg1();
-                String _plus_18 = ("if(bin_tree::equals(&" + _arg1_3);
-                String _plus_19 = (_plus_18 + ", &");
+                String _plus_18 = ("if(bin_tree::equals(" + _arg1_3);
+                String _plus_19 = (_plus_18 + ",");
                 String _arg2_1 = quad.getArg2();
                 String _plus_20 = (_plus_19 + _arg2_1);
                 String _plus_21 = (_plus_20 + ")) { goto ");
@@ -135,7 +142,7 @@ public class WhileDslGenerator extends AbstractGenerator {
                 String _cpp_8 = cpp;
                 String _arg1_4 = quad.getArg1();
                 String _plus_24 = ("if(" + _arg1_4);
-                String _plus_25 = (_plus_24 + ".isTrue()) { goto ");
+                String _plus_25 = (_plus_24 + "->isTrue()) { goto ");
                 String _get_2 = op_arr[1];
                 String _plus_26 = (_plus_25 + _get_2);
                 String _plus_27 = (_plus_26 + "; }\n");
@@ -145,7 +152,7 @@ public class WhileDslGenerator extends AbstractGenerator {
                 String _cpp_9 = cpp;
                 String _arg1_5 = quad.getArg1();
                 String _plus_28 = ("if(" + _arg1_5);
-                String _plus_29 = (_plus_28 + ".isFalse()) { goto ");
+                String _plus_29 = (_plus_28 + "->isFalse()) { goto ");
                 String _get_3 = op_arr[1];
                 String _plus_30 = (_plus_29 + _get_3);
                 String _plus_31 = (_plus_30 + "; }\n");

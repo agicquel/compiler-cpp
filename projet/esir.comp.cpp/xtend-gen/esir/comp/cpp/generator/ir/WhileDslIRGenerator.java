@@ -39,6 +39,7 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 @SuppressWarnings("all")
@@ -160,15 +161,15 @@ public class WhileDslIRGenerator {
     e.setPlace(functionImpl.getEnv().newVariable(""));
     String bodyLabel = functionImpl.getEnv().newLabel();
     String endLabel = functionImpl.getEnv().newLabel();
-    Instr e1 = this.compileExpression(forCommand.getCond(), functionImpl, bodyLabel, endLabel);
+    Instr e1 = this.compileExpression(forCommand.getCond(), functionImpl, "", "");
     Instr e2 = this.compileExpression(forCommand.getBody(), functionImpl, "", "");
-    e.getCode().addAll(e1.getCode());
     String _place = e1.getPlace();
     Quad _quad = new Quad("write", "", _place, "");
     e.getCode().add(_quad);
     String _place_1 = e.getPlace();
     Quad _quad_1 = new Quad("read", _place_1, "", "");
     e.getCode().add(_quad_1);
+    e.getCode().addAll(e1.getCode());
     Quad _quad_2 = new Quad(("label " + bodyLabel), "", "", "");
     e.getCode().add(_quad_2);
     String _place_2 = e.getPlace();
@@ -223,14 +224,14 @@ public class WhileDslIRGenerator {
     String expElement = functionImpl.getEnv().newVariable(foreachCommand.getExpElement());
     String bodyLabel = functionImpl.getEnv().newLabel();
     String endLabel = functionImpl.getEnv().newLabel();
-    Instr e1 = this.compileExpression(foreachCommand.getExpList(), functionImpl, bodyLabel, endLabel);
+    Instr e1 = this.compileExpression(foreachCommand.getExpList(), functionImpl, "", "");
     Instr e2 = this.compileExpression(foreachCommand.getBody(), functionImpl, "", "");
-    e.getCode().addAll(e1.getCode());
     String _place = e1.getPlace();
     Quad _quad = new Quad("write", "", _place, "");
     e.getCode().add(_quad);
     Quad _quad_1 = new Quad("read", expElement, "", "");
     e.getCode().add(_quad_1);
+    e.getCode().addAll(e1.getCode());
     Quad _quad_2 = new Quad(("label " + bodyLabel), "", "", "");
     e.getCode().add(_quad_2);
     Quad _quad_3 = new Quad(("iff " + endLabel), "", expElement, "");
@@ -648,7 +649,8 @@ public class WhileDslIRGenerator {
           params.add(expIr.getPlace());
         }
       }
-      for (final String param : params) {
+      List<String> _reverse = ListExtensions.<String>reverse(params);
+      for (final String param : _reverse) {
         Quad _quad = new Quad("write", "", param, "");
         e.getCode().add(_quad);
       }

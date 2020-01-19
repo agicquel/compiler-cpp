@@ -121,12 +121,12 @@ class WhileDslIRGenerator {
 		var bodyLabel = functionImpl.env.newLabel()
 		var endLabel = functionImpl.env.newLabel()
 		
-		var e1 = forCommand.cond.compileExpression(functionImpl, bodyLabel, endLabel)
+		var e1 = forCommand.cond.compileExpression(functionImpl, "", "")
 		var e2 = forCommand.body.compileExpression(functionImpl, "", "")
 		
-		e.code.addAll(e1.code)
 		e.code.add(new Quad("write", "", e1.place, ""))
 		e.code.add(new Quad("read", e.place, "" , ""))
+		e.code.addAll(e1.code)
 		e.code.add(new Quad("label " + bodyLabel, "", "", ""))
 		e.code.add(new Quad("iff " + endLabel, "", e.place, ""))
 		e.code.addAll(e2.code)
@@ -170,13 +170,13 @@ class WhileDslIRGenerator {
 		var expElement = functionImpl.env.newVariable(foreachCommand.expElement)
 		var bodyLabel = functionImpl.env.newLabel()
 		var endLabel = functionImpl.env.newLabel()
-		var e1 = foreachCommand.expList.compileExpression(functionImpl, bodyLabel, endLabel)
+		var e1 = foreachCommand.expList.compileExpression(functionImpl, "", "")
 		var e2 = foreachCommand.body.compileExpression(functionImpl, "", "")
 		
-		e.code.addAll(e1.code)
+		
 		e.code.add(new Quad("write", "", e1.place, ""))
 		e.code.add(new Quad("read", expElement, "" , ""))
-		
+		e.code.addAll(e1.code)
 		e.code.add(new Quad("label " + bodyLabel, "", "", ""))
 		e.code.add(new Quad("iff " + endLabel, "", expElement, ""))
 		e.code.addAll(e2.code)
@@ -516,7 +516,7 @@ class WhileDslIRGenerator {
 			params.add(expIr.place)
 		}
 		
-		for(param : params) {
+		for(param : params.reverse()) {
 			e.code.add(new Quad("write", "", param, ""))
 		}
 		

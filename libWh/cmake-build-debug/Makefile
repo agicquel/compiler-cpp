@@ -150,6 +150,33 @@ bin_tree.cpp.s:
 	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree.cpp.s
 .PHONY : bin_tree.cpp.s
 
+code_test.o: code_test.cpp.o
+
+.PHONY : code_test.o
+
+# target to build an object file
+code_test.cpp.o:
+	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/code_test.cpp.o
+.PHONY : code_test.cpp.o
+
+code_test.i: code_test.cpp.i
+
+.PHONY : code_test.i
+
+# target to preprocess a source file
+code_test.cpp.i:
+	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/code_test.cpp.i
+.PHONY : code_test.cpp.i
+
+code_test.s: code_test.cpp.s
+
+.PHONY : code_test.s
+
+# target to generate assembly for a file
+code_test.cpp.s:
+	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/code_test.cpp.s
+.PHONY : code_test.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -189,6 +216,9 @@ help:
 	@echo "... bin_tree.o"
 	@echo "... bin_tree.i"
 	@echo "... bin_tree.s"
+	@echo "... code_test.o"
+	@echo "... code_test.i"
+	@echo "... code_test.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

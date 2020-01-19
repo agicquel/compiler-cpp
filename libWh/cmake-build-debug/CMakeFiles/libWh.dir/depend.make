@@ -4,6 +4,11 @@
 CMakeFiles/libWh.dir/bin_tree.cpp.o: ../bin_tree.cpp
 CMakeFiles/libWh.dir/bin_tree.cpp.o: ../bin_tree.h
 
+CMakeFiles/libWh.dir/code_test.cpp.o: ../bin_tree.h
+CMakeFiles/libWh.dir/code_test.cpp.o: ../code_test.cpp
+CMakeFiles/libWh.dir/code_test.cpp.o: ../code_test.h
+
 CMakeFiles/libWh.dir/main.cpp.o: ../bin_tree.h
+CMakeFiles/libWh.dir/main.cpp.o: ../code_test.h
 CMakeFiles/libWh.dir/main.cpp.o: ../main.cpp
 
