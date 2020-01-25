@@ -28,7 +28,7 @@ class WhileDslGenerator extends AbstractGenerator {
 		var functionDecl = "#include \"code_test.h\"\n\n"
 		for(irFunction : ir) {
 			println(irFunction)
-			functionDecl += "void " + irFunction.functionName + "(std::stack<bin_tree::bin_tree_ptr> * f_stack);\n"
+			functionDecl += "void " + irFunction.functionName + "(std::stack<bin_tree::bin_tree_ptr> * f_stack); // " + irFunction.function.functionName + "\n"
 			generatedCode += irFunction.compile() + "\n\n"
 		}
 		
@@ -46,16 +46,6 @@ class WhileDslGenerator extends AbstractGenerator {
 		}
 		cpp += "void " + ir.functionName + '(std::stack<bin_tree::bin_tree_ptr> * f_stack)\n{\n'
 		
-		/*for(in: ir.inputs) {
-			if(in.op.equals("read")) {
-				cpp += "bin_tree *" + in.dest + ", "	
-			}
-		}*/
-		//cpp = cpp.substring(0, cpp.length() - 2); // remove last comma
-		
-		// declare local variables
-		
-		
 		for(var i = 0; i < ir.env.inputCounter; i++) {
 			cpp += "bin_tree::bin_tree_ptr I" + i + " = bin_tree::nil();\n"; // 
 		}
@@ -71,6 +61,9 @@ class WhileDslGenerator extends AbstractGenerator {
 			switch op_arr.get(0) {
 				case "nil" : {
 					cpp += quad.dest + " = bin_tree::nil();\n"
+				}
+				case "symb" : {
+					cpp += quad.dest + " = std::make_shared<bin_tree>(\"" + op_arr.get(1) + "\");\n"
 				}
 				case "cons" : {
 					cpp += quad.dest + " = " + "bin_tree::cons(" + quad.arg1 + ", " + quad.arg2 + ");\n"
@@ -97,7 +90,7 @@ class WhileDslGenerator extends AbstractGenerator {
 					cpp += op_arr.get(1) + " :\n"
 				}
 				case "write" : {
-					cpp += "f_stack->push(" + quad.arg1 + ");\n"
+					cpp += "f_stack->push(" + quad.arg1 + ");\n" // ->clone()
 				}
 				case "read" : {
 					cpp +=  quad.dest + " = f_stack->top();\nf_stack->pop();\n"
@@ -116,6 +109,7 @@ class WhileDslGenerator extends AbstractGenerator {
 					for(f : this.ir) {
 						if(f.function.functionName.equals(op_arr.get(1))) {
 							funName = f.functionName
+							//break
 						}
 					}
 					if(funName.isNullOrEmpty()) {
@@ -125,14 +119,6 @@ class WhileDslGenerator extends AbstractGenerator {
 				}
 			}
 		}
-		
-		// generate output
-		/*if(ir.outputs.size > 1) {
-			cpp += "// pas fait encore \n return null;\n"
-		}
-		else {
-			cpp += "\nreturn " + ir.outputs.get(0).arg1 + ";\n"
-		}*/
 		
 		cpp += "}\n"
 		return cpp

@@ -40,12 +40,15 @@ public class WhileDslGenerator extends AbstractGenerator {
         String _functionDecl = functionDecl;
         String _functionName = irFunction.getFunctionName();
         String _plus = ("void " + _functionName);
-        String _plus_1 = (_plus + "(std::stack<bin_tree::bin_tree_ptr> * f_stack);\n");
-        functionDecl = (_functionDecl + _plus_1);
+        String _plus_1 = (_plus + "(std::stack<bin_tree::bin_tree_ptr> * f_stack); // ");
+        String _functionName_1 = irFunction.getFunction().getFunctionName();
+        String _plus_2 = (_plus_1 + _functionName_1);
+        String _plus_3 = (_plus_2 + "\n");
+        functionDecl = (_functionDecl + _plus_3);
         String _generatedCode = generatedCode;
         String _compile = this.compile(irFunction);
-        String _plus_2 = (_compile + "\n\n");
-        generatedCode = (_generatedCode + _plus_2);
+        String _plus_4 = (_compile + "\n\n");
+        generatedCode = (_generatedCode + _plus_4);
       }
     }
     fsa.generateFile(
@@ -92,113 +95,122 @@ public class WhileDslGenerator extends AbstractGenerator {
                 String _plus_3 = (_dest + " = bin_tree::nil();\n");
                 cpp = (_cpp_3 + _plus_3);
                 break;
-              case "cons":
+              case "symb":
                 String _cpp_4 = cpp;
                 String _dest_1 = quad.getDest();
-                String _plus_4 = (_dest_1 + " = ");
-                String _plus_5 = (_plus_4 + "bin_tree::cons(");
-                String _arg1 = quad.getArg1();
-                String _plus_6 = (_plus_5 + _arg1);
-                String _plus_7 = (_plus_6 + ", ");
-                String _arg2 = quad.getArg2();
-                String _plus_8 = (_plus_7 + _arg2);
-                String _plus_9 = (_plus_8 + ");\n");
-                cpp = (_cpp_4 + _plus_9);
+                String _plus_4 = (_dest_1 + " = std::make_shared<bin_tree>(\"");
+                String _get_1 = op_arr[1];
+                String _plus_5 = (_plus_4 + _get_1);
+                String _plus_6 = (_plus_5 + "\");\n");
+                cpp = (_cpp_4 + _plus_6);
                 break;
-              case "hd":
+              case "cons":
                 String _cpp_5 = cpp;
                 String _dest_2 = quad.getDest();
-                String _plus_10 = (_dest_2 + " = ");
-                String _plus_11 = (_plus_10 + "bin_tree::hd(");
-                String _arg1_1 = quad.getArg1();
-                String _plus_12 = (_plus_11 + _arg1_1);
-                String _plus_13 = (_plus_12 + ");\n");
-                cpp = (_cpp_5 + _plus_13);
+                String _plus_7 = (_dest_2 + " = ");
+                String _plus_8 = (_plus_7 + "bin_tree::cons(");
+                String _arg1 = quad.getArg1();
+                String _plus_9 = (_plus_8 + _arg1);
+                String _plus_10 = (_plus_9 + ", ");
+                String _arg2 = quad.getArg2();
+                String _plus_11 = (_plus_10 + _arg2);
+                String _plus_12 = (_plus_11 + ");\n");
+                cpp = (_cpp_5 + _plus_12);
                 break;
-              case "tl":
+              case "hd":
                 String _cpp_6 = cpp;
                 String _dest_3 = quad.getDest();
-                String _plus_14 = (_dest_3 + " = ");
-                String _plus_15 = (_plus_14 + "bin_tree::tl(");
+                String _plus_13 = (_dest_3 + " = ");
+                String _plus_14 = (_plus_13 + "bin_tree::hd(");
+                String _arg1_1 = quad.getArg1();
+                String _plus_15 = (_plus_14 + _arg1_1);
+                String _plus_16 = (_plus_15 + ");\n");
+                cpp = (_cpp_6 + _plus_16);
+                break;
+              case "tl":
+                String _cpp_7 = cpp;
+                String _dest_4 = quad.getDest();
+                String _plus_17 = (_dest_4 + " = ");
+                String _plus_18 = (_plus_17 + "bin_tree::tl(");
                 String _arg1_2 = quad.getArg1();
-                String _plus_16 = (_plus_15 + _arg1_2);
-                String _plus_17 = (_plus_16 + ");\n");
-                cpp = (_cpp_6 + _plus_17);
+                String _plus_19 = (_plus_18 + _arg1_2);
+                String _plus_20 = (_plus_19 + ");\n");
+                cpp = (_cpp_7 + _plus_20);
                 break;
               case "ifeq":
-                String _cpp_7 = cpp;
+                String _cpp_8 = cpp;
                 String _arg1_3 = quad.getArg1();
-                String _plus_18 = ("if(bin_tree::equals(" + _arg1_3);
-                String _plus_19 = (_plus_18 + ",");
+                String _plus_21 = ("if(bin_tree::equals(" + _arg1_3);
+                String _plus_22 = (_plus_21 + ",");
                 String _arg2_1 = quad.getArg2();
-                String _plus_20 = (_plus_19 + _arg2_1);
-                String _plus_21 = (_plus_20 + ")) { goto ");
-                String _get_1 = op_arr[1];
-                String _plus_22 = (_plus_21 + _get_1);
-                String _plus_23 = (_plus_22 + "; }\n");
-                cpp = (_cpp_7 + _plus_23);
+                String _plus_23 = (_plus_22 + _arg2_1);
+                String _plus_24 = (_plus_23 + ")) { goto ");
+                String _get_2 = op_arr[1];
+                String _plus_25 = (_plus_24 + _get_2);
+                String _plus_26 = (_plus_25 + "; }\n");
+                cpp = (_cpp_8 + _plus_26);
                 break;
               case "ift":
-                String _cpp_8 = cpp;
+                String _cpp_9 = cpp;
                 String _arg1_4 = quad.getArg1();
-                String _plus_24 = ("if(" + _arg1_4);
-                String _plus_25 = (_plus_24 + "->isTrue()) { goto ");
-                String _get_2 = op_arr[1];
-                String _plus_26 = (_plus_25 + _get_2);
-                String _plus_27 = (_plus_26 + "; }\n");
-                cpp = (_cpp_8 + _plus_27);
+                String _plus_27 = ("if(" + _arg1_4);
+                String _plus_28 = (_plus_27 + "->isTrue()) { goto ");
+                String _get_3 = op_arr[1];
+                String _plus_29 = (_plus_28 + _get_3);
+                String _plus_30 = (_plus_29 + "; }\n");
+                cpp = (_cpp_9 + _plus_30);
                 break;
               case "iff":
-                String _cpp_9 = cpp;
+                String _cpp_10 = cpp;
                 String _arg1_5 = quad.getArg1();
-                String _plus_28 = ("if(" + _arg1_5);
-                String _plus_29 = (_plus_28 + "->isFalse()) { goto ");
-                String _get_3 = op_arr[1];
-                String _plus_30 = (_plus_29 + _get_3);
-                String _plus_31 = (_plus_30 + "; }\n");
-                cpp = (_cpp_9 + _plus_31);
+                String _plus_31 = ("if(" + _arg1_5);
+                String _plus_32 = (_plus_31 + "->isFalse()) { goto ");
+                String _get_4 = op_arr[1];
+                String _plus_33 = (_plus_32 + _get_4);
+                String _plus_34 = (_plus_33 + "; }\n");
+                cpp = (_cpp_10 + _plus_34);
                 break;
               case "goto":
-                String _cpp_10 = cpp;
-                String _get_4 = op_arr[1];
-                String _plus_32 = ("goto " + _get_4);
-                String _plus_33 = (_plus_32 + ";\n");
-                cpp = (_cpp_10 + _plus_33);
-                break;
-              case "label":
                 String _cpp_11 = cpp;
                 String _get_5 = op_arr[1];
-                String _plus_34 = (_get_5 + " :\n");
-                cpp = (_cpp_11 + _plus_34);
+                String _plus_35 = ("goto " + _get_5);
+                String _plus_36 = (_plus_35 + ";\n");
+                cpp = (_cpp_11 + _plus_36);
+                break;
+              case "label":
+                String _cpp_12 = cpp;
+                String _get_6 = op_arr[1];
+                String _plus_37 = (_get_6 + " :\n");
+                cpp = (_cpp_12 + _plus_37);
                 break;
               case "write":
-                String _cpp_12 = cpp;
+                String _cpp_13 = cpp;
                 String _arg1_6 = quad.getArg1();
-                String _plus_35 = ("f_stack->push(" + _arg1_6);
-                String _plus_36 = (_plus_35 + ");\n");
-                cpp = (_cpp_12 + _plus_36);
+                String _plus_38 = ("f_stack->push(" + _arg1_6);
+                String _plus_39 = (_plus_38 + ");\n");
+                cpp = (_cpp_13 + _plus_39);
                 break;
               case "read":
-                String _cpp_13 = cpp;
-                String _dest_4 = quad.getDest();
-                String _plus_37 = (_dest_4 + " = f_stack->top();\nf_stack->pop();\n");
-                cpp = (_cpp_13 + _plus_37);
+                String _cpp_14 = cpp;
+                String _dest_5 = quad.getDest();
+                String _plus_40 = (_dest_5 + " = f_stack->top();\nf_stack->pop();\n");
+                cpp = (_cpp_14 + _plus_40);
                 break;
               case "nop":
-                String _cpp_14 = cpp;
-                cpp = (_cpp_14 + "bin_tree::nop();\n");
+                String _cpp_15 = cpp;
+                cpp = (_cpp_15 + "bin_tree::nop();\n");
                 break;
               case "true":
-                String _cpp_15 = cpp;
-                String _dest_5 = quad.getDest();
-                String _plus_38 = (_dest_5 + " = bin_tree::getTrue();\n");
-                cpp = (_cpp_15 + _plus_38);
-                break;
-              case "false":
                 String _cpp_16 = cpp;
                 String _dest_6 = quad.getDest();
-                String _plus_39 = (_dest_6 + " = bin_tree::getFalse();\n");
-                cpp = (_cpp_16 + _plus_39);
+                String _plus_41 = (_dest_6 + " = bin_tree::getTrue();\n");
+                cpp = (_cpp_16 + _plus_41);
+                break;
+              case "false":
+                String _cpp_17 = cpp;
+                String _dest_7 = quad.getDest();
+                String _plus_42 = (_dest_7 + " = bin_tree::getFalse();\n");
+                cpp = (_cpp_17 + _plus_42);
                 break;
               case "call":
                 String funName = "";
@@ -210,13 +222,13 @@ public class WhileDslGenerator extends AbstractGenerator {
                 }
                 boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(funName);
                 if (_isNullOrEmpty) {
-                  String _get_6 = op_arr[1];
-                  String _plus_40 = ("Function " + _get_6);
-                  String _plus_41 = (_plus_40 + " does not exist.");
-                  throw new Exception(_plus_41);
+                  String _get_7 = op_arr[1];
+                  String _plus_43 = ("Function " + _get_7);
+                  String _plus_44 = (_plus_43 + " does not exist.");
+                  throw new Exception(_plus_44);
                 }
-                String _cpp_17 = cpp;
-                cpp = (_cpp_17 + (funName + "(f_stack);\n"));
+                String _cpp_18 = cpp;
+                cpp = (_cpp_18 + (funName + "(f_stack);\n"));
                 break;
             }
           }

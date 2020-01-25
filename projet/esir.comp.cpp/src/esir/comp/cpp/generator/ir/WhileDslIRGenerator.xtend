@@ -8,7 +8,6 @@ import esir.comp.cpp.whileDsl.ForCommand
 import esir.comp.cpp.whileDsl.IfCommand
 import esir.comp.cpp.whileDsl.ForeachCommand
 import esir.comp.cpp.whileDsl.VarsCommand
-import esir.comp.cpp.whileDsl.Expr
 import esir.comp.cpp.whileDsl.ExprAnd
 import esir.comp.cpp.whileDsl.ExprSimple
 import esir.comp.cpp.whileDsl.ExprOr
@@ -22,8 +21,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import java.util.HashMap
 import java.util.List
 import esir.comp.cpp.whileDsl.Commands
-import esir.comp.cpp.whileDsl.Exprs
-import esir.comp.cpp.whileDsl.LExpr
+import esir.comp.cpp.whileDsl.Expr
 
 class WhileDslIRGenerator {
 	
@@ -39,9 +37,14 @@ class WhileDslIRGenerator {
 		for(function : resource.allContents.toIterable.filter(Function)) {
 			var env = new Env(null)
 			var quads = newArrayList()
-			var intputs = newArrayList()
-			var outputs = newArrayList()
-			var functionImpl = new FunctionImpl(env, quads, intputs, outputs, "F" + this.functionCounter, function)
+			var fGenName = ""
+			if(function.functionName.equals("main")) {
+				fGenName = "M"
+			}
+			else {
+				fGenName = "F" + this.functionCounter
+			}
+			var functionImpl = new FunctionImpl(env, quads, fGenName, function)
 			function.compile(functionImpl)
 			this.functions.put(function.functionName, functionImpl)
 			this.functionCounter++
@@ -53,7 +56,6 @@ class WhileDslIRGenerator {
 	// STRUCTURES
 	
 	private def compile(Function function, FunctionImpl functionImpl) {
-		// faut gerer le functionName aussi
 		function.functionDefinition.compile(functionImpl)
 	}
 	
@@ -193,8 +195,6 @@ class WhileDslIRGenerator {
 		var variables = newArrayList()
 		
 		for(var i = 0; i < varsCommand.values.expressions.size(); i++) {
-			//println("code = " + varsCommand.values)
-			//var expSimple = varsCommand.values.expressions.get(i).expression as ExprSimple
 			val exp = varsCommand.values.expressions.get(i).expression.compileExpression(functionImpl, "", "")
 			e.code.addAll(exp.code)
 				
@@ -219,37 +219,17 @@ class WhileDslIRGenerator {
 			variables.add(new Quad("read" , varKey, "", ""))
 		}
 		
-		e.code.addAll(variables)
+		e.code.addAll(variables.reverse())
 		
 		return e
 	}
 	
-	/*def private dispatch Instr compileCommand(VarsCommand varsCommand, FunctionImpl functionImpl) {
-		if(varsCommand.variables.variables.size() != varsCommand.values.expressions.size()) {
-			throw new Exception("Variables and values are not equal.")
-		}
-		
-		var e = new Instr()
-		var variables = newArrayList()
-		
-		for(var i = 0; i < varsCommand.values.expressions.size(); i++) {
-			println("type of exp = " + varsCommand.values.expressions.get(i).class.toString())
-			val exp = varsCommand.values.expressions.get(i).compileExpression(functionImpl, "", "")
-			e.code.addAll(exp.code)
-			println("\n\ncode of exp : " + exp.toString() + "\n\n")
-			e.code.add(new Quad("write", "", exp.place, ""))
-			
-			val varToken = varsCommand.variables.variables.get(i)
-			var varKey = functionImpl.env.retrieve(varToken)
-			if(varKey === null) varKey = functionImpl.env.newVariable(varToken)
-			variables.add(new Quad("read" , varKey, "", ""))
-		}
-		e.code.addAll(variables)
-		
-		return e
-	}*/
 	
 	// EXPRESSIONS
+	
+	private def dispatch Instr compileExpression(Expr expr, FunctionImpl functionImpl, String labelTrue, String labelFalse) {
+		return expr.expression.compileExpression(functionImpl, labelTrue, labelFalse)
+	}
 	
 	private def dispatch Instr compileExpression(Commands commands, FunctionImpl functionImpl, String labelTrue, String labelFalse) {
 		var e = new Instr()
@@ -259,33 +239,10 @@ class WhileDslIRGenerator {
 		return e
 	}
 	
-	private def dispatch Instr compileExpression(Expr expr, FunctionImpl functionImpl, String labelTrue, String labelFalse) {
-		println("Expr called !")
-		println("Expr class = " + expr.eClass.toString)
-		println("Expr expression class = " + expr.expression.eClass.toString)
-		return expr.expression.compileExpression(functionImpl, labelTrue, labelFalse)
-	}
-	
-	private def dispatch Instr compileExpression(Exprs exprs, FunctionImpl functionImpl, String labelTrue, String labelFalse) {
-		println("Exprs called !")
-		return new Instr()
-		
-	}
-	
-	private def dispatch Instr compileExpression(LExpr lExpr, FunctionImpl functionImpl, String labelTrue, String labelFalse) {
-		println("LExpr called !")
-		return new Instr()
-	}
-	
 	private def dispatch Instr compileExpression(ExprAnd exprAnd, FunctionImpl functionImpl, String labelTrue, String labelFalse) {
-		/*if(exprAnd.expressionsOr.size() == 1) {
-			return exprAnd.expressionsOr.get(0).compileExpression(functionImpl, labelTrue, labelFalse)
-		}*/
-		
 		var e = new Instr()
 		
 		if(labelTrue.isNullOrEmpty() && labelFalse.isNullOrEmpty()) {
-			println("exprAnd -> labels null")
 			if(exprAnd.expressionsOr.size() == 1) {
 				return exprAnd.expressionsOr.get(0).compileExpression(functionImpl, "", "")
 			}
@@ -295,19 +252,13 @@ class WhileDslIRGenerator {
 				}	
 			}
 		}
-		/*else if(exprAnd.expressionsOr.size() == 1) {
-			return exprAnd.expressionsOr.get(0).compileExpression(functionImpl, labelTrue, labelFalse)
-		}*/
 		else {
 			e.place = functionImpl.env.newVariable("")
 			var labelIfTrue = functionImpl.env.newLabel()
 			var labelIfFalse = functionImpl.env.newLabel()			
-			
-			println("exprAnd.expressionsOr size = " + exprAnd.expressionsOr.size)
-			
+						
 			for(exp : exprAnd.expressionsOr) {
 				var expComp = exp.compileExpression(functionImpl, labelIfTrue, labelIfFalse)
-				println("\nexpComp = " + expComp.toString() + "\n")
 				e.code.addAll(expComp.code)
 				e.code.add(new Quad("iff " + labelIfFalse, "", expComp.place, ""))
 			}
@@ -330,7 +281,6 @@ class WhileDslIRGenerator {
 		var e = new Instr()
 		
 		if(labelTrue.isNullOrEmpty() && labelFalse.isNullOrEmpty()) {
-			println("ExprOr -> labels null")
 			if(exprOr.expressionsNot.size() == 1 ) {
 				return exprOr.expressionsNot.get(0).compileExpression(functionImpl, "", "")
 			}
@@ -340,9 +290,6 @@ class WhileDslIRGenerator {
 				}
 			}
 		}
-		/*else if(exprOr.expressionsNot.size() == 1) {
-			return exprOr.expressionsNot.get(0).compileExpression(functionImpl, labelTrue, labelFalse)
-		}*/
 		else {
 			e.place = functionImpl.env.newVariable("")
 			var labelIfTrue = functionImpl.env.newLabel()
@@ -392,28 +339,21 @@ class WhileDslIRGenerator {
 		var e = new Instr()
 		
 		if(exprEq.expr !== null) {
-			//if(exprEq.expr instanceof ExprSimple) {
-			//	return exprEq.expr.compileExpression(functionImpl, "", "")
-			//}
-			//else if(exprEq.expr instanceof ExprAnd) {
-				var labelIfTrue = functionImpl.env.newLabel()
-				var labelIfFalse = functionImpl.env.newLabel()
-				var labelEnd = functionImpl.env.newLabel()
-				e.place = functionImpl.env.newVariable("")
-				
-				var e1 = exprEq.expr.expression.compileExpression(functionImpl, labelIfTrue, labelIfFalse)
-				compileIfBooleanExpr(exprEq.expr.expression, e1, labelIfTrue, labelIfFalse)
-				e.code.addAll(e1.code)
-				
-				e.code.add(new Quad("label " + labelIfTrue, "", "", ""))
-				e.code.add(new Quad("true", e.place, "", ""))
-				e.code.add(new Quad("goto " + labelEnd, "", "", ""))
-				e.code.add(new Quad("label " + labelIfFalse, "", "", ""))
-				e.code.add(new Quad("false", e.place, "", ""))
-				e.code.add(new Quad("label " + labelEnd, "", "", ""))
-				
-				println("var e pour eq = " + e.toString)	
-			//}
+			var labelIfTrue = functionImpl.env.newLabel()
+			var labelIfFalse = functionImpl.env.newLabel()
+			var labelEnd = functionImpl.env.newLabel()
+			e.place = functionImpl.env.newVariable("")
+			
+			var e1 = exprEq.expr.expression.compileExpression(functionImpl, labelIfTrue, labelIfFalse)
+			compileIfBooleanExpr(exprEq.expr.expression, e1, labelIfTrue, labelIfFalse)
+			e.code.addAll(e1.code)
+			
+			e.code.add(new Quad("label " + labelIfTrue, "", "", ""))
+			e.code.add(new Quad("true", e.place, "", ""))
+			e.code.add(new Quad("goto " + labelEnd, "", "", ""))
+			e.code.add(new Quad("label " + labelIfFalse, "", "", ""))
+			e.code.add(new Quad("false", e.place, "", ""))
+			e.code.add(new Quad("label " + labelEnd, "", "", ""))			
 		}
 		else if(exprEq.exprLSimple !== null && exprEq.exprRSimple !== null) {
 			var e1 = exprEq.exprLSimple.compileExpression(functionImpl, labelTrue, labelFalse)		
@@ -454,9 +394,8 @@ class WhileDslIRGenerator {
 			else if(Character.isLowerCase(exprSimple.term.charAt(0))) { // SYMBOL
 				e.place = functionImpl.env.retrieve(exprSimple.term)
 				if(e.place === null) {
-					var idSymb = functionImpl.env.newSymbol(exprSimple.term)
 					e.place = functionImpl.env.newVariable("")
-					e.code.add(new Quad("symb" + idSymb, e.place, "", ""))
+					e.code.add(new Quad("symb " + exprSimple.term, e.place, "", ""))
 				}
 			}
 			return e
@@ -467,22 +406,49 @@ class WhileDslIRGenerator {
 	}
 	
 	private def dispatch Instr compileExpression(ExprSimpleWithLExpr exprSimpleWithLExpr, FunctionImpl functionImpl, String labelTrue, String labelFalse) {
+		var e = new Instr()
+		var exprsSize = exprSimpleWithLExpr.lexpr.expressions.size()
+		var exprs = exprSimpleWithLExpr.lexpr.expressions.reverseView()
+				
 		if(exprSimpleWithLExpr.operation == "cons") {
-			// TODO : fonctionne seulement pour cons E' E''
-			var e = new Instr()
-			var e1 = exprSimpleWithLExpr.lexpr.expressions.get(0).compileExpression(functionImpl, "", "")
-			var e2 = exprSimpleWithLExpr.lexpr.expressions.get(1).compileExpression(functionImpl, "", "")
-			
-			e.place = functionImpl.env.newVariable("")
-			e.code.addAll(e1.code)
-			e.code.addAll(e2.code)
-			e.code.add(new Quad("cons", e.place, e1.place, e2.place))
-			
-			return e
+			if(exprsSize == 1) {				
+				var e1 = exprs.get(0).compileExpression(functionImpl, "", "")
+				//var nilPlace = functionImpl.env.newVariable("")
+				e.code.addAll(e1.code)
+				e.place = e1.place
+			}
+			else {
+				
+				e.place = functionImpl.env.newVariable("")
+				var e1 = exprs.get(1).compileExpression(functionImpl, "", "")
+				var e2 = exprs.get(0).compileExpression(functionImpl, "", "")
+				e.code.addAll(e1.code)
+				e.code.addAll(e2.code)
+				
+				e.code.add(new Quad("cons", e.place, e1.place, e2.place))
+				for(var i = 2; i < exprsSize; i++) {
+					var e3 = exprs.get(i).compileExpression(functionImpl, "", "")
+					e.code.addAll(e3.code)
+					e.code.add(new Quad("cons", e.place, e3.place, e.place))
+				}
+			}
 		}
 		else if(exprSimpleWithLExpr.operation == "list") {
-			return new Instr()
+			e.place = functionImpl.env.newVariable("")
+			var nilPlace = functionImpl.env.newVariable("")
+			e.code.add(new Quad("nil", nilPlace, "", ""))
+			var e1 = exprs.get(0).compileExpression(functionImpl, "", "")
+			e.code.addAll(e1.code)
+			e.code.add(new Quad("cons", e.place, e1.place, nilPlace))
+			if(exprsSize > 1) {				
+				for(var i = 1; i < exprsSize; i++) {
+					var e2 = exprs.get(i).compileExpression(functionImpl, "", "")
+					e.code.addAll(e2.code)
+					e.code.add(new Quad("cons", e.place, e2.place, e.place))
+				}
+			}
 		}
+		return e
 	}
 	
 	private def dispatch Instr compileExpression(ExprSimpleWithExpr exprSimpleWithExpr, FunctionImpl functionImpl, String labelTrue, String labelFalse) {
@@ -525,10 +491,6 @@ class WhileDslIRGenerator {
 		
 		return e
 	}
-	
-	/*def private  dispatch Instr compileExpression(ExprSimpleWithSymbolLExpr exprSimpleWithSymbolLExpr, FunctionImpl functionImpl, String labelTrue, String labelFalse) {
-		return new Instr()
-	}*/
 	
 	private def Function getFunctionFromResource(String functionName) {
 		for(function : this.res.allContents.toIterable.filter(Function)) {

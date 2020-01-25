@@ -17,9 +17,6 @@ public class Env {
   private int variableCounter = 0;
   
   @Accessors
-  private int symbolCounter = 0;
-  
-  @Accessors
   private int labelCounter = 0;
   
   @Accessors
@@ -37,13 +34,6 @@ public class Env {
     String key = ("V" + Integer.valueOf(this.variableCounter));
     this.table.put(key, token);
     this.variableCounter++;
-    return key;
-  }
-  
-  public String newSymbol(final String token) {
-    String key = ("S" + Integer.valueOf(this.symbolCounter));
-    this.table.put(key, token);
-    this.symbolCounter++;
     return key;
   }
   
@@ -85,15 +75,6 @@ public class Env {
   
   public void setVariableCounter(final int variableCounter) {
     this.variableCounter = variableCounter;
-  }
-  
-  @Pure
-  public int getSymbolCounter() {
-    return this.symbolCounter;
-  }
-  
-  public void setSymbolCounter(final int symbolCounter) {
-    this.symbolCounter = symbolCounter;
   }
   
   @Pure

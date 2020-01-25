@@ -1,248 +1,24 @@
-void F7(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F6(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F5(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F12(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F0(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F2(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F8(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F13(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F11(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F1(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F9(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F4(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F10(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F3(std::stack<bin_tree::bin_tree_ptr> * f_stack);
-void F14(std::stack<bin_tree::bin_tree_ptr> * f_stack);
+#include "code_test.h"
+
+void F8(std::stack<bin_tree::bin_tree_ptr> * f_stack); // add
+void F7(std::stack<bin_tree::bin_tree_ptr> * f_stack); // isOne
+void F6(std::stack<bin_tree::bin_tree_ptr> * f_stack); // mult
+void F13(std::stack<bin_tree::bin_tree_ptr> * f_stack); // fact
+void F1(std::stack<bin_tree::bin_tree_ptr> * f_stack); // isNotZero
+void F3(std::stack<bin_tree::bin_tree_ptr> * f_stack); // incr
+void F9(std::stack<bin_tree::bin_tree_ptr> * f_stack); // subs
+void F14(std::stack<bin_tree::bin_tree_ptr> * f_stack); // gcd
+void M(std::stack<bin_tree::bin_tree_ptr> * f_stack); // main
+void F12(std::stack<bin_tree::bin_tree_ptr> * f_stack); // div
+void F2(std::stack<bin_tree::bin_tree_ptr> * f_stack); // isZero
+void F10(std::stack<bin_tree::bin_tree_ptr> * f_stack); // pow
+void F5(std::stack<bin_tree::bin_tree_ptr> * f_stack); // addR
+void F11(std::stack<bin_tree::bin_tree_ptr> * f_stack); // greater
+void F4(std::stack<bin_tree::bin_tree_ptr> * f_stack); // decr
+void F15(std::stack<bin_tree::bin_tree_ptr> * f_stack); // fib
 
 
 // Function : add
-void F7(std::stack<bin_tree::bin_tree_ptr> * f_stack)
-{
-bin_tree::bin_tree_ptr I0 = bin_tree::nil();
-bin_tree::bin_tree_ptr I1 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V1 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V2 = bin_tree::nil();
-
-I0 = f_stack->top();
-f_stack->pop();
-I1 = f_stack->top();
-f_stack->pop();
-f_stack->push(I0);
-V0 = f_stack->top();
-f_stack->pop();
-f_stack->push(I1);
-V1 = f_stack->top();
-f_stack->pop();
-L0 :
-if(V1->isFalse()) { goto L1; }
-f_stack->push(V0);
-F2(f_stack);
-V2 = f_stack->top();
-f_stack->pop();
-f_stack->push(V2);
-V0 = f_stack->top();
-f_stack->pop();
-V1 = bin_tree::tl(V1);
-goto L0;
-L1 :
-f_stack->push(V0);
-}
-
-
-// Function : isOne
-void F6(std::stack<bin_tree::bin_tree_ptr> * f_stack)
-{
-bin_tree::bin_tree_ptr I0 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V1 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V2 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V3 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V4 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V5 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V6 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V7 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V8 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V9 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V10 = bin_tree::nil();
-
-I0 = f_stack->top();
-f_stack->pop();
-V2 = bin_tree::nil();
-V3 = bin_tree::nil();
-V4 = bin_tree::cons(V2, V3);
-if(bin_tree::equals(I0,V4)) { goto L9; }
-V5 = bin_tree::getFalse();
-goto L8;
-L9 :
-V5 = bin_tree::getTrue();
-L8 :
-if(V5->isTrue()) { goto L5; }
-goto L6;
-L5 :
-V1 = bin_tree::getTrue();
-goto L7;
-L6 :
-V1 = bin_tree::getFalse();
-L7 :
-if(V1->isFalse()) { goto L4; }
-L3 :
-V0 = bin_tree::getTrue();
-goto L0;
-L4 :
-V0 = bin_tree::getFalse();
-goto L1;
-L0 :
-V6 = bin_tree::nil();
-V7 = bin_tree::nil();
-V8 = bin_tree::cons(V6, V7);
-f_stack->push(V8);
-V9 = f_stack->top();
-f_stack->pop();
-goto L2;
-L1 :
-V10 = bin_tree::nil();
-f_stack->push(V10);
-V9 = f_stack->top();
-f_stack->pop();
-L2 :
-f_stack->push(V9);
-}
-
-
-// Function : mult
-void F5(std::stack<bin_tree::bin_tree_ptr> * f_stack)
-{
-bin_tree::bin_tree_ptr I0 = bin_tree::nil();
-bin_tree::bin_tree_ptr I1 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V1 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V2 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V3 = bin_tree::nil();
-
-I0 = f_stack->top();
-f_stack->pop();
-I1 = f_stack->top();
-f_stack->pop();
-V0 = bin_tree::nil();
-f_stack->push(V0);
-V1 = f_stack->top();
-f_stack->pop();
-f_stack->push(I1);
-V2 = f_stack->top();
-f_stack->pop();
-L0 :
-if(V2->isFalse()) { goto L1; }
-f_stack->push(V1);
-f_stack->push(I0);
-F7(f_stack);
-V3 = f_stack->top();
-f_stack->pop();
-f_stack->push(V3);
-V1 = f_stack->top();
-f_stack->pop();
-V2 = bin_tree::tl(V2);
-goto L0;
-L1 :
-f_stack->push(V1);
-}
-
-
-// Function : fact
-void F12(std::stack<bin_tree::bin_tree_ptr> * f_stack)
-{
-bin_tree::bin_tree_ptr I0 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V1 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V2 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V3 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V4 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V5 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V6 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V7 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V8 = bin_tree::nil();
-
-I0 = f_stack->top();
-f_stack->pop();
-V0 = bin_tree::nil();
-V1 = bin_tree::nil();
-V2 = bin_tree::cons(V0, V1);
-f_stack->push(V2);
-V3 = f_stack->top();
-f_stack->pop();
-L2 :
-f_stack->push(I0);
-F0(f_stack);
-V6 = f_stack->top();
-f_stack->pop();
-if(V6->isTrue()) { goto L5; }
-goto L6;
-L5 :
-V5 = bin_tree::getTrue();
-goto L7;
-L6 :
-V5 = bin_tree::getFalse();
-L7 :
-if(V5->isFalse()) { goto L4; }
-L3 :
-V4 = bin_tree::getTrue();
-goto L1;
-L4 :
-V4 = bin_tree::getFalse();
-goto L0;
-L1 :
-f_stack->push(I0);
-F3(f_stack);
-V7 = f_stack->top();
-f_stack->pop();
-f_stack->push(V7);
-f_stack->push(I0);
-f_stack->push(V3);
-F5(f_stack);
-V8 = f_stack->top();
-f_stack->pop();
-f_stack->push(V8);
-I0 = f_stack->top();
-f_stack->pop();
-V3 = f_stack->top();
-f_stack->pop();
-goto L2;
-L0 :
-f_stack->push(V3);
-}
-
-
-// Function : isNotZero
-void F0(std::stack<bin_tree::bin_tree_ptr> * f_stack)
-{
-bin_tree::bin_tree_ptr I0 = bin_tree::nil();
-
-I0 = f_stack->top();
-f_stack->pop();
-bin_tree::nop();
-f_stack->push(I0);
-}
-
-
-// Function : incr
-void F2(std::stack<bin_tree::bin_tree_ptr> * f_stack)
-{
-bin_tree::bin_tree_ptr I0 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
-bin_tree::bin_tree_ptr	 V1 = bin_tree::nil();
-
-I0 = f_stack->top();
-f_stack->pop();
-V0 = bin_tree::nil();
-V1 = bin_tree::cons(V0, I0);
-f_stack->push(V1);
-I0 = f_stack->top();
-f_stack->pop();
-f_stack->push(I0);
-}
-
-
-// Function : subs
 void F8(std::stack<bin_tree::bin_tree_ptr> * f_stack)
 {
 bin_tree::bin_tree_ptr I0 = bin_tree::nil();
@@ -277,8 +53,235 @@ f_stack->push(V0);
 }
 
 
-// Function : gcd
+// Function : isOne
+void F7(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+{
+bin_tree::bin_tree_ptr I0 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V1 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V2 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V3 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V4 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V5 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V6 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V7 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V8 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V9 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V10 = bin_tree::nil();
+
+I0 = f_stack->top();
+f_stack->pop();
+V3 = bin_tree::nil();
+V4 = bin_tree::nil();
+V2 = bin_tree::cons(V3, V4);
+if(bin_tree::equals(I0,V2)) { goto L9; }
+V5 = bin_tree::getFalse();
+goto L8;
+L9 :
+V5 = bin_tree::getTrue();
+L8 :
+if(V5->isTrue()) { goto L5; }
+goto L6;
+L5 :
+V1 = bin_tree::getTrue();
+goto L7;
+L6 :
+V1 = bin_tree::getFalse();
+L7 :
+if(V1->isFalse()) { goto L4; }
+L3 :
+V0 = bin_tree::getTrue();
+goto L0;
+L4 :
+V0 = bin_tree::getFalse();
+goto L1;
+L0 :
+V7 = bin_tree::nil();
+V8 = bin_tree::nil();
+V6 = bin_tree::cons(V7, V8);
+f_stack->push(V6);
+V9 = f_stack->top();
+f_stack->pop();
+goto L2;
+L1 :
+V10 = bin_tree::nil();
+f_stack->push(V10);
+V9 = f_stack->top();
+f_stack->pop();
+L2 :
+f_stack->push(V9);
+}
+
+
+// Function : mult
+void F6(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+{
+bin_tree::bin_tree_ptr I0 = bin_tree::nil();
+bin_tree::bin_tree_ptr I1 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V1 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V2 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V3 = bin_tree::nil();
+
+I0 = f_stack->top();
+f_stack->pop();
+I1 = f_stack->top();
+f_stack->pop();
+V0 = bin_tree::nil();
+f_stack->push(V0);
+V1 = f_stack->top();
+f_stack->pop();
+f_stack->push(I1);
+V2 = f_stack->top();
+f_stack->pop();
+L0 :
+if(V2->isFalse()) { goto L1; }
+f_stack->push(V1);
+f_stack->push(I0);
+F8(f_stack);
+V3 = f_stack->top();
+f_stack->pop();
+f_stack->push(V3);
+V1 = f_stack->top();
+f_stack->pop();
+V2 = bin_tree::tl(V2);
+goto L0;
+L1 :
+f_stack->push(V1);
+}
+
+
+// Function : fact
 void F13(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+{
+bin_tree::bin_tree_ptr I0 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V1 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V2 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V3 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V4 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V5 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V6 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V7 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V8 = bin_tree::nil();
+
+I0 = f_stack->top();
+f_stack->pop();
+V1 = bin_tree::nil();
+V2 = bin_tree::nil();
+V0 = bin_tree::cons(V1, V2);
+f_stack->push(V0);
+V3 = f_stack->top();
+f_stack->pop();
+L2 :
+f_stack->push(I0);
+F1(f_stack);
+V6 = f_stack->top();
+f_stack->pop();
+if(V6->isTrue()) { goto L5; }
+goto L6;
+L5 :
+V5 = bin_tree::getTrue();
+goto L7;
+L6 :
+V5 = bin_tree::getFalse();
+L7 :
+if(V5->isFalse()) { goto L4; }
+L3 :
+V4 = bin_tree::getTrue();
+goto L1;
+L4 :
+V4 = bin_tree::getFalse();
+goto L0;
+L1 :
+f_stack->push(I0);
+F4(f_stack);
+V7 = f_stack->top();
+f_stack->pop();
+f_stack->push(V7);
+f_stack->push(I0);
+f_stack->push(V3);
+F6(f_stack);
+V8 = f_stack->top();
+f_stack->pop();
+f_stack->push(V8);
+V3 = f_stack->top();
+f_stack->pop();
+I0 = f_stack->top();
+f_stack->pop();
+goto L2;
+L0 :
+f_stack->push(V3);
+}
+
+
+// Function : isNotZero
+void F1(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+{
+bin_tree::bin_tree_ptr I0 = bin_tree::nil();
+
+I0 = f_stack->top();
+f_stack->pop();
+bin_tree::nop();
+f_stack->push(I0);
+}
+
+
+// Function : incr
+void F3(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+{
+bin_tree::bin_tree_ptr I0 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V1 = bin_tree::nil();
+
+I0 = f_stack->top();
+f_stack->pop();
+V1 = bin_tree::nil();
+V0 = bin_tree::cons(V1, I0);
+f_stack->push(V0);
+I0 = f_stack->top();
+f_stack->pop();
+f_stack->push(I0);
+}
+
+
+// Function : subs
+void F9(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+{
+bin_tree::bin_tree_ptr I0 = bin_tree::nil();
+bin_tree::bin_tree_ptr I1 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V1 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V2 = bin_tree::nil();
+
+I0 = f_stack->top();
+f_stack->pop();
+I1 = f_stack->top();
+f_stack->pop();
+f_stack->push(I0);
+V0 = f_stack->top();
+f_stack->pop();
+f_stack->push(I1);
+V1 = f_stack->top();
+f_stack->pop();
+L0 :
+if(V1->isFalse()) { goto L1; }
+f_stack->push(V0);
+F4(f_stack);
+V2 = f_stack->top();
+f_stack->pop();
+f_stack->push(V2);
+V0 = f_stack->top();
+f_stack->pop();
+V1 = bin_tree::tl(V1);
+goto L0;
+L1 :
+f_stack->push(V0);
+}
+
+
+// Function : gcd
+void F14(std::stack<bin_tree::bin_tree_ptr> * f_stack)
 {
 bin_tree::bin_tree_ptr I0 = bin_tree::nil();
 bin_tree::bin_tree_ptr I1 = bin_tree::nil();
@@ -297,14 +300,14 @@ I1 = f_stack->top();
 f_stack->pop();
 f_stack->push(I1);
 f_stack->push(I0);
-F11(f_stack);
+F12(f_stack);
 V0 = f_stack->top();
 f_stack->pop();
 f_stack->push(V0);
 V1 = f_stack->top();
 f_stack->pop();
 f_stack->push(V5);
-F0(f_stack);
+F1(f_stack);
 V4 = f_stack->top();
 f_stack->pop();
 if(V4->isTrue()) { goto L5; }
@@ -325,7 +328,7 @@ goto L1;
 L0 :
 f_stack->push(V5);
 f_stack->push(I1);
-F13(f_stack);
+F14(f_stack);
 V6 = f_stack->top();
 f_stack->pop();
 f_stack->push(V6);
@@ -341,8 +344,32 @@ f_stack->push(V7);
 }
 
 
+// Function : main
+void M(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+{
+bin_tree::bin_tree_ptr I0 = bin_tree::nil();
+bin_tree::bin_tree_ptr I1 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
+bin_tree::bin_tree_ptr	 V1 = bin_tree::nil();
+
+I0 = f_stack->top();
+f_stack->pop();
+I1 = f_stack->top();
+f_stack->pop();
+f_stack->push(I1);
+f_stack->push(I0);
+F10(f_stack);
+V0 = f_stack->top();
+f_stack->pop();
+f_stack->push(V0);
+V1 = f_stack->top();
+f_stack->pop();
+f_stack->push(V1);
+}
+
+
 // Function : div
-void F11(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+void F12(std::stack<bin_tree::bin_tree_ptr> * f_stack)
 {
 bin_tree::bin_tree_ptr I0 = bin_tree::nil();
 bin_tree::bin_tree_ptr I1 = bin_tree::nil();
@@ -369,14 +396,14 @@ f_stack->pop();
 V0 = bin_tree::nil();
 f_stack->push(V0);
 f_stack->push(I0);
-V1 = f_stack->top();
-f_stack->pop();
 V2 = f_stack->top();
+f_stack->pop();
+V1 = f_stack->top();
 f_stack->pop();
 L2 :
 f_stack->push(I1);
 f_stack->push(V2);
-F10(f_stack);
+F11(f_stack);
 V8 = f_stack->top();
 f_stack->pop();
 if(V8->isTrue()) { goto L13; }
@@ -446,14 +473,14 @@ goto L0;
 L1 :
 f_stack->push(I1);
 f_stack->push(V2);
-F8(f_stack);
+F9(f_stack);
 V13 = f_stack->top();
 f_stack->pop();
 f_stack->push(V13);
 V2 = f_stack->top();
 f_stack->pop();
 f_stack->push(V1);
-F2(f_stack);
+F3(f_stack);
 V14 = f_stack->top();
 f_stack->pop();
 f_stack->push(V14);
@@ -467,7 +494,7 @@ f_stack->push(V2);
 
 
 // Function : isZero
-void F1(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+void F2(std::stack<bin_tree::bin_tree_ptr> * f_stack)
 {
 bin_tree::bin_tree_ptr I0 = bin_tree::nil();
 bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
@@ -502,10 +529,10 @@ V3 = f_stack->top();
 f_stack->pop();
 goto L2;
 L1 :
-V4 = bin_tree::nil();
 V5 = bin_tree::nil();
-V6 = bin_tree::cons(V4, V5);
-f_stack->push(V6);
+V6 = bin_tree::nil();
+V4 = bin_tree::cons(V5, V6);
+f_stack->push(V4);
 V3 = f_stack->top();
 f_stack->pop();
 L2 :
@@ -514,7 +541,7 @@ f_stack->push(V3);
 
 
 // Function : pow
-void F9(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+void F10(std::stack<bin_tree::bin_tree_ptr> * f_stack)
 {
 bin_tree::bin_tree_ptr I0 = bin_tree::nil();
 bin_tree::bin_tree_ptr I1 = bin_tree::nil();
@@ -529,10 +556,10 @@ I0 = f_stack->top();
 f_stack->pop();
 I1 = f_stack->top();
 f_stack->pop();
-V0 = bin_tree::nil();
 V1 = bin_tree::nil();
-V2 = bin_tree::cons(V0, V1);
-f_stack->push(V2);
+V2 = bin_tree::nil();
+V0 = bin_tree::cons(V1, V2);
+f_stack->push(V0);
 V3 = f_stack->top();
 f_stack->pop();
 f_stack->push(I1);
@@ -542,7 +569,7 @@ L0 :
 if(V4->isFalse()) { goto L1; }
 f_stack->push(V3);
 f_stack->push(I0);
-F5(f_stack);
+F6(f_stack);
 V5 = f_stack->top();
 f_stack->pop();
 f_stack->push(V5);
@@ -556,7 +583,7 @@ f_stack->push(V3);
 
 
 // Function : addR
-void F4(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+void F5(std::stack<bin_tree::bin_tree_ptr> * f_stack)
 {
 bin_tree::bin_tree_ptr I0 = bin_tree::nil();
 bin_tree::bin_tree_ptr I1 = bin_tree::nil();
@@ -573,7 +600,7 @@ f_stack->pop();
 I1 = f_stack->top();
 f_stack->pop();
 f_stack->push(I1);
-F1(f_stack);
+F2(f_stack);
 V2 = f_stack->top();
 f_stack->pop();
 if(V2->isTrue()) { goto L5; }
@@ -598,16 +625,16 @@ f_stack->pop();
 goto L2;
 L1 :
 f_stack->push(I1);
-F3(f_stack);
+F4(f_stack);
 V6 = f_stack->top();
 f_stack->pop();
 f_stack->push(V6);
 f_stack->push(I0);
-F4(f_stack);
+F5(f_stack);
 V5 = f_stack->top();
 f_stack->pop();
 f_stack->push(V5);
-F2(f_stack);
+F3(f_stack);
 V4 = f_stack->top();
 f_stack->pop();
 f_stack->push(V4);
@@ -619,7 +646,7 @@ f_stack->push(V3);
 
 
 // Function : greater
-void F10(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+void F11(std::stack<bin_tree::bin_tree_ptr> * f_stack)
 {
 bin_tree::bin_tree_ptr I0 = bin_tree::nil();
 bin_tree::bin_tree_ptr I1 = bin_tree::nil();
@@ -865,10 +892,10 @@ V4 = f_stack->top();
 f_stack->pop();
 goto L63;
 L62 :
-V31 = bin_tree::nil();
 V32 = bin_tree::nil();
-V33 = bin_tree::cons(V31, V32);
-f_stack->push(V33);
+V33 = bin_tree::nil();
+V31 = bin_tree::cons(V32, V33);
+f_stack->push(V31);
 V4 = f_stack->top();
 f_stack->pop();
 L63 :
@@ -878,7 +905,7 @@ f_stack->push(V4);
 
 
 // Function : decr
-void F3(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+void F4(std::stack<bin_tree::bin_tree_ptr> * f_stack)
 {
 bin_tree::bin_tree_ptr I0 = bin_tree::nil();
 bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
@@ -894,7 +921,7 @@ f_stack->push(I0);
 
 
 // Function : fib
-void F14(std::stack<bin_tree::bin_tree_ptr> * f_stack)
+void F15(std::stack<bin_tree::bin_tree_ptr> * f_stack)
 {
 bin_tree::bin_tree_ptr I0 = bin_tree::nil();
 bin_tree::bin_tree_ptr	 V0 = bin_tree::nil();
@@ -918,7 +945,7 @@ bin_tree::bin_tree_ptr	 V16 = bin_tree::nil();
 I0 = f_stack->top();
 f_stack->pop();
 f_stack->push(I0);
-F1(f_stack);
+F2(f_stack);
 V2 = f_stack->top();
 f_stack->pop();
 if(V2->isTrue()) { goto L5; }
@@ -944,7 +971,7 @@ f_stack->pop();
 goto L2;
 L1 :
 f_stack->push(I0);
-F6(f_stack);
+F7(f_stack);
 V7 = f_stack->top();
 f_stack->pop();
 if(V7->isTrue()) { goto L13; }
@@ -963,37 +990,37 @@ L12 :
 V5 = bin_tree::getFalse();
 goto L9;
 L8 :
-V8 = bin_tree::nil();
 V9 = bin_tree::nil();
-V10 = bin_tree::cons(V8, V9);
-f_stack->push(V10);
+V10 = bin_tree::nil();
+V8 = bin_tree::cons(V9, V10);
+f_stack->push(V8);
 V4 = f_stack->top();
 f_stack->pop();
 goto L10;
 L9 :
 f_stack->push(I0);
-F3(f_stack);
+F4(f_stack);
 V13 = f_stack->top();
 f_stack->pop();
 f_stack->push(V13);
-F14(f_stack);
+F15(f_stack);
 V12 = f_stack->top();
 f_stack->pop();
 f_stack->push(I0);
-F3(f_stack);
+F4(f_stack);
 V16 = f_stack->top();
 f_stack->pop();
 f_stack->push(V16);
-F3(f_stack);
+F4(f_stack);
 V15 = f_stack->top();
 f_stack->pop();
 f_stack->push(V15);
-F14(f_stack);
+F15(f_stack);
 V14 = f_stack->top();
 f_stack->pop();
 f_stack->push(V14);
 f_stack->push(V12);
-F7(f_stack);
+F8(f_stack);
 V11 = f_stack->top();
 f_stack->pop();
 f_stack->push(V11);

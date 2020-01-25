@@ -12,10 +12,6 @@ string
 memory
 -
 
-/home/agicquel/workspace/esir/esir2/comp/libWh/code_test.cpp
-code_test.h
-/home/agicquel/workspace/esir/esir2/comp/libWh/code_test.h
-
 /home/agicquel/workspace/esir/esir2/comp/libWh/code_test.h
 iostream
 -
@@ -26,5 +22,23 @@ string
 stack
 -
 memory
+-
+
+/home/agicquel/workspace/esir/esir2/comp/libWh/main.cpp
+iostream
+-
+bin_tree.h
+/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.h
+code_test.h
+/home/agicquel/workspace/esir/esir2/comp/libWh/code_test.h
+string
+-
+stack
+-
+unistd.h
+-
+boost/regex.hpp
+-
+boost/xpressive/xpressive.hpp
 -
 

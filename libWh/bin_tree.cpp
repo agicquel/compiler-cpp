@@ -1,10 +1,6 @@
-//
-// Created by agicquel on 04/01/2020.
-//
-
 #include "bin_tree.h"
-
 #include <memory>
+#include <iostream>
 
 bin_tree::bin_tree() {
     head = tail = nullptr;
@@ -26,19 +22,19 @@ bool bin_tree::isFalse() {
     return !isTrue();
 }
 
-bin_tree::bin_tree_ptr bin_tree::cons(bin_tree_ptr tree1, bin_tree_ptr tree2) {
+bin_tree::bin_tree_ptr bin_tree::cons(bin_tree_ptr head, bin_tree_ptr tail) {
     bin_tree_ptr tree = std::make_shared<bin_tree>();
-    tree->head = tree1;
-    tree->tail = tree2;
+    tree->head = head->clone();
+    tree->tail = tail->clone();
     return tree;
 }
 
-bin_tree::bin_tree_ptr bin_tree::hd(bin_tree_ptr tree) {
+bin_tree::bin_tree_ptr bin_tree::hd(const bin_tree_ptr& tree) {
     if(tree->head.get() != nullptr) return tree->head;
     else return nil();
 }
 
-bin_tree::bin_tree_ptr bin_tree::tl(bin_tree_ptr tree) {
+bin_tree::bin_tree_ptr bin_tree::tl(const bin_tree_ptr& tree) {
     if(tree->tail.get() != nullptr) return tree->tail;
     else return nil();
 }
@@ -51,11 +47,14 @@ bin_tree::bin_tree_ptr bin_tree::getFalse() {
     return nil();
 }
 
-bool bin_tree::equals(bin_tree_ptr t1, bin_tree_ptr t2) {
-    if((t1 == nullptr && t2 != nullptr) || (t1 != nullptr && t2 == nullptr)) {
-        return false;
+bool bin_tree::equals(const bin_tree_ptr& t1, const bin_tree_ptr& t2) {
+    if(t1 == nullptr && t2 == nullptr) return true;
+    else if(t1 != nullptr && t2 != nullptr) {
+        return t1->node_key == t2->node_key &&
+            equals(t1->head, t2->head) &&
+            equals(t1->tail, t2->tail);
     }
-    return t1->toString() == t2->toString();
+    else return false;
 }
 
 bin_tree::bin_tree_ptr bin_tree::nil() {
@@ -87,8 +86,28 @@ int bin_tree::toInt() {
     return size;
 }
 
-// TODO:
 bin_tree::bin_tree_ptr bin_tree::clone() {
-    return bin_tree::bin_tree_ptr();
+    bin_tree_ptr tree = std::make_shared<bin_tree>();
+    recCopy(this, tree.get());
+    return tree;
 }
 
+void bin_tree::recCopy(bin_tree *src, bin_tree *dest) {
+    dest->node_key = src->node_key;
+    if(src->head != nullptr) {
+        dest->head = std::make_shared<bin_tree>();
+        recCopy(src->head.get(), dest->head.get());
+    }
+    if(src->tail != nullptr) {
+        dest->tail = std::make_shared<bin_tree>();
+        recCopy(src->tail.get(), dest->tail.get());
+    }
+}
+
+bin_tree::bin_tree_ptr bin_tree::createInt(int size) {
+    bin_tree_ptr tree = nil();
+    for(int i = 0; i < size; i++) {
+        tree = cons(nil(), tree);
+    }
+    return tree;
+}

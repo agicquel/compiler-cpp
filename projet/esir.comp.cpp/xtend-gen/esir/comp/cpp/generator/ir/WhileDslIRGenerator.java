@@ -18,12 +18,10 @@ import esir.comp.cpp.whileDsl.ExprSimple;
 import esir.comp.cpp.whileDsl.ExprSimpleWithExpr;
 import esir.comp.cpp.whileDsl.ExprSimpleWithLExpr;
 import esir.comp.cpp.whileDsl.ExprSimpleWithSymbolLExpr;
-import esir.comp.cpp.whileDsl.Exprs;
 import esir.comp.cpp.whileDsl.ForCommand;
 import esir.comp.cpp.whileDsl.ForeachCommand;
 import esir.comp.cpp.whileDsl.Function;
 import esir.comp.cpp.whileDsl.IfCommand;
-import esir.comp.cpp.whileDsl.LExpr;
 import esir.comp.cpp.whileDsl.NopCommand;
 import esir.comp.cpp.whileDsl.VarsCommand;
 import esir.comp.cpp.whileDsl.WhileCommand;
@@ -37,7 +35,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
-import org.eclipse.xtext.xbase.lib.InputOutput;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
@@ -59,9 +56,14 @@ public class WhileDslIRGenerator {
       {
         Env env = new Env(null);
         ArrayList<Quad> quads = CollectionLiterals.<Quad>newArrayList();
-        ArrayList<Quad> intputs = CollectionLiterals.<Quad>newArrayList();
-        ArrayList<Quad> outputs = CollectionLiterals.<Quad>newArrayList();
-        FunctionImpl functionImpl = new FunctionImpl(env, quads, intputs, outputs, ("F" + Integer.valueOf(this.functionCounter)), function);
+        String fGenName = "";
+        boolean _equals = function.getFunctionName().equals("main");
+        if (_equals) {
+          fGenName = "M";
+        } else {
+          fGenName = ("F" + Integer.valueOf(this.functionCounter));
+        }
+        FunctionImpl functionImpl = new FunctionImpl(env, quads, fGenName, function);
         this.compile(function, functionImpl);
         this.functions.put(function.getFunctionName(), functionImpl);
         this.functionCounter++;
@@ -286,36 +288,14 @@ public class WhileDslIRGenerator {
         variables.add(_quad_1);
       }
     }
-    e.getCode().addAll(variables);
+    e.getCode().addAll(ListExtensions.<Quad>reverse(variables));
     return e;
   }
   
-  /**
-   * def private dispatch Instr compileCommand(VarsCommand varsCommand, FunctionImpl functionImpl) {
-   * if(varsCommand.variables.variables.size() != varsCommand.values.expressions.size()) {
-   * throw new Exception("Variables and values are not equal.")
-   * }
-   * 
-   * var e = new Instr()
-   * var variables = newArrayList()
-   * 
-   * for(var i = 0; i < varsCommand.values.expressions.size(); i++) {
-   * println("type of exp = " + varsCommand.values.expressions.get(i).class.toString())
-   * val exp = varsCommand.values.expressions.get(i).compileExpression(functionImpl, "", "")
-   * e.code.addAll(exp.code)
-   * println("\n\ncode of exp : " + exp.toString() + "\n\n")
-   * e.code.add(new Quad("write", "", exp.place, ""))
-   * 
-   * val varToken = varsCommand.variables.variables.get(i)
-   * var varKey = functionImpl.env.retrieve(varToken)
-   * if(varKey === null) varKey = functionImpl.env.newVariable(varToken)
-   * variables.add(new Quad("read" , varKey, "", ""))
-   * }
-   * e.code.addAll(variables)
-   * 
-   * return e
-   * }
-   */
+  private Instr _compileExpression(final Expr expr, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
+    return this.compileExpression(expr.getExpression(), functionImpl, labelTrue, labelFalse);
+  }
+  
   private Instr _compileExpression(final Commands commands, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
     Instr e = new Instr();
     EList<Command> _commands = commands.getCommands();
@@ -325,31 +305,9 @@ public class WhileDslIRGenerator {
     return e;
   }
   
-  private Instr _compileExpression(final Expr expr, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
-    InputOutput.<String>println("Expr called !");
-    String _string = expr.eClass().toString();
-    String _plus = ("Expr class = " + _string);
-    InputOutput.<String>println(_plus);
-    String _string_1 = expr.getExpression().eClass().toString();
-    String _plus_1 = ("Expr expression class = " + _string_1);
-    InputOutput.<String>println(_plus_1);
-    return this.compileExpression(expr.getExpression(), functionImpl, labelTrue, labelFalse);
-  }
-  
-  private Instr _compileExpression(final Exprs exprs, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
-    InputOutput.<String>println("Exprs called !");
-    return new Instr();
-  }
-  
-  private Instr _compileExpression(final LExpr lExpr, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
-    InputOutput.<String>println("LExpr called !");
-    return new Instr();
-  }
-  
   private Instr _compileExpression(final ExprAnd exprAnd, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
     Instr e = new Instr();
     if ((StringExtensions.isNullOrEmpty(labelTrue) && StringExtensions.isNullOrEmpty(labelFalse))) {
-      InputOutput.<String>println("exprAnd -> labels null");
       int _size = exprAnd.getExpressionsOr().size();
       boolean _equals = (_size == 1);
       if (_equals) {
@@ -364,17 +322,10 @@ public class WhileDslIRGenerator {
       e.setPlace(functionImpl.getEnv().newVariable(""));
       String labelIfTrue = functionImpl.getEnv().newLabel();
       String labelIfFalse = functionImpl.getEnv().newLabel();
-      int _size_1 = exprAnd.getExpressionsOr().size();
-      String _plus = ("exprAnd.expressionsOr size = " + Integer.valueOf(_size_1));
-      InputOutput.<String>println(_plus);
       EList<ExprOr> _expressionsOr_1 = exprAnd.getExpressionsOr();
       for (final ExprOr exp_1 : _expressionsOr_1) {
         {
           Instr expComp = this.compileExpression(exp_1, functionImpl, labelIfTrue, labelIfFalse);
-          String _string = expComp.toString();
-          String _plus_1 = ("\nexpComp = " + _string);
-          String _plus_2 = (_plus_1 + "\n");
-          InputOutput.<String>println(_plus_2);
           e.getCode().addAll(expComp.getCode());
           String _place = expComp.getPlace();
           Quad _quad = new Quad(("iff " + labelIfFalse), "", _place, "");
@@ -402,7 +353,6 @@ public class WhileDslIRGenerator {
   private Instr _compileExpression(final ExprOr exprOr, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
     Instr e = new Instr();
     if ((StringExtensions.isNullOrEmpty(labelTrue) && StringExtensions.isNullOrEmpty(labelFalse))) {
-      InputOutput.<String>println("ExprOr -> labels null");
       int _size = exprOr.getExpressionsNot().size();
       boolean _equals = (_size == 1);
       if (_equals) {
@@ -505,9 +455,6 @@ public class WhileDslIRGenerator {
       e.getCode().add(_quad_4);
       Quad _quad_5 = new Quad(("label " + labelEnd), "", "", "");
       e.getCode().add(_quad_5);
-      String _string = e.toString();
-      String _plus = ("var e pour eq = " + _string);
-      InputOutput.<String>println(_plus);
     } else {
       if (((exprEq.getExprLSimple() != null) && (exprEq.getExprRSimple() != null))) {
         Instr e1_1 = this.compileExpression(exprEq.getExprLSimple(), functionImpl, labelTrue, labelFalse);
@@ -570,10 +517,11 @@ public class WhileDslIRGenerator {
             String _place_2 = e.getPlace();
             boolean _tripleEquals_1 = (_place_2 == null);
             if (_tripleEquals_1) {
-              String idSymb = functionImpl.getEnv().newSymbol(exprSimple.getTerm());
               e.setPlace(functionImpl.getEnv().newVariable(""));
+              String _term_2 = exprSimple.getTerm();
+              String _plus = ("symb " + _term_2);
               String _place_3 = e.getPlace();
-              Quad _quad_1 = new Quad(("symb" + idSymb), _place_3, "", "");
+              Quad _quad_1 = new Quad(_plus, _place_3, "", "");
               e.getCode().add(_quad_1);
             }
           }
@@ -591,29 +539,69 @@ public class WhileDslIRGenerator {
   }
   
   private Instr _compileExpression(final ExprSimpleWithLExpr exprSimpleWithLExpr, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
+    Instr e = new Instr();
+    int exprsSize = exprSimpleWithLExpr.getLexpr().getExpressions().size();
+    List<Expr> exprs = ListExtensions.<Expr>reverseView(exprSimpleWithLExpr.getLexpr().getExpressions());
     String _operation = exprSimpleWithLExpr.getOperation();
     boolean _equals = Objects.equal(_operation, "cons");
     if (_equals) {
-      Instr e = new Instr();
-      Instr e1 = this.compileExpression(exprSimpleWithLExpr.getLexpr().getExpressions().get(0), functionImpl, "", "");
-      Instr e2 = this.compileExpression(exprSimpleWithLExpr.getLexpr().getExpressions().get(1), functionImpl, "", "");
-      e.setPlace(functionImpl.getEnv().newVariable(""));
-      e.getCode().addAll(e1.getCode());
-      e.getCode().addAll(e2.getCode());
-      String _place = e.getPlace();
-      String _place_1 = e1.getPlace();
-      String _place_2 = e2.getPlace();
-      Quad _quad = new Quad("cons", _place, _place_1, _place_2);
-      e.getCode().add(_quad);
-      return e;
+      if ((exprsSize == 1)) {
+        Instr e1 = this.compileExpression(exprs.get(0), functionImpl, "", "");
+        e.getCode().addAll(e1.getCode());
+        e.setPlace(e1.getPlace());
+      } else {
+        e.setPlace(functionImpl.getEnv().newVariable(""));
+        Instr e1_1 = this.compileExpression(exprs.get(1), functionImpl, "", "");
+        Instr e2 = this.compileExpression(exprs.get(0), functionImpl, "", "");
+        e.getCode().addAll(e1_1.getCode());
+        e.getCode().addAll(e2.getCode());
+        String _place = e.getPlace();
+        String _place_1 = e1_1.getPlace();
+        String _place_2 = e2.getPlace();
+        Quad _quad = new Quad("cons", _place, _place_1, _place_2);
+        e.getCode().add(_quad);
+        for (int i = 2; (i < exprsSize); i++) {
+          {
+            Instr e3 = this.compileExpression(exprs.get(i), functionImpl, "", "");
+            e.getCode().addAll(e3.getCode());
+            String _place_3 = e.getPlace();
+            String _place_4 = e3.getPlace();
+            String _place_5 = e.getPlace();
+            Quad _quad_1 = new Quad("cons", _place_3, _place_4, _place_5);
+            e.getCode().add(_quad_1);
+          }
+        }
+      }
     } else {
       String _operation_1 = exprSimpleWithLExpr.getOperation();
       boolean _equals_1 = Objects.equal(_operation_1, "list");
       if (_equals_1) {
-        return new Instr();
+        e.setPlace(functionImpl.getEnv().newVariable(""));
+        String nilPlace = functionImpl.getEnv().newVariable("");
+        Quad _quad_1 = new Quad("nil", nilPlace, "", "");
+        e.getCode().add(_quad_1);
+        Instr e1_2 = this.compileExpression(exprs.get(0), functionImpl, "", "");
+        e.getCode().addAll(e1_2.getCode());
+        String _place_3 = e.getPlace();
+        String _place_4 = e1_2.getPlace();
+        Quad _quad_2 = new Quad("cons", _place_3, _place_4, nilPlace);
+        e.getCode().add(_quad_2);
+        if ((exprsSize > 1)) {
+          for (int i = 1; (i < exprsSize); i++) {
+            {
+              Instr e2_1 = this.compileExpression(exprs.get(i), functionImpl, "", "");
+              e.getCode().addAll(e2_1.getCode());
+              String _place_5 = e.getPlace();
+              String _place_6 = e2_1.getPlace();
+              String _place_7 = e.getPlace();
+              Quad _quad_3 = new Quad("cons", _place_5, _place_6, _place_7);
+              e.getCode().add(_quad_3);
+            }
+          }
+        }
       }
     }
-    return null;
+    return e;
   }
   
   private Instr _compileExpression(final ExprSimpleWithExpr exprSimpleWithExpr, final FunctionImpl functionImpl, final String labelTrue, final String labelFalse) {
@@ -667,11 +655,6 @@ public class WhileDslIRGenerator {
     }
   }
   
-  /**
-   * def private  dispatch Instr compileExpression(ExprSimpleWithSymbolLExpr exprSimpleWithSymbolLExpr, FunctionImpl functionImpl, String labelTrue, String labelFalse) {
-   * return new Instr()
-   * }
-   */
   private Function getFunctionFromResource(final String functionName) {
     Iterable<Function> _filter = Iterables.<Function>filter(IteratorExtensions.<EObject>toIterable(this.res.getAllContents()), Function.class);
     for (final Function function : _filter) {
@@ -723,10 +706,6 @@ public class WhileDslIRGenerator {
       return _compileExpression((ExprSimpleWithLExpr)commands, functionImpl, labelTrue, labelFalse);
     } else if (commands instanceof ExprSimpleWithSymbolLExpr) {
       return _compileExpression((ExprSimpleWithSymbolLExpr)commands, functionImpl, labelTrue, labelFalse);
-    } else if (commands instanceof Exprs) {
-      return _compileExpression((Exprs)commands, functionImpl, labelTrue, labelFalse);
-    } else if (commands instanceof LExpr) {
-      return _compileExpression((LExpr)commands, functionImpl, labelTrue, labelFalse);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(commands, functionImpl, labelTrue, labelFalse).toString());

@@ -7,7 +7,6 @@ class Env {
 	HashMap<String, String> table
 	protected Env previous
 	@Accessors int variableCounter = 0
-	@Accessors int symbolCounter = 0
 	@Accessors int labelCounter = 0
 	@Accessors int inputCounter = 0
 	@Accessors int outputCounter = 0
@@ -21,13 +20,6 @@ class Env {
 		var key = "V" + this.variableCounter
 		this.table.put(key, token)
 		this.variableCounter++
-		return key
-	}
-	
-	def String newSymbol(String token) {
-		var key = "S" + this.symbolCounter
-		this.table.put(key, token)
-		this.symbolCounter++
 		return key
 	}
 	
