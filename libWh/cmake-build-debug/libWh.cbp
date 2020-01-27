@@ -27,11 +27,11 @@
 					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="libWh">
-				<Option output="/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/libWh" prefix_auto="0" extension_auto="0"/>
+			<Target title="While">
+				<Option output="/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/libWhile.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="1"/>
+				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9"/>
@@ -42,17 +42,17 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 libWh"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 While"/>
 					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="libWh/fast">
-				<Option output="/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/libWh" prefix_auto="0" extension_auto="0"/>
+			<Target title="While/fast">
+				<Option output="/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/libWhile.a" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug"/>
 				<Option object_output="./"/>
-				<Option type="1"/>
+				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9"/>
@@ -63,7 +63,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 libWh/fast"/>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 While/fast"/>
 					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -79,21 +79,60 @@
 					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="main">
+				<Option output="/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 main"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="main/fast">
+				<Option output="/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/main" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 main/fast"/>
+					<CompileFile command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j8 -f &quot;/home/agicquel/workspace/esir/esir2/comp/libWh/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
-		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.cpp">
-			<Option target="libWh"/>
-		</Unit>
 		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/bin_tree.h">
-			<Option target="libWh"/>
+			<Option target="While"/>
 		</Unit>
-		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/code_test.cpp">
-			<Option target="libWh"/>
-		</Unit>
-		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/code_test.h">
-			<Option target="libWh"/>
+		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/libWh.h">
+			<Option target="While"/>
 		</Unit>
 		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/main.cpp">
-			<Option target="libWh"/>
+			<Option target="main"/>
+		</Unit>
+		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/peglib.h">
+			<Option target="While"/>
 		</Unit>
 		<Unit filename="/home/agicquel/workspace/esir/esir2/comp/libWh/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>

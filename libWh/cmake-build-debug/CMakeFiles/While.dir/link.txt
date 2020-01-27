@@ -1,0 +1,2 @@
+/usr/bin/ar qc libWhile.a  
+/usr/bin/ranlib libWhile.a

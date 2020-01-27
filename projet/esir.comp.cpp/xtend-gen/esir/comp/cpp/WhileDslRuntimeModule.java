@@ -1,7 +1,7 @@
 package esir.comp.cpp;
 
 import esir.comp.cpp.AbstractWhileDslRuntimeModule;
-import esir.comp.cpp.generator.WhileDslGenerator;
+import esir.comp.cpp.generator.WhileCompilerGenerator;
 import org.eclipse.xtext.generator.IGenerator2;
 
 /**
@@ -11,6 +11,6 @@ import org.eclipse.xtext.generator.IGenerator2;
 public class WhileDslRuntimeModule extends AbstractWhileDslRuntimeModule {
   @Override
   public Class<? extends IGenerator2> bindIGenerator2() {
-    return WhileDslGenerator.class;
+    return WhileCompilerGenerator.class;
   }
 }

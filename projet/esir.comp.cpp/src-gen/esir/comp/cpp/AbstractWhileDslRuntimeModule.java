@@ -6,7 +6,7 @@ package esir.comp.cpp;
 import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
-import esir.comp.cpp.generator.WhileDslGenerator;
+import esir.comp.cpp.generator.WhileCompilerGenerator;
 import esir.comp.cpp.parser.antlr.WhileDslAntlrTokenFileProvider;
 import esir.comp.cpp.parser.antlr.WhileDslParser;
 import esir.comp.cpp.parser.antlr.internal.InternalWhileDslLexer;
@@ -188,7 +188,7 @@ public abstract class AbstractWhileDslRuntimeModule extends DefaultRuntimeModule
 	
 	// contributed by org.eclipse.xtext.xtext.generator.generator.GeneratorFragment2
 	public Class<? extends IGenerator2> bindIGenerator2() {
-		return WhileDslGenerator.class;
+		return WhileCompilerGenerator.class;
 	}
 	
 }

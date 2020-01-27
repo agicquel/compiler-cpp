@@ -111,71 +111,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named libWh
+# Target rules for targets named While
 
 # Build rule for target.
-libWh: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 libWh
-.PHONY : libWh
+While: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 While
+.PHONY : While
 
 # fast build rule for target.
-libWh/fast:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/build
-.PHONY : libWh/fast
+While/fast:
+	$(MAKE) -f CMakeFiles/While.dir/build.make CMakeFiles/While.dir/build
+.PHONY : While/fast
 
-bin_tree.o: bin_tree.cpp.o
+#=============================================================================
+# Target rules for targets named main
 
-.PHONY : bin_tree.o
+# Build rule for target.
+main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
-# target to build an object file
-bin_tree.cpp.o:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree.cpp.o
-.PHONY : bin_tree.cpp.o
-
-bin_tree.i: bin_tree.cpp.i
-
-.PHONY : bin_tree.i
-
-# target to preprocess a source file
-bin_tree.cpp.i:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree.cpp.i
-.PHONY : bin_tree.cpp.i
-
-bin_tree.s: bin_tree.cpp.s
-
-.PHONY : bin_tree.s
-
-# target to generate assembly for a file
-bin_tree.cpp.s:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/bin_tree.cpp.s
-.PHONY : bin_tree.cpp.s
-
-code_test.o: code_test.cpp.o
-
-.PHONY : code_test.o
-
-# target to build an object file
-code_test.cpp.o:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/code_test.cpp.o
-.PHONY : code_test.cpp.o
-
-code_test.i: code_test.cpp.i
-
-.PHONY : code_test.i
-
-# target to preprocess a source file
-code_test.cpp.i:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/code_test.cpp.i
-.PHONY : code_test.cpp.i
-
-code_test.s: code_test.cpp.s
-
-.PHONY : code_test.s
-
-# target to generate assembly for a file
-code_test.cpp.s:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/code_test.cpp.s
-.PHONY : code_test.cpp.s
+# fast build rule for target.
+main/fast:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
 main.o: main.cpp.o
 
@@ -183,7 +142,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -192,7 +151,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -201,7 +160,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/libWh.dir/build.make CMakeFiles/libWh.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -211,14 +170,9 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... libWh"
+	@echo "... While"
 	@echo "... edit_cache"
-	@echo "... bin_tree.o"
-	@echo "... bin_tree.i"
-	@echo "... bin_tree.s"
-	@echo "... code_test.o"
-	@echo "... code_test.i"
-	@echo "... code_test.s"
+	@echo "... main"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

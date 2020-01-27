@@ -10,3 +10,7 @@
 /.FunctionImpl.java._trace
 /.IR.java._trace
 /.WhileDslIRGenerator.java._trace
+/.WhileCompilerGenerator.java._trace
+/.WhileCompilerRuntimeModule.java._trace
+/.WhileCompilerStandaloneSetup.java._trace
+/.WhileCompilerMain.java._trace
