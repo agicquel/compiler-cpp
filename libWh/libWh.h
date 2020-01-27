@@ -116,6 +116,8 @@ namespace libWh {
             }
         }
 
+        delete[] argvr;
+
         if(m_stack->empty()) {
             m_stack->push(bin_tree::nil());
             m_stack->push(bin_tree::nil());

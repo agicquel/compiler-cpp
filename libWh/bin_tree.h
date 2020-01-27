@@ -18,9 +18,7 @@ private:
     std::string node_key;
     static void recCopy(bin_tree *src, bin_tree *dest);
 public:
-
     bin_tree();
-    //bin_tree(bin_tree const& tree);
     explicit bin_tree(std::string root_value);
     ~bin_tree();
     bin_tree_ptr clone();

@@ -1,7 +1,7 @@
 function main:
 read X, Y
 %
-	R := (mult X Y)
+	R := (pow X Y)
 %
 write R
 
