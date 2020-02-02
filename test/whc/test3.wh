@@ -1,16 +1,13 @@
 function main:
-read X, Y, Z
+read X
 %
-  R := nil ;
   for X do
-    for Y do
-      for Z do
-        R := (incr R)
-      od
+    for X do
+        X := (incr X)
     od
   od
 %
-write R
+write X
 
 function incr:
 read X

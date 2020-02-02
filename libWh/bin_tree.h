@@ -16,18 +16,17 @@ private:
     bin_tree_ptr head;
     bin_tree_ptr tail;
     std::string node_key;
-    static void recCopy(bin_tree *src, bin_tree *dest);
 public:
     bin_tree();
     explicit bin_tree(std::string root_value);
     ~bin_tree();
-    bin_tree_ptr clone();
 
     std::string getValue();
     bool isTrue();
     bool isFalse();
     int toInt();
-    std::string toString(); // JSON format
+    std::string toString();
+    std::string toJson();
 
     static bin_tree_ptr cons(bin_tree_ptr head, bin_tree_ptr tail);
     static bin_tree_ptr hd(const bin_tree_ptr& tree);
@@ -62,8 +61,8 @@ bool bin_tree::isFalse() {
 
 bin_tree::bin_tree_ptr bin_tree::cons(bin_tree_ptr head, bin_tree_ptr tail) {
     bin_tree_ptr tree = std::make_shared<bin_tree>();
-    tree->head = head->clone();
-    tree->tail = tail->clone();
+    tree->head = head;
+    tree->tail = tail;
     return tree;
 }
 
@@ -104,6 +103,13 @@ std::string bin_tree::getValue() {
 }
 
 std::string bin_tree::toString() {
+    if(head == nullptr && tail == nullptr)
+        return node_key;
+    else
+        return "cons(" + head->toString() + " " + tail->toString() + ")";
+}
+
+std::string bin_tree::toJson() {
     std::string res = "{ ";
     res += "\"value\" : \"" + node_key + "\"";
     if(head != nullptr) res += ", \"head\" : " + head->toString();
@@ -122,24 +128,6 @@ int bin_tree::toInt() {
         tree = tree->tail.get();
     }
     return size;
-}
-
-bin_tree::bin_tree_ptr bin_tree::clone() {
-    bin_tree_ptr tree = std::make_shared<bin_tree>();
-    recCopy(this, tree.get());
-    return tree;
-}
-
-void bin_tree::recCopy(bin_tree *src, bin_tree *dest) {
-    dest->node_key = src->node_key;
-    if(src->head != nullptr) {
-        dest->head = std::make_shared<bin_tree>();
-        recCopy(src->head.get(), dest->head.get());
-    }
-    if(src->tail != nullptr) {
-        dest->tail = std::make_shared<bin_tree>();
-        recCopy(src->tail.get(), dest->tail.get());
-    }
 }
 
 bin_tree::bin_tree_ptr bin_tree::createInt(int size) {

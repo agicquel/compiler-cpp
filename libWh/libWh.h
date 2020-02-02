@@ -135,6 +135,14 @@ namespace libWh {
                     std::cout << res->toString() << std::endl;
                 }
                 break;
+            case 'j':
+                std::cout << "Result (str) :" << std::endl;
+                while(!m_stack->empty()) {
+                    res = m_stack->top();
+                    m_stack->pop();
+                    std::cout << res->toJson() << std::endl;
+                }
+                break;
             case 'd':
             default:
                 std::cout << "Result (int) :";

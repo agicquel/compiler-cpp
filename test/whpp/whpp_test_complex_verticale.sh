@@ -29,5 +29,5 @@ done
 
 echo "Size,Time" > ./results2/all_times.csv
 for resultFile in ./results2/*.time; do
-    echo "$(wwc -l ${resultFile/.time/pp} | cut -d' ' -f1),$(cat $resultFile)" >> ./results2/all_times.csv
+    echo "$(wc -l ${resultFile/.time/pp} | cut -d' ' -f1),$(cat $resultFile)" >> ./results2/all_times.csv
 done

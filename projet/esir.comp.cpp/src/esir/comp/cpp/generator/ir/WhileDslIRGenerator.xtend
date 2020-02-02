@@ -306,6 +306,7 @@ class WhileDslIRGenerator {
 			e.code.add(new Quad("label " + labelIfTrue, "", "", ""))
 			e.code.add(new Quad("true", e.place, "", ""))
 			e.code.add(new Quad("goto " + labelEnd, "", "", ""))
+			
 			e.code.add(new Quad("label " + labelIfFalse, "", "", ""))
 			e.code.add(new Quad("false", e.place, "", ""))
 			e.code.add(new Quad("label " + labelEnd, "", "", ""))	
